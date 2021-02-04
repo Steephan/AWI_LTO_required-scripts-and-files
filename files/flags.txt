@@ -1,0 +1,12 @@
+lvl	flag	decription
+0	0	value ok, not flagged
+0	1	no measurement
+1	2	interval to short, line before flagged line deleted
+1	4	constant values
+1	5	value coerced, because above or below physical limits
+1	6	delete noise filter
+1	7	gradient to strong
+1	12	leicht verdächtig. Das wird zum Beispiel verwendet wenn der Wassergehalt berechnet wird und die Temperatur unter Null Grad lag.
+1	13	?
+1	14	außerhalb von sinnvollen Grenzen
+1	15	Systemstörung
