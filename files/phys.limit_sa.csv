@@ -1,0 +1,28 @@
+variable,category,columnname,unit,dataset,station,min,max,comments
+Temperature Air,Tair,Tair,Degree C,all,Samoylov,-56,40, 
+Precipitation,prec,prec,mm,all,Samoylov,0,30,
+Relative humidity,RH,RH,%,all,Samoylov,0,110,
+Snow depth,Dsn,Dsn,m,all,Samoylov,-0.1,1,
+Radiation net all,RadNet,RadNet,W/m^2,all,Samoylov,-300,1000,
+Radiation short wave in,SwIn,SwIn,W/m^2,all,Samoylov,-10,1000,
+Radiation short wave out,SwOut,SwOut,W/m^2,all,Samoylov,-10,1000,
+Radiation long wave in,LwIn,LwIn,W/m^2,all,Samoylov,100,620,equals temperatures
+Radiation long wave out,LwOut,LwOut,W/m^2,all,Samoylov,140,620,equals top soil temperatures
+Wind speed,windv,windv,m/s,all,Samoylov,0,30,
+Wind direction,winddeg,winddeg,Degree,all,Samoylov,0,360,
+Wind direction standard deviation,windsddeg,windsddeg,Degree,all,Samoylov,0,360,
+Temperature Soil,Ts,Ts,Degree C,all,Samoylov,-50,30,
+Temperature ground surface,Tgs,Tgs,Degree C,all,Samoylov,-65,40,
+Temperature water (swimming),Tw,Tw_(depth in cm),Degree C,all,Samoylov,-65,40,
+Volumetric water content,vwc,vwc,%,all,Samoylov,0,1,
+Electric conductivity,cond,cond,S/m,all,Samoylov,-0.001,0.1,
+Electric conductivity,Cond,Cond,S/m,all,Samoylov,0,30,löschen??
+Dielectricity,E2,E2,,all,Samoylov,1.75,100, 1: minimum=vakuum~air; 2-4 ~ ice; 80 ~ water
+Dielectricity snow,E2sn,E2sn,,all,Samoylov,0.5,90,Why different than E2?
+Soil heat flux,G,G,W/m^2,all,Samoylov,-130,130,
+Radiation shortwave net,SwNet,SwNet,W/m^2,all,Samoylov,-10,1000,
+Radiation longwave net,LwNet,LwNet,W/m^2,all,Samoylov,-300,300,
+Radiation Albedo,Albedo,Albedo,,all,Samoylov,0,1,
+Distance temperature correction,distcor,distcor,m,all,Samoylov,0.01,2.5,
+Water table,WT,WT (above sensor base),cm,all,Samoylov,-0.3,0.85,
+Water level,WL,WL (water level in relation to surface or ground),cm,all,Samoylov,-0.45,0.6,
