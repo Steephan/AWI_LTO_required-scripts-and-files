@@ -1,0 +1,95 @@
+variable;columnname;unit;dataset;station;min;max;comments
+Temperature Air;Tair;°C;NA;Bayelva;-50;40;NA
+Precipitation;prec;mm;NA;Bayelva;0;30;NA
+Relative humidity;RH;%;NA;Bayelva;0;110;NA
+Snow depth;Dsn;m;NA;Bayelva;-0.1;1.4;NA
+NA;radnet;NA;NA;Bayelva;-300;1000;NA
+Radiation netto all;NetRad;W/m^2;NA;Bayelva;-300;1000;NA
+Radiation shortwave in;SwIn;W/m^2;NA;Bayelva;-10;1000;NA
+Radiation shortwave out;SwOut;W/m^2;NA;Bayelva;-10;1000;NA
+Radiation longwave in;LwIn;W/m^2;NA;Bayelva;90;620;NA
+Radiation longwave out;LwOut;W/m^2;NA;Bayelva;140;620;NA
+wind speed;windv;m/s;NA;Bayelva;0;30;NA
+wind direction;winddeg;°;NA;Bayelva;0;360;NA
+wind direction std dev;windsddeg;°;NA;Bayelva;0;360;NA
+temperature soil;Ts;°C;NA;Bayelva;-30;30;NA
+volumetric water content;vwc;%;NA;Bayelva;0;1;NA
+conductivity;cond;S/m;NA;Bayelva;0;0.1;NA
+dielectricity;E2;;NA;Bayelva;2.5;45;NA
+dielectricity snow?;E2sn;;NA;Bayelva;0.95;40;NA
+soil heat flux;G;W/m²;NA;Bayelva;-130;130;NA
+radiation shortwave netto;SwNet;W/m²;NA;Bayelva;-10;1000;NA
+radiation longwave netto;LwNet;W/m²;NA;Bayelva;-300;300;NA
+radiation Albedo;Albedo;;NA;Bayelva;0;1;NA
+distance temp correct;distcor;m;NA;Bayelva;0.01;2.5;NA
+Gamma Counts of Potassium;CountsK;;NA;Bayelva;50000;660000;NA
+Gamma Counts of Thallium;CountsTL;;NA;Bayelva;12000;120000;NA
+Snow water equivalent;SWE;mm;NA;Bayelva;0;600;NA
+Temperature Sensor;Tcryst;°C;NA;Bayelva;-40;40;"Operating Temperature in °C p. 2 cs725_cs_manual_v20120801.pdf | page 29 in campbell_scientific:cs725_cs_manual_v20120801.pdf ""The CS725 uses a thallium doped sodium iodide crystal NaI(Tl) for detecting the gamma radiation"""
+Ration of Potassium and Thallium;KTL;;NA;Bayelva;0;600;NA
+Temperature Air;Tair;°C;NA;Samoylov;-56;40;NA
+Precipitation;prec;mm;NA;Samoylov;0;30;NA
+Relative humidity;RH;%;NA;Samoylov;0;110;NA
+Snow depth;Dsn;m;NA;Samoylov;-0.1;1;NA
+NA;radnet;NA;NA;Samoylov;-300;1000;NA
+Radiation netto all;NetRad;W/m^2;NA;Samoylov;-300;1000;NA
+Radiation shortwave in;SwIn;W/m^2;NA;Samoylov;-10;1000;NA
+Radiation shortwave out;SwOut;W/m^2;NA;Samoylov;-10;1000;NA
+Radiation longwave in;LwIn;W/m^2;NA;Samoylov;100;620;NA
+Radiation longwave out;LwOut;W/m^2;NA;Samoylov;140;620;NA
+wind speed;windv;m/s;NA;Samoylov;0;30;NA
+wind direction;winddeg;°;NA;Samoylov;0;360;NA
+wind direction std dev;windsddeg;°;NA;Samoylov;0;360;NA
+temperature soil;Ts;°C;NA;Samoylov;-50;30;NA
+temperature ground surface;Tgs;°C;NA;Samoylov;-65;40;NA
+temperature water (swimming);Tw;°C;NA;Samoylov;-65;40;NA
+volumetric water content;vwc;%;NA;Samoylov;0;1;NA
+conductivity;cond;S/m;NA;Samoylov;-0.001;0.1;NA
+??;Cond;NA;NA;Samoylov;0;30;NA
+NA;E2;NA;NA;Samoylov;1.75;100;NA
+NA;E2sn;NA;NA;Samoylov;0.5;90;NA
+NA;G;NA;NA;Samoylov;-130;130;NA
+NA;SwNet;NA;NA;Samoylov;-10;1000;NA
+NA;LwNet;NA;NA;Samoylov;-300;300;NA
+NA;Albedo;NA;NA;Samoylov;0;1;NA
+NA;distcor;NA;NA;Samoylov;0.01;2.5;NA
+NA;WT;NA;NA;Samoylov;-0.3;0.85;NA
+NA;WL;NA;NA;Samoylov;-0.45;0.6;NA
+NA;Tair;NA;NA;Kurungnakh;-56;40;NA
+NA;prec;NA;NA;Kurungnakh;0;30;NA
+NA;RH;NA;NA;Kurungnakh;0;110;NA
+NA;Dsn;NA;NA;Kurungnakh;-0.1;1;NA
+NA;radnet;NA;NA;Kurungnakh;-300;1000;NA
+NA;NetRad;NA;NA;Kurungnakh;-300;1000;NA
+NA;SwIn;NA;NA;Kurungnakh;-10;1000;NA
+NA;SwOut;NA;NA;Kurungnakh;-10;1000;NA
+NA;LwIn;NA;NA;Kurungnakh;100;620;NA
+NA;LwOut;NA;NA;Kurungnakh;140;620;NA
+NA;windv;NA;NA;Kurungnakh;0;30;NA
+NA;winddeg;NA;NA;Kurungnakh;0;360;NA
+NA;windsddeg;NA;NA;Kurungnakh;0;360;NA
+NA;Ts;NA;NA;Kurungnakh;-50;30;NA
+NA;Tgs;NA;NA;Kurungnakh;-65;40;NA
+NA;Tw;NA;NA;Kurungnakh;-65;40;NA
+NA;vwc;NA;NA;Kurungnakh;0;1;NA
+NA;cond;NA;NA;Kurungnakh;-0.001;0.1;NA
+NA;Cond;NA;NA;Kurungnakh;0;30;NA
+NA;E2;NA;NA;Kurungnakh;1.75;90;NA
+NA;E2sn;NA;NA;Kurungnakh;0.5;90;NA
+NA;G;NA;NA;Kurungnakh;-130;130;NA
+NA;SwNet;NA;NA;Kurungnakh;-10;1000;NA
+NA;LwNet;NA;NA;Kurungnakh;-300;300;NA
+NA;Albedo;NA;NA;Kurungnakh;0;1;NA
+NA;distcor;NA;NA;Kurungnakh;0.01;2.5;NA
+NA;WT;NA;NA;Kurungnakh;-100;900;NA
+NA;WTch;NA;NA;Kurungnakh;-15;15;NA
+NA;WL;NA;NA;Kurungnakh;-0.45;0.6;NA
+NA;Q;NA;NA;Kurungnakh;5.212;210;NA
+NA;Tw_unknown;NA;NA;Kurungnakh;-20;50;NA
+NA;Tw_0;NA;NA;Kurungnakh;-20;50;NA
+NA;Tw_0.5;NA;NA;Kurungnakh;-20;50;NA
+NA;Tw_1;NA;NA;Kurungnakh;-20;50;NA
+NA;Tw_1.5;NA;NA;Kurungnakh;-20;50;NA
+NA;Tw_2;NA;NA;Kurungnakh;-20;50;NA
+NA;Tw_2.5;NA;NA;Kurungnakh;-20;50;NA
+NA;Ts;NA;NA;Sardakh;-50;30;NA
