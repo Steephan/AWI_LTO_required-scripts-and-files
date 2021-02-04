@@ -1,0 +1,2 @@
+variable,category,columnname,unit,dataset,station,min,max,comments
+Temperature Soil,Ts,Ts,Degree C,all,Sardakh,-50,30,
