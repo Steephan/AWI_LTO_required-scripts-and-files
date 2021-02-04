@@ -1,0 +1,37 @@
+variable,category,columnname,unit,dataset,station,min,max,comments
+Temperature Air,Tair,Tair,Degree C,all,Kurungnakh,-56,40,no Limit for Rotronic & HMP155A; HMP45 manual limits
+Precipitation,prec,prec,mm,all,Kurungnakh,0,30,
+Relative humidity,RH,RH,%,all,Kurungnakh,0,110,
+Snow depth,Dsn,Dsn,m,all,Kurungnakh,-0.1,1,
+Radiation net all,RadNet,RadNet,W/m^2,all,Kurungnakh,-300,1000,
+Radiation short wave in,SwIn,SwIn,W/m^2,all,Kurungnakh,-10,1000,
+Radiation short wave out,SwOut,SwOut,W/m^2,all,Kurungnakh,-10,1000,
+Radiation long wave in,LwIn,LwIn,W/m^2,all,Kurungnakh,100,620,equals temperatures
+Radiation long wave out,LwOut,LwOut,W/m^2,all,Kurungnakh,140,620,equals top soil temperatures
+Wind speed,windv,windv,m/s,all,Kurungnakh,0,30,
+Wind direction,winddeg,winddeg,Degree,all,Kurungnakh,0,360,
+Wind direction standard deviation,windsddeg,windsddeg,Degree,all,Kurungnakh,0,360,
+Temperature Soil,Ts,Ts,Degree C,all,Kurungnakh,-50,30,
+Temperature ground surface,Tgs,Tgs,Degree C,all,Kurungnakh,-65,40,
+Temperature water (swimming),Tw,Tw_(depth in cm),Degree C,all,Kurungnakh,-65,40,
+Volumetric water content,vwc,vwc,%,all,Kurungnakh,0,1,
+Electric conductivity,cond,cond,S/m,all,Kurungnakh,-0.001,0.1,
+Electric conductivity,Cond,Cond,S/m,all,Kurungnakh,0,30,löschen??
+Dielectricity,E2,E2,,all,Kurungnakh,1.75,90, 1: minimum=vakuum~air; 2-4 ~ ice; 80 ~ water
+Dielectricity snow,E2sn,E2sn,,all,Kurungnakh,0.5,90,Why different than E2?
+Soil heat flux,G,G,W/m^2,all,Kurungnakh,-130,130,
+Radiation shortwave net,SwNet,SwNet,W/m^2,all,Kurungnakh,-10,1000,
+Radiation longwave net,LwNet,LwNet,W/m^2,all,Kurungnakh,-300,300,
+Radiation Albedo,Albedo,Albedo,,all,Kurungnakh,0,1,
+Distance temperature correction,distcor,distcor,m,all,Kurungnakh,0.01,2.5,
+Water table,WT,WT,cm,all,Kurungnakh,-100,900,
+Water table change,WTch,WTch,cm,all,Kurungnakh,-15,15,limit for change in water table for Lucky Lake
+Water level,WL,WL,cm,all,Kurungnakh,-0.45,0.6,
+Discharge,Q,Q,l/s,all,Kurungnakh,5.212,210,"145.344 formula boundary, but 210 is highest value (in 2017-06-22)"
+Temperature water,Tw_unknown,Tw_unknown,Degree C,all,Kurungnakh,-20,50,limits for Onset water level sensor (HOBO) | See Tw above?
+Temperature water,Tw_0,Tw_0,Degree C,all,Kurungnakh,-20,50,limits for Onset water level sensor (HOBO) | See Tw above?
+Temperature water,Tw_0.5,Tw_0.5,Degree C,all,Kurungnakh,-20,50,limits for Onset water level sensor (HOBO) | See Tw above?
+Temperature water,Tw_1,Tw_1,Degree C,all,Kurungnakh,-20,50,limits for Onset water level sensor (HOBO) | See Tw above?
+Temperature water,Tw_1.5,Tw_1.5,Degree C,all,Kurungnakh,-20,50,limits for Onset water level sensor (HOBO) | See Tw above?
+Temperature water,Tw_2,Tw_2,Degree C,all,Kurungnakh,-20,50,limits for Onset water level sensor (HOBO) | See Tw above?
+Temperature water,Tw_2.5,Tw_2.5,Degree C,all,Kurungnakh,-20,50,limits for Onset water level sensor (HOBO) | See Tw above?
