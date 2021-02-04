@@ -1,0 +1,11 @@
+n	w
+log.p	N:/sparc/LTO/R_database/database_logs/
+script.p	N:/sparc/LTO/R_database/
+settings.p	N:/sparc/LTO/R_database/database_R/settings/
+plot.p	N:/sparc/LTO/R_database/database_plots/
+old.db.p	N:/sparc/data/LTO/database/samoylov/data/
+RAW.p	N:/sparc/data/LTO/raw/
+LV0.p	N:/sparc/data/LTO/level0/
+LV1.p	N:/sparc/data/LTO/level1/
+LV2.p	N:/sparc/data/LTO/level2/
+SaSn.raw.p	N:/sparc/data/LTO/raw/SaSnow2012/01_SnowStation/
