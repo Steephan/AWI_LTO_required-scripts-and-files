@@ -159,9 +159,9 @@ physical.limits.ba <- function(lv1.data, col.cat) {
 
   cats <- colnames(col.cat)
   # Define physical limits for each category
-  phys.limit <- t(read.table(file = paste0(p.1$w[p.1$n == "settings.p"], "phys.limit_ba.csv"),
+  phys.limit <- t(read.table(file = paste0(p.1$w[p.1$n == "settings.p"], "phys.limits/phys.limit_ba.csv"),
                              sep = ",", dec = ".", header = TRUE, encoding = "ISO-8859-1")[, c("min", "max")])
-  colnames(phys.limit) <- read.table(file = paste0(p.1$w[p.1$n == "settings.p"], "phys.limit_ba.csv"),
+  colnames(phys.limit) <- read.table(file = paste0(p.1$w[p.1$n == "settings.p"], "phys.limits/phys.limit_ba.csv"),
                                      sep = ",", dec = ".", header = TRUE, encoding = "ISO-8859-1")[, c("category")]
   # for each category
   for (i in 1:(length(cats))) {
@@ -185,9 +185,9 @@ physical.limits.sa <- function(lv1.data, col.cat) {
 
   cats <- colnames(col.cat)
   # Define physical limits for each category
-  phys.limit <- t(read.table(file = paste0(p.1$w[p.1$n == "settings.p"], "phys.limit_sa.csv"),
+  phys.limit <- t(read.table(file = paste0(p.1$w[p.1$n == "settings.p"], "phys.limits/phys.limit_sa.csv"),
                              sep = ",", dec = ".", header = TRUE, encoding = "ISO-8859-1")[, c("min", "max")])
-  colnames(phys.limit) <- read.table(file = paste0(p.1$w[p.1$n == "settings.p"], "phys.limit_sa.csv"),
+  colnames(phys.limit) <- read.table(file = paste0(p.1$w[p.1$n == "settings.p"], "phys.limits/phys.limit_sa.csv"),
                                      sep = ",", dec = ".", header = TRUE, encoding = "ISO-8859-1")[, c("category")]
   # for each category
   for (i in 1:(length(cats))) {
@@ -216,9 +216,9 @@ physical.limits.ku <- function(lv1.data, col.cat) {
 
   cats <- colnames(col.cat)
   # Define physical limits for each category
-  phys.limit <- t(read.table(file = paste0(p.1$w[p.1$n == "settings.p"], "phys.limit_ku.csv"),
+  phys.limit <- t(read.table(file = paste0(p.1$w[p.1$n == "settings.p"], "phys.limits/phys.limit_ku.csv"),
                              sep = ",", dec = ".", header = TRUE, encoding = "ISO-8859-1")[, c("min", "max")])
-  colnames(phys.limit) <- read.table(file = paste0(p.1$w[p.1$n == "settings.p"], "phys.limit_ku.csv"),
+  colnames(phys.limit) <- read.table(file = paste0(p.1$w[p.1$n == "settings.p"], "phys.limits/phys.limit_ku.csv"),
                                      sep = ",", dec = ".", header = TRUE, encoding = "ISO-8859-1")[, c("category")]
   # for each category
   for (i in 1:(length(cats))) {
@@ -1049,15 +1049,15 @@ detect.T.degradation <- function(lv1.data, col.cats, station) {
     # read table of periods of zero curtain
     # and select the period of the processed year and station
     if (station %in% c("SaSoil1998", "SaSoil2002", "SaMet2002", "SaSoil2012")) {
-    zero.curtain.doi <- read.table(file = paste0(p.1$w[p.1$n == "settings.p"], "zero.curtain.doi_sa.csv"),
+    zero.curtain.doi <- read.table(file = paste0(p.1$w[p.1$n == "settings.p"], "zero.curtain/zero.curtain.doi_sa.csv"),
                                    sep = ",", dec = ".", header = FALSE)
     }
     if (station %in% c("BaSoil1998", "BaSoil2009", "BaMet1998", "BaMet2009")) {
-    zero.curtain.doi <- read.table(file = paste0(p.1$w[p.1$n == "settings.p"], "zero.curtain.doi_ba.csv"),
+    zero.curtain.doi <- read.table(file = paste0(p.1$w[p.1$n == "settings.p"], "zero.curtain/zero.curtain.doi_ba.csv"),
                                    sep = ",", dec = ".", header = FALSE)
     }
     if (station %in% c("TVCSoil2016")) {
-      zero.curtain.doi <- read.table(file = paste0(p.1$w[p.1$n == "settings.p"], "zero.curtain.doi_tvc.csv"),
+      zero.curtain.doi <- read.table(file = paste0(p.1$w[p.1$n == "settings.p"], "zero.curtain/zero.curtain.doi_tvc.csv"),
                                      sep = ",", dec = ".", header = FALSE)
     }
 

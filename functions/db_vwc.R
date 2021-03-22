@@ -278,7 +278,7 @@ compute.vwc <- function(lv1.data, col.cat, station, years, mw.width, path.input,
 
   if (vwc_overview_plots == "TRUE") {
 
-    pdf(file = paste(paste0(path$w[path$n == "plot.p"]), "OverviewPlots/vwc/", station, "/", station, "_", year_i, "_theta_ice+theta_liq.pdf", sep = ""), height = 10, width = 10)
+    pdf(file = paste(paste0(p.1$w[p.1$n == "plot.p"]), "OverviewPlots/vwc/", station, "/", station, "_", year_i, "_theta_ice+theta_liq.pdf", sep = ""), height = 10, width = 10)
 
     theta_UTC <- as.POSIXct(diel$UTC, origin = origin, tz = 'UTC', format = '%Y-%m-%d %H:%M')
     temp_UTC <- as.POSIXct(temp$UTC, origin = origin, tz = 'UTC', format = '%Y-%m-%d %H:%M')

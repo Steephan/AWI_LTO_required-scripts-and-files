@@ -52,11 +52,11 @@ plotNAdistribution <- function(d, title, output = "screen") {
 
 # function for plotting maintenance stays (Kerstin Binder)
 plot_maintenance <- function(jahr) {
-  i <- grep(jahr, maint$start)
+  i <- grep(jahr, p.1maint$start)
   if (length(i) >= 1) {
     for (l in 1:length(i)) {
-      rect(xleft = as.numeric(strptime(maint$start[i[l]], format = "%d.%m.%Y")),
-           xright = as.numeric(strptime(maint$end[i[l]], format = "%d.%m.%Y")),
+      rect(xleft = as.numeric(strptime(p.1maint$start[i[l]], format = "%d.%m.%Y")),
+           xright = as.numeric(strptime(p.1maint$end[i[l]], format = "%d.%m.%Y")),
            ybottom = (-1500), ytop = 1500, col = color, border = "transparent")
     }
   }

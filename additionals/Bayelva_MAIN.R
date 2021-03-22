@@ -39,19 +39,15 @@
 #############################################################################
 rm(list = ls())
 if (.Platform$OS.type == "windows") {
-  path <- read.table("N:/sparc/LTO/R_database/database_R/settings/path_windoof.txt", sep = "\t", header = T)
-  maint <- read.table("N:/sparc/LTO/R_database/database_R/settings/maintance.txt", sep = "\t", header = T)
-  p.1 <- read.table("N:/sparc/LTO/R_database/database_R/settings/path_windoof.txt", sep = "\t", header = T)
-  p.1maint <- read.table("N:/sparc/LTO/R_database/database_R/settings/maintance.txt", sep = "\t", header = T)
+  p.1 <- read.table("N:/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/settings/path_win.txt", sep = "\t", header = T)
+  p.1maint <- read.table("N:/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/settings/maintenance.files/maintance.txt", sep = "\t", header = T)
 
-  source("N:/sparc/LTO/R_database/database_R/settings/db_func.R")
+  source("N:/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/functions/db_func.R")
 } else {
-  path <- read.table("/sparc/LTO/R_database/database_R/settings/path_linux.txt", sep = "\t", header = T, fileEncoding = "UTF-8")
-  maint <- read.table("/sparc/LTO/R_database/database_R/settings/maintance.txt", sep = "\t", header = T)
-  p.1 <- read.table("/sparc/LTO/R_database/database_R/settings/path_linux.txt", sep = "\t", header = T, fileEncoding = "UTF-8")
-  p.1maint <- read.table("/sparc/LTO/R_database/database_R/settings/maintance.txt", sep = "\t", header = T)
+  p.1 <- read.table("/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/settings/path_linux.txt", sep = "\t", header = T, fileEncoding = "UTF-8")
+  p.1maint <- read.table("/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/settings/maintenance.files/maintance.txt", sep = "\t", header = T)
 
-  source("/sparc/LTO/R_database/database_R/settings/db_func.R")
+  source("/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/functions/db_func.R")
 }
 #############################################################################
 require("zoo")
@@ -62,22 +58,22 @@ recent.year <- as.numeric(format(Sys.Date(), "%Y"))
 ##########################
 # logging
 logging <- 1
-write(paste("last update:", Sys.Date()), paste0(path$w[path$n == "log.p"], "last_update.log"), sep = "\t")
+write(paste("last update:", Sys.Date()), paste0(p.1$w[p.1$n == "log.p"], "last_update.log"), sep = "\t")
 require("sendmailR")
 sender <- "stlange@awi.de" # Replace with a valid address
-recipients <- c("stephan.lange@awi.de", "niko.bornemann@awi.de", "christian.lehr@awi.de") # Replace with one or more valid addresses
+recipients <- c("stephan.lange@awi.de", "niko.bornemann@awi.de") # Replace with one or more valid addresses
 
 if (logging == 1) {
-  logfil <- file(paste0(path$w[path$n == "log.p"], "daily.log"))
+  logfil <- file(paste0(p.1$w[p.1$n == "log.p"], "daily.log"))
   sink(logfil, append = TRUE)
   sink(logfil, append = TRUE, type = "message")
 }
 ##########################
 
-script.raw.path <- paste0(path$w[path$n == "script.p"], "database_R/Ba_01_Raw_Lvl0/")
-script.lv0.path <- paste0(path$w[path$n == "script.p"], "database_R/Ba_02_Lvl0_Lvl1/")
-script.lv1.path <- paste0(path$w[path$n == "script.p"], "database_R/Ba_03_Lvl1/")
-script.lv2.path <- paste0(path$w[path$n == "script.p"], "database_R/Ba_04_Lvl2/")
+script.raw.path <- paste0(p.1$w[p.1$n == "script.p"], "r-level-0-scripts/Bayelva/")
+script.lv0.path <- paste0(p.1$w[p.1$n == "script.p"], "r-level-1-scripts/")
+script.lv1.path <- paste0(p.1$w[p.1$n == "script.p"], "required-scripts-and-files/additionals/r-wikiplot-scripts/")
+script.lv2.path <- paste0(p.1$w[p.1$n == "script.p"], "r-level-2-scripts/Bayelva/")
 cat("##################################################################################\n")
 cat("#      This is an automatic output of the update of the database, which runs     #\n")
 cat("#      daily at 4AM. If you see an error below this, please contact              #\n")
@@ -88,7 +84,7 @@ cat("###########################################################################
 cat("#      step 1: update new data to database                                       #\n")
 cat("##################################################################################\n")
 
-try(source(paste0(path$w[path$n == "script.p"], "database_R/Ba_copy_online_to_raw.R", sep = "")))
+try(source(paste0(p.1$w[p.1$n == "script.p"], "required-scripts-and-files/additionals/Ba_copy_online_to_raw.R", sep = "")))
 
 cat("##################################################################################\n")
 cat("#      step 2: raw to level0                                                     #\n")
@@ -156,7 +152,7 @@ station <- 'BaSoil2009' ; years <- 2009:recent.year ; run.year <- recent.year
 # day.shift: how many days are updated for the dataflow product? default is 1,
 # ==> use larger numbers to fill gaps in http://sparcwiki.awi-potsdam.de/doku.php?id=observatory:data:analysis:bayelva:met:control
 day.shift <- 1
-try(source(paste(script.lv2.path, "LV1_to_dataflow.R", sep = "")))
+#try(source(paste(script.lv2.path, "LV1_to_dataflow.R", sep = "")))
 
 cat("##################################################################################\n")
 cat("#      step 7: level1-update PANGAEA                                             #\n")

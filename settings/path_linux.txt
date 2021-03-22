@@ -1,8 +1,8 @@
 n	w
 log.p	/sparc/LTO/R_database/database_logs/
 wiki.p	/sparc/technical_documentation/sparcwiki/data/pages/
-script.p	/sparc/LTO/R_database/
-settings.p	/sparc/LTO/R_database/database_R/settings/
+script.p	/sparc/LTO/R_database/Time_series_preprocessing/
+settings.p	/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/settings/
 plot.p	/sparc/LTO/R_database/database_plots/
 old.db.p	/sparc/data/LTO/database/bayelva/data/
 ONL.p	/sparc/data/LTO/online/

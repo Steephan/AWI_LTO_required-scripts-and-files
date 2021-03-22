@@ -17,21 +17,17 @@
 #
 #############################################################################
 # # this part is necessary to run this script seperate 
-# rm(list=ls())
+# rm(list = ls())
 # if (.Platform$OS.type == "windows") {
-#   path<-read.table("N:/sparc/LTO/R_database/database_R/settings/path_windoof.txt",sep="\t",header=T)
-#   maint<-read.table("N:/sparc/LTO/R_database/database_R/settings/maintance.txt",sep="\t",header=T)
-#   p.1<-read.table("N:/sparc/LTO/R_database/database_R/settings/path_windoof.txt",sep="\t",header=T)
-#   p.1maint<-read.table("N:/sparc/LTO/R_database/database_R/settings/maintance.txt",sep="\t",header=T)
-# 
-#   source("N:/sparc/LTO/R_database/database_R/settings/db_func.R")
-# }else{
-#   path<-read.table("/sparc/LTO/R_database/database_R/settings/path_linux.txt",sep="\t",header=T, fileEncoding="UTF-8")
-#   maint<-read.table("/sparc/LTO/R_database/database_R/settings/maintance.txt",sep="\t",header=T)
-#   p.1<-read.table("/sparc/LTO/R_database/database_R/settings/path_linux.txt",sep="\t",header=T, fileEncoding="UTF-8")
-#   p.1maint<-read.table("/sparc/LTO/R_database/database_R/settings/maintance.txt",sep="\t",header=T)
-# 
-#   source("/sparc/LTO/R_database/database_R/settings/db_func.R")
+#   p.1 <- read.table("N:/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/settings/path_win.txt", sep = "\t", header = T)
+#   p.1maint <- read.table("N:/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/settings/maintenance.files/maintance.txt", sep = "\t", header = T)
+#   
+#   source("N:/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/functions/db_func.R")
+# } else {
+#   p.1 <- read.table("/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/settings/path_linux.txt", sep = "\t", header = T, fileEncoding = "UTF-8")
+#   p.1maint <- read.table("/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/settings/maintenance.files/maintance.txt", sep = "\t", header = T)
+#   
+#   source("/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/functions/db_func.R")
 # }
 #############################################################################
 
@@ -49,12 +45,12 @@ options(scipen=100,stringsAsFactors=F) # for non-exponential display of numeric 
 #  eventuell eine Abfrage ob neue Daten da sind ... wenn nicht, dann eine Nachricht
 #  
 
-onl.snow    <-list.files(paste0(path$w[path$n=="BaSn.onl.p"],jah,"/"),pattern=".dat", full.names = TRUE)
-raw.snow    <-list.files(paste0(path$w[path$n=="BaSn.raw.p"],jah,"/"),pattern=".dat", full.names = TRUE)
+onl.snow    <-list.files(paste0(p.1$w[p.1$n=="BaSn.onl.p"],jah,"/"),pattern=".dat", full.names = TRUE)
+raw.snow    <-list.files(paste0(p.1$w[p.1$n=="BaSn.raw.p"],jah,"/"),pattern=".dat", full.names = TRUE)
 how.many    <-length(onl.snow)-length(raw.snow)
 
 for(i in 1:(how.many+1)){# plus 1 to update the last file
-   file.copy(onl.snow[length(onl.snow)+1-i],paste0(path$w[path$n=="BaSn.raw.p"],jah,"/"), overwrite = TRUE, recursive = TRUE)
+   file.copy(onl.snow[length(onl.snow)+1-i],paste0(p.1$w[p.1$n=="BaSn.raw.p"],jah,"/"), overwrite = TRUE, recursive = TRUE)
 }
 cat("#\n# copy/save",how.many+1,"BaSnow2013 file(s)\n#")
 
@@ -72,14 +68,14 @@ cat("#\n# copy/save",how.many+1,"BaSnow2013 file(s)\n#")
 # wichtig: es darf wirklich nur geloescht werden wenn vorher auch gesichert wurde!!!
 # also muss auch solch eine Abfrage vorher geschehen!
 #
-files.soil    <-list.files(paste0(path$w[path$n=="BaS.onl.p"]),pattern=".dat", full.names = TRUE)
-schon.da.soil <-length(list.files(paste0(path$w[path$n=="BaS.raw3.p"]),pattern=paste(format(Sys.Date(),"%Y%m")), full.names = TRUE))
+files.soil    <-list.files(paste0(p.1$w[p.1$n=="BaS.onl.p"]),pattern=".dat", full.names = TRUE)
+schon.da.soil <-length(list.files(paste0(p.1$w[p.1$n=="BaS.raw3.p"]),pattern=paste(format(Sys.Date(),"%Y%m")), full.names = TRUE))
 
 if(mon==3&schon.da.soil==0|mon==6&schon.da.soil==0|mon==9&schon.da.soil==0|mon==12&schon.da.soil==0){
   # alle 3 Monate wird eine Sicherungskopie mit Datum in Raw gespeichert
-  file.copy(files.soil[1],paste0(path$w[path$n=="BaS.raw1.p"],format(Sys.Date(),"%Y%m%d"),"BaSoil2009Data_TDROnline.dat"))
-  file.copy(files.soil[2],paste0(path$w[path$n=="BaS.raw2.p"],format(Sys.Date(),"%Y%m%d"),"BaSoil2009TDR_WaveOnline.dat"))
-  file.copy(files.soil[3],paste0(path$w[path$n=="BaS.raw3.p"],format(Sys.Date(),"%Y%m%d"),"BaSoil2009TempOnline.dat"))
+  file.copy(files.soil[1],paste0(p.1$w[p.1$n=="BaS.raw1.p"],format(Sys.Date(),"%Y%m%d"),"BaSoil2009Data_TDROnline.dat"))
+  file.copy(files.soil[2],paste0(p.1$w[p.1$n=="BaS.raw2.p"],format(Sys.Date(),"%Y%m%d"),"BaSoil2009TDR_WaveOnline.dat"))
+  file.copy(files.soil[3],paste0(p.1$w[p.1$n=="BaS.raw3.p"],format(Sys.Date(),"%Y%m%d"),"BaSoil2009TempOnline.dat"))
   cat("\n#\n# copy/save 3 BaSoil2009 files\n#\n")
 }else{cat("\n#\n# Basoil files not saved \n#")}
 
@@ -90,12 +86,12 @@ if(mon==3&schon.da.soil==0|mon==6&schon.da.soil==0|mon==9&schon.da.soil==0|mon==
 #
 # wie oben bei BaSoil2009
 #
-files.met      <-list.files(paste0(path$w[path$n=="BaMet.onl.p"]),pattern=".dat", full.names = TRUE)
-schon.da.met   <-length(list.files(paste0(path$w[path$n=="BaMet.raw.p"],"Bk2/"),pattern=paste(format(Sys.Date(),"%Y%m")), full.names = TRUE))
+files.met      <-list.files(paste0(p.1$w[p.1$n=="BaMet.onl.p"]),pattern=".dat", full.names = TRUE)
+schon.da.met   <-length(list.files(paste0(p.1$w[p.1$n=="BaMet.raw.p"],"Bk2/"),pattern=paste(format(Sys.Date(),"%Y%m")), full.names = TRUE))
 
 if(mon==3&schon.da.met==0|mon==6&schon.da.met==0|mon==9&schon.da.met==0|mon==12&schon.da.met==0){
   # alle 3 Monate wird eine Sicherungskopie mit Datum in Raw gespeichert
-  file.copy(files.met[3],paste0(paste0(path$w[path$n=="BaMet.raw.p"],"bk2/"),format(Sys.Date(),"%Y%m%d"),"_BaMet2010_bk2Online.dat"))
+  file.copy(files.met[3],paste0(paste0(p.1$w[p.1$n=="BaMet.raw.p"],"bk2/"),format(Sys.Date(),"%Y%m%d"),"_BaMet2010_bk2Online.dat"))
   cat("\n#\n# copy/save 1 BaMet2015 file\n#")
 }else{cat("\n#\n# BaMet file not saved \n#\n")}
 
@@ -113,10 +109,10 @@ if(mon==3&schon.da.met==0|mon==6&schon.da.met==0|mon==9&schon.da.met==0|mon==12&
 # 2. wenn etwa 1 Monat vergangen ist, dann soll jemand den manuellen download machen
 # ... ab da muesste dann taeglich eine erinnerung kommen
 
-# realtime.files<-dir(paste0(path$w[path$n=="BaHo.onl.p"],"/realtime_rsk"), pattern = glob2rx("*.rsk"))
+# realtime.files<-dir(paste0(p.1$w[p.1$n=="BaHo.onl.p"],"/realtime_rsk"), pattern = glob2rx("*.rsk"))
 # start.tach<-as.numeric(substr(as.character(realtime.files[length(realtime.files)]),7,14))
 # start.zeit<-as.numeric(substr(as.character(realtime.files[length(realtime.files)]),16,17))
-# db <- dbConnect(SQLite(), dbname=paste0(paste0(path$w[path$n=="BaHo.onl.p"],"/realtime_rsk/"),realtime.files[length(realtime.files)]))
+# db <- dbConnect(SQLite(), dbname=paste0(paste0(p.1$w[p.1$n=="BaHo.onl.p"],"/realtime_rsk/"),realtime.files[length(realtime.files)]))
 # last.entry<-paste(strptime(paste0(start.tach,start.zeit),format='%Y%m%d%H')+(length(dbReadTable(db, "data")[,1])*60*60))
 # cat("\n#\n# BaHole2015 last value at",last.entry,"\n#\n")
 
