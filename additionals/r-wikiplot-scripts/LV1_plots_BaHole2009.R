@@ -11,21 +11,17 @@
 ##
 # ############################################################################
 # to run this script separately, you have to uncomment the next 10 lines!
-# rm(list  =  ls())
-# if (.Platform$OS.type  ==   "windows") {
-#   path <- read.table("N:/sparc/LTO/R_database/database_R/settings/path_windoof.txt", sep  =  "\t", header  =  T)
-#   maint <- read.table("N:/sparc/LTO/R_database/database_R/settings/maintance.txt", sep  =  "\t", header  =  T)
-#   p.1 <- read.table("N:/sparc/LTO/R_database/database_R/settings/path_windoof.txt", sep  =  "\t", header  =  T)
-#   p.1maint <- read.table("N:/sparc/LTO/R_database/database_R/settings/maintance.txt", sep  =  "\t", header  =  T)
-# 
-#   source("N:/sparc/LTO/R_database/database_R/settings/db_func.R")
+# rm(list = ls())
+# if (.Platform$OS.type == "windows") {
+#   p.1 <- read.table("N:/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/settings/path_win.txt", sep = "\t", header = T)
+#   p.1maint <- read.table("N:/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/settings/maintenance.files/maintance.txt", sep = "\t", header = T)
+#   
+#   source("N:/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/functions/db_func.R")
 # } else {
-#   path <- read.table("/sparc/LTO/R_database/database_R/settings/path_linux.txt", sep  =  "\t", header  =  T, fileEncoding  =  "UTF-8")
-#   maint <- read.table("/sparc/LTO/R_database/database_R/settings/maintance.txt", sep  =  "\t", header  =  T)
-#   p.1 <- read.table("/sparc/LTO/R_database/database_R/settings/path_linux.txt", sep  =  "\t", header  =  T, fileEncoding  =  "UTF-8")
-#   p.1maint <- read.table("/sparc/LTO/R_database/database_R/settings/maintance.txt", sep  =  "\t", header  =  T)
-# 
-#   source("/sparc/LTO/R_database/database_R/settings/db_func.R")
+#   p.1 <- read.table("/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/settings/path_linux.txt", sep = "\t", header = T, fileEncoding = "UTF-8")
+#   p.1maint <- read.table("/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/settings/maintenance.files/maintance.txt", sep = "\t", header = T)
+#   
+#   source("/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/functions/db_func.R")
 # }
 # #############################################################################
 
@@ -51,9 +47,9 @@ color <- rgb(190, 190, 190, alpha = 70, maxColorValue = 255)
 
 for (year_i in run.year) {
 
-  db.bahole <- read.table(paste(path$w[path$n == "LV1.p"], "BaHole2009/00_full_dataset/BaHole2009_", year_i, "_lv1_noflag.dat", sep = ""),
+  db.bahole <- read.table(paste(p.1$w[p.1$n == "LV1.p"], "BaHole2009/00_full_dataset/BaHole2009_", year_i, "_lv1_noflag.dat", sep = ""),
                           sep = ",", dec = ".", header = T, fill = TRUE)
-  db.bahole.lvl1 <- read.table(paste(path$w[path$n == "LV1.p"], "BaHole2009/00_full_dataset/BaHole2009_", year_i, "_lv1.dat", sep = ""),
+  db.bahole.lvl1 <- read.table(paste(p.1$w[p.1$n == "LV1.p"], "BaHole2009/00_full_dataset/BaHole2009_", year_i, "_lv1.dat", sep = ""),
                                sep = ",", dec = ".", header = T, fill = TRUE)
   db.bahole.lvl2 <- db.bahole.lvl1
   for (val in 1:10) {# set data to NA if flag is not 0
@@ -66,7 +62,7 @@ for (year_i in run.year) {
   y.values <- c(0.5, 0, -0.5, -1, -1.5, -2.5, -3.5, -5.5, -7.5, -9)
 
 
-  png(paste(path$w[path$n == "plot.p"], year_i, "/BaHole2009_trompete_", year_i, ".png", sep = ""),
+  png(paste(p.1$w[p.1$n == "plot.p"], year_i, "/BaHole2009_trompete_", year_i, ".png", sep = ""),
       width = p.width, height = p.height, pointsize = 8)
   par(mar = c(1, 8, 1, 1), omi = c(0, 0, 0, 0))
   plot(c(stats.db[1, ]), y.values, type = "n", xlim = c(-16, 8), ylim = c(-9, 2),
@@ -104,7 +100,7 @@ lischt <- c(db.bahole.lvl1$UTC[format(strptime(db.bahole.lvl1$UTC, format = "%Y-
 # -----------------------------------------------------
 tair_gut  <- which(db.bahole.lvl1$Tair_50_fl == 0)
 
-png(paste(path$w[path$n == "plot.p"], year_i, "/BaHole2009_moustache_", year_i, ".png", sep = ""),
+png(paste(p.1$w[p.1$n == "plot.p"], year_i, "/BaHole2009_moustache_", year_i, ".png", sep = ""),
     width = p.width, height = p.height, pointsize = 8)
 par(mar = c(1, 6, 1, 1), omi = c(0, 0, 0, 0))
 plot(as.numeric(strptime(db.bahole.lvl1$UTC[tair_gut], format = "%Y-%m-%d %H:%M")),

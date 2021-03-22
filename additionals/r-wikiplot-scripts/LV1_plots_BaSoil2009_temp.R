@@ -20,19 +20,15 @@
 ##  to run this script separately, you have to uncomment the next 10 lines!
 # rm(list = ls())
 # if (.Platform$OS.type == "windows") {
-#   path <- read.table("N:/sparc/LTO/R_database/database_R/settings/path_windoof.txt", sep = "\t",header = T)
-#   maint <- read.table("N:/sparc/LTO/R_database/database_R/settings/maintance.txt", sep = "\t",header = T)
-#   p.1 <- read.table("N:/sparc/LTO/R_database/database_R/settings/path_windoof.txt", sep = "\t",header = T)
-#   p.1maint <- read.table("N:/sparc/LTO/R_database/database_R/settings/maintance.txt", sep = "\t",header = T)
-#
-#   source("N:/sparc/LTO/R_database/database_R/settings/db_func.R")
+#   p.1 <- read.table("N:/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/settings/path_win.txt", sep = "\t", header = T)
+#   p.1maint <- read.table("N:/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/settings/maintenance.files/maintance.txt", sep = "\t", header = T)
+#   
+#   source("N:/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/functions/db_func.R")
 # } else {
-#   path <- read.table("/sparc/LTO/R_database/database_R/settings/path_linux.txt", sep = "\t", header = T, fileEncoding = "UTF-8")
-#   maint <- read.table("/sparc/LTO/R_database/database_R/settings/maintance.txt", sep = "\t", header = T)
-#   p.1 <- read.table("/sparc/LTO/R_database/database_R/settings/path_linux.txt", sep = "\t", header = T, fileEncoding = "UTF-8")
-#   p.1maint <- read.table("/sparc/LTO/R_database/database_R/settings/maintance.txt", sep = "\t", header = T)
-#
-#   source("/sparc/LTO/R_database/database_R/settings/db_func.R")
+#   p.1 <- read.table("/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/settings/path_linux.txt", sep = "\t", header = T, fileEncoding = "UTF-8")
+#   p.1maint <- read.table("/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/settings/maintenance.files/maintance.txt", sep = "\t", header = T)
+#   
+#   source("/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/functions/db_func.R")
 # }
 # #############################################################################
 
@@ -57,8 +53,8 @@ overall <- 1
 #######
 
 for (years in run.year) {
-  #  dudu<-read.table(paste0(path$w[path$n=="LV1.p"],"BaSoil2009/01_temperature/BaSoil2009_Ts_",years,"_lv1.dat"),sep=",",dec=".",header=T,na.strings="NA")
-  dudu <- read.table(paste0(path$w[path$n == "LV1.p"], "BaSoil2009/00_full_dataset/BaSoil2009_", years, "_lv1.dat"),
+  #  dudu<-read.table(paste0(p.1$w[p.1$n=="LV1.p"],"BaSoil2009/01_temperature/BaSoil2009_Ts_",years,"_lv1.dat"),sep=",",dec=".",header=T,na.strings="NA")
+  dudu <- read.table(paste0(p.1$w[p.1$n == "LV1.p"], "BaSoil2009/00_full_dataset/BaSoil2009_", years, "_lv1.dat"),
                      sep = ",", dec = ".", header = T, na.strings = "NA")[, 1:17]
   lischt <- c(dudu$UTC[format(strptime(dudu$UTC, format = "%Y-%m-%d %H:%M"), format = "%d %H:%M") == "01 00:00"],
               dudu$UTC[length(dudu$UTC)])
@@ -66,7 +62,7 @@ for (years in run.year) {
   dudu[, 1] <- as.numeric(as.POSIXct(dudu[, 1], origin = origin, tz = "UTC",format = '%Y-%m-%d %H:%M'))
   xxlim <- c(as.numeric(strptime(paste0("13.01.", years), format = "%d.%m.%Y")),
             as.numeric(strptime(paste0("20.12.", years), format = "%d.%m.%Y")))
-  #  db.last.year <-read.table(paste0(path$w[path$n=="LV1.p"],"BaSoil2009/01_temperature/BaSoil2009_Ts_",years-1,"_lv1.dat"),sep=",",dec=".",header=T,na.strings="NA")
+  #  db.last.year <-read.table(paste0(p.1$w[p.1$n=="LV1.p"],"BaSoil2009/01_temperature/BaSoil2009_Ts_",years-1,"_lv1.dat"),sep=",",dec=".",header=T,na.strings="NA")
   #  db.last.year[,1]<-as.numeric(as.POSIXct(db.last.year[,1],origin=origin,tz="UTC",format='%Y-%m-%d %H:%M'))
   #  db.last.year <-db.last.year[complete.cases(db.last.year),]
   last.von <- length(na.omit(dudu[, 2]))
@@ -74,7 +70,7 @@ for (years in run.year) {
 
 
   ##
-  png(file = paste(path$w[path$n == "plot.p"], years, "/BaSoil2009_Ts_", years, ".png", sep = ""),
+  png(file = paste(p.1$w[p.1$n == "plot.p"], years, "/BaSoil2009_Ts_", years, ".png", sep = ""),
       width = p.width, height = p.height, pointsize = 8)#,A4, landscape)
 
   par(mar = c(1, 8, 1, 1), omi = c(0, 0, 0, 0))
@@ -128,7 +124,7 @@ if (weekdays(Sys.Date()) == "Montag" | weekdays(Sys.Date()) == "Monday") { # upd
   db.ba2[, 1] <- as.numeric(db.ba2[, 1])
 
   for (kk in 2009:recent.year) {
-    didi <- read.table(paste0(path$w[path$n == "LV1.p"], "BaSoil2009/00_full_dataset/BaSoil2009_", kk, "_lv1_noflag.dat"),
+    didi <- read.table(paste0(p.1$w[p.1$n == "LV1.p"], "BaSoil2009/00_full_dataset/BaSoil2009_", kk, "_lv1_noflag.dat"),
                        sep = ",", dec = ".", header = T, na.strings = "NA")
     didi[, 1] <- as.numeric(as.POSIXct(didi[, 1], format = '%Y-%m-%d %H:%M', tz = "UTC"))
     #colnames(didi)
@@ -149,8 +145,8 @@ if (weekdays(Sys.Date()) == "Montag" | weekdays(Sys.Date()) == "Monday") { # upd
   # xxxlim <- c(as.numeric(start.date) + 5000000, as.numeric(end.date))# - 7000000)
   #1252000000
 
-  #png(file = paste(path$w[path$n == "plot.p"], run.year, "/BaSoil2009_ts_Ts_", run.year, ".png", sep = ""), width = 3600, height = 500, pointsize = 8)#,A4, landscape)
-  png(file = paste(path$w[path$n == "plot.p"], "Longterm/BaSoil2009_Ts_Longterm.png", sep = ""),
+  #png(file = paste(p.1$w[p.1$n == "plot.p"], run.year, "/BaSoil2009_ts_Ts_", run.year, ".png", sep = ""), width = 3600, height = 500, pointsize = 8)#,A4, landscape)
+  png(file = paste(p.1$w[p.1$n == "plot.p"], "Longterm/BaSoil2009_Ts_Longterm.png", sep = ""),
       width = 3600, height = 500, pointsize = 8)
   par(mar = c(1, 8, 1, 1), omi = c(0, 0, 0, 0))
 

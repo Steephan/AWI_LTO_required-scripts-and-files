@@ -17,7 +17,7 @@
 ##    - of soil temperature sensors Ts_252 and Ts_203 every monday
 ##    - delete the " +  1" in the labeling of years
 ##    - new plotformat
-##    - update of paths
+##    - update of p.1s
 ##    - no separate year files any more for variables
 ##
 ##
@@ -26,19 +26,15 @@
 # to run this script separately, you have to uncomment the next 10 lines!
 # rm(list = ls())
 # if (.Platform$OS.type == "windows") {
-#   path <- read.table("N:/sparc/LTO/R_database/database_R/settings/path_windoof.txt", sep = "\t", header = T)
-#   maint <- read.table("N:/sparc/LTO/R_database/database_R/settings/maintance.txt", sep = "\t", header = T)
-#   p.1 <- read.table("N:/sparc/LTO/R_database/database_R/settings/path_windoof.txt", sep = "\t", header = T)
-#   p.1maint <- read.table("N:/sparc/LTO/R_database/database_R/settings/maintance.txt", sep = "\t", header = T)
-# 
-#   source("N:/sparc/LTO/R_database/database_R/settings/db_func.R")
+#   p.1 <- read.table("N:/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/settings/path_win.txt", sep = "\t", header = T)
+#   p.1maint <- read.table("N:/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/settings/maintenance.files/maintance.txt", sep = "\t", header = T)
+#   
+#   source("N:/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/functions/db_func.R")
 # } else {
-#   path <- read.table("/sparc/LTO/R_database/database_R/settings/path_linux.txt", sep = "\t", header = T, fileEncoding = "UTF-8")
-#   maint <- read.table("/sparc/LTO/R_database/database_R/settings/maintance.txt", sep = "\t", header = T)
-#   p.1 <- read.table("/sparc/LTO/R_database/database_R/settings/path_linux.txt", sep = "\t", header = T, fileEncoding = "UTF-8")
-#   p.1maint <- read.table("/sparc/LTO/R_database/database_R/settings/maintance.txt", sep = "\t", header = T)
-# 
-#   source("/sparc/LTO/R_database/database_R/settings/db_func.R")
+#   p.1 <- read.table("/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/settings/path_linux.txt", sep = "\t", header = T, fileEncoding = "UTF-8")
+#   p.1maint <- read.table("/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/settings/maintenance.files/maintance.txt", sep = "\t", header = T)
+#   
+#   source("/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/functions/db_func.R")
 # }
 ###########################################################################
 
@@ -70,10 +66,10 @@ for (t.year in run.year) {
 
 ################## Load data #########################
 if (zack == 1) { # 1
-  #db.bamet     <-read.table(paste(path$w[path$n == "LV1.p"], "BaMet2009/00_full_dataset/BaMet2009_", t.year, "_lv1_noflag.dat", sep = ""), sep = ",", dec = ".", header = T, fill = TRUE)
-  db.bamet.lvl1 <- read.table(paste(path$w[path$n == "LV1.p"], "BaMet2009/00_full_dataset/BaMet2009_", t.year, "_lv1.dat", sep = ""),
+  #db.bamet     <-read.table(paste(p.1$w[p.1$n == "LV1.p"], "BaMet2009/00_full_dataset/BaMet2009_", t.year, "_lv1_noflag.dat", sep = ""), sep = ",", dec = ".", header = T, fill = TRUE)
+  db.bamet.lvl1 <- read.table(paste(p.1$w[p.1$n == "LV1.p"], "BaMet2009/00_full_dataset/BaMet2009_", t.year, "_lv1.dat", sep = ""),
                               sep = ",", dec = ".", header = T, fill = TRUE)
-  db.last.year <- read.table(paste(path$w[path$n == "LV1.p"], "BaMet2009/00_full_dataset/BaMet2009_", t.year - 1, "_lv1.dat", sep = ""),
+  db.last.year <- read.table(paste(p.1$w[p.1$n == "LV1.p"], "BaMet2009/00_full_dataset/BaMet2009_", t.year - 1, "_lv1.dat", sep = ""),
                              sep = ",", dec = ".", header = T, fill = TRUE)
   last.von <- length(na.omit(db.bamet.lvl1[, 2]))
   last.bis <- length(db.last.year[, 1])
@@ -99,7 +95,7 @@ albedo_bad <- which(db.bamet.lvl1$Albedo_fl > 1)
 ohne.albedo <- which(db.bamet.lvl1$Albedo_fl == 1)
 alb.outside <- which(db.bamet.lvl1$Albedo < 0 | db.bamet.lvl1$Albedo > 1)
 
-png(paste(path$w[path$n == "plot.p"], t.year, "/BaMet2009_albedo_", t.year, ".png", sep = ""),
+png(paste(p.1$w[p.1$n == "plot.p"], t.year, "/BaMet2009_albedo_", t.year, ".png", sep = ""),
     width = p.width, height = p.height, pointsize = 8)
 par(mar = c(1, 8, 1, 1), omi = c(0, 0, 0, 0))
 plot(as.numeric(strptime(db.bamet.lvl1$UTC, format = "%Y-%m-%d %H:%M")),
@@ -158,7 +154,7 @@ net_zero <- which(db.bamet.lvl1$SwOut_fl == 0)
 net_flags <- which(db.bamet.lvl1$SwOut_fl > 0)
 
 
-png(paste(path$w[path$n == "plot.p"], t.year, "/BaMet2009_rad_net_", t.year, ".png", sep = ""),
+png(paste(p.1$w[p.1$n == "plot.p"], t.year, "/BaMet2009_rad_net_", t.year, ".png", sep = ""),
     width = p.width, height = p.height, pointsize = 8)
 par(mar = c(1, 8, 1, 1), omi = c(0, 0, 0, 0))
 plot(as.numeric(strptime(db.bamet.lvl1$UTC, format = "%Y-%m-%d %H:%M")), db.bamet.lvl1$SwOut, pch = 20, # cex.lab = 1.7, cex.axis = 1.5,   # albedo from file
@@ -194,7 +190,7 @@ dev.off()
 
 ###  radiation Global
 if (zack == 1) {
-png(paste(path$w[path$n == "plot.p"], t.year, "/BaMet2009_rad_gl_", t.year, ".png", sep = ""),
+png(paste(p.1$w[p.1$n == "plot.p"], t.year, "/BaMet2009_rad_gl_", t.year, ".png", sep = ""),
     width = p.width, height = p.height, pointsize = 8)
 par(mar = c(1, 8, 1, 1), omi = c(0, 0, 0, 0))
 plot(as.numeric(strptime(db.bamet.lvl1$UTC, format = "%Y-%m-%d %H:%M")),
@@ -234,7 +230,7 @@ sw_in <- which(db.bamet.lvl1$SwIn_fl == 0)
 sw_bad_out <- which(db.bamet.lvl1$SwOut_fl > 0)
 sw_bad_in  <- which(db.bamet.lvl1$SwIn_fl > 0)
 
-png(paste(path$w[path$n == "plot.p"], t.year, "/BaMet2009_rad_sw_", t.year, ".png", sep = ""),
+png(paste(p.1$w[p.1$n == "plot.p"], t.year, "/BaMet2009_rad_sw_", t.year, ".png", sep = ""),
     width = p.width, height = p.height, pointsize = 8)
 par(mar = c(1, 8, 1, 1), omi = c(0, 0, 0, 0))
 plot(as.numeric(strptime(db.bamet.lvl1$UTC, format = "%Y-%m-%d %H:%M")),
@@ -282,7 +278,7 @@ lw_out <- which(db.bamet.lvl1$LwIn_fl == 0)
 lw_bad_in <- which(db.bamet.lvl1$LwOut_fl > 0)
 lw_bad_out <- which(db.bamet.lvl1$LwIn_fl > 0)
 
-png(paste(path$w[path$n == "plot.p"], t.year, "/BaMet2009_rad_lw_", t.year, ".png", sep = ""),
+png(paste(p.1$w[p.1$n == "plot.p"], t.year, "/BaMet2009_rad_lw_", t.year, ".png", sep = ""),
     width = p.width, height = p.height, pointsize = 8)
 par(mar = c(1, 8, 1, 1), omi = c(0, 0, 0, 0))
 plot(as.numeric(strptime(db.bamet.lvl1$UTC, format = "%Y-%m-%d %H:%M")), db.bamet.lvl1$LwOut, pch = 20, # cex.lab = 1.7, cex.axis = 1.5,   # albedo from file
@@ -335,7 +331,7 @@ air_flags <- which(as.numeric(db.bamet.lvl1$Tair_200_fl) > 0)
 air_zero1 <- which(as.numeric(db.bamet.lvl1$Tair_100_fl) == 0)
 air_flags1 <- which(as.numeric(db.bamet.lvl1$Tair_100_fl) > 0)
 
-png(paste(path$w[path$n == "plot.p"], t.year, "/BaMet2009_Tair200_", t.year, ".png", sep = ""),
+png(paste(p.1$w[p.1$n == "plot.p"], t.year, "/BaMet2009_Tair200_", t.year, ".png", sep = ""),
     width = p.width, height = p.height, pointsize = 8)
 par(mar = c(1, 8, 1, 1), omi = c(0, 0, 0, 0))
 plot(as.numeric(strptime(db.bamet.lvl1$UTC, format = "%Y-%m-%d %H:%M")),
@@ -367,7 +363,7 @@ text(as.numeric(strptime(lischt[11], format = "%Y-%m-%d %H:%M")) + 2000000, 18, 
 
 dev.off()
 
-png(paste(path$w[path$n == "plot.p"], t.year, "/BaMet2009_Tair100_", t.year, ".png", sep = ""),
+png(paste(p.1$w[p.1$n == "plot.p"], t.year, "/BaMet2009_Tair100_", t.year, ".png", sep = ""),
     width = p.width, height = p.height, pointsize = 8)
 par(mar = c(1, 8, 1, 1), omi = c(0, 0, 0, 0))
 plot(as.numeric(strptime(db.bamet.lvl1$UTC, format = "%Y-%m-%d %H:%M")),
@@ -412,7 +408,7 @@ sh_zero   <- which(as.numeric(db.bamet.lvl1$snowh_fl) == 0)
 pr_flags   <- which(as.numeric(db.bamet.lvl1$prec_fl) > 0)
 sh_flags   <- which(as.numeric(db.bamet.lvl1$snowh_fl) > 0)
 
-png(paste(path$w[path$n == "plot.p"], t.year, "/BaMet2009_sh_", t.year, ".png", sep = ""), width = p.width, height = p.height, pointsize = 8)
+png(paste(p.1$w[p.1$n == "plot.p"], t.year, "/BaMet2009_sh_", t.year, ".png", sep = ""), width = p.width, height = p.height, pointsize = 8)
 par(mar = c(1, 5, 1, 1), omi = c(0, 0, 0, 0))
 plot(as.numeric(strptime(db.bamet.lvl1$UTC, format = "%Y-%m-%d %H:%M")), db.bamet.lvl1$snowh, pch = 20, # cex.lab = 1.7, cex.axis = 1.5,   # albedo from file
      xlim = xxlim, ylim = c(0, 2.3), xlab = "", ylab = "", xaxt = "n", yaxt = "n", type = "n", cex.axis = 3)
@@ -463,7 +459,7 @@ if (zack == 1) {
   prec.daily <- aggregate(prec.zero ~ format(strptime(db.bamet.lvl1$UTC, format = "%Y-%m-%d %H:%M"), format = "%Y-%m-%d"), FUN = sum)
   prec.monthly <- aggregate(prec.zero ~ format(strptime(db.bamet.lvl1$UTC, format = "%Y-%m-%d %H:%M"), format = "%Y-%m"), FUN = sum)
 
-  png(paste(path$w[path$n == "plot.p"], t.year, "/BaMet2009_prec_", t.year, ".png", sep = ""),
+  png(paste(p.1$w[p.1$n == "plot.p"], t.year, "/BaMet2009_prec_", t.year, ".png", sep = ""),
       width = p.width, height = p.height, pointsize = 8)
   par(mfrow = c(3, 1), mar = c(0, 8, 0, 0), oma = c(1, 0, 1, 1))
 
@@ -548,7 +544,7 @@ if (zack == 1) {
   pr_zero_zero <- which(as.numeric(db.bamet.lvl1$prec_fl) == 0 & db.bamet.lvl1$prec == 0)
   pr_flags <- which(as.numeric(db.bamet.lvl1$prec_fl) > 0)
 
-  png(paste(path$w[path$n == "plot.p"], t.year, "/BaMet2009_OLD_PREC_", t.year, ".png", sep = ""),
+  png(paste(p.1$w[p.1$n == "plot.p"], t.year, "/BaMet2009_OLD_PREC_", t.year, ".png", sep = ""),
       width = p.width, height = p.height, pointsize = 8)
   par(mar = c(1, 8, 1, 1), omi = c(0, 0, 0, 0))
   plot(as.numeric(strptime(db.bamet.lvl1$UTC, format = "%Y-%m-%d %H:%M")),
@@ -618,7 +614,7 @@ if (zack == 1) {
  weg <- data.frame(day.mitte, wind.mean)
  weg <- weg[complete.cases(weg[]), ]
 
-png(paste(path$w[path$n == "plot.p"], t.year, "/BaMet2009_wind_", t.year, ".png", sep = ""),
+png(paste(p.1$w[p.1$n == "plot.p"], t.year, "/BaMet2009_wind_", t.year, ".png", sep = ""),
     width = p.width, height = p.height, pointsize = 8)
 par(mar = c(1, 8, 1, 1), omi = c(0, 0, 0, 0))
 plot(as.numeric(strptime(db.bamet.lvl1$UTC, format = "%Y-%m-%d %H:%M")),
@@ -671,7 +667,7 @@ dev.off()  #; rm(w_v_zero, w_d_zero, w_v_flags, w_d_flags, day, wind.mean, day.m
 db.wind <- db.bamet.lvl1[, c("UTC", "wind_v_200", "wind_deg_200")]#1, 8, 9
 db.wind <- db.wind[complete.cases(db.wind), ]
 
-png(paste(path$w[path$n == "plot.p"], t.year, "/BaMet2009_wrose_", t.year, ".png", sep = ""),
+png(paste(p.1$w[p.1$n == "plot.p"], t.year, "/BaMet2009_wrose_", t.year, ".png", sep = ""),
     width = p.width * 0.8, height = p.width * 0.8, pointsize = 8)
 par(mar = c(1, 1, 1, 1), omi = c(0, 0, 0, 0))
 wind.rose(wind.freq(db.wind$wind_v_200, db.wind$wind_deg_200), key = F, 6, 4, ang = (-3) * pi / 16, main = "", text.cex = 6)#paste(t.year)
@@ -680,7 +676,7 @@ legend("topright", cex = 6, title = "", lty = 1, lwd = 3, col = c("transparent")
 dev.off()
 
 ####
-png(paste(path$w[path$n == "plot.p"], t.year, "/BaMet2009_wrose_monthly_", t.year, ".png", sep = ""),
+png(paste(p.1$w[p.1$n == "plot.p"], t.year, "/BaMet2009_wrose_monthly_", t.year, ".png", sep = ""),
     width = p.width * 0.8, height = p.width * 0.8, pointsize = 8)
 par(mar = c(1, 1, 1, 1), omi = c(0, 0, 0, 0), mfrow = c(3, 4))
 for (monz in 1:12) {
@@ -710,7 +706,7 @@ humr[, 2] <- aggregate(db.bamet.lvl1$RH_200~format(strptime(db.bamet.lvl1$UTC, f
 hum_zero   <- which(as.numeric(db.bamet.lvl1$RH_200_fl) == 0)
 hum_flags   <- which(as.numeric(db.bamet.lvl1$RH_200_fl) > 0)
 
-png(paste(path$w[path$n == "plot.p"], t.year, "/BaMet2009_hum_", t.year, ".png", sep = ""),
+png(paste(p.1$w[p.1$n == "plot.p"], t.year, "/BaMet2009_hum_", t.year, ".png", sep = ""),
     width = p.width, height = p.height, pointsize = 8)
 par(mar = c(1, 8, 1, 1), omi = c(0, 0, 0, 0))
 plot(as.numeric(strptime(db.bamet.lvl1$UTC, format = "%Y-%m-%d %H:%M")), db.bamet.lvl1$RH_200, pch = 20, # cex.lab = 1.7, cex.axis = 1.5,   # albedo from file
@@ -746,7 +742,7 @@ dev.off() ;rm(hum_zero, hum_flags)
 ###  soil temperature
 if (zack == 1) {
 soil.cols <- colorRampPalette(c("seagreen4", "palegreen3", "yellow3", "khaki", "sandybrown", "peru", "mistyrose3", "peachpuff4"))(150)
-png(file = paste(path$w[path$n == "plot.p"], t.year, "/BaMet2009_Ts_203_", t.year, ".png", sep = ""),
+png(file = paste(p.1$w[p.1$n == "plot.p"], t.year, "/BaMet2009_Ts_203_", t.year, ".png", sep = ""),
     width = p.width, height = p.height, pointsize = 8)#, A4, landscape)
 par(mar = c(1, 8, 1, 1), omi = c(0, 0, 0, 0))
 plot(as.numeric(strptime(db.bamet.lvl1$UTC, format = "%Y-%m-%d %H:%M")),
@@ -771,7 +767,7 @@ text(as.numeric(strptime(lischt[-1], format = "%Y-%m-%d %H:%M")) - 1300000, rep(
 text(as.numeric(strptime(lischt[11], format = "%Y-%m-%d %H:%M")) + 2000000, 14, t.year, las = 2, cex = 6)
 dev.off()#close pdf
 
-png(file = paste(path$w[path$n == "plot.p"], t.year, "/BaMet2009_Ts_253_", t.year, ".png", sep = ""),
+png(file = paste(p.1$w[p.1$n == "plot.p"], t.year, "/BaMet2009_Ts_253_", t.year, ".png", sep = ""),
     width = p.width, height = p.height, pointsize = 8)#, A4, landscape)
 par(mar = c(1, 8, 1, 1), omi = c(0, 0, 0, 0))
 plot(as.numeric(strptime(db.bamet.lvl1$UTC, format = "%Y-%m-%d %H:%M")), db.bamet.lvl1$Ts_203_2, pch = 20, # cex.lab = 1.7, cex.axis = 1.5,   #
@@ -811,7 +807,7 @@ snowt05_flags <- which(as.numeric(db.bamet.lvl1$Tair_4_fl) > 0)
 snowt20_flags <- which(as.numeric(db.bamet.lvl1$Tair_20_fl) > 0)
 #snowt40_flags   <- which(as.numeric(db.bamet.lvl1$Tair_40_fl) > 0)
 
-png(paste(path$w[path$n == "plot.p"], t.year, "/BaMet2009_Tsn_", t.year, ".png", sep = ""),
+png(paste(p.1$w[p.1$n == "plot.p"], t.year, "/BaMet2009_Tsn_", t.year, ".png", sep = ""),
     width = p.width, height = p.height, pointsize = 8)
 par(mar = c(1, 8, 1, 1), omi = c(0, 0, 0, 0))
 plot(as.numeric(strptime(db.bamet.lvl1$UTC, format = "%Y-%m-%d %H:%M")),
@@ -857,7 +853,7 @@ dev.off()#
 if (zack == 0) {
 
 # # diffplot
-# png(paste(path$w[path$n == "plot.p"], t.year, "/BaMet2009_snowt_diff1_", t.year, ".png", sep = ""), width = p.width, height = p.height, pointsize = 8)
+# png(paste(p.1$w[p.1$n == "plot.p"], t.year, "/BaMet2009_snowt_diff1_", t.year, ".png", sep = ""), width = p.width, height = p.height, pointsize = 8)
 # par(mar = c(1, 8, 1, 1), omi = c(0, 0, 0, 0))
 # plot(as.numeric(strptime(db.bamet.lvl1$UTC, format = "%Y-%m-%d %H:%M")), db.bamet.lvl1$Tair_100, pch = 20, # cex.lab = 1.7, cex.axis = 1.5,   # albedo from file
 #      xlim = xxlim, ylim = c(-5, 5), xlab = "", ylab = "", xaxt = "n", yaxt = "n", type = "n", cex.axis = 3)
@@ -877,7 +873,7 @@ if (zack == 0) {
 # if (t.year == 2012) {text(as.numeric(strptime(lischt[3], format = "%Y-%m-%d %H:%M")) + 1000000, 0, "reindeer", las = 2, srt=60, cex = 4, col = "gray80")}
 #
 # dev.off()# ;rm(air_zero, air_flags, rr, murr)
-# png(paste(path$w[path$n == "plot.p"], t.year, "/BaMet2009_snowt_diff2_", t.year, ".png", sep = ""), width = p.width, height = p.height, pointsize = 8)
+# png(paste(p.1$w[p.1$n == "plot.p"], t.year, "/BaMet2009_snowt_diff2_", t.year, ".png", sep = ""), width = p.width, height = p.height, pointsize = 8)
 # par(mar = c(1, 8, 1, 1), omi = c(0, 0, 0, 0))
 # plot(as.numeric(strptime(db.bamet.lvl1$UTC, format = "%Y-%m-%d %H:%M")), db.bamet.lvl1$Tair_100, pch = 20, # cex.lab = 1.7, cex.axis = 1.5,   # albedo from file
 #      xlim = xxlim, ylim = c(-5, 5), xlab = "", ylab = "", xaxt = "n", yaxt = "n", type = "n", cex.axis = 3)
@@ -907,7 +903,7 @@ if (zack == 0) {
 #summary(db.bamet.lvl1$prec)
 
 #    # plot sw, albedo and snowheight (data with flag=0)
-#    png(paste(plot.path, t.year, "/BaMet2009_RadAlbSnH_", t.year, ".png", sep = ""), width = 1400, height=1100)
+#    png(paste(plot.p.1, t.year, "/BaMet2009_RadAlbSnH_", t.year, ".png", sep = ""), width = 1400, height=1100)
 #    par(mfrow = c(3, 1), mar = c(4.2, 4.5, 4.8, 2.1), omi = c(0.5, 0.5, 0.6, 0.2))
 #    plot(strptime(db.bamet$UTC[sw_in], format = "%Y-%m-%d %H:%M"), db.bamet$SwOut[sw_in], pch = 20, cex.lab = 1.7, cex.axis = 1.7,
 #         xlim = xxlim, ylim = ylim_sw, xlab = "Date", ylab = "[W / m2]", col = 155, main="SW Incoming and Outgoing", panel.first=grid(), cex.main=2)  # plot sw_in
@@ -925,7 +921,7 @@ if (zack == 0) {
 
 
 #    # all data
-#    png(paste(plot.path, t.year, "/BaMet2009_RadAlbSnH_noFilter", t.year, ".png", sep = ""), width = 1400, height=1100)
+#    png(paste(plot.p.1, t.year, "/BaMet2009_RadAlbSnH_noFilter", t.year, ".png", sep = ""), width = 1400, height=1100)
 #    par(mfrow = c(3, 1), mar = c(4.2, 4.5, 4.8, 2.1), omi = c(0.5, 0.5, 0.6, 0.2))
 #    plot(strptime(db.bamet$UTC, format = "%Y-%m-%d %H:%M"), db.bamet$SwOut, pch = 20, cex.lab = 1.7, cex.axis = 1.7,
 #         xlim = xxlim, ylim = ylim_sw, xlab = "Date", ylab = "[W / m2]", col = 155, main="SW Incoming and Outgoing", panel.first=grid(), cex.main=2)  # plot sw_in
@@ -943,7 +939,7 @@ if (zack == 0) {
 #
 #
 #    # plotting radiation stuff
-#    png(paste(plot.path, t.year, "/BaMet2009_rad_outliers_", t.year, ".png", sep = ""), width = 1400, height=900)
+#    png(paste(plot.p.1, t.year, "/BaMet2009_rad_outliers_", t.year, ".png", sep = ""), width = 1400, height=900)
 #    par(mfrow = c(2, 1), mar = c(6.5, 4.5, 4, 2.1), omi = c(0.5, 0.5, 0.5, 0.2))     # global plotting settings
 #
 #    ## plot1 (original sw data  +  detected bad data in red)
@@ -1000,7 +996,7 @@ if (zack == 0) {
 #      } else { xxlim = c(as.numeric(strptime(paste0("01.", m, ".", t.year), format = "%d.%m.%Y")), as.numeric(strptime(paste0("01.", months[as.numeric(m) + 1], ".", t.year), format = "%d.%m.%Y")))  }
 #
 #      # plot sw, albedo and snowheight
-#      png(paste(lvl1.path, "plots/", t.year, "/Bayelva_RadAlbSnH_", m, t.year, ".png", sep = ""), width = 1400, height=1100)
+#      png(paste(lvl1.p.1, "plots/", t.year, "/Bayelva_RadAlbSnH_", m, t.year, ".png", sep = ""), width = 1400, height=1100)
 #      par(mfrow = c(3, 1), mar = c(4.2, 4.5, 4.8, 2.1), omi = c(0.5, 0.5, 0.6, 0.2))
 #      plot(strptime(db.bamet$UTC[intersect(mm_data, sw_in)], format = "%Y-%m-%d %H:%M"), db.bamet$SwOut[intersect(mm_data, sw_in)], pch = 20, cex.lab = 1.7, cex.axis = 1.7,
 #           xlim = xxlim, ylim = ylim_sw, xlab = "Date", ylab = "[W / m2]", col = 155, main="SW Incoming and Outgoing", panel.first=grid(), cex.main=2)  # plot sw_in
@@ -1021,7 +1017,7 @@ if (zack == 0) {
 #      # plotting radiation  +  bad flag data
 #      # ----
 #      #cat("\nPlotting analysis", m, t.year)
-#      png(paste(lvl1.path, "plots/", t.year, "/Bayelva_rad_outliers_", m, t.year, ".png", sep = ""), width = 1400, height=900)
+#      png(paste(lvl1.p.1, "plots/", t.year, "/Bayelva_rad_outliers_", m, t.year, ".png", sep = ""), width = 1400, height=900)
 #      par(mfrow = c(2, 1), mar = c(6.5, 4.5, 4, 2.1), omi = c(0.5, 0.5, 0.5, 0.2))     # global plotting settings
 #
 #      # plot 1 (original sw data  +  detected bad flags in red)
@@ -1095,7 +1091,7 @@ if (weekdays(Sys.Date()) == "Montag" | weekdays(Sys.Date()) == "Monday") { # upd
 
   # loop to combine all years since 2009
   for (kk in 2009:recent.year) {
-    didi <- read.table(paste0(path$w[path$n == "LV1.p"], "BaMet2009/00_full_dataset/BaMet2009_", kk, "_lv1_noflag.dat"),
+    didi <- read.table(paste0(p.1$w[p.1$n == "LV1.p"], "BaMet2009/00_full_dataset/BaMet2009_", kk, "_lv1_noflag.dat"),
                        sep = ",", dec = ".", header = T, na.strings = "NA")
     didi[, 1] <- as.numeric(as.POSIXct(didi[, 1], format = '%Y-%m-%d %H:%M', tz = "UTC"))
 
@@ -1114,7 +1110,7 @@ if (weekdays(Sys.Date()) == "Montag" | weekdays(Sys.Date()) == "Monday") { # upd
 
   ####################
   # plot sensor Ts_252
-  png(file = paste(path$w[path$n == "plot.p"], "Longterm/BaMet2009_Ts_252_Longterm.png", sep = ""),
+  png(file = paste(p.1$w[p.1$n == "plot.p"], "Longterm/BaMet2009_Ts_252_Longterm.png", sep = ""),
       width = 3600, height = 500, pointsize = 8)
   par(mar = c(1, 8, 1, 1), omi = c(0, 0, 0, 0))
 
@@ -1151,7 +1147,7 @@ if (weekdays(Sys.Date()) == "Montag" | weekdays(Sys.Date()) == "Monday") { # upd
 
   ####################
   # plot sensor Ts_203
-  png(file = paste(path$w[path$n == "plot.p"], "Longterm/BaMet2009_Ts_203_Longterm.png", sep = ""),
+  png(file = paste(p.1$w[p.1$n == "plot.p"], "Longterm/BaMet2009_Ts_203_Longterm.png", sep = ""),
       width = 3600, height = 500, pointsize = 8)
   par(mar = c(1, 8, 1, 1), omi = c(0, 0, 0, 0))
 

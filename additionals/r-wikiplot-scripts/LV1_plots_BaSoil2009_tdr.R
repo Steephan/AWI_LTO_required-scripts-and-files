@@ -12,20 +12,16 @@
 ############################################################################
 # to run this script separately, you have to uncomment the next 10 lines!
 # rm(list = ls())
-# if (.Platform$OS.type ==  "windows") {
-#  path <- read.table("N:/sparc/LTO/R_database/database_R/settings/path_windoof.txt", sep = "\t", header = T)
-#  maint <- read.table("N:/sparc/LTO/R_database/database_R/settings/maintance.txt", sep = "\t", header = T)
-#  p.1 <- read.table("N:/sparc/LTO/R_database/database_R/settings/path_windoof.txt", sep = "\t", header = T)
-#  p.1maint <- read.table("N:/sparc/LTO/R_database/database_R/settings/maintance.txt", sep = "\t", header = T)
-#
-#  source("N:/sparc/LTO/R_database/database_R/settings/db_func.R")
+# if (.Platform$OS.type == "windows") {
+#   p.1 <- read.table("N:/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/settings/path_win.txt", sep = "\t", header = T)
+#   p.1maint <- read.table("N:/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/settings/maintenance.files/maintance.txt", sep = "\t", header = T)
+#   
+#   source("N:/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/functions/db_func.R")
 # } else {
-#  path <- read.table("/sparc/LTO/R_database/database_R/settings/path_linux.txt", sep = "\t", header = T, fileEncoding = "UTF-8")
-#  maint <- read.table("/sparc/LTO/R_database/database_R/settings/maintance.txt", sep = "\t", header = T)
-#  p.1 <- read.table("/sparc/LTO/R_database/database_R/settings/path_linux.txt", sep = "\t", header = T, fileEncoding = "UTF-8")
-#  p.1maint <- read.table("/sparc/LTO/R_database/database_R/settings/maintance.txt", sep = "\t", header = T)
-#
-#  source("/sparc/LTO/R_database/database_R/settings/db_func.R")
+#   p.1 <- read.table("/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/settings/path_linux.txt", sep = "\t", header = T, fileEncoding = "UTF-8")
+#   p.1maint <- read.table("/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/settings/maintenance.files/maintance.txt", sep = "\t", header = T)
+#   
+#   source("/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/functions/db_func.R")
 # }
 #############################################################################
 
@@ -34,7 +30,7 @@ origin <- "1970-01-01"
 soil.cols <- c("seagreen4", "palegreen3", "yellow3", "khaki", "sandybrown", "peru", "mistyrose3", "peachpuff4")
 ice.cols  <- colorRampPalette(c("palegreen1", "ivory1", "lightblue1", "slateblue4"))(30)
 ice2.cols <- c("seagreen4", "palegreen3", "yellow3", "khaki", "sandybrown", "peru", "mistyrose3", "peachpuff4")
-files2read <- list.files(paste0(path$w[path$n == "BaS.lv1.p"], "/TDR_complete"), pattern = ".dat")
+files2read <- list.files(paste0(p.1$w[p.1$n == "BaS.lv1.p"], "/TDR_complete"), pattern = ".dat")
 Months <- c("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec")
 color <- rgb(190, 190, 190, alpha = 70, maxColorValue = 255)
 #p.width = 420;p.height = 280
@@ -52,12 +48,12 @@ p.height <- 280 * 3.5
 
 for (year in run.year) {
 
- # dada<-read.table(paste0(path$w[path$n == "LV1.p"], "BaSoil2009/02_tdr/BaSoil2009_tdr_", year, "_lv1.dat"), sep = ",", dec = ".", header = T, na.strings = "NA")
- # ice.dada<-read.table(paste0(path$w[path$n == "LV2.p"], "Bayelva/VWC/BaSoil2009Ice_", year, ".dat"), sep = ",", dec = ".", header = T, na.strings = "NA")
- # vwc.data<-read.table(paste0(path$w[path$n == "LV1.p"], "BaSoil2009/05_vwc_roth/BaSoil2009_vwc_roth_", year, "_lv1.dat"), sep = ",", dec = ".", header = T, na.strings = "NA")
- dada <- read.table(paste0(path$w[path$n == "LV1.p"], "BaSoil2009/00_full_dataset/BaSoil2009_", year, "_lv1.dat"),
+ # dada<-read.table(paste0(p.1$w[p.1$n == "LV1.p"], "BaSoil2009/02_tdr/BaSoil2009_tdr_", year, "_lv1.dat"), sep = ",", dec = ".", header = T, na.strings = "NA")
+ # ice.dada<-read.table(paste0(p.1$w[p.1$n == "LV2.p"], "Bayelva/VWC/BaSoil2009Ice_", year, ".dat"), sep = ",", dec = ".", header = T, na.strings = "NA")
+ # vwc.data<-read.table(paste0(p.1$w[p.1$n == "LV1.p"], "BaSoil2009/05_vwc_roth/BaSoil2009_vwc_roth_", year, "_lv1.dat"), sep = ",", dec = ".", header = T, na.strings = "NA")
+ dada <- read.table(paste0(p.1$w[p.1$n == "LV1.p"], "BaSoil2009/00_full_dataset/BaSoil2009_", year, "_lv1.dat"),
                     sep = ",", dec = ".", header = T, na.strings = "NA")[, -c(2:17)]
- #ice.dada<-read.table(paste0(path$w[path$n == "LV2.p"], "Bayelva/VWC/BaSoil2009Ice_", year, ".dat"), sep = ",", dec = ".", header = T, na.strings = "NA")
+ #ice.dada<-read.table(paste0(p.1$w[p.1$n == "LV2.p"], "Bayelva/VWC/BaSoil2009Ice_", year, ".dat"), sep = ",", dec = ".", header = T, na.strings = "NA")
 
  lischt <- c(dada$UTC[format(strptime(dada$UTC, format = "%Y-%m-%d %H:%M"), format = "%d %H:%M") == "01 00:00"],
            dada$UTC[length(dada$UTC)])
@@ -70,7 +66,7 @@ for (year in run.year) {
 
  ###############################################################################################################################
  ###############################################################################################################################
- png(file = paste(path$w[path$n == "plot.p"], year, "/BaSoil2009_tdr_cond_", year, ".png", sep = ""),
+ png(file = paste(p.1$w[p.1$n == "plot.p"], year, "/BaSoil2009_tdr_cond_", year, ".png", sep = ""),
      width = p.width, height = p.height, pointsize = 8)#, A4, landscape)
  par(mar = c(1, 10, 1, 1), omi = c(0, 0, 0, 0))
  plot(as.numeric(strptime(dada$UTC, format = "%Y-%m-%d %H:%M")), dada$cond_h_1, pch = 20, # cex.lab = 1.7, cex.axis = 1.5,  #
@@ -102,7 +98,7 @@ for (year in run.year) {
  dev.off()#close pdf
  ###############################################################################################################################
  ###############################################################################################################################
- png(file = paste(path$w[path$n == "plot.p"], year, "/BaSoil2009_tdr_vwc_", year, ".png", sep = ""),
+ png(file = paste(p.1$w[p.1$n == "plot.p"], year, "/BaSoil2009_tdr_vwc_", year, ".png", sep = ""),
      width = p.width, height = p.height, pointsize = 8)#, A4, landscape)
  par(mar = c(1, 8, 1, 1), omi = c(0, 0, 0, 0))
  plot(as.numeric(strptime(dada$UTC, format = "%Y-%m-%d %H:%M")), dada$vwc_h_1, pch = 20, # cex.lab = 1.7, cex.axis = 1.5,  #
@@ -134,7 +130,7 @@ for (year in run.year) {
  dev.off()#close pdf
  ###############################################################################################################################
  ###############################################################################################################################
- # png(file = paste(path$w[path$n == "plot.p"], year, "/BaSoil2009_tdr_vwcII_", year, ".png", sep = ""), width = p.width, height = p.height, pointsize = 8)#, A4, landscape)
+ # png(file = paste(p.1$w[p.1$n == "plot.p"], year, "/BaSoil2009_tdr_vwcII_", year, ".png", sep = ""), width = p.width, height = p.height, pointsize = 8)#, A4, landscape)
  # par(mar = c(1, 5, 1, 1), omi = c(0, 0, 0, 0)) ###  ROTH  #####
  # plot(as.numeric(strptime(vwc.data$UTC, format = "%Y-%m-%d %H:%M")), vwc.data$vwc_h_1, pch = 20, # cex.lab = 1.7, cex.axis = 1.5,  #
  #   xlim = xxlim, ylim = c(-0.03, 0.52), xlab = "", ylab = "", xaxt = "n", yaxt = "n", type = "n")
@@ -152,7 +148,7 @@ for (year in run.year) {
  # dev.off()#close pdf
  ###############################################################################################################################
  ###############################################################################################################################
- png(file = paste(path$w[path$n == "plot.p"], year, "/BaSoil2009_tdr_diel_", year, ".png", sep = ""),
+ png(file = paste(p.1$w[p.1$n == "plot.p"], year, "/BaSoil2009_tdr_diel_", year, ".png", sep = ""),
      width = p.width, height = p.height, pointsize = 8)#, A4, landscape)
  par(mar = c(1, 5, 1, 1), omi = c(0, 0, 0, 0))
  plot(as.numeric(strptime(dada$UTC, format = "%Y-%m-%d %H:%M")), dada$vwc_h_1, pch = 20, # cex.lab = 1.7, cex.axis = 1.5,  #
@@ -173,7 +169,7 @@ for (year in run.year) {
  dev.off()#close pdf
  ###############################################################################################################################
  ###############################################################################################################################
- png(file = paste(path$w[path$n == "plot.p"], year, "/BaSoil2009_snow_diel_", year, ".png", sep = ""),
+ png(file = paste(p.1$w[p.1$n == "plot.p"], year, "/BaSoil2009_snow_diel_", year, ".png", sep = ""),
      width = p.width, height = p.height, pointsize = 8)#, A4, landscape)
  par(mar = c(1, 5, 1, 1), omi = c(0, 0, 0, 0))
  plot(as.numeric(strptime(dada$UTC, format = "%Y-%m-%d %H:%M")), dada$E2_sn_v_0, pch = 20, # cex.lab = 1.7, cex.axis = 1.5,  #
@@ -194,7 +190,7 @@ for (year in run.year) {
  dev.off()#close pdf
  ###############################################################################################################################
  ###############################################################################################################################
- # png(file = paste(path$w[path$n == "plot.p"], year, "/BaSoil2009_ice_", year, ".png", sep = ""), width = p.width, height = p.height, pointsize = 8)#, A4, landscape)
+ # png(file = paste(p.1$w[p.1$n == "plot.p"], year, "/BaSoil2009_ice_", year, ".png", sep = ""), width = p.width, height = p.height, pointsize = 8)#, A4, landscape)
  # par(mar = c(1, 5, 1, 1), omi = c(0, 0, 0, 0))
  #
  #
@@ -215,7 +211,7 @@ for (year in run.year) {
  # dev.off()#close pdf
  ###############################################################################################################################
  ###############################################################################################################################
- # png(file = paste(path$w[path$n == "plot.p"], year, "/BaSoil2009_icegrid_", year, ".png", sep = ""), width = p.width, height = p.height, pointsize = 8)#, A4, landscape)
+ # png(file = paste(p.1$w[p.1$n == "plot.p"], year, "/BaSoil2009_icegrid_", year, ".png", sep = ""), width = p.width, height = p.height, pointsize = 8)#, A4, landscape)
  # par(mar = c(1, 5, 1, 1), omi = c(0, 0, 0, 0))
  #
  #

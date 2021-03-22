@@ -20,20 +20,16 @@
 #############################################################################
 # to run this script separately, you have to uncomment the next 10 lines!
 # rm(list = ls())
-# if (.Platform$OS.type  ==  "windows") {
-#   path <- read.table("N:/sparc/LTO/R_database/database_R/settings/path_windoof.txt", sep = "\t", header = T)
-#   maint <- read.table("N:/sparc/LTO/R_database/database_R/settings/maintance.txt", sep = "\t", header = T)
-#   p.1 <- read.table("N:/sparc/LTO/R_database/database_R/settings/path_windoof.txt", sep = "\t", header = T)
-#   p.1maint <- read.table("N:/sparc/LTO/R_database/database_R/settings/maintance.txt", sep = "\t", header = T)
-#
-#   source("N:/sparc/LTO/R_database/database_R/settings/db_func.R")
+# if (.Platform$OS.type == "windows") {
+#   p.1 <- read.table("N:/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/settings/path_win.txt", sep = "\t", header = T)
+#   p.1maint <- read.table("N:/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/settings/maintenance.files/maintance.txt", sep = "\t", header = T)
+#   
+#   source("N:/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/functions/db_func.R")
 # } else {
-#   path <- read.table("/sparc/LTO/R_database/database_R/settings/path_linux.txt", sep = "\t", header = T, fileEncoding = "UTF-8")
-#   maint <- read.table("/sparc/LTO/R_database/database_R/settings/maintance.txt", sep = "\t", header = T)
-#   p.1 <- read.table("/sparc/LTO/R_database/database_R/settings/path_linux.txt", sep = "\t", header = T, fileEncoding = "UTF-8")
-#   p.1maint <- read.table("/sparc/LTO/R_database/database_R/settings/maintance.txt", sep = "\t", header = T)
-#
-#   source("/sparc/LTO/R_database/database_R/settings/db_func.R")
+#   p.1 <- read.table("/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/settings/path_linux.txt", sep = "\t", header = T, fileEncoding = "UTF-8")
+#   p.1maint <- read.table("/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/settings/maintenance.files/maintance.txt", sep = "\t", header = T)
+#   
+#   source("/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/functions/db_func.R")
 # }
 #############################################################################
 
@@ -74,7 +70,7 @@ yticks <- seq(min(yylim), max(yylim), by = 10)
 
 # loop for annual plots
 for (year in run.year) {
-  lv1.dat <- read.table(paste0(path$w[path$n == "LV1.p"], "BaSoil2017/00_full_dataset/BaSoil2017_", year, "_lv1.dat"),
+  lv1.dat <- read.table(paste0(p.1$w[p.1$n == "LV1.p"], "BaSoil2017/00_full_dataset/BaSoil2017_", year, "_lv1.dat"),
                      sep = ",", dec = ".", header = T, na.strings = "NA")
 
   # define ticks of x-axis (dates)
@@ -87,7 +83,7 @@ for (year in run.year) {
             as.numeric(strptime(paste0("20.12.", year), format = "%d.%m.%Y")))
 
   # print png
-  png(paste(path$w[path$n == "plot.p"], year, "/BaSoil2017_heatflux_", year, ".png", sep = ""),
+  png(paste(p.1$w[p.1$n == "plot.p"], year, "/BaSoil2017_heatflux_", year, ".png", sep = ""),
     width = p.width, height = p.height, pointsize = 8)
   # define empty plot
   par(mar = c(1, 8, 1, 1), omi = c(0, 0, 0, 0))
@@ -122,5 +118,5 @@ for (year in run.year) {
   # close png
   dev.off()
 
-  cat("level1 BaSoil2017_heatflux ", year, " plot done!\n")
+  cat("#\n# level1 BaSoil2017", year, " plot done!\n#\n")
 }

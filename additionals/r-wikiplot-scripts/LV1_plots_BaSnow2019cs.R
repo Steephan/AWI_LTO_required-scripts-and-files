@@ -15,19 +15,15 @@
 # to run this script separately, you have to uncomment the next 10 lines!
 # rm(list = ls())
 # if (.Platform$OS.type == "windows") {
-#   path <- read.table("N:/sparc/LTO/R_database/database_R/settings/path_windoof.txt", sep = "\t", header = T)
-#   maint <- read.table("N:/sparc/LTO/R_database/database_R/settings/maintance.txt", sep = "\t", header = T)
-#   p.1 <- read.table("N:/sparc/LTO/R_database/database_R/settings/path_windoof.txt", sep = "\t", header = T)
-#   p.1maint <- read.table("N:/sparc/LTO/R_database/database_R/settings/maintance.txt", sep = "\t", header = T)
-#
-#   source("N:/sparc/LTO/R_database/database_R/settings/db_func.R")
-# }else{
-#   path <- read.table("/sparc/LTO/R_database/database_R/settings/path_linux.txt", sep = "\t", header = T, fileEncoding = "UTF-8")
-#   maint <- read.table("/sparc/LTO/R_database/database_R/settings/maintance.txt", sep = "\t", header = T)
-#   p.1 <- read.table("/sparc/LTO/R_database/database_R/settings/path_linux.txt", sep = "\t", header = T, fileEncoding = "UTF-8")
-#   p.1maint <- read.table("/sparc/LTO/R_database/database_R/settings/maintance.txt", sep = "\t", header = T)
-#
-#   source("/sparc/LTO/R_database/database_R/settings/db_func.R")
+#   p.1 <- read.table("N:/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/settings/path_win.txt", sep = "\t", header = T)
+#   p.1maint <- read.table("N:/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/settings/maintenance.files/maintance.txt", sep = "\t", header = T)
+#   
+#   source("N:/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/functions/db_func.R")
+# } else {
+#   p.1 <- read.table("/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/settings/path_linux.txt", sep = "\t", header = T, fileEncoding = "UTF-8")
+#   p.1maint <- read.table("/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/settings/maintenance.files/maintance.txt", sep = "\t", header = T)
+#   
+#   source("/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/functions/db_func.R")
 # }
 #############################################################################
 
@@ -58,7 +54,7 @@ for (jahr in run.year) {
   db.complete_1 <- db.complete <- as.data.frame(matrix(ncol = 5, nrow = length(seq(start.date, end.date, by = "6 hours"))))
 
 if (jahr >= 2019) {
-  db.basnow.cs.lvl1 <- read.table(paste0(paste0(path$w[path$n == "LV1.p"]),
+  db.basnow.cs.lvl1 <- read.table(paste0(paste0(p.1$w[p.1$n == "LV1.p"]),
                                          "BaSnow2019cs/00_full_dataset/BaSnow2019cs_", jahr, "_lv1.dat"),
                               sep = ",", dec = ".", header = T, fill = TRUE)[, c("UTC", "SWE_K", "SWE_K_fl", "SWE_Tl", "SWE_Tl_fl")]
   db.complete_1[, 2] <- db.basnow.cs.lvl1[, "SWE_K"]
@@ -96,7 +92,7 @@ ymax <- 600
 yint <- 50
 
 
-png(paste(path$w[path$n == "plot.p"], jahr,"/BaSnow2019cs_swe_", jahr, ".png", sep = ""),
+png(paste(p.1$w[p.1$n == "plot.p"], jahr,"/BaSnow2019cs_swe_", jahr, ".png", sep = ""),
     width = p.width, height = p.height, pointsize = 8)
 par(mar = c(1, 8, 1, 1), omi = c(0, 0, 0, 0))
 plot(as.numeric(strptime(db.product_1$UTC, format = "%Y-%m-%d %H:%M")), db.product_1$SWE, pch = 20,
@@ -149,7 +145,7 @@ sh_product_zero <- which(as.numeric(db.product$SWE_fl) == 0)
 sh_product_flags <- which(as.numeric(db.product$SWE_fl) > 0)
 
 
-png(paste(path$w[path$n == "plot.p"], jahr, "/BaSnow2019cs_product_", jahr, ".png", sep = ""),
+png(paste(p.1$w[p.1$n == "plot.p"], jahr, "/BaSnow2019cs_product_", jahr, ".png", sep = ""),
     width = p.width, height = p.height, pointsize = 8)
 par(mar = c(1, 8, 1, 1), omi = c(0, 0, 0, 0))
 plot(as.numeric(strptime(db.product$UTC, format = "%Y-%m-%d %H:%M")), db.product$SWE, pch = 20,
@@ -189,9 +185,9 @@ db.complete_1[, 1] <- format(as.POSIXct(seq(start.date,end.date, by = "6 hours")
 colnames(db.complete) <- c("UTC", "SWE_K", "SWE_K_fl", "SWE_Tl", "SWE_Tl_fl")
 colnames(db.complete_1) <- c("UTC", "SWE_K", "SWE_K_fl", "SWE_Tl", "SWE_Tl_fl")
 
-write.table(db.product, paste0(paste0(path$w[path$n == "LV2.p"]) ,"Bayelva/SWE/BaSnow_product_", jahr, ".dat"),
+write.table(db.product, paste0(paste0(p.1$w[p.1$n == "LV2.p"]) ,"Bayelva/SWE/BaSnow_product_", jahr, ".dat"),
             quote = F, dec = ".", sep = "," , row.names = F)
-write.table(db.complete_1, paste0(paste0(path$w[path$n == "LV2.p"]) ,"Bayelva/SWE/BaSnow_complete_", jahr, ".dat"),
+write.table(db.complete_1, paste0(paste0(p.1$w[p.1$n == "LV2.p"]) ,"Bayelva/SWE/BaSnow_complete_", jahr, ".dat"),
             quote = F, dec = ".", sep = ",", row.names = F)
 
 ##################
