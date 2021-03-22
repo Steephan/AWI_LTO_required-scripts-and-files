@@ -1,0 +1,98 @@
+"station","dataset","variable","check1","controller1","check2","controller2"
+"Bayelva","BaMet2009","Tair_4","2021-02-26 13:12:22","SL",NA,NA
+"Bayelva","BaMet2009","Tair_20","2021-02-26 13:12:29","SL",NA,NA
+"Bayelva","BaMet2009","Tair_100","2021-02-26 13:12:34","SL",NA,NA
+"Bayelva","BaMet2009","Tair_200","2021-02-26 13:12:41","SL",NA,NA
+"Bayelva","BaMet2009","RH_200","2021-02-26 13:12:47","SL",NA,NA
+"Bayelva","BaMet2009","wind_v_200","2021-02-26 13:12:52","SL",NA,NA
+"Bayelva","BaMet2009","wind_deg_200","2021-02-26 13:12:58","SL",NA,NA
+"Bayelva","BaMet2009","wind_sddeg_200","2021-02-26 13:13:08","SL",NA,NA
+"Bayelva","BaMet2009","wind_vmax_200","2021-02-26 13:13:13","SL",NA,NA
+"Bayelva","BaMet2009","wind_vmin_200","2021-02-26 13:13:19","SL",NA,NA
+"Bayelva","BaMet2009","prec","2021-02-26 13:13:27","SL",NA,NA
+"Bayelva","BaMet2009","Dsn","2021-02-26 13:13:43","SL",NA,NA
+"Bayelva","BaMet2009","Ts_252_2","2021-02-26 13:13:48","SL",NA,NA
+"Bayelva","BaMet2009","Ts_252_12",NA,NA,NA,NA
+"Bayelva","BaMet2009","Ts_252_32",NA,NA,NA,NA
+"Bayelva","BaMet2009","Ts_252_62",NA,NA,NA,NA
+"Bayelva","BaMet2009","Ts_252_102",NA,NA,NA,NA
+"Bayelva","BaMet2009","Ts_252_152",NA,NA,NA,NA
+"Bayelva","BaMet2009","Ts_203_2","2021-02-26 13:14:17","SL",NA,NA
+"Bayelva","BaMet2009","Ts_203_5","2021-02-26 13:14:25","SL",NA,NA
+"Bayelva","BaMet2009","Ts_203_23",NA,NA,NA,NA
+"Bayelva","BaMet2009","Ts_203_53",NA,NA,NA,NA
+"Bayelva","BaMet2009","Ts_203_93",NA,NA,NA,NA
+"Bayelva","BaMet2009","Ts_203_143",NA,NA,NA,NA
+"Bayelva","BaMet2009","SwIn","2021-02-26 13:14:59","SL",NA,NA
+"Bayelva","BaMet2009","SwOut","2021-02-26 13:15:05","SL",NA,NA
+"Bayelva","BaMet2009","LwIn","2021-02-26 13:15:11","SL",NA,NA
+"Bayelva","BaMet2009","LwOut","2021-02-26 13:15:18","SL",NA,NA
+"Bayelva","BaMet2009","SwNet","2021-02-26 13:15:24","SL",NA,NA
+"Bayelva","BaMet2009","LwNet",NA,NA,NA,NA
+"Bayelva","BaMet2009","Albedo","2021-02-26 13:15:33","SL",NA,NA
+"Bayelva","BaMet2009","RadNet","2021-02-26 13:15:39","SL",NA,NA
+"Bayelva","BaSoil2009","Ts_1",NA,NA,NA,NA
+"Bayelva","BaSoil2009","Ts_11",NA,NA,NA,NA
+"Bayelva","BaSoil2009","Ts_21",NA,NA,NA,NA
+"Bayelva","BaSoil2009","Ts_37",NA,NA,NA,NA
+"Bayelva","BaSoil2009","Ts_55",NA,NA,NA,NA
+"Bayelva","BaSoil2009","Ts_71",NA,NA,NA,NA
+"Bayelva","BaSoil2009","Ts_89",NA,NA,NA,NA
+"Bayelva","BaSoil2009","Ts_141",NA,NA,NA,NA
+"Bayelva","BaSoil2009","E2_h_1",NA,NA,NA,NA
+"Bayelva","BaSoil2009","E2_h_11",NA,NA,NA,NA
+"Bayelva","BaSoil2009","E2_h_21",NA,NA,NA,NA
+"Bayelva","BaSoil2009","E2_h_37",NA,NA,NA,NA
+"Bayelva","BaSoil2009","E2_h_55",NA,NA,NA,NA
+"Bayelva","BaSoil2009","E2_h_71",NA,NA,NA,NA
+"Bayelva","BaSoil2009","E2_h_89",NA,NA,NA,NA
+"Bayelva","BaSoil2009","E2_sn_v_0",NA,NA,NA,NA
+"Bayelva","BaSoil2009","cond_h_1",NA,NA,NA,NA
+"Bayelva","BaSoil2009","cond_h_11",NA,NA,NA,NA
+"Bayelva","BaSoil2009","cond_h_21",NA,NA,NA,NA
+"Bayelva","BaSoil2009","cond_h_37",NA,NA,NA,NA
+"Bayelva","BaSoil2009","cond_h_55",NA,NA,NA,NA
+"Bayelva","BaSoil2009","cond_h_71",NA,NA,NA,NA
+"Bayelva","BaSoil2009","cond_h_89",NA,NA,NA,NA
+"Bayelva","BaSoil2009","cond_sn_v_0",NA,NA,NA,NA
+"Bayelva","BaSoil2009","vwc_h_1",NA,NA,NA,NA
+"Bayelva","BaSoil2009","vwc_h_11",NA,NA,NA,NA
+"Bayelva","BaSoil2009","vwc_h_21",NA,NA,NA,NA
+"Bayelva","BaSoil2009","vwc_h_37",NA,NA,NA,NA
+"Bayelva","BaSoil2009","vwc_h_55",NA,NA,NA,NA
+"Bayelva","BaSoil2009","vwc_h_71",NA,NA,NA,NA
+"Bayelva","BaSoil2009","vwc_h_89",NA,NA,NA,NA
+"Bayelva","BaSoil2017","G_1",NA,NA,NA,NA
+"Bayelva","BaSoil2017","G_2",NA,NA,NA,NA
+"Bayelva","BaHole2009","Tair_50",NA,NA,NA,NA
+"Bayelva","BaHole2009","Ts_0",NA,NA,NA,NA
+"Bayelva","BaHole2009","Ts_50",NA,NA,NA,NA
+"Bayelva","BaHole2009","Ts_100",NA,NA,NA,NA
+"Bayelva","BaHole2009","Ts_150",NA,NA,NA,NA
+"Bayelva","BaHole2009","Ts_250",NA,NA,NA,NA
+"Bayelva","BaHole2009","Ts_350",NA,NA,NA,NA
+"Bayelva","BaHole2009","Ts_550",NA,NA,NA,NA
+"Bayelva","BaHole2009","Ts_750",NA,NA,NA,NA
+"Bayelva","BaHole2009","Ts_900",NA,NA,NA,NA
+"Bayelva","BaHole2015","Ts_0",NA,NA,NA,NA
+"Bayelva","BaHole2015","Ts_50",NA,NA,NA,NA
+"Bayelva","BaHole2015","Ts_100",NA,NA,NA,NA
+"Bayelva","BaHole2015","Ts_150",NA,NA,NA,NA
+"Bayelva","BaHole2015","Ts_200",NA,NA,NA,NA
+"Bayelva","BaHole2015","Ts_250",NA,NA,NA,NA
+"Bayelva","BaHole2015","Ts_350",NA,NA,NA,NA
+"Bayelva","BaHole2015","Ts_550",NA,NA,NA,NA
+"Bayelva","BaHole2015","Ts_750",NA,NA,NA,NA
+"Bayelva","BaHole2015","Ts_900",NA,NA,NA,NA
+"Bayelva","BaSnow2013","Dsn","2021-03-18 11:27:07","IG",NA,NA
+"Bayelva","BaSnow2019sr","Tair_200",NA,NA,NA,NA
+"Bayelva","BaSnow2019sr","Dsn",NA,NA,NA,NA
+"Bayelva","BaSnow2019cs","CountsK",NA,NA,NA,NA
+"Bayelva","BaSnow2019cs","CountsTl",NA,NA,NA,NA
+"Bayelva","BaSnow2019cs","SWE_K",NA,NA,NA,NA
+"Bayelva","BaSnow2019cs","KTl_Ratio",NA,NA,NA,NA
+"Bayelva","BaSnow2019cs","SWE_Tl",NA,NA,NA,NA
+"Bayelva","BaSnow2019cs","Tcryst_min",NA,NA,NA,NA
+"Bayelva","BaSnow2019cs","Tcryst_max",NA,NA,NA,NA
+"Bayelva","BaSnow2019cs","Dsn",NA,NA,NA,NA
+"Bayelva","BaSnow2019cs","rho_K",NA,NA,NA,NA

@@ -1,0 +1,2 @@
+"from","to","dataset","variable","flag","flagging_date","flagged_by","comments"
+"2006-08-17 00:00:00","2006-08-17 23:59:00","SaMet2002","prec",3,"2007-06-14 18:00:00","PS","cleaning rain gauge, no clock time given"

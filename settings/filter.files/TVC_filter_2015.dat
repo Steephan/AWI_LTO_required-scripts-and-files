@@ -1,0 +1,2 @@
+"from","to","dataset","variable","filtername","min","max","flag","flagging_date","flagged_by"
+"2015-07-14 10:00:00","2015-09-18 00:00:00","TVCSoil2016","Ts_2","minmaxmanual",-4.7952940164409,4.6504468809336,6,"2017-11-07 14:24:55","SL placeholder"

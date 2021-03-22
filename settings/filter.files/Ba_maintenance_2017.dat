@@ -1,0 +1,12 @@
+"from","to","dataset","variable","flag","flagging_date","flagged_by","comments"
+"2017-07-10 15:04:00","2017-07-14 18:00:00","BaMet2009","Dsn",3,"2018-01-03 11:50:00","NB",NA
+"2017-07-14 21:00:00","2017-07-14 22:00:00","BaHole2009","Tair_50",3,"2020-02-04 11:20:47","NB","sensor removed and installed"
+"2017-07-14 21:00:00","2017-07-14 22:00:00","BaHole2009","Ts_0",3,"2020-02-04 11:20:47","NB","sensor removed and installed"
+"2017-07-14 21:00:00","2017-07-14 22:00:00","BaHole2009","Ts_50",3,"2020-02-04 11:20:47","NB","sensor removed and installed"
+"2017-07-14 21:00:00","2017-07-14 22:00:00","BaHole2009","Ts_100",3,"2020-02-04 11:20:47","NB","sensor removed and installed"
+"2017-07-14 21:00:00","2017-07-14 22:00:00","BaHole2009","Ts_150",3,"2020-02-04 11:20:47","NB","sensor removed and installed"
+"2017-07-14 21:00:00","2017-07-14 22:00:00","BaHole2009","Ts_250",3,"2020-02-04 11:20:47","NB","sensor removed and installed"
+"2017-07-14 21:00:00","2017-07-14 22:00:00","BaHole2009","Ts_350",3,"2020-02-04 11:20:47","NB","sensor removed and installed"
+"2017-07-14 21:00:00","2017-07-14 22:00:00","BaHole2009","Ts_550",3,"2020-02-04 11:20:47","NB","sensor removed and installed"
+"2017-07-14 21:00:00","2017-07-14 22:00:00","BaHole2009","Ts_750",3,"2020-02-04 11:20:47","NB","sensor removed and installed"
+"2017-07-14 21:00:00","2017-07-14 22:00:00","BaHole2009","Ts_900",3,"2020-02-04 11:20:47","NB","sensor removed and installed"

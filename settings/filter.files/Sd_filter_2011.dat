@@ -1,0 +1,2 @@
+"from","to","dataset","variable","filtername","min","max","flag","flagging_date","flagged_by"
+"2011-10-27 07:30:00","2011-11-13 06:30:00","SdHole2009","Ts_3000","minmaxmanual",-10.543771687405,-10.51354503175,6,"2019-11-19 16:24:40","SL"

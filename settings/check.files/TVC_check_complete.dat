@@ -1,0 +1,28 @@
+"station","dataset","variable","begin","end","check3","controller3"
+"TVC","TVCSoil2016","Ts_2","1998","2020","2020-04-09 15:27:24","SL"
+"TVC","TVCSoil2016","Ts_5","1998","2020","2020-04-09 15:27:34","SL"
+"TVC","TVCSoil2016","Ts_10","1998","2020","2020-04-09 15:27:39","SL"
+"TVC","TVCSoil2016","Ts_20","1998","2020","2020-04-09 15:27:45","SL"
+"TVC","TVCSoil2016","E2_h_2","1998","2020","2020-04-09 15:27:54","SL"
+"TVC","TVCSoil2016","E2_h_5","1998","2020","2020-04-09 15:28:01","SL"
+"TVC","TVCSoil2016","E2_h_10","1998","2020","2020-04-09 15:28:06","SL"
+"TVC","TVCSoil2016","E2_h_20","1998","2020","2020-04-09 15:28:11","SL"
+"TVC","TVCSoil2016","E2_v_0",NA,NA,NA,NA
+"TVC","TVCSoil2016","E2_a_v_0",NA,NA,NA,NA
+"TVC","TVCSoil2016","E2_b_v_0",NA,NA,NA,NA
+"TVC","TVCSoil2016","E2_sn_v_0","1998","2020","2020-04-09 15:32:17","SL"
+"TVC","TVCSoil2016","vwc_h_2","1998","2020","2020-04-09 15:32:27","SL"
+"TVC","TVCSoil2016","vwc_h_5","1998","2020","2020-04-09 15:32:36","SL"
+"TVC","TVCSoil2016","vwc_h_10","1998","2020","2020-04-09 15:32:43","SL"
+"TVC","TVCSoil2016","vwc_h_20","1998","2020","2020-04-09 15:32:52","SL"
+"TVC","TVCSoil2016","vwc_v_0",NA,NA,NA,NA
+"TVC","TVCSoil2016","vwc_a_v_0",NA,NA,NA,NA
+"TVC","TVCSoil2016","vwc_b_v_0",NA,NA,NA,NA
+"TVC","TVCSoil2016","cond_h_2",NA,NA,NA,NA
+"TVC","TVCSoil2016","cond_h_5",NA,NA,NA,NA
+"TVC","TVCSoil2016","cond_h_10",NA,NA,NA,NA
+"TVC","TVCSoil2016","cond_h_20",NA,NA,NA,NA
+"TVC","TVCSoil2016","cond_v_0",NA,NA,NA,NA
+"TVC","TVCSoil2016","cond_a_v_0",NA,NA,NA,NA
+"TVC","TVCSoil2016","cond_b_v_0",NA,NA,NA,NA
+"TVC","TVCSoil2016","cond_sn_v_0",NA,NA,NA,NA
