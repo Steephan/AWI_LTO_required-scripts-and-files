@@ -3,8 +3,9 @@
 #  Create yearlyDataPath_III_auto.csv
 #  automaticly by available datasets
 #
-#  2020-01-13 define option "Sd" for i == 3 in loop
-#  2019.02.04 new path to sparc
+#  2021-03-23 SL: new git structure pathes
+#  2020-01-13 CL: define option "Sd" for i == 3 in loop
+#  2019-02-04 SL: new path to sparc
 #
 #
 ################################################################
@@ -33,7 +34,7 @@ datas[[5]] <- c("KuQ12013","KuLucky22014","KuLucky12013","KuLucky2013")
 origin <- "1970-01-01"
 
 #### import data ####
-for (kl in 1:5) {#1:5
+for (kl in 1:3) {#1:5
   ## read paths and allowed variables
 
   if (kl == 1) {
@@ -58,25 +59,23 @@ for (kl in 1:5) {#1:5
     lv1 <- "_lv1_noflag"
   }
 
-  sink(paste0("N:/sparc/LTO/R_database/flagger_sa/yearlyDataPath", name.sys, ".csv"))
+  sink(paste0("N:/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/settings_shiny/yearlyDataPath", name.sys, ".csv"))
   cat("station, dataset, year, path, db.path, endung\n")
-  for (i in 1:5) {
+  for (i in 1:5) { # stations 1-5 
     for (j in datas[[i]]) {
        hui <- list.files(paste0("N:/sparc/data/LTO/level1/", j, "/00_full_dataset/"), pattern = "noflag.dat")
       for (k in 1:length(hui)) {
         lv0.data <- read.table(paste0("N:/sparc/data/LTO/level1/", j, "/00_full_dataset/", hui[k]), sep = ",", dec = ".", header = T)[1, ]
         year <- as.numeric(format(as.POSIXct(lv0.data[, 1], origin = origin, tz = "UTC", format = '%Y-%m-%d %H:%M'), format = '%Y'))
 
-        # OLD: if(i %in% c(1,3)){wo<-"Sa"}
+        
         if (i == 1) {wo <- "Sa"} else if (i == 2) {wo <- "Ba"} else if (i == 3) {wo <- "Sd"} else if (i == 4) {wo <- "TVC"} else if (i == 5) {wo <- "Ku"}
         cat(paste(stations[i], j, year, paste0(pre.sys, "/data/LTO/level1/", j, "/00_full_dataset/", j, "_", year, lv1, ".dat"),
-                  paste0(pre.sys, "/LTO/R_database/database_R/", wo, "_02_Lvl0_Lvl1/flagger/LV1_flagger_update.R"), "1 \n", sep = ", "), append = T)
+                  paste0(pre.sys, "/LTO/R_database/Time_series_preprocessing/sparcflags/shiny-server/LV1_", wo, "_flagger_update.R"), "1 \n", sep = ", "), append = T)
       }
     }
   }
   sink()
-
-  #file.show(paste0("N:/sparc/LTO/R_database/flagger_sa/yearlyDataPath",name.sys,".csv"))
 }
 
 # sink() # final sink() to close the last sink. Not clear why this is necessary.

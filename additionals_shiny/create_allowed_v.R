@@ -28,7 +28,7 @@ stations <- c("BaMet1998","BaMet2009","BaSoil1998","BaSoil2009","BaSoil2017",
 
             "TVCSoil2016")
 
-sink("N:/sparc/LTO/R_database/flagger_sa/allowedVariables.csv")
+sink("N:/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/settings_shiny/allowedVariables.csv")
 cat("dataset, variable\n")
 for (i in stations) {
   hui <- list.files(paste0("N:/sparc/data/LTO/level1/", i, "/00_full_dataset/"), pattern = "noflag.dat")[1]
