@@ -96,7 +96,8 @@ try(source(paste(script.raw.path, "RAW_to_LV0_BaSoil2009_temp.R", sep = "")))
 try(source(paste(script.raw.path, "RAW_to_LV0_BaSoil2009_tdr.R", sep = "")))
 try(source(paste(script.raw.path, "RAW_to_LV0_BaMet2009.R", sep = "")))
 try(source(paste(script.raw.path, "RAW_to_LV0_BaHole2009.R", sep = "")))
-try(source(paste(script.raw.path, "RAW_to_LV0_BaHole2015.R", sep = "")))
+#try(source(paste(script.raw.path, "RAW_to_LV0_BaHole2015.R", sep = "")))
+try(source(paste(script.raw.path, "RAW_to_LV0_BaHole2021.R", sep = "")))
 try(source(paste(script.raw.path, "RAW_to_LV0_BaSnow2019.R", sep = "")))
 try(source(paste(script.raw.path, "RAW_to_LV0_BaSoil2017.R", sep = "")))
 
@@ -113,7 +114,7 @@ station <- 'BaMet2009' # ; years <- 2009:recent.year #; run.year <- recent.year
 try(source(paste(script.lv0.path, "LV0_to_LV1_BaAll.R", sep = "")))
 station <- 'BaHole2009' #; years <- 2009:recent.year #; run.year <- recent.year
 try(source(paste(script.lv0.path, "LV0_to_LV1_BaAll.R", sep = "")))
-station <- 'BaHole2015' #; years <- 2015:recent.year #; run.year <- recent.year
+station <- 'BaHole2021' #; years <- 2015:recent.year #; run.year <- recent.year
 try(source(paste(script.lv0.path, "LV0_to_LV1_BaAll.R", sep = "")))
 station <- 'BaSnow2019sr' #; years <- 2019:recent.year #; run.year <- recent.year
 try(source(paste(script.lv0.path, "LV0_to_LV1_BaAll.R", sep = "")))
@@ -136,7 +137,7 @@ try(source(paste(script.lv1.path, "LV1_plots_BaSoil2009_tdr.R", sep = "")))
 try(source(paste(script.lv1.path, "LV1_plots_BaSoil2009_temp.R", sep = "")))
 try(source(paste(script.lv1.path, "LV1_plots_BaMet2009.R", sep = "")))
 try(source(paste(script.lv1.path, "LV1_plots_BaHole2009.R", sep = "")))
-try(source(paste(script.lv1.path, "LV1_plots_BaHole2015.R", sep = "")))
+try(source(paste(script.lv1.path, "LV1_plots_BaHole2021.R", sep = "")))
 try(source(paste(script.lv1.path, "LV1_plots_BaSnow2019cs.R", sep = "")))
 try(source(paste(script.lv1.path, "LV1_plots_BaSoil2017.R", sep = "")))
 
