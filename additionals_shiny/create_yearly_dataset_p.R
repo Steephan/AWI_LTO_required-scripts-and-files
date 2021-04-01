@@ -3,6 +3,7 @@
 #  Create yearlyDataPath_III_auto.csv
 #  automaticly by available datasets
 #
+#  2021-04-01 SL: new station BaHole2021
 #  2021-03-23 SL: new git structure pathes
 #  2020-01-13 CL: define option "Sd" for i == 3 in loop
 #  2019-02-04 SL: new path to sparc
@@ -14,10 +15,11 @@
 stations <- c("Samoylov","Bayelva","Sardakh","TVC","Kurungnakh")
 datas <- list()
 datas[[1]] <- c("SaMet1998","SaSoil1998",
-              "SaSoil2002","SaSoil2012","SaMet2002","SaHole2006","SaHole2010", "SaHole2018",
+              "SaSoil2002","SaSoil2012","SaMet2002",
+              "SaHole2006","SaHole2010", "SaHole2018",
               "SaPond2006","SaPond2014","SaSnow2012","SaSnow2016")
 datas[[2]] <- c("BaMet1998","BaMet2009","BaSoil1998","BaSoil2009","BaSoil2017",
-              "BaHole2009","BaHole2015","BaSnow2013","BaSnow2019sr",
+              "BaHole2009","BaHole2015","BaHole2021","BaSnow2013","BaSnow2019sr",
               "BaSnow2019cs","BaEddy2007")
 datas[[3]] <- c("SdHole2009")
 datas[[4]] <- c("TVCSoil2016")

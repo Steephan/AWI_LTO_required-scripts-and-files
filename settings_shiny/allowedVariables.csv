@@ -243,6 +243,15 @@ BaHole2015, Ts_350
 BaHole2015, Ts_550
 BaHole2015, Ts_750
 BaHole2015, Ts_900
+BaHole2021, Ts_0
+BaHole2021, Ts_50
+BaHole2021, Ts_100
+BaHole2021, Ts_150
+BaHole2021, Ts_250
+BaHole2021, Ts_350
+BaHole2021, Ts_550
+BaHole2021, Ts_750
+BaHole2021, Ts_900
 BaSnow2013, Dsn
 BaSnow2019sr, Tair_200
 BaSnow2019sr, Dsn
@@ -708,6 +717,8 @@ SaSnow2012, Dsn_6
 SaSnow2012, Dsn_7
 SaSnow2012, Dsn_8
 SaSnow2012, Dsn_9
+SaSnow2012, Dist_Centre
+SaSnow2012, Dist_Crack
 SaSnow2016, Tair_170
 SaSnow2016, Tair_sd_170
 SaSnow2016, Dsn

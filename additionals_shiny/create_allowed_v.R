@@ -3,7 +3,7 @@
 #  Create "allowed variables" for available Stations at DB
 #
 #
-#
+#  2021-04-01 SL: new station BaHole2021
 #
 #
 #
@@ -14,7 +14,7 @@
 
 
 stations <- c("BaMet1998","BaMet2009","BaSoil1998","BaSoil2009","BaSoil2017",
-            "BaHole2009","BaHole2015","BaSnow2013",
+            "BaHole2009","BaHole2015","BaHole2021","BaSnow2013",
             "BaSnow2019sr","BaSnow2019cs","BaEddy2007",
 
             "KuQ12013","KuLucky22014","KuLucky12013","KuLucky2013",
