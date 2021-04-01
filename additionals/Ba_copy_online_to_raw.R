@@ -21,12 +21,12 @@
 # if (.Platform$OS.type == "windows") {
 #   p.1 <- read.table("N:/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/settings/path_win.txt", sep = "\t", header = T)
 #   p.1maint <- read.table("N:/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/settings/maintenance.files/maintance.txt", sep = "\t", header = T)
-#   
+# 
 #   source("N:/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/functions/db_func.R")
 # } else {
 #   p.1 <- read.table("/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/settings/path_linux.txt", sep = "\t", header = T, fileEncoding = "UTF-8")
 #   p.1maint <- read.table("/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/settings/maintenance.files/maintance.txt", sep = "\t", header = T)
-#   
+# 
 #   source("/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/functions/db_func.R")
 # }
 #############################################################################
@@ -52,7 +52,7 @@ how.many    <-length(onl.snow)-length(raw.snow)
 for(i in 1:(how.many+1)){# plus 1 to update the last file
    file.copy(onl.snow[length(onl.snow)+1-i],paste0(p.1$w[p.1$n=="BaSn.raw.p"],jah,"/"), overwrite = TRUE, recursive = TRUE)
 }
-cat("#\n# copy/save",how.many+1,"BaSnow2013 file(s)\n#")
+cat("#\n# copy/save",how.many+1,"BaSnow2013 file(s)\n#\n")
 
 
 #############################################################################
@@ -76,8 +76,8 @@ if(mon==3&schon.da.soil==0|mon==6&schon.da.soil==0|mon==9&schon.da.soil==0|mon==
   file.copy(files.soil[1],paste0(p.1$w[p.1$n=="BaS.raw1.p"],format(Sys.Date(),"%Y%m%d"),"BaSoil2009Data_TDROnline.dat"))
   file.copy(files.soil[2],paste0(p.1$w[p.1$n=="BaS.raw2.p"],format(Sys.Date(),"%Y%m%d"),"BaSoil2009TDR_WaveOnline.dat"))
   file.copy(files.soil[3],paste0(p.1$w[p.1$n=="BaS.raw3.p"],format(Sys.Date(),"%Y%m%d"),"BaSoil2009TempOnline.dat"))
-  cat("\n#\n# copy/save 3 BaSoil2009 files\n#\n")
-}else{cat("\n#\n# Basoil files not saved \n#")}
+  cat("#\n# copy/save 3 BaSoil2009 files\n#\n")
+}else{cat("#\n# Basoil files not saved \n#\n")}
 
 
 #############################################################################
@@ -92,8 +92,26 @@ schon.da.met   <-length(list.files(paste0(p.1$w[p.1$n=="BaMet.raw.p"],"Bk2/"),pa
 if(mon==3&schon.da.met==0|mon==6&schon.da.met==0|mon==9&schon.da.met==0|mon==12&schon.da.met==0){
   # alle 3 Monate wird eine Sicherungskopie mit Datum in Raw gespeichert
   file.copy(files.met[3],paste0(paste0(p.1$w[p.1$n=="BaMet.raw.p"],"bk2/"),format(Sys.Date(),"%Y%m%d"),"_BaMet2010_bk2Online.dat"))
-  cat("\n#\n# copy/save 1 BaMet2015 file\n#")
-}else{cat("\n#\n# BaMet file not saved \n#\n")}
+  cat("#\n# copy/save 1 BaMet2015 file\n#\n")
+}else{cat("#\n# BaMet file not saved \n#\n")}
+
+
+#############################################################################
+#   BaHole2021
+#############################################################################
+#
+# wie oben bei BaSoil2009
+#
+files.met      <-list.files(paste0(p.1$w[p.1$n=="ONL.p"],"BaHole2021/"),pattern=".dat", full.names = TRUE)
+schon.da.met   <-length(list.files(paste0(p.1$w[p.1$n=="RAW.p"],"BaHole2021/"),pattern=paste(format(Sys.Date(),"%Y%m")), full.names = TRUE))
+
+if(mon==3&schon.da.met==0|mon==6&schon.da.met==0|mon==9&schon.da.met==0|mon==12&schon.da.met==0){
+  # alle 3 Monate wird eine Sicherungskopie mit Datum in Raw gespeichert
+  file.copy(files.met[1],paste0(paste0(p.1$w[p.1$n=="RAW.p"],"BaHole2021/"),format(Sys.Date(),"%Y%m%d"),"_BaHole2021_Data_temp_cal_online.dat"))
+  file.copy(files.met[2],paste0(paste0(p.1$w[p.1$n=="RAW.p"],"BaHole2021/"),format(Sys.Date(),"%Y%m%d"),"_BaHole2021_Data_temp_raw_online.dat"))
+  
+  cat("#\n# copy/save 2 BaHole2021 files\n#\n")
+}else{cat("#\n# BaHole2021 files not saved \n#\n")}
 
 #############################################################################
 #   BaHole2015
