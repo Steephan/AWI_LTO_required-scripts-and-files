@@ -21,9 +21,9 @@ Radiation shortwave net,SwNet,SwNet,W/m^2,all,Bayelva,-10,1000,
 Radiation longwave net,LwNet,LwNet,W/m^2,all,Bayelva,-300,300,
 Radiation Albedo,Albedo,Albedo,,all,Bayelva,0,1,
 Distance temperature correction,distcor,distcor,m,all,Bayelva,0.01,2.5,
-Counts Gamma radiation K,CountsK,CountsK,,all,Bayelva,50000,660000,Recommended ranges for Potassium Gamma counts: p. 21 cs725_cs_manual_v20120801.pdf
-Counts Gamma radiation TL,CountsTl,CountsTl,,all,Bayelva,12000,120000,Recommended ranges for Thallium Gamma counts: p. 22 cs725_cs_manual_v20120801.pdf
+Counts Gamma radiation K,CountsK,CountsK,,all,Bayelva,0,660000,NB recommended
+Counts Gamma radiation TL,CountsTl,CountsTl,,all,Bayelva,0,120000,NB recommended
 Snow water equivalent,SWE,SWE,mm,all,Bayelva,0,600,
 Operating temperature crystal ,Tcryst,Tcryst,Degree C,all,Bayelva,-40,40,"Operating Temperature in Degree C p. 2 cs725_cs_manual_v20120801.pdf | page 29 in campbell_scientific:cs725_cs_manual_v20120801.pdf ""The CS725 uses a thallium doped sodium iodide crystal NaI(Tl) for detecting the gamma radiation""."
-Ratio of K and TL,KTl,KTl,,all,Bayelva,0,600,Ratio of Potassium and Thallium counts. 
+Ratio of K and TL,KTl,KTl,,all,Bayelva,-50,600,NB recommended 
 Snow density calc. SWE_K,rho,rho_K,,all,Bayelva,0,1,
