@@ -1,0 +1,14 @@
+Raw;Lv0;O2A
+TIMESTAMP;UTC;time
+PTemp_C_Avg;Tpan;bahole2021:Tpan
+Ts_0_Avg;Ts_0;bahole2021:Ts_0
+Ts_50_Avg;Ts_50;bahole2021:Ts_50
+Ts_100_Avg;Ts_100;bahole2021:Ts_100
+Ts_150_Avg;Ts_150;bahole2021:Ts_150
+Ts_200_Avg;Ts_200;bahole2021:Ts_200
+Ts_250_Avg;Ts_250;bahole2021:Ts_250
+Ts_350_Avg;Ts_350;bahole2021:Ts_350
+Ts_550_Avg;Ts_550;bahole2021:Ts_550
+Ts_750_Avg;Ts_750;bahole2021:Ts_750
+Ts_900_Avg;Ts_900;bahole2021:Ts_900
+BattV_Min;batt_U_min;bahole2021:batt_V_min

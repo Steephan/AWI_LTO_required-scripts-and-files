@@ -70,7 +70,7 @@ if (logging == 1) {
 }
 ##########################
 
-script.raw.path <- paste0(p.1$w[p.1$n == "script.p"], "r-level-0-scripts/Bayelva/")
+script.raw.path <- paste0(p.1$w[p.1$n == "script.p"], "r-level-0-scripts/")
 script.lv0.path <- paste0(p.1$w[p.1$n == "script.p"], "r-level-1-scripts/")
 script.lv1.path <- paste0(p.1$w[p.1$n == "script.p"], "required-scripts-and-files/additionals/r-wikiplot-scripts/")
 script.lv2.path <- paste0(p.1$w[p.1$n == "script.p"], "r-level-2-scripts/Bayelva/")
@@ -91,15 +91,28 @@ cat("#      step 2: raw to level0                                               
 cat("##################################################################################\n")
 
 run.year <- recent.year #
-try(source(paste(script.raw.path, "RAW_to_LV0_BaSnow2013.R", sep = "")))
-try(source(paste(script.raw.path, "RAW_to_LV0_BaSoil2009_temp.R", sep = "")))
-try(source(paste(script.raw.path, "RAW_to_LV0_BaSoil2009_tdr.R", sep = "")))
-try(source(paste(script.raw.path, "RAW_to_LV0_BaMet2009.R", sep = "")))
-try(source(paste(script.raw.path, "RAW_to_LV0_BaHole2009.R", sep = "")))
-#try(source(paste(script.raw.path, "RAW_to_LV0_BaHole2015.R", sep = "")))
-try(source(paste(script.raw.path, "RAW_to_LV0_BaHole2021.R", sep = "")))
-try(source(paste(script.raw.path, "RAW_to_LV0_BaSnow2019.R", sep = "")))
-try(source(paste(script.raw.path, "RAW_to_LV0_BaSoil2017.R", sep = "")))
+try(source(paste(script.raw.path, "Bayelva/RAW_to_LV0_BaSnow2013.R", sep = "")))
+try(source(paste(script.raw.path, "Bayelva/RAW_to_LV0_BaSoil2009_temp.R", sep = "")))
+try(source(paste(script.raw.path, "Bayelva/RAW_to_LV0_BaSoil2009_tdr.R", sep = "")))
+try(source(paste(script.raw.path, "Bayelva/RAW_to_LV0_BaMet2009.R", sep = "")))
+try(source(paste(script.raw.path, "Bayelva/RAW_to_LV0_BaHole2009.R", sep = "")))
+#try(source(paste(script.raw.path, "Bayelva/RAW_to_LV0_BaHole2015.R", sep = "")))
+try(source(paste(script.raw.path, "Bayelva/RAW_to_LV0_BaHole2021.R", sep = "")))
+try(source(paste(script.raw.path, "Bayelva/RAW_to_LV0_BaSnow2019.R", sep = "")))
+try(source(paste(script.raw.path, "Bayelva/RAW_to_LV0_BaSoil2017.R", sep = "")))
+
+cat("##################################################################################\n")
+cat("#      step 3: level0 to O2A                                                  #\n")
+cat("##################################################################################\n")
+
+station <- 'BaSoil2009' ;day.shift <- 9
+try(source(paste(script.raw.path, "O2A/LV0_to_O2A_dataflow.R", sep = "")))
+station <- 'BaMet2009'  ;day.shift <- 9
+try(source(paste(script.raw.path, "O2A/LV0_to_O2A_dataflow.R", sep = "")))
+station <- 'BaHole2021' ;day.shift <- 9
+try(source(paste(script.raw.path, "O2A/LV0_to_O2A_dataflow.R", sep = "")))
+
+
 
 cat("##################################################################################\n")
 cat("#      step 3: level0 to level1                                                  #\n")
