@@ -57,10 +57,10 @@ recent.year <- as.numeric(format(Sys.Date(), "%Y"))
 
 ##########################
 # logging
-logging <- 1
+logging <-1 
 write(paste("last update:", Sys.Date()), paste0(p.1$w[p.1$n == "log.p"], "last_update.log"), sep = "\t")
 require("sendmailR")
-sender <- "stlange@awi.de" # Replace with a valid address
+sender <- "soiluser@awi.de" # Replace with a valid address
 recipients <- c("stephan.lange@awi.de", "niko.bornemann@awi.de") # Replace with one or more valid addresses
 
 if (logging == 1) {
@@ -102,7 +102,7 @@ try(source(paste(script.raw.path, "Bayelva/RAW_to_LV0_BaSnow2019.R", sep = "")))
 try(source(paste(script.raw.path, "Bayelva/RAW_to_LV0_BaSoil2017.R", sep = "")))
 
 cat("##################################################################################\n")
-cat("#      step 3: level0 to O2A                                                  #\n")
+cat("#      step 3: level0 to O2A                                                     #\n")
 cat("##################################################################################\n")
 
 station <- 'BaSoil2009' ;day.shift <- 9
@@ -140,6 +140,8 @@ cat("###########################################################################
 cat("#      step 4: level1 to level2                                                  #\n")
 cat("##################################################################################\n")
 
+cat("#\n# nothing here at the moment\n#\n")
+
 
 cat("##################################################################################\n")
 cat("#      step 5: level1-graphs to wiki                                             #\n")
@@ -154,29 +156,29 @@ try(source(paste(script.lv1.path, "LV1_plots_BaHole2021.R", sep = "")))
 try(source(paste(script.lv1.path, "LV1_plots_BaSnow2019cs.R", sep = "")))
 try(source(paste(script.lv1.path, "LV1_plots_BaSoil2017.R", sep = "")))
 
-cat("##################################################################################\n")
-cat("#      step 6: level2-graphs to wiki                                             #\n")
-cat("##################################################################################\n")
+# cat("##################################################################################\n")
+# cat("#      step 6: level2-graphs to wiki                                             #\n")
+# cat("##################################################################################\n")
 #
 #try(source(paste(script.lv2.path,"LV2_BaMet2009.R", sep = "")))
-cat("##################################################################################\n")
-cat("#      step 7: level2-update dataflow                                            #\n")
-cat("##################################################################################\n")
-station <- 'BaSoil2009' ; years <- 2009:recent.year ; run.year <- recent.year
+# cat("##################################################################################\n")
+# cat("#      step 7: level2-update dataflow                                            #\n")
+# cat("##################################################################################\n")
+# station <- 'BaSoil2009' ; years <- 2009:recent.year ; run.year <- recent.year
 # day.shift: how many days are updated for the dataflow product? default is 1,
 # ==> use larger numbers to fill gaps in http://sparcwiki.awi-potsdam.de/doku.php?id=observatory:data:analysis:bayelva:met:control
-day.shift <- 1
+#day.shift <- 1
 #try(source(paste(script.lv2.path, "LV1_to_dataflow.R", sep = "")))
 
-cat("##################################################################################\n")
-cat("#      step 7: level1-update PANGAEA                                             #\n")
-cat("##################################################################################\n")
+# cat("##################################################################################\n")
+# cat("#      step 7: level1-update PANGAEA                                             #\n")
+# cat("##################################################################################\n")
 #
 #try(source(paste(script.lv2.path,"LV1_to_PANGAEA.R", sep = "")))
 
-cat("##################################################################################\n")
-cat("#      step 8: weekly statistic to SL and NB                                     #\n")
-cat("##################################################################################\n")
+# cat("##################################################################################\n")
+# cat("#      step 8: weekly statistic to SL and NB                                     #\n")
+# cat("##################################################################################\n")
 
 if (logging == 1) {
   sink(type = "message")
@@ -194,7 +196,7 @@ body <- geterrmessage()
 if (nchar(body) > 0) {#
   sapply(recipients, function(x) sendmail(sender,
                                          to = x,
-                                         subject = "Database-Error, Bayelva RAW 2 Level1",
+                                         subject = "Database-Error, Bayelva has some problems",
                                          msg = body,
                                          control = list(smtpServer = "smtp.awi.de", port = 587)))
 }
