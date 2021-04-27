@@ -1,6 +1,6 @@
 dataset,sparc_dataset,variable_category,variable_not_used,wikiplot_name,legend_name
-BaHole2009,BaHole2009,Ts,,BaHole2009_moustache,BaHole2009_Ts
-BaHole2009,BaHole2009,,Ts,BaHole2009_trompete,BaHole2009_Ts_mean
+BaHole2009,BaHole2009,Ts,,BaHole2009_moustache,BaHole_Ts
+BaHole2009,BaHole2009,,Ts,BaHole2009_trompete,BaHole_Ts_mean
 BaHole2015,BaHole2015,Ts,,BaHole2015_moustache,BaHole2015_Ts
 BaHole2015,BaHole2015,,Ts,BaHole2015_trompete,BaHole2015_Ts_mean
 BaMet2009,BaMet2009,Albedo,,BaMet2009_albedo,BaMet2009_albedo

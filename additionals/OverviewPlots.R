@@ -66,7 +66,7 @@ tmp.path <- "N:/sparc/LTO/R_database/database_plots/OverviewPlots/Tmp_png/"
 origin <- "1970-01-01"
 
 # set the year(s) to process
-run.year <- 2019
+run.year <- 2020
 
 for (year_i in run.year) {
 
@@ -95,7 +95,7 @@ years <- list(2009:year_i, 2009:year_i, 2009:year_i, 2009:year_i, 2017:year_i, 2
 # k 1 and 2: Pangaea data sets
 # k > 2: level 1 data sets
 
-for (k in c(1:2)) {
+for (k in c(1)) {
 
 # run the loop only if the running year is not later than the last year of dataset k
 if (max(years[[k]]) >= year_i) {
@@ -251,7 +251,9 @@ if (max(years[[k]]) >= year_i) {
   ############################
 
   for (i in seq(2, ncol(lv1.data), by = 2)) {
-
+    cat(i,"\n")
+#  for (i in 22) {
+      
     ############################
     # index of values with flag 0
     ind <- which(lv1.data[, i + 1] == 0)
@@ -416,6 +418,11 @@ if (max(years[[k]]) >= year_i) {
       all.years <- years[[which(dataset == sparc.dataset)]]
     }
 
+    # for k > 2 ==> sparc data sets:
+    if (k > 2) {
+      sparc.dataset <- dataset[k]
+      all.years <- years[[k]]
+    } 
     # special condition for Pangaea dataset "soil" because
     # "Ts_b" is from "BaMet1998" between 1998 to 2009,
     # and from "BaMet2009" between 2009 to 2018
@@ -423,11 +430,7 @@ if (max(years[[k]]) >= year_i) {
       all.years <- 2010:year_i
     }
 
-    # for k > 2 ==> sparc data sets:
-    if (k > 2) {
-      sparc.dataset <- dataset[k]
-      all.years <- years[[k]]
-    }
+
     ##################
 
     ##################
@@ -502,6 +505,16 @@ if (max(years[[k]]) >= year_i) {
       ind.long <- which(long.lv1.data[, ii + 1] == 0)
     }
 
+    if(colnames(lv1.data[i])=="prec"){
+      prec.zero <- dummy2$prec
+      prec.zero[which(as.numeric(dummy2$prec_fl) > 0)] <- NA
+      prec.daily <- aggregate(prec.zero ~ format(strptime(dummy2$UTC, format = "%Y-%m-%d %H:%M"), format = "%Y-%m-%d"), FUN = sum)
+      prec.monthly <- aggregate(prec.zero ~ format(strptime(dummy2$UTC, format = "%Y-%m-%d %H:%M"), format = "%Y-%m"), FUN = sum)
+      prec.yearly <- aggregate(prec.zero ~ format(strptime(dummy2$UTC, format = "%Y-%m-%d %H:%M"), format = "%Y"), FUN = sum)
+      prec.yearly[,1]<-paste0(prec.yearly[,1],"-07-01")
+      prec.monthly[,1]<-paste0(prec.monthly[,1],"-15")
+    }
+    
     png(file = paste(tmp.path, "p", i, ".png", sep = ""),
         width = 2*6*ppi, height = 6*ppi, res = ppi)
 
@@ -527,6 +540,14 @@ if (max(years[[k]]) >= year_i) {
            t = "n", xlab = "", ylab = y.lab[i],
            main = paste(names(long.lv1.data[ii]), "- longterm only flag 0"), xaxt = "n",
            xlim = range(long.lv1.data$UTC))
+      if(colnames(lv1.data[i])=="prec"){
+      points(strptime(prec.yearly[, 1], format = "%Y-%m-%d"), prec.yearly[, 2]/50, t = "h", lwd = 20, col = "#e4e4e4")
+      points(strptime(prec.monthly[, 1], format = "%Y-%m-%d"), prec.monthly[, 2]/20, t = "h", lwd = 6, col = "#ffd6da")
+      points(strptime(dummy2$UTC, format = "%Y-%m-%d %H:%M"), prec.zero, t = "h", lwd = 2, col = "steelblue4")
+      text(strptime(prec.yearly[, 1], format = "%Y"), rep(10, length(prec.yearly[, 1])), labels = prec.yearly[, 2], las = 2, cex = 1)
+      #axis(2, at = seq(0,10,2), labels = seq(0, 20, 4), las = 1, cex.axis = 1.5,tcl = -1, col.axis = "#ffaeb6")
+      
+      }
       time.ticks <- axis.POSIXct(side = 1, x = long.lv1.data$UTC,
                                  cex.lab = 1.5, cex.axis = 1.5, mgp = c(1.8, 0.7, 0))
       #time.ticks <- axis.POSIXct(side = 1, x = long.lv1.data$UTC, labels = FALSE)
@@ -535,6 +556,7 @@ if (max(years[[k]]) >= year_i) {
       abline(v = seq(from = long.lv1.data$UTC[1], to = long.lv1.data$UTC[length(long.lv1.data$UTC)], by = "year"),
              col = "lightgray", lty = 1, lwd = 0.2)
       abline(h = 0, col = "lightgray", lty = 1, lwd = 2)
+      
       points(long.lv1.data$UTC[ind.long], long.lv1.data[ind.long, ii], pch = 1, cex = 0.2, lwd = 0.2)
       box()
     }

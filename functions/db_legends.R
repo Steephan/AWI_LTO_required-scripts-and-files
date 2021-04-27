@@ -11,12 +11,12 @@
 #  to run this script separately, you have to uncomment the next 10 lines!
 rm(list = ls())
 if (.Platform$OS.type == "windows") {
-  p.1 <- read.table("N:/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/settings/p.1_win.txt", sep = "\t", header = T)
+  p.1 <- read.table("N:/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/settings/path_win.txt", sep = "\t", header = T)
   p.1maint <- read.table("N:/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/settings/maintenance.files/maintance.txt", sep = "\t", header = T)
   
   source("N:/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/functions/db_func.R")
 } else {
-  p.1 <- read.table("/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/settings/p.1_linux.txt", sep = "\t", header = T, fileEncoding = "UTF-8")
+  p.1 <- read.table("/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/settings/path_linux.txt", sep = "\t", header = T, fileEncoding = "UTF-8")
   p.1maint <- read.table("/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/settings/maintenance.files/maintance.txt", sep = "\t", header = T)
   
   source("/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/functions/db_func.R")
@@ -187,14 +187,15 @@ dev.off()
 png(paste(p.1$w[p.1$n == "plot.p"], "Legends/BaHole_Ts.png", sep = ""), width = p.width, height = p.height, pointsize = 8)
 par(mar = c(0, 0, 0, 0), omi = c(0, 0, 0, 0))
 plot(1, 1, type = "n", xlab = "", ylab  =  "", xaxt = "n", yaxt = "n", cex.axis = 3, xlim = c(0, 2), ylim = c(0, 2))
-legend(1, 1.6, c("0.0", "0.5", "1.0", "1.5", "2.0", "2.5", "3.5", "5.5", "7.5", "9.0"),
-       col = c("#2E8B57", "#469F62", "#65B971", "#84CD6F", "#A4CD3E", "#C3CD0D", "#E4DD5E", "#EA9C57", "#CDAE9F", "#8B7765"),
+legend(1, 1.6, c("[+0.5]*","[0.0]*", "0.5", "1.0", "1.5", "2.0", "2.5", "3.5", "5.5", "7.5", "9.0"),
+       col = c("darkblue","#2E8B57", "#469F62", "#65B971", "#84CD6F", "#A4CD3E", "#C3CD0D", "#E4DD5E", "#EA9C57", "#CDAE9F", "#8B7765"),
        lty = 1, cex = 4, lwd = 4, bty = "n", xjust = 0.5)
 text(1, 1.9, "Soil temperature\n[°C]", cex = 4)
 text(1, 1.6, "depth [m]", cex = 3)
 #text(1, 0.55, "5.5 m since\nSeptember 2015", cex = 2)
 text(1, 0.2, "BaHole", cex = 2)
 text(1, 0.15, "78.92083°, 11.83421°", cex = 2)
+text(1, 0.1, "*  not shown", cex = 2)
 dev.off()
 
 png(paste(p.1$w[p.1$n == "plot.p"], "Legends/BaHole_Ts_mean.png", sep = ""), width = p.width, height = p.height, pointsize = 8)
