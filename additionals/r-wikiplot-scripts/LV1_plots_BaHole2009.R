@@ -15,15 +15,15 @@
 # if (.Platform$OS.type == "windows") {
 #   p.1 <- read.table("N:/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/settings/path_win.txt", sep = "\t", header = T)
 #   p.1maint <- read.table("N:/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/settings/maintenance.files/maintance.txt", sep = "\t", header = T)
-#   
+# 
 #   source("N:/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/functions/db_func.R")
 # } else {
 #   p.1 <- read.table("/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/settings/path_linux.txt", sep = "\t", header = T, fileEncoding = "UTF-8")
 #   p.1maint <- read.table("/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/settings/maintenance.files/maintance.txt", sep = "\t", header = T)
-#   
+# 
 #   source("/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/functions/db_func.R")
 # }
-# #############################################################################
+##############################################################################
 
 origin <- "1970-01-01"
 # for non-exponential display of numeric values
@@ -119,7 +119,7 @@ diefe <- c(1, 5, 10, 15, 25, 35, 55, 75, 90)
 
 for (qq in 3:10) {
   points(as.numeric(strptime(db.bahole.lvl1[((db.bahole.lvl1[, qq * 2 + 1]) == 0), 1], format = "%Y-%m-%d %H:%M")),
-         db.bahole.lvl1[((db.bahole.lvl1[, qq * 2 + 1]) == 0), qq * 2], col = soil.cols[diefe[qq - 1]], pch = 20)
+         db.bahole.lvl1[((db.bahole.lvl1[, qq * 2 + 1]) == 0), qq * 2], col = soil.cols[diefe[qq]], pch = 20)
 }
 #
 # points(as.numeric(strptime(db.bahole.lvl1$UTC[air_zero], format = "%Y-%m-%d %H:%M")), db.bamet.lvl1$Tair_200[air_zero], pch  =  20, cex.lab  =  1.5, cex.axis = 1.7,
