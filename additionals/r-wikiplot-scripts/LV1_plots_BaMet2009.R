@@ -1,14 +1,14 @@
-#############################################################################
+###.....................................................................
 ##
 ##   Level1 plots to wiki
-##   --------------------
+##   .....................................................................
 ##   BaMet2009
 ##
 ##   by: Stephan.Lange@awi.de -2200
 ##   updated by: christian.lehr@awi.de
 ##   last modified: 2020-04-15
 ##
-#############################################################################
+###.....................................................................
 ##
 ##  last modification:
 ##  2020-10-01 CL new precipitation plot format added
@@ -22,21 +22,21 @@
 ##
 ##
 ##
-###########################################################################
+###.....................................................................
 # to run this script separately, you have to uncomment the next 10 lines!
 # rm(list = ls())
 # if (.Platform$OS.type == "windows") {
 #   p.1 <- read.table("N:/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/settings/path_win.txt", sep = "\t", header = T)
 #   p.1maint <- read.table("N:/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/settings/maintenance.files/maintance.txt", sep = "\t", header = T)
-#   
+# 
 #   source("N:/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/functions/db_func.R")
 # } else {
 #   p.1 <- read.table("/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/settings/path_linux.txt", sep = "\t", header = T, fileEncoding = "UTF-8")
 #   p.1maint <- read.table("/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/settings/maintenance.files/maintance.txt", sep = "\t", header = T)
-#   
+# 
 #   source("/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/functions/db_func.R")
 # }
-###########################################################################
+###.....................................................................
 
 # for non-exponential display of numeric values
 options(scipen = 100, stringsAsFactors = F, scientific = T)  #, digits = 2
@@ -52,19 +52,20 @@ p.width <- 420 * 3.5
 p.height <- 280 * 3.5
 color <- rgb(190, 190, 190, alpha = 70, maxColorValue = 255)
 
-########
+####
 # to run this script separately, you have to set run.year:
 # run.year <- first.year:recent.year
+# run.year <- 2020
 #
 ### ATTENTION: Don?t use year 2009.
 # The plot of year 2009 is produced with script LV1_plots_BaMet1998.R
 #
-#######
+###
 
 
 for (t.year in run.year) {
 
-################## Load data #########################
+################ Load data #########################
 if (zack == 1) { # 1
   #db.bamet     <-read.table(paste(p.1$w[p.1$n == "LV1.p"], "BaMet2009/00_full_dataset/BaMet2009_", t.year, "_lv1_noflag.dat", sep = ""), sep = ",", dec = ".", header = T, fill = TRUE)
   db.bamet.lvl1 <- read.table(paste(p.1$w[p.1$n == "LV1.p"], "BaMet2009/00_full_dataset/BaMet2009_", t.year, "_lv1.dat", sep = ""),
@@ -77,9 +78,6 @@ if (zack == 1) { # 1
   xxlim <- c(as.numeric(strptime(paste0("13.01.", t.year), format = "%d.%m.%Y")),
              as.numeric(strptime(paste0("20.12.", t.year), format = "%d.%m.%Y")))
 
-  # plotting analysis
-  # -----------------
-  # some boundaries
   ylim_sw <- plot_bounderies(db.bamet.lvl1$SwOut, db.bamet.lvl1$SwIn)      # get plotting bounderies shortwave
   ylim_lw <- plot_bounderies(db.bamet.lvl1$LwOut, db.bamet.lvl1$LwIn)  # get plotting bounderies longwave
   lischt <- c(db.bamet.lvl1$UTC[format(strptime(db.bamet.lvl1$UTC, format = "%Y-%m-%d %H:%M"), format = "%d %H:%M") == "01 00:00"],
@@ -87,8 +85,8 @@ if (zack == 1) { # 1
 
 }# Load data
 
-###############
-###  albedo (from file vs. calculated (Out/In))
+################ Albedo ######
+#  albedo (from file vs. calculated (Out/In))
 if (zack == 1) {
 albedo_good <- which(db.bamet.lvl1$Albedo_fl == 0)
 albedo_bad <- which(db.bamet.lvl1$Albedo_fl > 1)
@@ -147,8 +145,7 @@ rm(albedo_bad, ohne.albedo)
 }# Albedo
 
 
-########################################################
-## Radiation Netto
+################ Radiation Netto #############################
 if (zack == 1) {
 net_zero <- which(db.bamet.lvl1$SwOut_fl == 0)
 net_flags <- which(db.bamet.lvl1$SwOut_fl > 0)
@@ -188,7 +185,7 @@ text(as.numeric(strptime(lischt[11], format = "%Y-%m-%d %H:%M")) + 2000000, 600,
 dev.off()
 }# Radiation netto
 
-###  radiation Global
+################ Radiation Global #######
 if (zack == 1) {
 png(paste(p.1$w[p.1$n == "plot.p"], t.year, "/BaMet2009_rad_gl_", t.year, ".png", sep = ""),
     width = p.width, height = p.height, pointsize = 8)
@@ -221,8 +218,8 @@ text(as.numeric(strptime(lischt[11], format = "%Y-%m-%d %H:%M")) + 2000000, 600,
 dev.off()
 }# Radiation global
 
-####################
-### radiation shortwave
+################ Radiation shortwave #######
+
 if (zack == 1) {
 
 sw_out <- which(db.bamet.lvl1$SwOut_fl == 0)
@@ -269,9 +266,8 @@ text(as.numeric(strptime(lischt[11], format = "%Y-%m-%d %H:%M")) + 2000000, 600,
 dev.off()
 }# Radiation shortwave
 
-########################################################
 
-### Radiation longwave
+################ Radiation longwave #######
 if (zack == 1) {
 lw_in  <- which(db.bamet.lvl1$LwOut_fl == 0)
 lw_out <- which(db.bamet.lvl1$LwIn_fl == 0)
@@ -294,9 +290,9 @@ points(as.numeric(strptime(db.last.year$UTC[last.von:last.bis], format = "%Y-%m-
        db.last.year$LwIn[last.von:last.bis], pch = 20, cex.lab = 1.5, xlim = xxlim, ylim = c(-5, 5), col = "snow3")  # forecast
 
 points(as.numeric(strptime(db.bamet.lvl1$UTC[lw_in], format = "%Y-%m-%d %H:%M")),
-       db.bamet.lvl1$LwOut[lw_in], pch = 20, cex.lab = 1.5, cex.axis = 1.7, col = "mediumpurple3")
+       db.bamet.lvl1$LwIn[lw_in], pch = 20, cex.lab = 1.5, cex.axis = 1.7, col = "mediumpurple3")
 points(as.numeric(strptime(db.bamet.lvl1$UTC[lw_out], format = "%Y-%m-%d %H:%M")),
-       db.bamet.lvl1$LwIn[lw_out], pch = 20, cex.lab = 1.5, col = "khaki3")
+       db.bamet.lvl1$LwOut[lw_out], pch = 20, cex.lab = 1.5, col = "khaki3")
 # points(as.numeric(strptime(db.bamet.lvl1$UTC[lw_bad_in], format = "%Y-%m-%d %H:%M")), db.bamet.lvl1$LwOut[lw_bad_in], pch = 20, cex.lab = 1.5,
 #        col = "red")
 # points(as.numeric(strptime(db.bamet.lvl1$UTC[lw_bad_out], format = "%Y-%m-%d %H:%M")), db.bamet.lvl1$LwIn[lw_bad_out], pch = 20, cex.lab = 1.5,
@@ -312,8 +308,8 @@ text(as.numeric(strptime(lischt[11], format = "%Y-%m-%d %H:%M")) + 2000000, 450,
 dev.off()
 }# Radiation longwave
 
-########################################################
-###  air temperature
+################ Air temperature ########################################
+
 if (zack == 1) {
 #col2hex(soil.cols)#library(gplots)
 rr <- length(aggregate(db.bamet.lvl1$Tair_200 ~ format(strptime(db.bamet.lvl1$UTC, format = "%Y-%m-%d %H:%M"), format = "%Y-%m-%d"), FUN = mean)[, 2])
@@ -396,11 +392,9 @@ dev.off() #;rm(air_zero, air_flags, rr, murr)
 }# Air temperature (1 & 2)
 
 
-########################################################
-###  snowheight
-if (zack == 5) {
+################ Snowheight ########################################
 
-# -----------------------------------------------------
+if (zack == 5) {
 
 pr_zero   <- which(as.numeric(db.bamet.lvl1$prec_fl) == 0 & db.bamet.lvl1$prec > 0)
 pr_zero_zero   <- which(as.numeric(db.bamet.lvl1$prec_fl) == 0 & db.bamet.lvl1$prec == 0)
@@ -443,10 +437,8 @@ if (t.year == 2012) {text(as.numeric(strptime(lischt[3], format = "%Y-%m-%d %H:%
 #        box.col = "white", inset=0.05, seg.len = 0.8, c("precipitation", "snowheight", "flagged"), bg="white")
 dev.off() # ;rm(pr_zero, pr_zero_zero, sh_zero, pr_flags, sh_flags)
 }# Snow depth (off)
-########################################################
+################ Precipitation ########################################
 
-
-###  precipitation
 # NEW plot (with monthly and annual sums)
 if (zack == 1) {
   # only precipitation values with flag zero
@@ -463,7 +455,7 @@ if (zack == 1) {
       width = p.width, height = p.height, pointsize = 8)
   par(mfrow = c(3, 1), mar = c(0, 8, 0, 0), oma = c(1, 0, 1, 1))
 
-  #######################
+  ###
   # hourly sums
   # plot all precipitation values (including the ones with flags other than zero)
   plot(as.numeric(strptime(db.bamet.lvl1$UTC, format = "%Y-%m-%d %H:%M")), db.bamet.lvl1$prec, t = "h",
@@ -483,7 +475,7 @@ if (zack == 1) {
   axis(3, at = c(as.numeric(strptime(lischt[-c(1, 13)], format = "%Y-%m-%d %H:%M"))),
        labels = FALSE, tcl = 0.5, cex.axis = 4)
 
-  #######################
+  ###
   # daily sums
   plot(as.numeric(strptime(prec.daily[, 1], format = "%Y-%m-%d")), prec.daily[, 2], t = "h",
        xlim = xxlim, xlab = "", ylab = "", xaxt = "n", cex.axis = 4, lwd = 4, col = "steelblue3", ylim = c(0, max(prec.daily[, 2])))
@@ -496,7 +488,7 @@ if (zack == 1) {
   # add labels
   mtext(text = "daily sum (only flag 0)", side = 3, line = -5, cex = 4, col = "steelblue3")
 
-  #######################
+  ###.....................................................................
   # monthly sums
   # number of days in run.year ==> see: https://r.789695.n4.nabble.com/Count-days-of-current-year-td875319.html
   # days.run.year <- as.numeric(format(as.Date(paste(run.year, "12", "31", sep = "-")), "%j"))
@@ -517,7 +509,7 @@ if (zack == 1) {
   # add labels
   mtext(text = "monthly sum (only flag 0)", side = 3, line = -5, cex = 4, col = "steelblue1")
 
-  #######################
+  ###.....................................................................
   # total sum of complete year
   mtext(text = c(t.year, paste("total (only flag 0): ", round(sum(prec.zero, na.rm = TRUE), 0), sep = "")),
         side = 3, line = c(-5, -12), cex = 4, adj = 0.98, col = c("black", "turquoise4"))
@@ -525,7 +517,7 @@ if (zack == 1) {
   dev.off()
 
 
-###########################
+###.....................................................................
 # OLD plot
 
   if (t.year > 2010) {
@@ -598,7 +590,7 @@ if (zack == 1) {
   dev.off()  ;rm(pr_zero, pr_zero_zero, pr_flags)
   }
 }# Precipitation
-########################################################
+################ Windspeed and direction ########################################
 
 ### windspeed and direction
 if (zack == 1) {
@@ -661,7 +653,7 @@ text(as.numeric(strptime(lischt[11], format = "%Y-%m-%d %H:%M")) + 2000000, 22, 
 dev.off()  #; rm(w_v_zero, w_d_zero, w_v_flags, w_d_flags, day, wind.mean, day.mitte)
 
 #  windspeed and direction (2) windrose
-# -----------------------------------------------------
+
 
 
 db.wind <- db.bamet.lvl1[, c("UTC", "wind_v_200", "wind_deg_200")]#1, 8, 9
@@ -693,9 +685,8 @@ for (monz in 1:12) {
 dev.off()
 
 }# Wind
-########################################################
+################ Humidity ########################################
 
-##  humidity
 if (zack == 1) {
 
 hr <- length(aggregate(db.bamet.lvl1$RH_200~format(strptime(db.bamet.lvl1$UTC, format = "%Y-%m-%d %H:%M"), format = "%Y-%m-%d"), FUN = mean)[, 2])
@@ -737,9 +728,8 @@ text(as.numeric(strptime(lischt[-1], format = "%Y-%m-%d %H:%M")) - 1300000, rep(
 text(as.numeric(strptime(lischt[11], format = "%Y-%m-%d %H:%M")) + 2000000, 7, t.year, las = 2, cex = 6)
 dev.off() ;rm(hum_zero, hum_flags)
 }# Humidity
-########################################################
+################ Soil temperature ########################################
 
-###  soil temperature
 if (zack == 1) {
 soil.cols <- colorRampPalette(c("seagreen4", "palegreen3", "yellow3", "khaki", "sandybrown", "peru", "mistyrose3", "peachpuff4"))(150)
 png(file = paste(p.1$w[p.1$n == "plot.p"], t.year, "/BaMet2009_Ts_203_", t.year, ".png", sep = ""),
@@ -795,11 +785,9 @@ dev.off()#close pdf
 # colorRampPalette(c("steelblue4"))(1)
 # for (i in seq(1, 150, by=2)) {cat(paste0("|@", soil.cols[i], ":-"))}
 }# Soil temperature
-########################################################
-
-###  snow temperature
+################ Snow temperature ########################################
+ 
 if (zack == 1) {
-# -----------------------------------------------------
 snowt05_zero <- which(as.numeric(db.bamet.lvl1$Tair_4_fl) == 0)
 snowt20_zero <- which(as.numeric(db.bamet.lvl1$Tair_20_fl) == 0)
 #snowt40_zero    <- which(as.numeric(db.bamet.lvl1$Tair_40_fl) == 0)
@@ -849,7 +837,7 @@ dev.off()#
 
 }# Snow temperature
 
-########################################################
+###.....................................................................
 if (zack == 0) {
 
 # # diffplot
@@ -975,7 +963,7 @@ if (zack == 0) {
 #
 #
 #    ## LEVEL 1 plot each month
-#    # ------------------------
+#    # .....................................................................
 #    for (m in months) {
 #
 #      # extract only monthly data
@@ -1015,7 +1003,7 @@ if (zack == 0) {
 #
 #
 #      # plotting radiation  +  bad flag data
-#      # ----
+#     # .....................................................................
 #      #cat("\nPlotting analysis", m, t.year)
 #      png(paste(lvl1.p.1, "plots/", t.year, "/Bayelva_rad_outliers_", m, t.year, ".png", sep = ""), width = 1400, height=900)
 #      par(mfrow = c(2, 1), mar = c(6.5, 4.5, 4, 2.1), omi = c(0.5, 0.5, 0.5, 0.2))     # global plotting settings
@@ -1056,7 +1044,7 @@ if (zack == 0) {
 #
 #
 }# monthly plots Kerstin (off)
-########################################################
+###.....................................................................
 cat("#\n# level1 BaMet2009 ", t.year, " plot done!\n#\n")
 
 }
@@ -1065,8 +1053,8 @@ cat("#\n# level1 BaMet2009 ", t.year, " plot done!\n#\n")
 
 
 
-##################################
-##################################
+###.....................................................................
+###.....................................................................
 # update every monday the overview plot of the complete soil temperature series of sensor Ts_252 and sensor Ts_203 of BaMet2009
 # adapted from LV1_plots_BaSoil2009_temp.R
 
@@ -1108,7 +1096,7 @@ if (weekdays(Sys.Date()) == "Montag" | weekdays(Sys.Date()) == "Monday") { # upd
   }
 
 
-  ####################
+  ###.....................................................................
   # plot sensor Ts_252
   png(file = paste(p.1$w[p.1$n == "plot.p"], "Longterm/BaMet2009_Ts_252_Longterm.png", sep = ""),
       width = 3600, height = 500, pointsize = 8)
@@ -1145,7 +1133,7 @@ if (weekdays(Sys.Date()) == "Montag" | weekdays(Sys.Date()) == "Monday") { # upd
   dev.off()#close png
 
 
-  ####################
+  ###.....................................................................
   # plot sensor Ts_203
   png(file = paste(p.1$w[p.1$n == "plot.p"], "Longterm/BaMet2009_Ts_203_Longterm.png", sep = ""),
       width = 3600, height = 500, pointsize = 8)
