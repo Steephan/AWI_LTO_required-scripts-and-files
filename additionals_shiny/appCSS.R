@@ -12,11 +12,11 @@ background-color: #BDB5B9;
 color: black;
 }
 body {
-background-color: #A6B896;
+background-color: #feedb0;
 }
 .well {
-background-color: #BBCEB2;
-border-color: #BBCEB2;
+background-color: #97bff0;
+border-color: #97bff0;
 border-radius: 1px;
 }
 .btn-loading-container {
