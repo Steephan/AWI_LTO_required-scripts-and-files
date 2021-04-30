@@ -14,8 +14,8 @@ Wind direction standard deviation,windsddeg,windsddeg_(height in cm),Degree,all,
 Temperature Soil,Ts,Ts_(depth in cm),Degree C,all,Bayelva,-30,30,
 Volumetric water content,vwc,vwc_(depth in cm),%,all,Bayelva,0,1,
 Electric conductivity,cond,cond_(depth in cm),S/m,all,Bayelva,0,0.1,
-Dielectricity,E2,E2_(depth in cm),,all,Bayelva,2.5,45, 1: minimum=vakuum~air; 2-4 ~ ice; 80 ~ water
-Dielectricity snow,E2sn,E2sn_(depth in cm),,all,Bayelva,0.95,40,Why different than E2?
+Dielectricity,E2,E2_(depth in cm),,all,Bayelva,2.0,45, 1: minimum=vakuum~air; 2-4 ~ ice; 80 ~ water
+Dielectricity snow,E2sn,E2sn_(depth in cm),,all,Bayelva,0.9,40,Why different than E2?
 Soil heat flux,G,G,W/m^2,all,Bayelva,-130,130,
 Radiation shortwave net,SwNet,SwNet,W/m^2,all,Bayelva,-10,1000,
 Radiation longwave net,LwNet,LwNet,W/m^2,all,Bayelva,-300,300,

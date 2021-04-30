@@ -1,79 +1,79 @@
 "station","dataset","variable","check1","controller1","check2","controller2"
-"Bayelva","BaMet2009","Tair_4","2021-02-26 13:12:22","SL",NA,NA
-"Bayelva","BaMet2009","Tair_20","2021-02-26 13:12:29","SL",NA,NA
-"Bayelva","BaMet2009","Tair_100","2021-02-26 13:12:34","SL",NA,NA
-"Bayelva","BaMet2009","Tair_200","2021-02-26 13:12:41","SL",NA,NA
-"Bayelva","BaMet2009","RH_200","2021-02-26 13:12:47","SL",NA,NA
-"Bayelva","BaMet2009","wind_v_200","2021-02-26 13:12:52","SL",NA,NA
-"Bayelva","BaMet2009","wind_deg_200","2021-02-26 13:12:58","SL",NA,NA
-"Bayelva","BaMet2009","wind_sddeg_200","2021-02-26 13:13:08","SL",NA,NA
-"Bayelva","BaMet2009","wind_vmax_200","2021-02-26 13:13:13","SL",NA,NA
-"Bayelva","BaMet2009","wind_vmin_200","2021-02-26 13:13:19","SL",NA,NA
-"Bayelva","BaMet2009","prec","2021-02-26 13:13:27","SL",NA,NA
-"Bayelva","BaMet2009","Dsn","2021-02-26 13:13:43","SL","2021-03-23 09:32:35","SL"
-"Bayelva","BaMet2009","Ts_252_2","2021-02-26 13:13:48","SL",NA,NA
+"Bayelva","BaMet2009","Tair_4","2021-04-16 10:53:29","SL","2021-04-16 15:30:00","NB"
+"Bayelva","BaMet2009","Tair_20","2021-04-16 10:51:53","SL","2021-04-16 15:30:18","NB"
+"Bayelva","BaMet2009","Tair_100","2021-04-16 10:53:40","SL","2021-04-16 15:31:41","NB"
+"Bayelva","BaMet2009","Tair_200","2021-04-16 10:49:59","SL","2021-04-16 15:32:00","NB"
+"Bayelva","BaMet2009","RH_200","2021-04-16 10:48:14","SL","2021-04-16 15:32:29","NB"
+"Bayelva","BaMet2009","wind_v_200","2021-04-16 10:55:11","SL","2021-04-16 15:32:49","NB"
+"Bayelva","BaMet2009","wind_deg_200","2021-04-16 10:58:14","SL","2021-04-16 15:33:10","NB"
+"Bayelva","BaMet2009","wind_sddeg_200","2021-04-16 10:58:34","SL","2021-04-16 15:33:22","NB"
+"Bayelva","BaMet2009","wind_vmax_200","2021-04-16 11:01:07","SL","2021-04-16 15:33:44","NB"
+"Bayelva","BaMet2009","wind_vmin_200","2021-04-16 11:00:59","SL","2021-04-16 15:33:53","NB"
+"Bayelva","BaMet2009","prec","2021-04-16 15:52:19","NB","2021-04-20 11:42:02","SL"
+"Bayelva","BaMet2009","Dsn","2021-04-16 11:03:46","SL","2021-04-16 15:40:55","NB"
+"Bayelva","BaMet2009","Ts_252_2",NA,NA,NA,NA
 "Bayelva","BaMet2009","Ts_252_12",NA,NA,NA,NA
 "Bayelva","BaMet2009","Ts_252_32",NA,NA,NA,NA
 "Bayelva","BaMet2009","Ts_252_62",NA,NA,NA,NA
 "Bayelva","BaMet2009","Ts_252_102",NA,NA,NA,NA
 "Bayelva","BaMet2009","Ts_252_152",NA,NA,NA,NA
-"Bayelva","BaMet2009","Ts_203_2","2021-02-26 13:14:17","SL",NA,NA
-"Bayelva","BaMet2009","Ts_203_5","2021-02-26 13:14:25","SL",NA,NA
+"Bayelva","BaMet2009","Ts_203_2",NA,NA,NA,NA
+"Bayelva","BaMet2009","Ts_203_5",NA,NA,NA,NA
 "Bayelva","BaMet2009","Ts_203_23",NA,NA,NA,NA
 "Bayelva","BaMet2009","Ts_203_53",NA,NA,NA,NA
 "Bayelva","BaMet2009","Ts_203_93",NA,NA,NA,NA
 "Bayelva","BaMet2009","Ts_203_143",NA,NA,NA,NA
-"Bayelva","BaMet2009","SwIn","2021-02-26 13:14:59","SL",NA,NA
-"Bayelva","BaMet2009","SwOut","2021-02-26 13:15:05","SL",NA,NA
-"Bayelva","BaMet2009","LwIn","2021-02-26 13:15:11","SL",NA,NA
-"Bayelva","BaMet2009","LwOut","2021-02-26 13:15:18","SL",NA,NA
-"Bayelva","BaMet2009","SwNet","2021-02-26 13:15:24","SL",NA,NA
-"Bayelva","BaMet2009","LwNet",NA,NA,NA,NA
-"Bayelva","BaMet2009","Albedo","2021-02-26 13:15:33","SL",NA,NA
-"Bayelva","BaMet2009","RadNet","2021-02-26 13:15:39","SL",NA,NA
-"Bayelva","BaSoil2009","Ts_1",NA,NA,NA,NA
-"Bayelva","BaSoil2009","Ts_11",NA,NA,NA,NA
-"Bayelva","BaSoil2009","Ts_21",NA,NA,NA,NA
-"Bayelva","BaSoil2009","Ts_37",NA,NA,NA,NA
-"Bayelva","BaSoil2009","Ts_55",NA,NA,NA,NA
-"Bayelva","BaSoil2009","Ts_71",NA,NA,NA,NA
-"Bayelva","BaSoil2009","Ts_89",NA,NA,NA,NA
-"Bayelva","BaSoil2009","Ts_141",NA,NA,NA,NA
-"Bayelva","BaSoil2009","E2_h_1",NA,NA,NA,NA
-"Bayelva","BaSoil2009","E2_h_11",NA,NA,NA,NA
-"Bayelva","BaSoil2009","E2_h_21",NA,NA,NA,NA
-"Bayelva","BaSoil2009","E2_h_37",NA,NA,NA,NA
-"Bayelva","BaSoil2009","E2_h_55",NA,NA,NA,NA
-"Bayelva","BaSoil2009","E2_h_71",NA,NA,NA,NA
-"Bayelva","BaSoil2009","E2_h_89",NA,NA,NA,NA
-"Bayelva","BaSoil2009","E2_sn_v_0",NA,NA,NA,NA
-"Bayelva","BaSoil2009","cond_h_1",NA,NA,NA,NA
-"Bayelva","BaSoil2009","cond_h_11",NA,NA,NA,NA
-"Bayelva","BaSoil2009","cond_h_21",NA,NA,NA,NA
-"Bayelva","BaSoil2009","cond_h_37",NA,NA,NA,NA
-"Bayelva","BaSoil2009","cond_h_55",NA,NA,NA,NA
-"Bayelva","BaSoil2009","cond_h_71",NA,NA,NA,NA
-"Bayelva","BaSoil2009","cond_h_89",NA,NA,NA,NA
-"Bayelva","BaSoil2009","cond_sn_v_0",NA,NA,NA,NA
-"Bayelva","BaSoil2009","vwc_h_1",NA,NA,NA,NA
-"Bayelva","BaSoil2009","vwc_h_11",NA,NA,NA,NA
-"Bayelva","BaSoil2009","vwc_h_21",NA,NA,NA,NA
-"Bayelva","BaSoil2009","vwc_h_37",NA,NA,NA,NA
-"Bayelva","BaSoil2009","vwc_h_55",NA,NA,NA,NA
-"Bayelva","BaSoil2009","vwc_h_71",NA,NA,NA,NA
-"Bayelva","BaSoil2009","vwc_h_89",NA,NA,NA,NA
+"Bayelva","BaMet2009","SwIn","2021-04-21 09:31:29","SL","2021-04-21 10:05:57","NB"
+"Bayelva","BaMet2009","SwOut","2021-04-21 09:31:57","SL","2021-04-21 10:06:05","NB"
+"Bayelva","BaMet2009","LwIn","2021-04-21 09:32:04","SL","2021-04-21 10:06:50","NB"
+"Bayelva","BaMet2009","LwOut","2021-04-21 09:32:13","SL","2021-04-21 10:07:23","NB"
+"Bayelva","BaMet2009","SwNet","2021-04-21 09:32:23","SL","2021-04-21 10:05:46","NB"
+"Bayelva","BaMet2009","LwNet","2021-04-21 09:32:32","SL","2021-04-21 10:07:40","NB"
+"Bayelva","BaMet2009","Albedo","2021-04-21 09:32:39","SL","2021-04-21 10:14:41","NB"
+"Bayelva","BaMet2009","RadNet","2021-04-21 09:32:46","SL","2021-04-21 10:11:00","NB"
+"Bayelva","BaSoil2009","Ts_1","2021-04-16 14:55:13","NB","2021-04-21 13:52:30","BC"
+"Bayelva","BaSoil2009","Ts_11","2021-04-16 14:56:50","NB","2021-04-21 13:53:11","BC"
+"Bayelva","BaSoil2009","Ts_21","2021-04-16 14:57:30","NB","2021-04-21 13:56:04","BC"
+"Bayelva","BaSoil2009","Ts_37","2021-04-21 10:18:18","NB","2021-04-21 13:56:12","BC"
+"Bayelva","BaSoil2009","Ts_55","2021-04-16 15:08:40","NB","2021-04-21 13:56:23","BC"
+"Bayelva","BaSoil2009","Ts_71","2021-04-16 15:10:39","NB","2021-04-21 14:24:52","BC"
+"Bayelva","BaSoil2009","Ts_89","2021-04-16 15:11:42","NB","2021-04-21 14:24:56","BC"
+"Bayelva","BaSoil2009","Ts_141","2021-04-16 15:13:26","NB","2021-04-21 14:25:01","BC"
+"Bayelva","BaSoil2009","E2_h_1","2021-04-21 10:19:10","NB","2021-04-21 14:10:29","BC"
+"Bayelva","BaSoil2009","E2_h_11","2021-04-16 15:16:23","NB","2021-04-21 14:10:37","BC"
+"Bayelva","BaSoil2009","E2_h_21","2021-04-16 15:16:43","NB","2021-04-21 14:10:47","BC"
+"Bayelva","BaSoil2009","E2_h_37","2021-04-16 15:17:10","NB","2021-04-21 14:11:08","BC"
+"Bayelva","BaSoil2009","E2_h_55","2021-04-16 15:17:33","NB","2021-04-21 14:11:20","BC"
+"Bayelva","BaSoil2009","E2_h_71","2021-04-16 15:18:01","NB","2021-04-21 14:11:28","BC"
+"Bayelva","BaSoil2009","E2_h_89","2021-04-16 15:19:00","NB","2021-04-21 14:13:25","BC"
+"Bayelva","BaSoil2009","E2_sn_v_0","2021-04-21 10:20:08","NB","2021-04-21 14:13:51","BC"
+"Bayelva","BaSoil2009","cond_h_1","2021-04-16 15:23:13","NB","2021-04-21 14:25:33","BC"
+"Bayelva","BaSoil2009","cond_h_11","2021-04-16 15:23:08","NB","2021-04-21 14:25:40","BC"
+"Bayelva","BaSoil2009","cond_h_21","2021-04-16 15:23:02","NB","2021-04-21 14:25:46","BC"
+"Bayelva","BaSoil2009","cond_h_37","2021-04-21 10:21:20","NB","2021-04-21 14:26:01","BC"
+"Bayelva","BaSoil2009","cond_h_55","2021-04-16 15:23:40","NB","2021-04-21 14:26:14","BC"
+"Bayelva","BaSoil2009","cond_h_71","2021-04-16 15:24:17","NB","2021-04-21 14:26:26","BC"
+"Bayelva","BaSoil2009","cond_h_89","2021-04-16 15:24:50","NB","2021-04-21 14:26:36","BC"
+"Bayelva","BaSoil2009","cond_sn_v_0","2021-04-16 15:25:11","NB","2021-04-21 14:26:44","BC"
+"Bayelva","BaSoil2009","vwc_h_1","2021-04-16 15:25:42","NB","2021-04-21 14:26:56","BC"
+"Bayelva","BaSoil2009","vwc_h_11","2021-04-16 15:26:01","NB","2021-04-21 14:27:46","BC"
+"Bayelva","BaSoil2009","vwc_h_21","2021-04-16 15:26:19","NB","2021-04-21 14:27:54","BC"
+"Bayelva","BaSoil2009","vwc_h_37","2021-04-21 10:22:25","NB","2021-04-21 14:28:34","BC"
+"Bayelva","BaSoil2009","vwc_h_55","2021-04-21 10:22:32","NB","2021-04-21 14:28:57","BC"
+"Bayelva","BaSoil2009","vwc_h_71","2021-04-16 15:28:04","NB","2021-04-21 14:29:05","BC"
+"Bayelva","BaSoil2009","vwc_h_89","2021-04-16 15:28:24","NB","2021-04-21 14:30:47","BC"
 "Bayelva","BaSoil2017","G_1",NA,NA,NA,NA
 "Bayelva","BaSoil2017","G_2",NA,NA,NA,NA
-"Bayelva","BaHole2009","Tair_50",NA,NA,NA,NA
-"Bayelva","BaHole2009","Ts_0",NA,NA,NA,NA
-"Bayelva","BaHole2009","Ts_50",NA,NA,NA,NA
-"Bayelva","BaHole2009","Ts_100",NA,NA,NA,NA
-"Bayelva","BaHole2009","Ts_150",NA,NA,NA,NA
-"Bayelva","BaHole2009","Ts_250",NA,NA,NA,NA
-"Bayelva","BaHole2009","Ts_350",NA,NA,NA,NA
-"Bayelva","BaHole2009","Ts_550",NA,NA,NA,NA
-"Bayelva","BaHole2009","Ts_750",NA,NA,NA,NA
-"Bayelva","BaHole2009","Ts_900",NA,NA,NA,NA
+"Bayelva","BaHole2009","Tair_50","2021-04-20 10:28:15","BC","2021-04-21 09:24:05","SL"
+"Bayelva","BaHole2009","Ts_0","2021-04-20 10:28:45","BC","2021-04-21 09:24:46","SL"
+"Bayelva","BaHole2009","Ts_50","2021-04-20 10:29:07","BC","2021-04-21 09:25:25","SL"
+"Bayelva","BaHole2009","Ts_100","2021-04-20 10:29:24","BC","2021-04-21 09:25:38","SL"
+"Bayelva","BaHole2009","Ts_150","2021-04-20 10:29:43","BC","2021-04-21 09:26:04","SL"
+"Bayelva","BaHole2009","Ts_250","2021-04-20 10:29:50","BC","2021-04-21 09:26:38","SL"
+"Bayelva","BaHole2009","Ts_350","2021-04-20 10:29:56","BC","2021-04-21 09:26:44","SL"
+"Bayelva","BaHole2009","Ts_550","2021-04-20 10:30:02","BC","2021-04-21 09:26:51","SL"
+"Bayelva","BaHole2009","Ts_750","2021-04-20 10:30:07","BC","2021-04-21 09:27:15","SL"
+"Bayelva","BaHole2009","Ts_900","2021-04-20 10:30:11","BC","2021-04-21 09:27:22","SL"
 "Bayelva","BaHole2015","Ts_0",NA,NA,NA,NA
 "Bayelva","BaHole2015","Ts_50",NA,NA,NA,NA
 "Bayelva","BaHole2015","Ts_100",NA,NA,NA,NA
@@ -84,15 +84,15 @@
 "Bayelva","BaHole2015","Ts_550",NA,NA,NA,NA
 "Bayelva","BaHole2015","Ts_750",NA,NA,NA,NA
 "Bayelva","BaHole2015","Ts_900",NA,NA,NA,NA
-"Bayelva","BaSnow2013","Dsn","2021-03-18 11:27:07","IG",NA,NA
-"Bayelva","BaSnow2019sr","Tair_200",NA,NA,NA,NA
-"Bayelva","BaSnow2019sr","Dsn",NA,NA,NA,NA
-"Bayelva","BaSnow2019cs","CountsK",NA,NA,NA,NA
-"Bayelva","BaSnow2019cs","CountsTl",NA,NA,NA,NA
-"Bayelva","BaSnow2019cs","SWE_K",NA,NA,NA,NA
-"Bayelva","BaSnow2019cs","KTl_Ratio",NA,NA,NA,NA
-"Bayelva","BaSnow2019cs","SWE_Tl",NA,NA,NA,NA
-"Bayelva","BaSnow2019cs","Tcryst_min",NA,NA,NA,NA
-"Bayelva","BaSnow2019cs","Tcryst_max",NA,NA,NA,NA
-"Bayelva","BaSnow2019cs","Dsn",NA,NA,NA,NA
+"Bayelva","BaSnow2013","Dsn","2021-04-16 11:09:46","SL","2021-04-21 10:28:33","NB"
+"Bayelva","BaSnow2019sr","Tair_200","2021-04-21 10:35:30","NB","2021-04-22 10:15:24","BC"
+"Bayelva","BaSnow2019sr","Dsn","2021-04-21 10:35:56","NB","2021-04-22 10:16:15","BC"
+"Bayelva","BaSnow2019cs","CountsK","2021-04-21 10:36:20","NB","2021-04-22 10:16:35","BC"
+"Bayelva","BaSnow2019cs","CountsTl","2021-04-21 10:36:14","NB","2021-04-22 10:16:47","BC"
+"Bayelva","BaSnow2019cs","SWE_K","2021-04-21 10:36:58","NB","2021-04-22 10:17:19","BC"
+"Bayelva","BaSnow2019cs","KTl_Ratio","2021-04-21 10:37:06","NB","2021-04-22 10:17:49","BC"
+"Bayelva","BaSnow2019cs","SWE_Tl","2021-04-22 10:18:11","BC",NA,NA
+"Bayelva","BaSnow2019cs","Tcryst_min","2021-04-22 10:18:22","BC",NA,NA
+"Bayelva","BaSnow2019cs","Tcryst_max","2021-04-22 10:18:31","BC",NA,NA
+"Bayelva","BaSnow2019cs","Dsn","2021-04-22 10:18:45","BC",NA,NA
 "Bayelva","BaSnow2019cs","rho_K",NA,NA,NA,NA
