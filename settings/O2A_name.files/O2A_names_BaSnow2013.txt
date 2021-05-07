@@ -1,0 +1,3 @@
+Raw;Lv0;O2A
+TIMESTAMP;UTC;time
+NA;Dsn;BaSnow2013:Dsn

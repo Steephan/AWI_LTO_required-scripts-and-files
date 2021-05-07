@@ -1,0 +1,8 @@
+Raw;Lv0;O2A
+TIMESTAMP;UTC;time
+AirTempC;Tair_200;basnow2019:Tair_200
+TCDT;distcor;basnow2019:sr50a:distcor
+Q;QA;basnow2019:sr50a:snowsq
+DT;distraw;basnow2019:sr50a:distraw
+RawQ;QA_raw;basnow2019:sr50a:snowsq_raw
+;Dsn;basnow2019:sr50a:Dsn

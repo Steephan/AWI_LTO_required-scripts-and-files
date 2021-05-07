@@ -1,0 +1,12 @@
+Raw;Lv0;O2A
+TIMESTAMP;UTC;time
+CS725_K_Counts;CountsK;basnow2019:cs725:CountsK
+CS725_TL_Counts;CountsTl;basnow2019:cs725:CountsTl
+CS725_SWE_K;SWE_K;basnow2019:cs725:SWE_K
+CS725_K_TL_Ratio;KTl_Ratio;basnow2019:cs725:KTl_Ratio
+CS725_SWE_TL;SWE_Tl;basnow2019:cs725:SWE_Tl
+CS725_Crystal_TEMP_MIN;Tcryst_min;basnow2019:cs725:Tcryst_min
+CS725_Crystal_TEMP_MAX;Tcryst_max;basnow2019:cs725:Tcryst_max
+CS725_PWR_Volt;batt_U;basnow2019:cs725:batt_V
+;Dsn;basnow2019:sr50a:Dsn
+;rho_K;basnow2019:cs725:rho_K
