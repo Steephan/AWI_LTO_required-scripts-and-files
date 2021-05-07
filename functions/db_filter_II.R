@@ -159,9 +159,9 @@ physical.limits.ba <- function(lv1.data, col.cat) {
 
   cats <- colnames(col.cat)
   # Define physical limits for each category
-  phys.limit <- t(read.table(file = paste0(p.1$w[p.1$n == "settings.p"], "phys.limits/phys.limit_ba.csv"),
+  phys.limit <- t(read.table(file = paste0(p.1$w[p.1$n == "settings.p"], "phys.limits/phys.limit_Ba.csv"),
                              sep = ",", dec = ".", header = TRUE, encoding = "ISO-8859-1")[, c("min", "max")])
-  colnames(phys.limit) <- read.table(file = paste0(p.1$w[p.1$n == "settings.p"], "phys.limits/phys.limit_ba.csv"),
+  colnames(phys.limit) <- read.table(file = paste0(p.1$w[p.1$n == "settings.p"], "phys.limits/phys.limit_Ba.csv"),
                                      sep = ",", dec = ".", header = TRUE, encoding = "ISO-8859-1")[, c("category")]
   # for each category
   for (i in 1:(length(cats))) {
@@ -185,9 +185,9 @@ physical.limits.sa <- function(lv1.data, col.cat) {
 
   cats <- colnames(col.cat)
   # Define physical limits for each category
-  phys.limit <- t(read.table(file = paste0(p.1$w[p.1$n == "settings.p"], "phys.limits/phys.limit_sa.csv"),
+  phys.limit <- t(read.table(file = paste0(p.1$w[p.1$n == "settings.p"], "phys.limits/phys.limit_Sa.csv"),
                              sep = ",", dec = ".", header = TRUE, encoding = "ISO-8859-1")[, c("min", "max")])
-  colnames(phys.limit) <- read.table(file = paste0(p.1$w[p.1$n == "settings.p"], "phys.limits/phys.limit_sa.csv"),
+  colnames(phys.limit) <- read.table(file = paste0(p.1$w[p.1$n == "settings.p"], "phys.limits/phys.limit_Sa.csv"),
                                      sep = ",", dec = ".", header = TRUE, encoding = "ISO-8859-1")[, c("category")]
   # for each category
   for (i in 1:(length(cats))) {
@@ -216,9 +216,9 @@ physical.limits.ku <- function(lv1.data, col.cat) {
 
   cats <- colnames(col.cat)
   # Define physical limits for each category
-  phys.limit <- t(read.table(file = paste0(p.1$w[p.1$n == "settings.p"], "phys.limits/phys.limit_ku.csv"),
+  phys.limit <- t(read.table(file = paste0(p.1$w[p.1$n == "settings.p"], "phys.limits/phys.limit_Ku.csv"),
                              sep = ",", dec = ".", header = TRUE, encoding = "ISO-8859-1")[, c("min", "max")])
-  colnames(phys.limit) <- read.table(file = paste0(p.1$w[p.1$n == "settings.p"], "phys.limits/phys.limit_ku.csv"),
+  colnames(phys.limit) <- read.table(file = paste0(p.1$w[p.1$n == "settings.p"], "phys.limits/phys.limit_Ku.csv"),
                                      sep = ",", dec = ".", header = TRUE, encoding = "ISO-8859-1")[, c("category")]
   # for each category
   for (i in 1:(length(cats))) {
@@ -291,9 +291,9 @@ physical.limits.sd <- function(lv1.data, col.cat) {
 
   cats <- colnames(col.cat)
   # Define physical limits for each category
-  phys.limit <- t(read.table(file = paste0(p.1$w[p.1$n == "settings.p"], "phys.limit_sd.csv"),
+  phys.limit <- t(read.table(file = paste0(p.1$w[p.1$n == "settings.p"], "phys.limit_Sd.csv"),
                              sep = ",", dec = ".", header = TRUE, encoding = "ISO-8859-1")[, c("min", "max")])
-  colnames(phys.limit) <- read.table(file = paste0(p.1$w[p.1$n == "settings.p"], "phys.limit_sd.csv"),
+  colnames(phys.limit) <- read.table(file = paste0(p.1$w[p.1$n == "settings.p"], "phys.limit_Sd.csv"),
                                      sep = ",", dec = ".", header = TRUE, encoding = "ISO-8859-1")[, c("category")]
   # for each category
   for (i in 1:(length(cats))) {
