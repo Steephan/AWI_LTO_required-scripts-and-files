@@ -62,7 +62,7 @@ for (kl in 1:3) {#1:5
   }
 
   sink(paste0("N:/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/settings_shiny/yearlyDataPath", name.sys, ".csv"))
-  cat("station, dataset, year, path, db.path, endung\n")
+  cat("station,dataset,year,path,db.path,endung\n")
   for (i in 1:5) { # stations 1-5 
     for (j in datas[[i]]) {
        hui <- list.files(paste0("N:/sparc/data/LTO/level1/", j, "/00_full_dataset/"), pattern = "noflag.dat")
@@ -73,7 +73,7 @@ for (kl in 1:3) {#1:5
         
         if (i == 1) {wo <- "Sa"} else if (i == 2) {wo <- "Ba"} else if (i == 3) {wo <- "Sd"} else if (i == 4) {wo <- "TVC"} else if (i == 5) {wo <- "Ku"}
         cat(paste(stations[i], j, year, paste0(pre.sys, "/data/LTO/level1/", j, "/00_full_dataset/", j, "_", year, lv1, ".dat"),
-                  paste0(pre.sys, "/LTO/R_database/Time_series_preprocessing/sparcflags/shiny-server/LV1_", wo, "_flagger_update.R"), "1 \n", sep = ", "), append = T)
+                  paste0(pre.sys, "/LTO/R_database/Time_series_preprocessing/sparcflags/shiny-server/LV1_", wo, "_flagger_update.R"), "1 \n", sep = ","), append = T)
       }
     }
   }
