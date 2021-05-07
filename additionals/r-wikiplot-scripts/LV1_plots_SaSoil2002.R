@@ -1,34 +1,37 @@
-#############################################################################
+###...........................................................................
 ##
-##   SaSoil2002          Level1
+#     wikiplots    SaSoil2002       --------------------
+##   
+##   see results here
+##   http://sparcwiki.awi-potsdam.de/doku.php?id=observatory:data:analysis:samoylov:soil:tsoil:sasoil2002
 ##
+##   by: Stephan.Lange@awi.de
+##   modified: 2021-05-07
 ##
-##
-##   by: Stephan.Lange@awi.de, Niko.Bornemann@awi.de & Peter.Schreiber@awi.de
-##   modified: 2019-05-23
-##    last change: change paths
-##
-#############################################################################
-##  to run this script seperat, you have to uncomment the next 10 lines!
-# rm(list=ls())
+##   changes:
+##   2021-05-07 SL adapted to refresh app and git
+##   
+###...........................................................................
+## to run this script separately, you have to uncomment the next 10 lines!
+# rm(list = ls())
 # if (.Platform$OS.type == "windows") {
-#   path<-read.table("N:/sparc/LTO/R_database/database_R/settings/path_windoof.txt",sep="\t",header=T)
-#   maint<-read.table("N:/sparc/LTO/R_database/database_R/settings/maintance.txt",sep="\t",header=T)
-#   source("N:/sparc/LTO/R_database/database_R/settings/db_func.R")
-# }else{
-#   path<-read.table("/sparc/LTO/R_database/database_R/settings/path_linux.txt",sep="\t",header=T, fileEncoding="UTF-8")
-#   maint<-read.table("/sparc/LTO/R_database/database_R/settings/maintance.txt",sep="\t",header=T)
+#   p.1 <- read.table("N:/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/settings/path_win.txt", sep = "\t", header = T)
+#   p.1maint <- read.table("N:/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/settings/maintenance.files/maintance.txt", sep = "\t", header = T)
 # 
-#   source("/sparc/LTO/R_database/database_R/settings/db_func.R")
+#   source("N:/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/functions/db_func.R")
+# } else {
+#   p.1 <- read.table("/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/settings/path_linux.txt", sep = "\t", header = T, fileEncoding = "UTF-8")
+#   p.1maint <- read.table("/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/settings/maintenance.files/maintance.txt", sep = "\t", header = T)
+# 
+#   source("/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/functions/db_func.R")
 # }
-#############################################################################
+###...........................................................................
 
 
 options(scipen=100,stringsAsFactors=F,digits=2,scientific=T) # for non-exponential display of numeric values
 origin="1970-01-01"
 
-jahr=c(2018:2019)
-#jahr=c(2010)
+# run.year<-2002:2021
 months <- c("01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12")
 Months <- c("Jan", " Feb", "Mar", "Apr", "May", "Jun","Jul", "Aug", "Sep", "Oct", "Nov", "Dec")
 soil.cols.1<-colorRampPalette(c("seagreen4","palegreen3","yellow3","khaki","sandybrown","peru","mistyrose3","peachpuff4"))(71)
@@ -41,14 +44,21 @@ p.width=420*3.5;p.height=280*3.5
 color <- rgb(190, 190, 190, alpha=70, maxColorValue=255)
 
 zack=1
-for (jahro in jahr){
+for (jahro in as.numeric(run.year)){
   if(zack==1){
-    db.Ts.lvl1 <-read.table(paste0(path$w[path$n=="LV1.p"],"SaSoil2002/00_full_dataset/SaSoil2002_",jahro,"_lv1.dat"),sep=",",dec=".",header=T, fill = TRUE)
+    ###...........................................................................
+    ##
+    ##  00.1 load data ----
+    ##
+    ###...........................................................................
     
-    #  db.TDR.lvl1<-read.table(paste0(path$w[path$n=="LV1.p"],"SaSoil2002/00_full_dataset/SaSoil2002_TDR_",jahro,"_lv1.dat"),sep=",",dec=".",header=T,na.strings="NA")
+    
+    db.Ts.lvl1 <-read.table(paste0(p.1$w[p.1$n=="LV1.p"],"SaSoil2002/00_full_dataset/SaSoil2002_",jahro,"_lv1.dat"),sep=",",dec=".",header=T, fill = TRUE)
+    
+    #  db.TDR.lvl1<-read.table(paste0(p.1$w[p.1$n=="LV1.p"],"SaSoil2002/00_full_dataset/SaSoil2002_TDR_",jahro,"_lv1.dat"),sep=",",dec=".",header=T,na.strings="NA")
     
     ## yearly LEVEL 1 plots
-    #  =========================================================================================================
+    ###...........................................................................
     
     xxlim = c(as.numeric(strptime(paste0("13.01.",jahro),format="%d.%m.%Y")), as.numeric(strptime(paste0("20.12.",jahro),format="%d.%m.%Y")))
     lischt<-c(db.Ts.lvl1$UTC[format(strptime(db.Ts.lvl1$UTC,format="%Y-%m-%d %H:%M"),format="%d %H:%M")=="01 00:00"],db.Ts.lvl1$UTC[length(db.Ts.lvl1$UTC)])
@@ -58,14 +68,14 @@ for (jahro in jahr){
   if(zack==1){
     ##
     ##
-    #############################################################################
+    ###...........................................................................
     ##
-    ##  01.1 Ts center
+    ##  01.1 Ts center ----
     ##
-    #############################################################################
+    ###...........................................................................
     
     
-    png(paste(path$w[path$n=="plot.p"],jahro,"/SaSoil2002_temp_center_",jahro,".png",sep=""),width=p.width,height=p.height,pointsize=8)
+    png(paste(p.1$w[p.1$n=="plot.p"],jahro,"/SaSoil2002_temp_center_",jahro,".png",sep=""),width=p.width,height=p.height,pointsize=8)
     par(mar=c(1,8,1,1),omi=c(0,0,0,0))
     plot(as.numeric(strptime(db.Ts.lvl1$UTC[tair_gut],format="%Y-%m-%d %H:%M")),db.Ts.lvl1$Ts_0[tair_gut], pch = 20,# cex.lab=1.7, cex.axis=1.5,   # albedo from file
          xlim=xxlim, ylim=c(-30,25), xlab="", ylab = "",xaxt="n", yaxt="n",type="n", cex.axis=3)
@@ -88,13 +98,13 @@ for (jahro in jahr){
   if(zack==1){
     ##
     ##
-    #############################################################################
+    ###...........................................................................
     ##
-    ##  01.2 Ts slope
+    ##  01.2 Ts slope ----
     ##
-    #############################################################################
+    ###...........................................................................
     
-    png(paste(path$w[path$n=="plot.p"],jahro,"/SaSoil2002_temp_slope_",jahro,".png",sep=""),width=p.width,height=p.height,pointsize=8)
+    png(paste(p.1$w[p.1$n=="plot.p"],jahro,"/SaSoil2002_temp_slope_",jahro,".png",sep=""),width=p.width,height=p.height,pointsize=8)
     par(mar=c(1,5,1,1),omi=c(0,0,0,0))
     plot(as.numeric(strptime(db.Ts.lvl1$UTC[tair_gut],format="%Y-%m-%d %H:%M")),db.Ts.lvl1$Ts_0[tair_gut], pch = 20,# cex.lab=1.7, cex.axis=1.5,   # albedo from file
          xlim=xxlim, ylim=c(-30,25), xlab="", ylab = "",xaxt="n", yaxt="n",type="n", cex.axis=3)
@@ -117,13 +127,13 @@ for (jahro in jahr){
   if(zack==1){
     ##
     ##
-    #############################################################################
+    ###...........................................................................
     ##
-    ##  01.3 Ts rim
+    ##  01.3 Ts rim ----
     ##
-    #############################################################################
+    ###...........................................................................
     
-    png(paste(path$w[path$n=="plot.p"],jahro,"/SaSoil2002_temp_rim_",jahro,".png",sep=""),width=p.width,height=p.height,pointsize=8)
+    png(paste(p.1$w[p.1$n=="plot.p"],jahro,"/SaSoil2002_temp_rim_",jahro,".png",sep=""),width=p.width,height=p.height,pointsize=8)
     par(mar=c(1,5,1,1),omi=c(0,0,0,0))
     plot(as.numeric(strptime(db.Ts.lvl1$UTC[tair_gut],format="%Y-%m-%d %H:%M")),db.Ts.lvl1$Ts_0[tair_gut], pch = 20,# cex.lab=1.7, cex.axis=1.5,   # albedo from file
          xlim=xxlim, ylim=c(-30,25), xlab="", ylab = "",xaxt="n", yaxt="n",type="n", cex.axis=3)
@@ -146,13 +156,13 @@ for (jahro in jahr){
   if(zack==1){
     ##
     ##
-    #############################################################################
+    ###...........................................................................
     ##
-    ##  01.41 Ts ice wedge
+    ##  01.41 Ts ice wedge ----
     ##
-    #############################################################################
+    ###...........................................................................
     
-    png(paste(path$w[path$n=="plot.p"],jahro,"/SaSoil2002_temp_icewedge_",jahro,".png",sep=""),width=p.width,height=p.height,pointsize=8)
+    png(paste(p.1$w[p.1$n=="plot.p"],jahro,"/SaSoil2002_temp_icewedge_",jahro,".png",sep=""),width=p.width,height=p.height,pointsize=8)
     par(mar=c(1,5,1,1),omi=c(0,0,0,0))
     plot(as.numeric(strptime(db.Ts.lvl1$UTC[tair_gut],format="%Y-%m-%d %H:%M")),db.Ts.lvl1$Ts_0[tair_gut], pch = 20,# cex.lab=1.7, cex.axis=1.5,   # albedo from file
          xlim=xxlim, ylim=c(-30,25), xlab="", ylab = "",xaxt="n", yaxt="n",type="n", cex.axis=3)
@@ -176,11 +186,11 @@ for (jahro in jahr){
     
     ##
     ##
-    #############################################################################
+    ###...........................................................................
     ##
-    ##  01.42 Ts ice wedge trompete
+    ##  01.42 Ts ice wedge trompete ----
     ##
-    #############################################################################
+    ###...........................................................................
     
     db.Ts.lvl2<-db.Ts.lvl1
     for(val in 26:34){#
@@ -190,7 +200,7 @@ for (jahro in jahr){
     
     stats.db<-aggregate(db.basoil.extra[,2:10], by=list(db.basoil.extra$monate), FUN=mean, na.rm=TRUE)[2:10]
     y.values<-c(41,61,91,121,151,181,211,241,271)*(-0.01)
-    png(paste(path$w[path$n=="plot.p"],jahro,"/SaSoil2002_icewedge_trompete_",jahro,".png",sep=""),width=p.width,height=p.height,pointsize=8)
+    png(paste(p.1$w[p.1$n=="plot.p"],jahro,"/SaSoil2002_icewedge_trompete_",jahro,".png",sep=""),width=p.width,height=p.height,pointsize=8)
     par(mar=c(1,8,1,1),omi=c(0,0,0,0))
     plot(c(stats.db[1,]),y.values,type="n",xlim=c(-30,10),ylim=c(-3,1),
          xlab="", ylab = "",xaxt="n", yaxt="n",cex.axis=3)
@@ -207,16 +217,16 @@ for (jahro in jahr){
   }# 01.42 Ts ice wedge trompete
   
   if(zack==1){
-    #############################################################################
+    ###...........................................................................
     ##
-    ##  02 snowdepth
+    ##  02 snowdepth ----
     ##
-    #############################################################################
+    ###...........................................................................
     
     sh_zero    <- which(as.numeric(db.Ts.lvl1$Dsn_fl) == 0)
     sh_flags   <- which(as.numeric(db.Ts.lvl1$Dsn_fl) > 0)
     
-    png(paste(path$w[path$n=="plot.p"],jahro,"/SaSoil2002_Dsn_",jahro,".png",sep=""),width=p.width,height=p.height,pointsize=8)
+    png(paste(p.1$w[p.1$n=="plot.p"],jahro,"/SaSoil2002_Dsn_",jahro,".png",sep=""),width=p.width,height=p.height,pointsize=8)
     par(mar=c(1,5,1,1),omi=c(0,0,0,0))
     plot(as.numeric(strptime(db.Ts.lvl1$UTC,format="%Y-%m-%d %H:%M")),db.Ts.lvl1$Dsn, pch = 20,# cex.lab=1.7, cex.axis=1.5,   # albedo from file
          xlim=xxlim, ylim=c(0,1.0), xlab=" ", ylab = " ",xaxt="n", yaxt="n",type="n", cex.axis=3)
@@ -234,13 +244,13 @@ for (jahro in jahr){
   }# 02 snowdepth
   
   if(zack==1){
-    #############################################################################
+    ###...........................................................................
     ##
-    ##  03 heatflux ...
+    ##  03 heatflux ----
     ##
-    #############################################################################
+    ###...........................................................................
     
-    png(paste(path$w[path$n=="plot.p"],jahro,"/SaSoil2002_hf_",jahro,".png",sep=""),width=p.width,height=p.height,pointsize=8)
+    png(paste(p.1$w[p.1$n=="plot.p"],jahro,"/SaSoil2002_hf_",jahro,".png",sep=""),width=p.width,height=p.height,pointsize=8)
     par(mar=c(1,5,1,1),omi=c(0,0,0,0))
     plot(as.numeric(strptime(db.Ts.lvl1$UTC[tair_gut],format="%Y-%m-%d %H:%M")),db.Ts.lvl1$Ts_0[tair_gut], pch = 20,# cex.lab=1.7, cex.axis=1.5,   # albedo from file
          xlim=xxlim, ylim=c(-40,80), xlab="", ylab = "",xaxt="n", yaxt="n",type="n", cex.axis=3)
@@ -263,14 +273,14 @@ for (jahro in jahr){
   }# 03 heatflux ...
   
   if(zack==1){
-    #############################################################################
+    ###...........................................................................
     ##
-    ##  04.1 Dielectricity center
+    ##  04.1 Dielectricity center ----
     ##
-    #############################################################################
+    ###...........................................................................
     y.max<-90
     
-    png(paste(path$w[path$n=="plot.p"],jahro,"/SaSoil2002_E2_center_",jahro,".png",sep=""),width=p.width,height=p.height,pointsize=8)
+    png(paste(p.1$w[p.1$n=="plot.p"],jahro,"/SaSoil2002_E2_center_",jahro,".png",sep=""),width=p.width,height=p.height,pointsize=8)
     par(mar=c(1,8,1,1),omi=c(0,0,0,0))
     plot(as.numeric(strptime(db.Ts.lvl1$UTC[tair_gut],format="%Y-%m-%d %H:%M")),db.Ts.lvl1$Ts_0[tair_gut], pch = 20,# cex.lab=1.7, cex.axis=1.5,   # albedo from file
          xlim=xxlim, ylim=c(0,y.max), xlab="", ylab = "",xaxt="n", yaxt="n",type="n", cex.axis=3)
@@ -295,13 +305,13 @@ for (jahro in jahr){
   if(zack==1){
     ##
     ##
-    #############################################################################
+    ###...........................................................................
     ##
-    ##  04.2 Dielectricity slope
+    ##  04.2 Dielectricity slope ----
     ##
-    #############################################################################
+    ###...........................................................................
     
-    png(paste(path$w[path$n=="plot.p"],jahro,"/SaSoil2002_E2_slope_",jahro,".png",sep=""),width=p.width,height=p.height,pointsize=8)
+    png(paste(p.1$w[p.1$n=="plot.p"],jahro,"/SaSoil2002_E2_slope_",jahro,".png",sep=""),width=p.width,height=p.height,pointsize=8)
     par(mar=c(1,5,1,1),omi=c(0,0,0,0))
     plot(as.numeric(strptime(db.Ts.lvl1$UTC[tair_gut],format="%Y-%m-%d %H:%M")),db.Ts.lvl1$Ts_center_1[tair_gut], pch = 20,# cex.lab=1.7, cex.axis=1.5,   # albedo from file
          xlim=xxlim, ylim=c(0,y.max), xlab="", ylab = "",xaxt="n", yaxt="n",type="n", cex.axis=3)
@@ -327,13 +337,13 @@ for (jahro in jahr){
   if(zack==1){
     ##
     ##
-    #############################################################################
+    ###...........................................................................
     ##
-    ##  04.3 Dielectricity rim
+    ##  04.3 Dielectricity rim ----
     ##
-    #############################################################################
+    ###...........................................................................
     
-    png(paste(path$w[path$n=="plot.p"],jahro,"/SaSoil2002_E2_rim_",jahro,".png",sep=""),width=p.width,height=p.height,pointsize=8)
+    png(paste(p.1$w[p.1$n=="plot.p"],jahro,"/SaSoil2002_E2_rim_",jahro,".png",sep=""),width=p.width,height=p.height,pointsize=8)
     par(mar=c(1,5,1,1),omi=c(0,0,0,0))
     plot(as.numeric(strptime(db.Ts.lvl1$UTC[tair_gut],format="%Y-%m-%d %H:%M")),db.Ts.lvl1$Ts_0[tair_gut], pch = 20,# cex.lab=1.7, cex.axis=1.5,   # albedo from file
          xlim=xxlim, ylim=c(0,y.max), xlab="", ylab = "",xaxt="n", yaxt="n",type="n", cex.axis=3)
@@ -359,14 +369,14 @@ for (jahro in jahr){
   
   if(zack==1){
     
-    #############################################################################
+    ###...........................................................................
     ##
-    ##  05.1 VWC center
+    ##  05.1 VWC center ----
     ##
-    #############################################################################
+    ###...........................................................................
     
     
-    png(paste(path$w[path$n=="plot.p"],jahro,"/SaSoil2002_vwc_center_",jahro,".png",sep=""),width=p.width,height=p.height,pointsize=8)
+    png(paste(p.1$w[p.1$n=="plot.p"],jahro,"/SaSoil2002_vwc_center_",jahro,".png",sep=""),width=p.width,height=p.height,pointsize=8)
     par(mar=c(1,8,1,1),omi=c(0,0,0,0))
     plot(as.numeric(strptime(db.Ts.lvl1$UTC[tair_gut],format="%Y-%m-%d %H:%M")),db.Ts.lvl1$Ts_0[tair_gut], pch = 20,# cex.lab=1.7, cex.axis=1.5,   # albedo from file
          xlim=xxlim, ylim=c(-0.03,1), xlab="", ylab = "",xaxt="n", yaxt="n",type="n", cex.axis=3)
@@ -391,13 +401,13 @@ for (jahro in jahr){
   if(zack==1){
     ##
     ##
-    #############################################################################
+    ###...........................................................................
     ##
-    ##  05.2 VWC slope
+    ##  05.2 VWC slope ----
     ##
-    #############################################################################
+    ###...........................................................................
     
-    png(paste(path$w[path$n=="plot.p"],jahro,"/SaSoil2002_vwc_slope_",jahro,".png",sep=""),width=p.width,height=p.height,pointsize=8)
+    png(paste(p.1$w[p.1$n=="plot.p"],jahro,"/SaSoil2002_vwc_slope_",jahro,".png",sep=""),width=p.width,height=p.height,pointsize=8)
     par(mar=c(1,5,1,1),omi=c(0,0,0,0))
     plot(as.numeric(strptime(db.Ts.lvl1$UTC[tair_gut],format="%Y-%m-%d %H:%M")),db.Ts.lvl1$Ts_center_1[tair_gut], pch = 20,# cex.lab=1.7, cex.axis=1.5,   # albedo from file
          xlim=xxlim, ylim=c(-0.03,1), xlab="", ylab = "",xaxt="n", yaxt="n",type="n", cex.axis=3)
@@ -423,13 +433,13 @@ for (jahro in jahr){
   if(zack==1){
     ##
     ##
-    #############################################################################
+    ###...........................................................................
     ##
-    ##  05.3 VWC rim
+    ##  05.3 VWC rim ----
     ##
-    #############################################################################
+    ###...........................................................................
     
-    png(paste(path$w[path$n=="plot.p"],jahro,"/SaSoil2002_vwc_rim_",jahro,".png",sep=""),width=p.width,height=p.height,pointsize=8)
+    png(paste(p.1$w[p.1$n=="plot.p"],jahro,"/SaSoil2002_vwc_rim_",jahro,".png",sep=""),width=p.width,height=p.height,pointsize=8)
     par(mar=c(1,5,1,1),omi=c(0,0,0,0))
     plot(as.numeric(strptime(db.Ts.lvl1$UTC[tair_gut],format="%Y-%m-%d %H:%M")),db.Ts.lvl1$Ts_0[tair_gut], pch = 20,# cex.lab=1.7, cex.axis=1.5,   # albedo from file
          xlim=xxlim, ylim=c(-0.03,1), xlab="", ylab = "",xaxt="n", yaxt="n",type="n", cex.axis=3)
