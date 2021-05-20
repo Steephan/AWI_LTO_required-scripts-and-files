@@ -28,6 +28,7 @@ Samoylov,SaSoil2002,2017,/sparc/data/LTO/level1/SaSoil2002/00_full_dataset/SaSoi
 Samoylov,SaSoil2002,2018,/sparc/data/LTO/level1/SaSoil2002/00_full_dataset/SaSoil2002_2018_lv1_noflag.dat,/sparc/LTO/R_database/Time_series_preprocessing/sparcflags/shiny-server/LV1_Sa_flagger_update.R,1 
 Samoylov,SaSoil2002,2019,/sparc/data/LTO/level1/SaSoil2002/00_full_dataset/SaSoil2002_2019_lv1_noflag.dat,/sparc/LTO/R_database/Time_series_preprocessing/sparcflags/shiny-server/LV1_Sa_flagger_update.R,1 
 Samoylov,SaSoil2002,2020,/sparc/data/LTO/level1/SaSoil2002/00_full_dataset/SaSoil2002_2020_lv1_noflag.dat,/sparc/LTO/R_database/Time_series_preprocessing/sparcflags/shiny-server/LV1_Sa_flagger_update.R,1 
+Samoylov,SaSoil2002,2021,/sparc/data/LTO/level1/SaSoil2002/00_full_dataset/SaSoil2002_2021_lv1_noflag.dat,/sparc/LTO/R_database/Time_series_preprocessing/sparcflags/shiny-server/LV1_Sa_flagger_update.R,1 
 Samoylov,SaSoil2012,2012,/sparc/data/LTO/level1/SaSoil2012/00_full_dataset/SaSoil2012_2012_lv1_noflag.dat,/sparc/LTO/R_database/Time_series_preprocessing/sparcflags/shiny-server/LV1_Sa_flagger_update.R,1 
 Samoylov,SaSoil2012,2013,/sparc/data/LTO/level1/SaSoil2012/00_full_dataset/SaSoil2012_2013_lv1_noflag.dat,/sparc/LTO/R_database/Time_series_preprocessing/sparcflags/shiny-server/LV1_Sa_flagger_update.R,1 
 Samoylov,SaSoil2012,2014,/sparc/data/LTO/level1/SaSoil2012/00_full_dataset/SaSoil2012_2014_lv1_noflag.dat,/sparc/LTO/R_database/Time_series_preprocessing/sparcflags/shiny-server/LV1_Sa_flagger_update.R,1 
@@ -36,6 +37,8 @@ Samoylov,SaSoil2012,2016,/sparc/data/LTO/level1/SaSoil2012/00_full_dataset/SaSoi
 Samoylov,SaSoil2012,2017,/sparc/data/LTO/level1/SaSoil2012/00_full_dataset/SaSoil2012_2017_lv1_noflag.dat,/sparc/LTO/R_database/Time_series_preprocessing/sparcflags/shiny-server/LV1_Sa_flagger_update.R,1 
 Samoylov,SaSoil2012,2018,/sparc/data/LTO/level1/SaSoil2012/00_full_dataset/SaSoil2012_2018_lv1_noflag.dat,/sparc/LTO/R_database/Time_series_preprocessing/sparcflags/shiny-server/LV1_Sa_flagger_update.R,1 
 Samoylov,SaSoil2012,2019,/sparc/data/LTO/level1/SaSoil2012/00_full_dataset/SaSoil2012_2019_lv1_noflag.dat,/sparc/LTO/R_database/Time_series_preprocessing/sparcflags/shiny-server/LV1_Sa_flagger_update.R,1 
+Samoylov,SaSoil2012,2020,/sparc/data/LTO/level1/SaSoil2012/00_full_dataset/SaSoil2012_2020_lv1_noflag.dat,/sparc/LTO/R_database/Time_series_preprocessing/sparcflags/shiny-server/LV1_Sa_flagger_update.R,1 
+Samoylov,SaSoil2012,2021,/sparc/data/LTO/level1/SaSoil2012/00_full_dataset/SaSoil2012_2021_lv1_noflag.dat,/sparc/LTO/R_database/Time_series_preprocessing/sparcflags/shiny-server/LV1_Sa_flagger_update.R,1 
 Samoylov,SaMet2002,2002,/sparc/data/LTO/level1/SaMet2002/00_full_dataset/SaMet2002_2002_lv1_noflag.dat,/sparc/LTO/R_database/Time_series_preprocessing/sparcflags/shiny-server/LV1_Sa_flagger_update.R,1 
 Samoylov,SaMet2002,2003,/sparc/data/LTO/level1/SaMet2002/00_full_dataset/SaMet2002_2003_lv1_noflag.dat,/sparc/LTO/R_database/Time_series_preprocessing/sparcflags/shiny-server/LV1_Sa_flagger_update.R,1 
 Samoylov,SaMet2002,2004,/sparc/data/LTO/level1/SaMet2002/00_full_dataset/SaMet2002_2004_lv1_noflag.dat,/sparc/LTO/R_database/Time_series_preprocessing/sparcflags/shiny-server/LV1_Sa_flagger_update.R,1 
@@ -55,6 +58,7 @@ Samoylov,SaMet2002,2017,/sparc/data/LTO/level1/SaMet2002/00_full_dataset/SaMet20
 Samoylov,SaMet2002,2018,/sparc/data/LTO/level1/SaMet2002/00_full_dataset/SaMet2002_2018_lv1_noflag.dat,/sparc/LTO/R_database/Time_series_preprocessing/sparcflags/shiny-server/LV1_Sa_flagger_update.R,1 
 Samoylov,SaMet2002,2019,/sparc/data/LTO/level1/SaMet2002/00_full_dataset/SaMet2002_2019_lv1_noflag.dat,/sparc/LTO/R_database/Time_series_preprocessing/sparcflags/shiny-server/LV1_Sa_flagger_update.R,1 
 Samoylov,SaMet2002,2020,/sparc/data/LTO/level1/SaMet2002/00_full_dataset/SaMet2002_2020_lv1_noflag.dat,/sparc/LTO/R_database/Time_series_preprocessing/sparcflags/shiny-server/LV1_Sa_flagger_update.R,1 
+Samoylov,SaMet2002,2021,/sparc/data/LTO/level1/SaMet2002/00_full_dataset/SaMet2002_2021_lv1_noflag.dat,/sparc/LTO/R_database/Time_series_preprocessing/sparcflags/shiny-server/LV1_Sa_flagger_update.R,1 
 Samoylov,SaHole2006,2006,/sparc/data/LTO/level1/SaHole2006/00_full_dataset/SaHole2006_2006_lv1_noflag.dat,/sparc/LTO/R_database/Time_series_preprocessing/sparcflags/shiny-server/LV1_Sa_flagger_update.R,1 
 Samoylov,SaHole2006,2007,/sparc/data/LTO/level1/SaHole2006/00_full_dataset/SaHole2006_2007_lv1_noflag.dat,/sparc/LTO/R_database/Time_series_preprocessing/sparcflags/shiny-server/LV1_Sa_flagger_update.R,1 
 Samoylov,SaHole2006,2008,/sparc/data/LTO/level1/SaHole2006/00_full_dataset/SaHole2006_2008_lv1_noflag.dat,/sparc/LTO/R_database/Time_series_preprocessing/sparcflags/shiny-server/LV1_Sa_flagger_update.R,1 

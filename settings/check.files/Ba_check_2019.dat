@@ -88,10 +88,10 @@
 "Bayelva","BaSnow2019sr","Tair_200","2020-01-31 11:46:49","NB","2020-02-04 09:29:48","SL"
 "Bayelva","BaSnow2019sr","Dsn","2020-02-04 09:30:19","SL",NA,NA
 "Bayelva","BaSnow2019cs","CountsK","2020-02-04 09:35:33","SL",NA,NA
-"Bayelva","BaSnow2019cs","CountsTL","2020-02-04 09:35:51","SL",NA,NA
+"Bayelva","BaSnow2019cs","CountsTl",NA,NA,NA,NA
 "Bayelva","BaSnow2019cs","SWE_K","2020-02-04 09:36:07","SL",NA,NA
-"Bayelva","BaSnow2019cs","KTL_Ratio","2020-02-04 10:00:48","SL",NA,NA
-"Bayelva","BaSnow2019cs","SWE_TL","2020-02-04 09:36:19","SL",NA,NA
+"Bayelva","BaSnow2019cs","KTl_Ratio",NA,NA,NA,NA
+"Bayelva","BaSnow2019cs","SWE_Tl",NA,NA,NA,NA
 "Bayelva","BaSnow2019cs","Tcryst_min","2020-02-04 09:41:23","SL",NA,NA
 "Bayelva","BaSnow2019cs","Tcryst_max","2020-02-04 09:41:35","SL",NA,NA
 "Bayelva","BaSnow2019cs","Dsn","2020-02-04 09:41:45","SL",NA,NA

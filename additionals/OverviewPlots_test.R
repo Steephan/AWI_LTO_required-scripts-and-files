@@ -16,24 +16,27 @@
 #path <- read.table("N:/sparc/LTO/R_database/database_R/settings/path_windoof.txt", sep = "\t", header = T)
 ###.............................................................................
 # # this part is necessary to run this script seperate 
-#rm(list=ls())
+# rm(list=ls())
 if (.Platform$OS.type == "windows") {
-  path<-read.table("N:/sparc/LTO/R_database/database_R/settings/path_windoof.txt",sep="\t",header=T)
-  maint<-read.table("N:/sparc/LTO/R_database/database_R/settings/maintance.txt",sep="\t",header=T)
-  p.1<-read.table("N:/sparc/LTO/R_database/database_R/settings/path_windoof.txt",sep="\t",header=T)
-  p.1maint<-read.table("N:/sparc/LTO/R_database/database_R/settings/maintance.txt",sep="\t",header=T)
-  tmp.path <- "N:/sparc/LTO/R_database/database_plots/OverviewPlots/Tmp_png/"
-  source("N:/sparc/LTO/R_database/database_R/settings/db_func.R")
+p.1 <<- read.table("N:/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/settings/path_win.txt", sep = "\t", header = T)
+p.1maint <<- read.table("N:/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/settings/maintenance.files/maintance.txt", sep = "\t", header = T)
+
+yearlyDatasetPaths <- read.csv("N:/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/settings_shiny/yearlyDataPath_auto.csv",
+                               stringsAsFactors = FALSE, strip.white = TRUE)
+allowedVariables   <- read.csv("N:/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/settings_shiny/allowedVariables.csv",
+                               stringsAsFactors = FALSE, strip.white = TRUE)
+tmp.path <- "N:/sparc/LTO/R_database/database_plots/OverviewPlots/Tmp_png/"
+filterbasepath     <- "N:/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/settings/filter.files/"
+checkbasepath      <- "N:/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/settings/check.files/"
 }else{
-  path<-read.table("/sparc/LTO/R_database/database_R/settings/path_linux.txt",sep="\t",header=T, fileEncoding="UTF-8")
-  maint<-read.table("/sparc/LTO/R_database/database_R/settings/maintance.txt",sep="\t",header=T)
   p.1<-read.table("/sparc/LTO/R_database/database_R/settings/path_linux.txt",sep="\t",header=T, fileEncoding="UTF-8")
   p.1maint<-read.table("/sparc/LTO/R_database/database_R/settings/maintance.txt",sep="\t",header=T)
   tmp.path <- "/sparc/LTO/R_database/database_plots/OverviewPlots/Tmp_png/"
   source("/sparc/LTO/R_database/database_R/settings/db_func.R")
 }
-###.............................................................................
-
+# ###.............................................................................
+station <<- "SaSoil2002"
+run.year <<-  2020
 # for format of time axis
 Sys.setlocale("LC_TIME", "English")
 
@@ -45,7 +48,7 @@ Sys.setlocale("LC_TIME", "English")
 # because of the file size of the longterm plots (many data points in vector format pdf)
 # and because the wikiplots are in png format already
 ###.............................................................................
-
+tmp.path <- "N:/sparc/LTO/R_database/database_plots/OverviewPlots/Tmp_png/"
 # set resolution of png
 ppi <- 300
 ## requires package magick
@@ -61,12 +64,13 @@ library(magick)
 ###.............................................................................
 
 ###.............................................................................
-
+k=8
 origin <- "1970-01-01"
   ###.............................................................................
   # vector of datasets
   dataset <- c("met", "soil", "BaMet2009", "BaSoil2009", "BaSoil2017", "BaHole2009", "BaHole2015", "BaSnow2013", "TVCSoil2016")
   # vector years for the longterm plots
+  years <- yearlyDatasetPaths$year[yearlyDatasetPaths$dataset==station]
   # ATTENTION:
   # 1) for all datasets there has to be some years and
   # 2) datasets and years has to be in the same order
@@ -76,8 +80,8 @@ origin <- "1970-01-01"
 #run.year <- 2020
 
 for (year_i in run.year) {
-  years <- list(2009:year_i, 2009:year_i, 2009:year_i, 2009:year_i, 2017:year_i, 2009:year_i, 2015:2019, 2013:year_i, 2016:2019)
-  
+  # years <- list(2009:year_i, 2009:year_i, 2009:year_i, 2009:year_i, 2017:year_i, 2009:year_i, 2015:2019, 2013:year_i, 2016:2019)
+
   ############################
   # collect data from legend png?s
   path.legends <- paste(p.1$w[p.1$n == "plot.p"], "Legends", sep = "")
@@ -94,37 +98,37 @@ for (year_i in run.year) {
   # k 1 and 2: Pangaea data sets
   # k > 2: level 1 data sets
   
-  for (k in c(8)) {
+ # for (k in c(8)) {
     
     # run the loop only if the running year is not later than the last year of dataset k
-    if (max(years[[k]]) >= year_i) {
+ #   if (max(years[[k]]) >= year_i) {
       
       # k: 1 and 2 Pangaea data sets
       if (k <= 2) {
-        lv1.data <- read.table(paste(path$w[path$n == "LV2.p"], "Bayelva/ESSD_Pangaea/LV1/", dataset[k], "_lv1_", year_i, ".dat", sep = ""),
+        lv1.data <- read.table(paste(p.1$w[p.1$n == "LV2.p"], "Bayelva/ESSD_Pangaea/LV1/", station, "_lv1_", year_i, ".dat", sep = ""),
                                sep = ",", dec = ".", header = T, fill = TRUE)
         ############################
         # pdf path
-        # pdf.path <- paste(path$w[path$n == "plot.p"], "OverviewPlots/Pangaea/", dataset[k], "_", year_i, ".pdf", sep = "")
-        # pdf.path <- paste(tmp.path, "pdf/Pangaea/", dataset[k], "_", year_i, ".pdf", sep = "")
+        # pdf.path <- paste(p.1$w[p.1$n == "plot.p"], "OverviewPlots/Pangaea/", station, "_", year_i, ".pdf", sep = "")
+        # pdf.path <- paste(tmp.path, "pdf/Pangaea/", station, "_", year_i, ".pdf", sep = "")
       }
       
       # k > 2 level 1 data sets
       if (k > 2) {
-        lv1.data <- read.table(paste(path$w[path$n == "LV1.p"], dataset[k], "/00_full_dataset/", dataset[k], "_", year_i, "_lv1.dat", sep = ""),
+        lv1.data <- read.table(paste(p.1$w[p.1$n == "LV1.p"], station, "/00_full_dataset/", station, "_", year_i, "_lv1.dat", sep = ""),
                                sep = ",", dec = ".", header = T, fill = TRUE)
         ###.............................................................................
         # pdf path
         #
-        #pdf.path <- paste(path$w[path$n == "plot.p"], "OverviewPlots/LV1/", dataset[k], "_", year_i, ".pdf", sep = "")
+        #pdf.path <- paste(p.1$w[p.1$n == "plot.p"], "OverviewPlots/LV1/", station, "_", year_i, ".pdf", sep = "")
       }
       
       ###.............................................................................
       ###.............................................................................
       # pdf path
-      pdf.path <- paste(path$w[path$n == "plot.p"], "OverviewPlots/", dataset[k], "_", year_i, ".pdf", sep = "")
+      pdf.path <- paste(p.1$w[p.1$n == "plot.p"], "OverviewPlots/LV1/", year_i,"/", station, "_", year_i, ".pdf", sep = "")
       # the plotting procedure is relatively cumbersome. It can be help to set a local tmp folder to speed up the process and reduce errors.
-      # pdf.path <- paste(tmp.path, "pdf/", dataset[k], "_", year_i, ".pdf", sep = "")
+      # pdf.path <- paste(tmp.path, "pdf/", station, "_", year_i, ".pdf", sep = "")
       ###.............................................................................
       ###.............................................................................
       
@@ -161,6 +165,7 @@ for (year_i in run.year) {
       y.lab[grep("Vwc", names(lv1.data))] <- "m^3 / m^3"# "%"
       # y.lab
       ###.............................................................................
+      # var cats -----
       # vector of variable categories for assigning wikiplots
       lv1.var.cat <- rep(NA, length(lv1.data))
       lv1.var.cat <- as.character(lv1.var.cat)
@@ -173,12 +178,17 @@ for (year_i in run.year) {
       lv1.var.cat[grep("vwc", names(lv1.data))] <- "vwc"
       lv1.var.cat[grep("Tair_4", names(lv1.data))] <- "Tair_4"
       lv1.var.cat[grep("Tair_100", names(lv1.data))] <- "Tair_100"
-      # order of Tair20 and Tair_200 important to prevent mixing-up
       lv1.var.cat[grep("Tair_20", names(lv1.data))] <- "Tair_20"
       lv1.var.cat[grep("Tair_200", names(lv1.data))] <- "Tair_200"
+      lv1.var.cat[grep("Tair_a_200", names(lv1.data))] <- "Tair1_200"
+      lv1.var.cat[grep("Tair_b_200", names(lv1.data))] <- "Tair2_200"
+      lv1.var.cat[grep("Tair_a_50", names(lv1.data))] <- "Tair1_50"
+      lv1.var.cat[grep("Tair_b_50", names(lv1.data))] <- "Tair2_50"
       lv1.var.cat[grep("Prec", names(lv1.data))] <- "prec"
       lv1.var.cat[grep("prec", names(lv1.data))] <- "prec"
       lv1.var.cat[grep("RH", names(lv1.data))] <- "RH"
+      lv1.var.cat[grep("RH_50", names(lv1.data))] <- "RH_50"
+      lv1.var.cat[grep("RH_200", names(lv1.data))] <- "RH_200"
       lv1.var.cat[grep("RadNet", names(lv1.data))] <- "RadNet"#"rad_net"
       lv1.var.cat[grep("SwNet", names(lv1.data))] <- "SwNet"
       lv1.var.cat[grep("SwIn", names(lv1.data))] <- "SwIn"
@@ -190,20 +200,20 @@ for (year_i in run.year) {
       lv1.var.cat[grep("Dsn", names(lv1.data))] <- "Dsn"
       lv1.var.cat[grep("G", names(lv1.data))] <- "G"
       # for TVC
-      if (dataset[k] == "TVCSoil2016") {
+      if (station == "TVCSoil2016") {
         lv1.var.cat[grep("vwc_h", names(lv1.data))] <- "vwc_h"
         lv1.var.cat[grep("vwc_v", names(lv1.data))] <- "vwc_v"
         lv1.var.cat[grep("vwc_a", names(lv1.data))] <- "vwc_v"
         lv1.var.cat[grep("vwc_b", names(lv1.data))] <- "vwc_v"
       }
       # special cases Pangaea met
-      if (dataset[k] == "met") {
+      if (station == "met") {
         lv1.var.cat[grep("Tair_5", names(lv1.data))] <- "Tair_5"
         lv1.var.cat[grep("Dsn_a", names(lv1.data))] <- "Dsn_a"
         lv1.var.cat[grep("Dsn_b", names(lv1.data))] <- "Dsn_b"
       }
       # special cases Pangaea soil
-      if (dataset[k] == "soil") {
+      if (station == "soil") {
         lv1.var.cat[grep("Cond", names(lv1.data))] <- "Cond"
         lv1.var.cat[grep("E2", names(lv1.data))] <- "E2"
         lv1.var.cat[grep("Vwc", names(lv1.data))] <- "Vwc"
@@ -214,7 +224,7 @@ for (year_i in run.year) {
       }
       
       # vector with names for assignment of selection of data sets for long term plots of Pangaea "met"
-      if (dataset[k] == "met") {
+      if (station == "met") {
         dummy.names.met <- names(lv1.data)
         dummy.names.met <- sub(pattern = "Prec", replacement = "prec", dummy.names.met)
         dummy.names.met <- sub(pattern = "Vwind_200", replacement = "wind_v_200", dummy.names.met)
@@ -227,7 +237,7 @@ for (year_i in run.year) {
       }
       
       # vector with names for assignment of selection of data sets for long term plots of Pangaea "soil"
-      if (dataset[k] == "soil") {
+      if (station == "soil") {
         dummy.names.soil <- names(lv1.data)
         dummy.names.soil <- sub(pattern = "Ts_a", replacement = "Ts", dummy.names.soil)
         dummy.names.soil <- sub(pattern = "Ts_b", replacement = "Ts_203", dummy.names.soil)
@@ -243,15 +253,15 @@ for (year_i in run.year) {
       # excluded:
       # OLD: 1) All data without marking any flags,
       ###.............................................................................
-      # infos ----
       # 1) All data with flag 0 colored in grey and all other flags colored in red,
       # 2) Only data with quality flag 0,
       # 3) Long term plots of all available years of the variable,
       # 4) the plot from the wiki, which sometimes contains other related variables.
       ###.............................................................................
-      
+      ## loop over plots -----
+      cat("wait for ",(ncol(lv1.data)-1)/2," variables:\n")
       for (i in seq(2, ncol(lv1.data), by = 2)) {
-        cat(i,"\n")
+        cat("variable",i/2,lv1.var.cat[i],"\n")
         ###.............................................................................
         # index of values with flag 0
         ind <- which(lv1.data[, i + 1] == 0)
@@ -287,7 +297,8 @@ for (year_i in run.year) {
         # plot 1: All data with flag 0 colored in grey and all other flags colored in red ----
         # if there are no values with flag = 0 in this year_i ==> print "NO VALUES",
         # other than that plot the time series of the year_i
-        png(file = paste(tmp.path, "p", i, ".png", sep = ""),
+        cat("plot 1\n")
+        png(file = paste(tmp.path, "p1-", i, ".png", sep = ""),
             width = 2*6*ppi, height = 6*ppi, res = ppi)
         
         par(mar = c(2.2, 3.2, 2, 1), mgp = c(1.8, 0.5, 0), tck = -0.01,
@@ -323,7 +334,7 @@ for (year_i in run.year) {
         dev.off()
         
         # read png for merging later
-        pngs <- list.files(path = tmp.path, pattern = paste("p", i, ".png", sep = ""), full.names = TRUE)
+        pngs <- list.files(path = tmp.path, pattern = paste("p1-", i, ".png", sep = ""), full.names = TRUE)
         img1 <- image_read(pngs)
         ###.............................................................................
         # delete all plot 1 png from tmp folder for next dataset
@@ -333,7 +344,8 @@ for (year_i in run.year) {
         # plot 2: Only data with quality flag 0, ----
         # if there are no values with flag = 0 in this year_i ==> print "NO VALUES",
         # other than that plot the time series of the year_i
-        png(file = paste(tmp.path, "p", i, ".png", sep = ""),
+        cat("plot 2\n")
+        png(file = paste(tmp.path, "p2-", i, ".png", sep = ""),
             width = 2*6*ppi, height = 6*ppi, res = ppi)
         
         par(mar = c(2.2, 3.2, 2, 1), mgp = c(1.8, 0.5, 0), tck = -0.01,
@@ -360,7 +372,7 @@ for (year_i in run.year) {
         dev.off()
         
         # read png for merging later
-        pngs <- list.files(path = tmp.path, pattern = paste("p", i, ".png", sep = ""), full.names = TRUE)
+        pngs <- list.files(path = tmp.path, pattern = paste("p2-", i, ".png", sep = ""), full.names = TRUE)
         img2 <- image_read(pngs)
         ###.............................................................................
         # delete all plot 2 png from tmp folder for next dataset
@@ -386,22 +398,22 @@ for (year_i in run.year) {
         # for Pangaea selection data set
         # select row index of dataset k and variable i in names.wikiplots table
         if (lv1.var.cat[i] %in% c("Tair_20", "Tair_200")) {
-          ind.wiki.plots <- intersect(which(names.wikiplots$dataset == dataset[k]), which(names.wikiplots$variable_category == lv1.var.cat[i]))
+          ind.wiki.plots <- intersect(which(names.wikiplots$dataset == station), which(names.wikiplots$variable_category == lv1.var.cat[i]))
         } else {
-          ind.wiki.plots <- intersect(which(names.wikiplots$dataset == dataset[k]), grep(lv1.var.cat[i], names.wikiplots$variable_category))
+          ind.wiki.plots <- intersect(which(names.wikiplots$dataset == station), grep(lv1.var.cat[i], names.wikiplots$variable_category))
         }
         
         # special condition for Pangaea dataset "soil" because
         # "Ts_b" is from "BaMet1998" between 1998 to 2009,
         # and from "BaMet2009" between 2009 to 2018
-        if ((year_i <= 2009) & (dataset[k] == "soil") & (lv1.var.cat[i] == "Ts_b")) {
-          ind.wiki.plots <- intersect(intersect(which(names.wikiplots$dataset == dataset[k]),
+        if ((year_i <= 2009) & (station == "soil") & (lv1.var.cat[i] == "Ts_b")) {
+          ind.wiki.plots <- intersect(intersect(which(names.wikiplots$dataset == station),
                                                 which(names.wikiplots$sparc_dataset == "BaMet1998")),
                                       grep(lv1.var.cat[i], names.wikiplots$variable_category))
         }
         
-        if ((year_i > 2009) & (dataset[k] == "soil") & (lv1.var.cat[i] == "Ts_b")) {
-          ind.wiki.plots <- intersect(intersect(which(names.wikiplots$dataset == dataset[k]),
+        if ((year_i > 2009) & (station == "soil") & (lv1.var.cat[i] == "Ts_b")) {
+          ind.wiki.plots <- intersect(intersect(which(names.wikiplots$dataset == station),
                                                 which(names.wikiplots$sparc_dataset == "BaMet2009")),
                                       grep(lv1.var.cat[i], names.wikiplots$variable_category))
         }
@@ -416,15 +428,16 @@ for (year_i in run.year) {
           all.years <- years[[which(dataset == sparc.dataset)]]
         }
         
-        # for k > 2 ==> sparc data sets:
-        if (k > 2) {
-          sparc.dataset <- dataset[k]
-          all.years <- years[[k]]
-        } 
+        # # for k > 2 ==> sparc data sets:
+        # if (k > 2) {
+          sparc.dataset <- station
+         # all.years <- years[[k]]
+          all.years <- years
+        # } 
         # special condition for Pangaea dataset "soil" because
         # "Ts_b" is from "BaMet1998" between 1998 to 2009,
         # and from "BaMet2009" between 2009 to 2018
-        if ((dataset[k] == "soil") & (sparc.dataset == "BaMet2009")) {
+        if ((station == "soil") & (sparc.dataset == "BaMet2009")) {
           all.years <- 2010:year_i
         }
         
@@ -436,11 +449,11 @@ for (year_i in run.year) {
         # concatenate them in one data frame, and
         # 3) set the correct colum variable ii for the long term plot
         
-        for (j in 1:length(all.years)) { #years[[k]])) {
-          year <- all.years[j]#years[[k]][j]
+        for (j in 1:length(all.years)) {
+          year <- all.years[j]#
           
           # read year j of the selected sparc dataset
-          dummy <- read.table(paste(path$w[path$n == "LV1.p"], sparc.dataset, "/00_full_dataset/", sparc.dataset, "_", year, "_lv1.dat", sep = ""),
+          dummy <- read.table(paste(p.1$w[p.1$n == "LV1.p"], sparc.dataset, "/00_full_dataset/", sparc.dataset, "_", year, "_lv1.dat", sep = ""),
                               sep = ",", dec = ".", header = T, fill = TRUE)
           
           # 3) set index ii
@@ -489,8 +502,8 @@ for (year_i in run.year) {
           prec.yearly[,1]<-paste0(prec.yearly[,1],"-07-01")
           prec.monthly[,1]<-paste0(prec.monthly[,1],"-15")
         }
-        
-        png(file = paste(tmp.path, "p", i, ".png", sep = ""),
+          cat("plot 3\n")
+        png(file = paste(tmp.path, "p3-", i, ".png", sep = ""),
             width = 2*6*ppi, height = 6*ppi, res = ppi)
         
         par(mar = c(2.2, 3.2, 2, 1), mgp = c(1.8, 0.5, 0), tck = -0.01,
@@ -530,6 +543,10 @@ for (year_i in run.year) {
           #abline(v = time.ticks, col = "lightgray", lty = 1, lwd = 0.2)
           abline(v = seq(from = long.lv1.data$UTC[1], to = long.lv1.data$UTC[length(long.lv1.data$UTC)], by = "year"),
                  col = "lightgray", lty = 1, lwd = 0.2)
+          abline(v = c(long.lv1.data$UTC[which(paste0(run.year,"-01-01 01:00:00 UTC")==long.lv1.data$UTC)],
+                       long.lv1.data$UTC[which(paste0(run.year+1,"-01-01 01:00:00 UTC")==long.lv1.data$UTC)]),
+                 col = "red", lty = 3, lwd = 1.6)
+          
           abline(h = 0, col = "lightgray", lty = 1, lwd = 2)
           
           points(long.lv1.data$UTC[ind.long], long.lv1.data[ind.long, ii], pch = 1, cex = 0.2, lwd = 0.2)
@@ -539,7 +556,7 @@ for (year_i in run.year) {
         
         
         # read png for merging later
-        pngs <- list.files(path = tmp.path, pattern = paste("p", i, ".png", sep = ""), full.names = TRUE)
+        pngs <- list.files(path = tmp.path, pattern = paste("p3-", i, ".png", sep = ""), full.names = TRUE)
         img3 <- image_read(pngs)
         ###.............................................................................
         # delete all plot 3 png from tmp folder for next dataset
@@ -553,21 +570,22 @@ for (year_i in run.year) {
         ###.............................................................................
         # selection now already before plot 3, because of Pangaea plots
         # select row index of dataset k and variable i in names.wikiplots table
-        # ind.wiki.plots <- intersect(which(names.wikiplots$dataset == dataset[k]), grep(names(lv1.data)[i], names.wikiplots$variable_category))
-        # ind.wiki.plots <- intersect(which(names.wikiplots$dataset == dataset[k]), grep(lv1.var.cat[i], names.wikiplots$variable_category))
+        # ind.wiki.plots <- intersect(which(names.wikiplots$dataset == station), grep(names(lv1.data)[i], names.wikiplots$variable_category))
+        # ind.wiki.plots <- intersect(which(names.wikiplots$dataset == station), grep(lv1.var.cat[i], names.wikiplots$variable_category))
         ###.............................................................................
         # plot 4: merge the wikiplots with their legend and print as png -----
         # and merge the complete wikiplot with plot 3
         # if no wikiplot is existing, omit plot 4
+        cat("plot 4\n")
         if (length(ind.wiki.plots) > 0) {
           
           legend.files <- list.files(path = path.legends, pattern = as.character(paste(names.wikiplots$legend_name[ind.wiki.plots], ".png", sep = "")), full.names = TRUE)
-          #legend.names <- list.files(path = path.legends, pattern = dataset[k])
+          #legend.names <- list.files(path = path.legends, pattern = station)
           #legend.pattern <- as.character(strsplit(x = legend.names, split = ".png"))
           legend2 <- image_read(legend.files)
           
           png.files <- list.files(path = path.wiki.pngs, pattern = as.character(names.wikiplots$wikiplot_name[ind.wiki.plots]), full.names = TRUE)
-          #png.names <- list.files(path = path.wiki.pngs, pattern = dataset[k])
+          #png.names <- list.files(path = path.wiki.pngs, pattern = station)
           #png.pattern <- as.character(strsplit(x = png.names, split = paste("_", year_i, ".png", sep = "")))
           pngs2 <- image_read(png.files)
           
@@ -593,15 +611,15 @@ for (year_i in run.year) {
       # and merge all the plots of dataset k in one pdf
       pngs <- list.files(path = tmp.path, pattern = "1to4_p", full.names = TRUE)
       pngs2 <- image_read(pngs)
-      
+      cat("write pdf\n")
       image_write(pngs2, path = pdf.path, format = "pdf")
       
       ###.............................................................................
       # delete all png?s from tmp folder for next dataset
       file.remove(pngs)
       ###.............................................................................
-      cat("#\n# overview plot ", dataset[k],": ", year_i, " done!\n#\n")
+      cat("#\n# overview plot ", station,": ", year_i, " done!\n#\n")
     }
-  }
+#  }
   
-}
+#}

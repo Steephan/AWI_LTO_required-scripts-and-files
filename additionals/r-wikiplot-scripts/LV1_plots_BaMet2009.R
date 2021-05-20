@@ -1,6 +1,6 @@
 ###.....................................................................
 ##
-##   Level1 plots to wiki
+##   Level1 plots to wiki ----
 ##   .....................................................................
 ##   BaMet2009
 ##
@@ -11,6 +11,7 @@
 ###.....................................................................
 ##
 ##  last modification:
+##  2021-05-12 SL adapted to runner app and content management
 ##  2020-10-01 CL new precipitation plot format added
 ##	2020-04-15 CL update format of script and some plots
 ##  - longterm plots:

@@ -1,17 +1,22 @@
-#############################################################################
+###.........................................................................
 ##
-##   snow water equivalent (SWE) plotter       WIKI Level1
-##   snow water equivalent (SWE) product       see Level2
+##   snow water equivalent (SWE) plotter       WIKI Level1 ----
+##   snow water equivalent (SWE) product       see Level2 ----
 ##
 ##
 ##   by: Stephan.Lange@awi.de
 ##       christian.lehr@awi.de
-##   last modified: 2019-10-14
+##
+##   last modified: 2021-05-12 -----
+##
+##   2021-05-12 SL adapted to runner app and content management
+###.........................................................................
+##  
+##  open issues: ----
+##     remove level2 products
 ##
 ##
-#############################################################################
-
-############################################################################
+###.........................................................................
 # to run this script separately, you have to uncomment the next 10 lines!
 # rm(list = ls())
 # if (.Platform$OS.type == "windows") {
@@ -25,7 +30,7 @@
 #   
 #   source("/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/functions/db_func.R")
 # }
-#############################################################################
+###.........................................................................
 
 options(scipen = 100, stringsAsFactors = F, digits = 2, scientific = T) # for non-exponential display of numeric values
 origin = "1970-01-01"
@@ -38,22 +43,22 @@ p.width <- 420 * 3.5
 p.height <- 280 * 3.5
 color <- rgb(190, 190, 190, alpha = 70, maxColorValue = 255)
 
-########
+###.........................................................................
 # to run this script separately, you have to set run.year:
 #
 # recent.year <- as.numeric(format(Sys.Date(),"%Y"))
 # run.year <- c(2019:2020) # c(1998:2019)
 # run.year <- first.year:recent.year
-#######
+###.........................................................................
 
-
+## loop over years ----
 for (jahr in run.year) {
   start.date <- as.POSIXct(paste0("01.01.",jahr," 00:30"), format = '%d.%m.%Y %H:%M', tz = "UTC")
   end.date <- as.POSIXct(paste0("31.12.",jahr," 18:30"), format = '%d.%m.%Y %H:%M', tz = "UTC")
   db.product_1 <- db.product  <- as.data.frame(matrix(ncol = 3, nrow = length(seq(start.date, end.date, by = "6 hours"))))
   db.complete_1 <- db.complete <- as.data.frame(matrix(ncol = 5, nrow = length(seq(start.date, end.date, by = "6 hours"))))
 
-if (jahr >= 2019) {
+# load data -----
   db.basnow.cs.lvl1 <- read.table(paste0(paste0(p.1$w[p.1$n == "LV1.p"]),
                                          "BaSnow2019cs/00_full_dataset/BaSnow2019cs_", jahr, "_lv1.dat"),
                               sep = ",", dec = ".", header = T, fill = TRUE)[, c("UTC", "SWE_K", "SWE_K_fl", "SWE_Tl", "SWE_Tl_fl")]
@@ -61,7 +66,7 @@ if (jahr >= 2019) {
   db.complete_1[, 3] <- db.basnow.cs.lvl1[, "SWE_K_fl"]
   db.complete_1[, 4] <- db.basnow.cs.lvl1[, "SWE_Tl"]
   db.complete_1[, 5] <- db.basnow.cs.lvl1[, "SWE_Tl_fl"]
-}
+
 
 xxlim = c(as.numeric(strptime(paste0("13.01.", jahr), format = "%d.%m.%Y")),
           as.numeric(strptime(paste0("20.12.", jahr), format = "%d.%m.%Y")))
@@ -70,15 +75,14 @@ db.product_1[, 1] <- format(as.POSIXct(as.numeric(db.product_1[, 1]), origin = "
 
 colnames(db.product_1) <- c("UTC","SWE","SWE_fl")
 
-# -----------------
-# some boundaries
+
 lischt <- c(db.product_1$UTC[format(strptime(db.product_1$UTC, format = "%Y-%m-%d %H:%M"), format = "%d %H:%M") == "01 00:30"],
                          db.product_1$UTC[length(db.product_1$UTC)])
 
 db.product_1[, 1] <- as.numeric(as.POSIXct(seq(start.date, end.date, by = "6 hours"), format = '%Y-%m-%d %H:%M'))
 
-# #  snow water equivalent (SWE)
-# # -----------------------------------------------------
+##  snow water equivalent (SWE) ----
+###.........................................................................
 if (jahr >= 2019) {
   swe_k_basnow.cs_zero <- which(as.numeric(db.basnow.cs.lvl1$SWE_K_fl) == 0)
   swe_k_basnow.cs_flags <- which(as.numeric(db.basnow.cs.lvl1$SWE_K_fl) > 0)
@@ -124,7 +128,7 @@ if (jahr == 2012) {
 
 dev.off()
 
-#####################
+###.........................................................................
 #### db.product #####
 db.product[, 1] <- as.numeric(as.POSIXct(seq(start.date, end.date, by = "6 hours"), format = '%Y-%m-%d %H:%M'))
 db.product <- as.data.frame(db.product)
@@ -134,9 +138,7 @@ colnames(db.product) <- c("UTC", "SWE", "SWE_fl")
 if (jahr >= 2019) {
    db.product[, 2] <- db.basnow.cs.lvl1$SWE_K
    db.product[, 3] <- db.basnow.cs.lvl1$SWE_K_fl
- } #else if(jahr==2013){
-#   ...
-# }
+ } 
 
 db.product <- as.data.frame(db.product)
 colnames(db.product) <- c("UTC", "SWE", "SWE_fl")
@@ -162,13 +164,7 @@ for (pp in as.numeric(strptime(lischt, format = "%Y-%m-%d %H:%M"))) {
 }
   lines(as.numeric(strptime(db.product$UTC[sh_product_zero], format = "%Y-%m-%d %H:%M")),
          db.product$SWE[sh_product_zero], pch = 20, cex.lab = 1.5, col = "snow4")      # type="o"  ,
-  #   points(as.numeric(strptime(db.product$UTC[sh_product_flags],format="%Y-%m-%d %H:%M")),
-  #          db.product$snowheight[sh_product_flags], pch = 20, cex.lab = 1.5,       col="red")
-# if(jahr %in% c(2009,2012,2013)){
-#  for(hui in 1:length(cuts)){
-#    lines(c(as.numeric(strptime(db.product$UTC[cuts[hui]],format="%Y-%m-%d %H:%M")),
-#            as.numeric(strptime(db.product$UTC[cuts[hui]],format="%Y-%m-%d %H:%M"))),c(0.1,1.5),lwd=2,col="maroon")
-#  }}
+
 axis(2, at = seq(ymin, ymax, yint), labels = seq(ymin, ymax, yint), las = 2,cex.axis = 4)
 axis(3, at = c(as.numeric(strptime(lischt[-c(1, 13)], format = "%Y-%m-%d %H:%M"))),
      labels = c("", "", "", "", "", "", "", "", "", "", ""), las = 2, tcl = 0.5, cex.axis = 4)
@@ -179,7 +175,7 @@ text(as.numeric(strptime(lischt[11], format = "%Y-%m-%d %H:%M")) + 2000000, 0.1,
 dev.off() #
 
 
-#################
+###.........................................................................
 db.complete[, 1] <- format(as.POSIXct(seq(start.date,end.date, by = "6 hours"), format = '%Y-%m-%d %H:%M'), format = '%Y-%m-%d %H:%M')
 db.complete_1[, 1] <- format(as.POSIXct(seq(start.date,end.date, by = "6 hours"), format = '%Y-%m-%d %H:%M'), format = '%Y-%m-%d %H:%M')
 colnames(db.complete) <- c("UTC", "SWE_K", "SWE_K_fl", "SWE_Tl", "SWE_Tl_fl")
@@ -190,6 +186,6 @@ write.table(db.product, paste0(paste0(p.1$w[p.1$n == "LV2.p"]) ,"Bayelva/SWE/BaS
 write.table(db.complete_1, paste0(paste0(p.1$w[p.1$n == "LV2.p"]) ,"Bayelva/SWE/BaSnow_complete_", jahr, ".dat"),
             quote = F, dec = ".", sep = ",", row.names = F)
 
-##################
+###.........................................................................
 cat("#\n# level1 BaSnow2019 ", jahr, " plot done!\n#\n")
 }

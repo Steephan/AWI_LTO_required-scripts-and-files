@@ -8,16 +8,28 @@ th {
 padding-top: 12px;
 padding-bottom: 12px;
 text-align: left;
-background-color: #BDB5B9;
+background-color: #59d1e8;
 color: black;
 }
 body {
-background-color: #feedb0;
+background-color: #59d1e8;
 }
 .well {
-background-color: #97bff0;
-border-color: #97bff0;
+background-color:	#06afce;
+border-color: #06afce;
 border-radius: 1px;
+}
+.shinybusy-modal {
+position:fixed;
+top: 0;
+left: 0;
+background-color: #59d1e8;
+color: black;
+  margin: -15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; 
+
 }
 .btn-loading-container {
 margin-left: 10px;
@@ -26,6 +38,11 @@ font-size: 1.2em;
 .btn-done-indicator {
 color: green;
 }
+.shiny-notification {
+             position:fixed;
+             top: calc(10%);
+             left: calc(20%);
+             }
 .btn-err {
 margin-top: 10px;
 color: red;
