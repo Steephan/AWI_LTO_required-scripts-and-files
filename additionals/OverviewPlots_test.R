@@ -145,11 +145,11 @@ for (year_i in run.year) {
       # names(lv1.data)
       y.lab <- rep(NA, length(lv1.data))
       y.lab <- as.character(y.lab)
-      y.lab[grep("Ts", names(lv1.data))] <- "?C"
+      y.lab[grep("Ts", names(lv1.data))] <- "°C"
       y.lab[grep("E2", names(lv1.data))] <- ""
       y.lab[grep("cond", names(lv1.data))] <- "S/m"
       y.lab[grep("vwc", names(lv1.data))] <- "m^3 / m^3"# "%"
-      y.lab[grep("Tair", names(lv1.data))] <- "?C"
+      y.lab[grep("Tair", names(lv1.data))] <- "°C"
       y.lab[grep("Prec", names(lv1.data))] <- "mm"
       y.lab[grep("prec", names(lv1.data))] <- "mm"
       y.lab[grep("RH", names(lv1.data))] <- "%"
@@ -199,6 +199,19 @@ for (year_i in run.year) {
       lv1.var.cat[grep("wind", names(lv1.data))] <- "wind"
       lv1.var.cat[grep("Dsn", names(lv1.data))] <- "Dsn"
       lv1.var.cat[grep("G", names(lv1.data))] <- "G"
+      if (station == "SaSoil2002") {
+        lv1.var.cat[grep("Ts_rim", names(lv1.data))] <- "Ts_rim"
+        lv1.var.cat[grep("Ts_center", names(lv1.data))] <- "Ts_center"
+        lv1.var.cat[grep("Ts_icewedge", names(lv1.data))] <- "Ts_icewedge"
+        lv1.var.cat[grep("Ts_slope", names(lv1.data))] <- "Ts_slope"
+        lv1.var.cat[grep("E2_rim", names(lv1.data))] <- "E2_rim"
+        lv1.var.cat[grep("E2_center", names(lv1.data))] <- "E2_center"
+        lv1.var.cat[grep("E2_slope", names(lv1.data))] <- "E2_slope"
+        lv1.var.cat[grep("vwc_rim", names(lv1.data))] <- "vwc_rim"
+        lv1.var.cat[grep("vwc_center", names(lv1.data))] <- "vwc_center"
+        lv1.var.cat[grep("vwc_slope", names(lv1.data))] <- "vwc_slope"
+      }
+      
       # for TVC
       if (station == "TVCSoil2016") {
         lv1.var.cat[grep("vwc_h", names(lv1.data))] <- "vwc_h"

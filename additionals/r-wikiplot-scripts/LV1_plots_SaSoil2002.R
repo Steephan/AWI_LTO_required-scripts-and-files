@@ -31,7 +31,8 @@
 options(scipen=100,stringsAsFactors=F,digits=2,scientific=T) # for non-exponential display of numeric values
 origin="1970-01-01"
 
-# run.year<-2002:2021
+# run.year <- 2019
+
 months <- c("01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12")
 Months <- c("Jan", " Feb", "Mar", "Apr", "May", "Jun","Jul", "Aug", "Sep", "Oct", "Nov", "Dec")
 soil.cols.1<-colorRampPalette(c("seagreen4","palegreen3","yellow3","khaki","sandybrown","peru","mistyrose3","peachpuff4"))(71)
@@ -462,6 +463,103 @@ for (jahro in as.numeric(run.year)){
     dev.off()
     ##
   }# 05.3 VWC rim
+  
+  
+  if(zack==1){
+    
+    ###...........................................................................
+    ##
+    ##  06.1 Cond center ----
+    ##
+    ###...........................................................................
+    
+    
+    png(paste(p.1$w[p.1$n=="plot.p"],jahro,"/SaSoil2002_cond_center_",jahro,".png",sep=""),width=p.width,height=p.height,pointsize=8)
+    par(mar=c(1,9,1,1),omi=c(0,0,0,0))
+    plot(as.numeric(strptime(db.Ts.lvl1$UTC[tair_gut],format="%Y-%m-%d %H:%M")),db.Ts.lvl1$Ts_0[tair_gut], pch = 20,# cex.lab=1.7, cex.axis=1.5,   # albedo from file
+         xlim=xxlim, ylim=c(-0.001,0.02), xlab="", ylab = "",xaxt="n", yaxt="n",type="n", cex.axis=3)
+    #plot_maintenance(jahr)
+    for(ll in seq(0,0.02,.005)){abline(h=ll,col="gray80")} # horizontal lines
+    for(pp in as.numeric(strptime(lischt,format="%Y-%m-%d %H:%M"))){lines(c(pp,pp),c(-30,30),col="gray80")} # vertical lines
+    diefe<-(c(5,10,20,30,40))
+    for(qq in 57:61){ # 5 depths
+      points(as.numeric(strptime(db.Ts.lvl1[((db.Ts.lvl1[,qq*2+1])==0),1],format="%Y-%m-%d %H:%M")),
+             db.Ts.lvl1[((db.Ts.lvl1[,qq*2+1])==0),qq*2],col=soil.cols.1[diefe[qq-56]],pch=20)
+      # points(as.numeric(strptime(db.Ts.lvl1[,1],format="%Y-%m-%d %H:%M")),
+      #        db.Ts.lvl1[,qq*2],col=soil.cols.1[diefe[qq-76]],pch=20)
+    }
+    axis(2, at=seq(0,0.02,.005),labels=seq(0,0.02,.005), las=2,cex.axis=4)
+    axis(3, at=c(as.numeric(strptime(lischt[-c(1,13)],format="%Y-%m-%d %H:%M"))),labels=c("","","","","","","","","","",""), las=2,tcl=0.5,cex.axis=4)
+    text(as.numeric(strptime(lischt[-1],format="%Y-%m-%d %H:%M"))-1300000,rep(0.02,12),labels=Months, las=2,cex=4)
+    text(as.numeric(strptime(lischt[11],format="%Y-%m-%d %H:%M"))+2000000,0,jahro, las=2,cex=6)
+    #if(jahr==2012){text(as.numeric(strptime(lischt[3],format="%Y-%m-%d %H:%M"))+1000000,0,"reindeer", las=2,srt=60,cex=4,col="gray80")}
+    dev.off()
+  }# 05.1 Cond center
+  
+  if(zack==1){
+    ##
+    ##
+    ###...........................................................................
+    ##
+    ##  06.2 Cond slope ----
+    ##
+    ###...........................................................................
+    
+    png(paste(p.1$w[p.1$n=="plot.p"],jahro,"/SaSoil2002_cond_slope_",jahro,".png",sep=""),width=p.width,height=p.height,pointsize=8)
+    par(mar=c(1,9,1,1),omi=c(0,0,0,0))
+    plot(as.numeric(strptime(db.Ts.lvl1$UTC[tair_gut],format="%Y-%m-%d %H:%M")),db.Ts.lvl1$Ts_center_1[tair_gut], pch = 20,# cex.lab=1.7, cex.axis=1.5,   # albedo from file
+         xlim=xxlim, ylim=c(-0.001,0.02), xlab="", ylab = "",xaxt="n", yaxt="n",type="n", cex.axis=3)
+    #plot_maintenance(jahr)
+    for(ll in seq(0,0.02,.005)){abline(h=ll,col="gray80")} # horizontal lines
+    for(pp in as.numeric(strptime(lischt,format="%Y-%m-%d %H:%M"))){lines(c(pp,pp),c(-30,30),col="gray80")} # vertical lines
+    diefe<-(c(3,7,16,22,32,42))
+    for(qq in 62:66){ # 5 depths
+      points(as.numeric(strptime(db.Ts.lvl1[((db.Ts.lvl1[,qq*2+1])==0),1],format="%Y-%m-%d %H:%M")),
+             db.Ts.lvl1[((db.Ts.lvl1[,qq*2+1])==0),qq*2],col=soil.cols.1[diefe[qq-61]],pch=20)
+      # points(as.numeric(strptime(db.Ts.lvl1[,1],format="%Y-%m-%d %H:%M")),
+      #        db.Ts.lvl1[,qq*2],col=soil.cols.1[diefe[qq-81]],pch=20)
+      
+    }
+    axis(2, at=seq(0,0.02,.005),labels=seq(0,0.02,.005), las=2,cex.axis=4)
+    axis(3, at=c(as.numeric(strptime(lischt[-c(1,13)],format="%Y-%m-%d %H:%M"))),labels=c("","","","","","","","","","",""), las=2,tcl=0.5,cex.axis=4)
+    text(as.numeric(strptime(lischt[-1],format="%Y-%m-%d %H:%M"))-1300000,rep(0.02,12),labels=Months, las=2,cex=4)
+    text(as.numeric(strptime(lischt[11],format="%Y-%m-%d %H:%M"))+2000000,0,jahro, las=2,cex=6)
+    #if(jahr==2012){text(as.numeric(strptime(lischt[3],format="%Y-%m-%d %H:%M"))+1000000,0,"reindeer", las=2,srt=60,cex=4,col="gray80")}
+    dev.off()
+  }# 05.2 Cond slope
+  
+  if(zack==1){
+    ##
+    ##
+    ###...........................................................................
+    ##
+    ##  06.3 Cond rim ----
+    ##
+    ###...........................................................................
+    
+    png(paste(p.1$w[p.1$n=="plot.p"],jahro,"/SaSoil2002_cond_rim_",jahro,".png",sep=""),width=p.width,height=p.height,pointsize=8)
+    par(mar=c(1,9,1,1),omi=c(0,0,0,0))
+    plot(as.numeric(strptime(db.Ts.lvl1$UTC[tair_gut],format="%Y-%m-%d %H:%M")),db.Ts.lvl1$Ts_0[tair_gut], pch = 20,# cex.lab=1.7, cex.axis=1.5,   # albedo from file
+         xlim=xxlim, ylim=c(-0.001,0.02), xlab="", ylab = "",xaxt="n", yaxt="n",type="n", cex.axis=3)
+    #plot_maintenance(jahr)
+    for(ll in seq(0,0.02,.005)){abline(h=ll,col="gray80")} # horizontal lines
+    for(pp in as.numeric(strptime(lischt,format="%Y-%m-%d %H:%M"))){lines(c(pp,pp),c(-30,30),col="gray80")} # vertical lines
+    diefe<-(c(6,11,16,21,27,33,38,51,61,71))
+    for(qq in 67:76){
+      points(as.numeric(strptime(db.Ts.lvl1[((db.Ts.lvl1[,qq*2+1])==0),1],format="%Y-%m-%d %H:%M")),
+             db.Ts.lvl1[((db.Ts.lvl1[,qq*2+1])==0),qq*2],col=soil.cols.1[diefe[qq-66]],pch=20)
+      # points(as.numeric(strptime(db.Ts.lvl1[,1],format="%Y-%m-%d %H:%M")),
+      #        db.Ts.lvl1[,qq*2],col=soil.cols.1[diefe[qq-86]],pch=20)
+      
+    }
+    axis(2, at=seq(0,0.02,.005),labels=seq(0,0.02,.005), las=2,cex.axis=4)
+    axis(3, at=c(as.numeric(strptime(lischt[-c(1,13)],format="%Y-%m-%d %H:%M"))),labels=c("","","","","","","","","","",""), las=2,tcl=0.5,cex.axis=4)
+    text(as.numeric(strptime(lischt[-1],format="%Y-%m-%d %H:%M"))-1300000,rep(0.02,12),labels=Months, las=2,cex=4)
+    text(as.numeric(strptime(lischt[11],format="%Y-%m-%d %H:%M"))+2000000,0,jahro, las=2,cex=6)
+    #if(jahr==2012){text(as.numeric(strptime(lischt[3],format="%Y-%m-%d %H:%M"))+1000000,0,"reindeer", las=2,srt=60,cex=4,col="gray80")}
+    dev.off()
+    ##
+  }# 05.3 Cond rim
   
   
   

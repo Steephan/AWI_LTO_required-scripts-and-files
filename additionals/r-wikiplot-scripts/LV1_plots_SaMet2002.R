@@ -718,7 +718,7 @@ for (year_i in run.year) {
     dev.off() # close pdf
   } # Soil temperature (implemented, but crumpy data)
 
-  if (zack == 2) {
+  if (zack == 1) {
     #  water table ----------
     ###...........................................................................
     WT_zero <- which(db.samet.lvl1$WT_fl == 0)
@@ -728,7 +728,7 @@ for (year_i in run.year) {
     par(mar = c(1, 5, 1, 1), omi = c(0, 0, 0, 0))
     plot(as.numeric(strptime(db.samet.lvl1$UTC, format = "%Y-%m-%d %H:%M")), db.samet.lvl1$WT,
       pch = 20, # cex.lab=1.7, cex.axis=1.5,   #
-      xlim = xxlim, ylim = c(-0.2, 0.3), xlab = "", ylab = "", xaxt = "n", yaxt = "n", type = "n"
+      xlim = xxlim, ylim = c(-0.1, 0.31), xlab = "", ylab = "", xaxt = "n", yaxt = "n", type = "n"
     )
     plot_maintenance(year_i)
     for (ll in seq(-0.2, 0.3, 0.05)) {
@@ -743,7 +743,7 @@ for (year_i in run.year) {
 
     axis(2, at = seq(-0.2, 0.3, 0.05), labels = seq(-0.2, 0.3, 0.05), las = 2, cex.axis = 4)
     # axis(3, at=c(as.numeric(strptime(lischt[-c(1,13)],format="%Y-%m-%d %H:%M"))),labels=c("","","","","","","","","","",""), las=2,tcl=0.5,cex.axis=4)
-    text(as.numeric(strptime(lischt[-1], format = "%Y-%m-%d %H:%M")) - 1300000, rep(20, 12), labels = Months, las = 2, cex = 4)
+    text(as.numeric(strptime(lischt[-1], format = "%Y-%m-%d %H:%M")) - 1300000, rep(0.3, 12), labels = Months, las = 2, cex = 4)
     text(as.numeric(strptime(lischt[2], format = "%Y-%m-%d %H:%M")) + 2000000, -12, year_i, las = 2, cex = 6)
     dev.off() # close pdf
   } # water table (implemented)

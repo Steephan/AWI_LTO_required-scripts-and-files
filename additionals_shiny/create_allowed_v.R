@@ -26,7 +26,7 @@ stations <- c("BaMet1998","BaMet2009","BaSoil1998","BaSoil2009","BaSoil2017",
             "SaHole2010", "SaHole2018",
             "SaPond2006","SaPond2014","SaSnow2012","SaSnow2016",
 
-            "TVCSoil2016")
+            "TVCSoil2016","TVCHole12015","TVCHole22015")
 
 sink("N:/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/settings_shiny/allowedVariables.csv")
 cat("dataset, variable\n")
