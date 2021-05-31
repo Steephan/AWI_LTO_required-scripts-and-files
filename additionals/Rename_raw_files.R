@@ -22,12 +22,12 @@ was      <- list.files(wo ,pattern = ".dat")
 # 1 == Campbell  z.B. SaSoil2002, KuQ12013
 # 2 == RBR       z.B. BaHole2009
 # 3 == RBR II    z.B. SaHole2006
-
+# 4 == HOBO      z.B. TVCHole12015
 designer = 1
 
 # copy the old files in other folder
 
-mit.kopieren = 1
+mit.kopieren = 0
 
 origin <- "1970-01-01"
 for(i in was){ # Schleife ueber alle dat-files im wo-Ordner
