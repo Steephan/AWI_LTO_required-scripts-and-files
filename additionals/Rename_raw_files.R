@@ -10,24 +10,25 @@
 # SdHole2009, 
 # SaSoil2010, SaMet2010, SaSoil2002, 
 # KuQ12013
+# TVCHole12015,TVCHole22015,
 ## some naming definitions
-station  <- "KuQ12013" # station Folder
-filename <- "KUR_Q_I_Data" # name of file to characterise the containing data
+station  <- "TVCHole22015" # station Folder
+filename <- "hobo" # name of file to characterise the containing data
 folder   <- "" # folder within staton folder containing data
 wo       <- paste0("n:/sparc/data/LTO/raw/",station,"/",folder,"/") # sometime in subfolders!
 wo       <- paste0("n:/sparc/data/LTO/raw/",station,"/")
-was      <- list.files(wo ,pattern = ".dat")
+was      <- list.files(wo ,pattern = ".csv")
 #
 # values for designer contributing the file format
-# 1 == Campbell  z.B. SaSoil2002, KuQ12013
+# 1 == Campbell  z.B. SaSoil2002, KuQ12013, TVCSoil2016
 # 2 == RBR       z.B. BaHole2009
 # 3 == RBR II    z.B. SaHole2006
-# 4 == HOBO      z.B. TVCHole12015
-designer = 1
+# 4 == HOBO      z.B. TVCHole12015,TVCHole22015,
+designer = 4
 
 # copy the old files in other folder
 
-mit.kopieren = 0
+mit.kopieren = 1
 
 origin <- "1970-01-01"
 for(i in was){ # Schleife ueber alle dat-files im wo-Ordner
@@ -64,9 +65,19 @@ for(i in was){ # Schleife ueber alle dat-files im wo-Ordner
     bis             <- spalte.eins[anzahl,1]        # Zeitreihenende
   }else if(designer==3){
     spalte.eins    <- read.table(paste0(wo,i),sep="",dec=".",header=F,skip=110,fill=T)[,1:2]
- 
+        
     spalte.eins[,1] <- format(as.POSIXct(paste(spalte.eins[,1],spalte.eins[,2]),format='%Y/%m/%d %H:%M:%S',
                                          origin=origin, tz = "UTC"),format='%Y%m%d%H%M')
+    von             <- spalte.eins[1,1]             # Zeitreihenbeginn
+    anzahl          <- length(spalte.eins[,1])     # Zeitreihenlaenge
+    bis             <- spalte.eins[anzahl,1]        # Zeitreihenende
+  }else if(designer==4){
+    spalte.eins    <- read.table(paste0(wo,i),sep=",",dec=".",header=T,skip=1,fill=T)[,1:2]
+    
+    spalte.eins[,1] <- format(as.POSIXct(paste(spalte.eins[,2]),format='%y.%m.%d %H:%M:%S',
+                                         origin=origin, tz = "UTC"),format='%Y%m%d%H%M')
+    
+
     
     von             <- spalte.eins[1,1]             # Zeitreihenbeginn
     anzahl          <- length(spalte.eins[,1])     # Zeitreihenlaenge
@@ -98,6 +109,11 @@ for(i in was){ # Schleife ueber alle dat-files im wo-Ordner
       
       file.copy(paste0(wo,i),                                       ## alter Name "_",wann,
                 neues.file, copy.date = T)
+    }else if(designer==4){
+      neues.file<-paste0(wo,bis,"_",von,"_",station,"_",filename,".dat")
+      
+      file.copy(paste0(wo,i),                                       ## alter Name "_",wann,
+                neues.file, copy.date = T)
     }
     
   }
@@ -111,6 +127,8 @@ for(i in was){ # Schleife ueber alle dat-files im wo-Ordner
   }else if(designer==2){
     cat(  paste0("kopiert: ",bis,"_",von,"_",station,"_",zeile.eins[1,3],"_",zeile.eins[1,4],".dat","\n"))
   }else if(designer==3){
+    cat(  paste0("kopiert: ",bis,"_",von,"_",station,"_",filename,".dat","\n"))
+  }else if(designer==4){
     cat(  paste0("kopiert: ",bis,"_",von,"_",station,"_",filename,".dat","\n"))
   }
 }  

@@ -49,8 +49,7 @@ plotNAdistribution <- function(d, title, output = "screen") {
 }
 
 
-
-# function for plotting maintenance stays (Kerstin Binder)
+# function for plotting maintenance stays 
 plot_maintenance <- function(jahr) {
   i <- grep(jahr, p.1maint$start)
   if (length(i) >= 1) {
@@ -59,6 +58,17 @@ plot_maintenance <- function(jahr) {
            xright = as.numeric(strptime(p.1maint$end[i[l]], format = "%d.%m.%Y")),
            ybottom = (-1500), ytop = 1500, col = color, border = "transparent")
     }
+  }
+}
+# function for plotting zero curtian zones
+plot_zeroCurtainZone <- function(jahr) {
+  i <- grep(jahr, p.1zero$YEAR)
+  if (length(i) >= 1) {
+    #   for (l in 1:length(i)) {
+    rect(xleft = as.numeric(strptime(paste0(p.1zero$YEAR[p.1zero$YEAR==jahr],p.1zero$DOY1[p.1zero$YEAR==jahr]), format = "%Y%j")),
+         xright = as.numeric(strptime(paste0(p.1zero$YEAR[p.1zero$YEAR==jahr],p.1zero$DOY2[p.1zero$YEAR==jahr]), format = "%Y%j")),
+         ybottom = (-1500), ytop = 1500, col = zC.color, border = "transparent")
+    #    }
   }
 }
 

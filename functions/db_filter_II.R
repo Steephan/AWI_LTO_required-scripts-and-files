@@ -1056,8 +1056,8 @@ detect.T.degradation <- function(lv1.data, col.cats, station) {
     zero.curtain.doi <- read.table(file = paste0(p.1$w[p.1$n == "settings.p"], "zero.curtain/zero.curtain.doy_Ba.dat"),
                                    sep = ",", dec = ".", header = FALSE)
     }
-    if (station %in% c("TVCSoil2016")) {
-      zero.curtain.doi <- read.table(file = paste0(p.1$w[p.1$n == "settings.p"], "zero.curtain/zero.curtain.doy_Tvc.dat"),
+    if (station %in% c("TVCSoil2016","TVCHole12015","TVCHole22015")) {
+      zero.curtain.doi <- read.table(file = paste0(p.1$w[p.1$n == "settings.p"], "zero.curtain/zero.curtain.doy_TVC.dat"),
                                      sep = ",", dec = ".", header = FALSE)
     }
 

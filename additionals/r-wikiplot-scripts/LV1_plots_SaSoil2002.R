@@ -153,6 +153,34 @@ for (jahro in as.numeric(run.year)){
     #if(jahr==2012){text(as.numeric(strptime(lischt[3],format="%Y-%m-%d %H:%M"))+1000000,0,"reindeer", las=2,srt=60,cex=4,col="gray80")}
     dev.off()
   }# 01.3 Ts rim
+  if(zack==1){
+    ##
+    ##
+    ###...........................................................................
+    ##
+    ##  01.3 Tgs ----
+    ##
+    ###...........................................................................
+    
+    png(paste(p.1$w[p.1$n=="plot.p"],jahro,"/SaSoil2002_Tgs_",jahro,".png",sep=""),width=p.width,height=p.height,pointsize=8)
+    par(mar=c(1,5,1,1),omi=c(0,0,0,0))
+    plot(as.numeric(strptime(db.Ts.lvl1$UTC[tair_gut],format="%Y-%m-%d %H:%M")),db.Ts.lvl1$Tgs[tair_gut], pch = 20,# cex.lab=1.7, cex.axis=1.5,   # albedo from file
+         xlim=xxlim, ylim=c(-40,25), xlab="", ylab = "",xaxt="n", yaxt="n",type="n", cex.axis=3)
+    #plot_maintenance(jahr)
+    for(ll in seq(-40,40,5)){abline(h=ll,col="gray80")} # horizontal lines
+    for(pp in as.numeric(strptime(lischt,format="%Y-%m-%d %H:%M"))){lines(c(pp,pp),c(-40,40),col="gray80")} # vertical lines
+    #diefe<-(c(2,6,11,16,21,27,33,38,51,61,71))
+    #for(qq in 15:25){
+      points(as.numeric(strptime(db.Ts.lvl1[((db.Ts.lvl1$Tgs_fl)==0),1],format="%Y-%m-%d %H:%M")),
+             db.Ts.lvl1$Tgs[((db.Ts.lvl1$Tgs_fl)==0)],col="seagreen",pch=20)
+    #}
+    axis(2, at=seq(-40,40,10),labels=seq(-40,40,10), las=2,cex.axis=4)
+    axis(3, at=c(as.numeric(strptime(lischt[-c(1,13)],format="%Y-%m-%d %H:%M"))),labels=c("","","","","","","","","","",""), las=2,tcl=0.5,cex.axis=4)
+    text(as.numeric(strptime(lischt[-1],format="%Y-%m-%d %H:%M"))-1300000,rep(25,12),labels=Months, las=2,cex=4)
+    text(as.numeric(strptime(lischt[11],format="%Y-%m-%d %H:%M"))+2000000,18,jahro, las=2,cex=6)
+    #if(jahr==2012){text(as.numeric(strptime(lischt[3],format="%Y-%m-%d %H:%M"))+1000000,0,"reindeer", las=2,srt=60,cex=4,col="gray80")}
+    dev.off()
+  }# 01.3 Ts rim
   
   if(zack==1){
     ##

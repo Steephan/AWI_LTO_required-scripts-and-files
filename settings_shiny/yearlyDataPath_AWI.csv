@@ -59,6 +59,9 @@ Samoylov,SaMet2002,2018,/sparc/data/LTO/level1/SaMet2002/00_full_dataset/SaMet20
 Samoylov,SaMet2002,2019,/sparc/data/LTO/level1/SaMet2002/00_full_dataset/SaMet2002_2019_lv1.dat,/sparc/LTO/R_database/Time_series_preprocessing/sparcflags/shiny-server/LV1_Sa_flagger_update.R,1 
 Samoylov,SaMet2002,2020,/sparc/data/LTO/level1/SaMet2002/00_full_dataset/SaMet2002_2020_lv1.dat,/sparc/LTO/R_database/Time_series_preprocessing/sparcflags/shiny-server/LV1_Sa_flagger_update.R,1 
 Samoylov,SaMet2002,2021,/sparc/data/LTO/level1/SaMet2002/00_full_dataset/SaMet2002_2021_lv1.dat,/sparc/LTO/R_database/Time_series_preprocessing/sparcflags/shiny-server/LV1_Sa_flagger_update.R,1 
+Samoylov,SaPrec2019,2019,/sparc/data/LTO/level1/SaPrec2019/00_full_dataset/SaPrec2019_2019_lv1.dat,/sparc/LTO/R_database/Time_series_preprocessing/sparcflags/shiny-server/LV1_Sa_flagger_update.R,1 
+Samoylov,SaPrec2019,2020,/sparc/data/LTO/level1/SaPrec2019/00_full_dataset/SaPrec2019_2020_lv1.dat,/sparc/LTO/R_database/Time_series_preprocessing/sparcflags/shiny-server/LV1_Sa_flagger_update.R,1 
+Samoylov,SaPrec2019,2021,/sparc/data/LTO/level1/SaPrec2019/00_full_dataset/SaPrec2019_2021_lv1.dat,/sparc/LTO/R_database/Time_series_preprocessing/sparcflags/shiny-server/LV1_Sa_flagger_update.R,1 
 Samoylov,SaHole2006,2006,/sparc/data/LTO/level1/SaHole2006/00_full_dataset/SaHole2006_2006_lv1.dat,/sparc/LTO/R_database/Time_series_preprocessing/sparcflags/shiny-server/LV1_Sa_flagger_update.R,1 
 Samoylov,SaHole2006,2007,/sparc/data/LTO/level1/SaHole2006/00_full_dataset/SaHole2006_2007_lv1.dat,/sparc/LTO/R_database/Time_series_preprocessing/sparcflags/shiny-server/LV1_Sa_flagger_update.R,1 
 Samoylov,SaHole2006,2008,/sparc/data/LTO/level1/SaHole2006/00_full_dataset/SaHole2006_2008_lv1.dat,/sparc/LTO/R_database/Time_series_preprocessing/sparcflags/shiny-server/LV1_Sa_flagger_update.R,1 
@@ -236,6 +239,7 @@ TVC,TVCSoil2016,2017,/sparc/data/LTO/level1/TVCSoil2016/00_full_dataset/TVCSoil2
 TVC,TVCSoil2016,2018,/sparc/data/LTO/level1/TVCSoil2016/00_full_dataset/TVCSoil2016_2018_lv1.dat,/sparc/LTO/R_database/Time_series_preprocessing/sparcflags/shiny-server/LV1_TVC_flagger_update.R,1 
 TVC,TVCSoil2016,2019,/sparc/data/LTO/level1/TVCSoil2016/00_full_dataset/TVCSoil2016_2019_lv1.dat,/sparc/LTO/R_database/Time_series_preprocessing/sparcflags/shiny-server/LV1_TVC_flagger_update.R,1 
 TVC,TVCSoil2016,2020,/sparc/data/LTO/level1/TVCSoil2016/00_full_dataset/TVCSoil2016_2020_lv1.dat,/sparc/LTO/R_database/Time_series_preprocessing/sparcflags/shiny-server/LV1_TVC_flagger_update.R,1 
+TVC,TVCSoil2016,2021,/sparc/data/LTO/level1/TVCSoil2016/00_full_dataset/TVCSoil2016_2021_lv1.dat,/sparc/LTO/R_database/Time_series_preprocessing/sparcflags/shiny-server/LV1_TVC_flagger_update.R,1 
 TVC,TVCHole12015,2015,/sparc/data/LTO/level1/TVCHole12015/00_full_dataset/TVCHole12015_2015_lv1.dat,/sparc/LTO/R_database/Time_series_preprocessing/sparcflags/shiny-server/LV1_TVC_flagger_update.R,1 
 TVC,TVCHole12015,2016,/sparc/data/LTO/level1/TVCHole12015/00_full_dataset/TVCHole12015_2016_lv1.dat,/sparc/LTO/R_database/Time_series_preprocessing/sparcflags/shiny-server/LV1_TVC_flagger_update.R,1 
 TVC,TVCHole12015,2017,/sparc/data/LTO/level1/TVCHole12015/00_full_dataset/TVCHole12015_2017_lv1.dat,/sparc/LTO/R_database/Time_series_preprocessing/sparcflags/shiny-server/LV1_TVC_flagger_update.R,1 
@@ -250,6 +254,13 @@ TVC,TVCHole22015,2018,/sparc/data/LTO/level1/TVCHole22015/00_full_dataset/TVCHol
 TVC,TVCHole22015,2019,/sparc/data/LTO/level1/TVCHole22015/00_full_dataset/TVCHole22015_2019_lv1.dat,/sparc/LTO/R_database/Time_series_preprocessing/sparcflags/shiny-server/LV1_TVC_flagger_update.R,1 
 TVC,TVCHole22015,2020,/sparc/data/LTO/level1/TVCHole22015/00_full_dataset/TVCHole22015_2020_lv1.dat,/sparc/LTO/R_database/Time_series_preprocessing/sparcflags/shiny-server/LV1_TVC_flagger_update.R,1 
 TVC,TVCHole22015,2021,/sparc/data/LTO/level1/TVCHole22015/00_full_dataset/TVCHole22015_2021_lv1.dat,/sparc/LTO/R_database/Time_series_preprocessing/sparcflags/shiny-server/LV1_TVC_flagger_update.R,1 
+TVC,TVCeccc,2015,/sparc/data/LTO/level1/TVCeccc/00_full_dataset/TVCeccc_2015_lv1.dat,/sparc/LTO/R_database/Time_series_preprocessing/sparcflags/shiny-server/LV1_TVC_flagger_update.R,1 
+TVC,TVCeccc,2016,/sparc/data/LTO/level1/TVCeccc/00_full_dataset/TVCeccc_2016_lv1.dat,/sparc/LTO/R_database/Time_series_preprocessing/sparcflags/shiny-server/LV1_TVC_flagger_update.R,1 
+TVC,TVCeccc,2017,/sparc/data/LTO/level1/TVCeccc/00_full_dataset/TVCeccc_2017_lv1.dat,/sparc/LTO/R_database/Time_series_preprocessing/sparcflags/shiny-server/LV1_TVC_flagger_update.R,1 
+TVC,TVCeccc,2018,/sparc/data/LTO/level1/TVCeccc/00_full_dataset/TVCeccc_2018_lv1.dat,/sparc/LTO/R_database/Time_series_preprocessing/sparcflags/shiny-server/LV1_TVC_flagger_update.R,1 
+TVC,TVCeccc,2019,/sparc/data/LTO/level1/TVCeccc/00_full_dataset/TVCeccc_2019_lv1.dat,/sparc/LTO/R_database/Time_series_preprocessing/sparcflags/shiny-server/LV1_TVC_flagger_update.R,1 
+TVC,TVCeccc,2020,/sparc/data/LTO/level1/TVCeccc/00_full_dataset/TVCeccc_2020_lv1.dat,/sparc/LTO/R_database/Time_series_preprocessing/sparcflags/shiny-server/LV1_TVC_flagger_update.R,1 
+TVC,TVCeccc,2021,/sparc/data/LTO/level1/TVCeccc/00_full_dataset/TVCeccc_2021_lv1.dat,/sparc/LTO/R_database/Time_series_preprocessing/sparcflags/shiny-server/LV1_TVC_flagger_update.R,1 
 Kurungnakh,KuQ12013,2013,/sparc/data/LTO/level1/KuQ12013/00_full_dataset/KuQ12013_2013_lv1.dat,/sparc/LTO/R_database/Time_series_preprocessing/sparcflags/shiny-server/LV1_Ku_flagger_update.R,1 
 Kurungnakh,KuQ12013,2014,/sparc/data/LTO/level1/KuQ12013/00_full_dataset/KuQ12013_2014_lv1.dat,/sparc/LTO/R_database/Time_series_preprocessing/sparcflags/shiny-server/LV1_Ku_flagger_update.R,1 
 Kurungnakh,KuQ12013,2015,/sparc/data/LTO/level1/KuQ12013/00_full_dataset/KuQ12013_2015_lv1.dat,/sparc/LTO/R_database/Time_series_preprocessing/sparcflags/shiny-server/LV1_Ku_flagger_update.R,1 

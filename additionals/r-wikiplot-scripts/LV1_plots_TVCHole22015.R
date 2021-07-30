@@ -17,12 +17,13 @@
 # if (.Platform$OS.type == "windows") {
 #   p.1 <- read.table("N:/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/settings/path_win.txt", sep = "\t", header = T)
 #   p.1maint <- read.table("N:/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/settings/maintenance.files/maintance.txt", sep = "\t", header = T)
-#   
+#   p.1zero <- read.table("N:/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/settings/zero.curtain/zero.curtain.doy_TVC.dat", sep = ",",header = T)
+# 
 #   source("N:/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/functions/db_func.R")
 # } else {
 #   p.1 <- read.table("/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/settings/path_linux.txt", sep = "\t", header = T, fileEncoding = "UTF-8")
 #   p.1maint <- read.table("/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/settings/maintenance.files/maintance.txt", sep = "\t", header = T)
-#   
+#   p.1zero <- read.table("/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/settings/zero.curtain/zero.curtain.doy_TVC.dat", sep = ",",header = T)
 #   source("/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/functions/db_func.R")
 # }
 ###..........................................................................
@@ -40,11 +41,12 @@ mon.cols <- c("slategray2", "skyblue1", "lightgreen", "olivedrab2", "olivedrab4"
 p.width <- 420 * 3.5
 p.height <- 280 * 3.5
 color <- rgb(190, 190, 190, alpha = 70, maxColorValue = 255)
+zC.color <- rgb(102, 205, 170, alpha = 70, maxColorValue = 255)
 
 ###..........................................................................
 # to run this script separately, you have to set run.year:
 # run.year <- first.year:recent.year
-# run.year <- 2015:2019
+# run.year <- 2015:2020
 ###..........................................................................
 # loop over years -----
 for (year_i in run.year) {
@@ -103,13 +105,14 @@ for (year_i in run.year) {
   par(mar = c(1, 6, 1, 1), omi = c(0, 0, 0, 0))
   plot(as.numeric(strptime(db.tvchole.lvl1$UTC[ts_gut], format = "%Y-%m-%d %H:%M")),
        db.tvchole.lvl1$Ts_4[ts_gut], pch = 20, # cex.lab = 1.7, cex.axis = 1.5,   # albedo from file
-       xlim = xxlim, ylim = c(-25, 15), xlab = "Date", ylab = "",#ylab = "[K]",
+       xlim = xxlim, ylim = c(-21, 21), xlab = "Date", ylab = "",#ylab = "[K]",
        xaxt = "n", yaxt = "n", type = "n", cex.axis = 3)
   plot_maintenance(year_i)
+  plot_zeroCurtainZone(year_i)
   
   # define grid
   # horizontal lines
-  abline(h = seq(-30, 30, 10), col = "gray80")
+  abline(h = seq(-30, 30, 5), col = "gray80")
   # vertical lines
   abline(v = as.numeric(strptime(lischt, format = "%Y-%m-%d %H:%M")), col = "gray80")
   
@@ -119,7 +122,7 @@ for (year_i in run.year) {
   points(as.numeric(strptime(db.tvchole.lvl1$UTC[db.tvchole.lvl1$Ts_27_fl == 0], format = "%Y-%m-%d %H:%M")),
          db.tvchole.lvl1$Ts_27[db.tvchole.lvl1$Ts_27_fl == 0], col = soil.cols[42], pch = 20)
   points(as.numeric(strptime(db.tvchole.lvl1$UTC[db.tvchole.lvl1$Ts_118_fl == 0], format = "%Y-%m-%d %H:%M")),
-         db.tvchole.lvl1$Ts_118[db.tvchole.lvl1$Ts_118_fl == 0], col = "blue", pch = 20)
+         db.tvchole.lvl1$Ts_118[db.tvchole.lvl1$Ts_118_fl == 0], col = soil.cols[54], pch = 20)
   points(as.numeric(strptime(db.tvchole.lvl1$UTC[db.tvchole.lvl1$Ts_218_fl == 0], format = "%Y-%m-%d %H:%M")),
          db.tvchole.lvl1$Ts_218[db.tvchole.lvl1$Ts_218_fl == 0], col = soil.cols[85], pch = 20)
   
@@ -130,7 +133,7 @@ for (year_i in run.year) {
   axis(2, at = seq(-30, 30, 10), labels = seq(-30, 30, 10), las = 2, cex.axis = 4)
   axis(3, at = c(as.numeric(strptime(lischt[-c(1, 13)], format = "%Y-%m-%d %H:%M"))),
        labels = c("", "", "", "", "", "", "", "", "", "", ""), las = 2, tcl = 0.5, cex.axis = 4)
-  text(as.numeric(strptime(lischt[-1], format = "%Y-%m-%d %H:%M")) - 1300000, rep(15, 12), labels = Months, las = 2, cex = 4)
+  text(as.numeric(strptime(lischt[-1], format = "%Y-%m-%d %H:%M")) - 1300000, rep(21, 12), labels = Months, las = 2, cex = 4)
   text(as.numeric(strptime(lischt[11], format = "%Y-%m-%d %H:%M")) + 2000000, 9, year_i, las = 2, cex = 6)
   
   dev.off()

@@ -84,7 +84,7 @@ for (i in 1:length(stations)) {
           indx <- sapply(df, is.factor)
           df[indx] <- lapply(df[indx], as.character)
           df <- rbind(df, newline)# tab[nrow(tab) + 1, ] <- newline
-          df[] <- lapply(df, type.convert)
+          df[] <- lapply(df, type.convert, as.is = TRUE)
         }
       }
     }
@@ -146,7 +146,7 @@ for (i in 1:length(stations)) {
         indx <- sapply(df, is.factor)
         df[indx] <- lapply(df[indx], as.character)
         df <- rbind(df, newline)# tab[nrow(tab) + 1, ] <- newline
-        df[] <- lapply(df, type.convert)
+        df[] <- lapply(df, type.convert, as.is = TRUE)
       }
     }
   }

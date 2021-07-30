@@ -26,3 +26,22 @@
 "TVC","TVCSoil2016","cond_a_v_0","2018-01-01","SL","2020-04-09 10:49:56","NB"
 "TVC","TVCSoil2016","cond_b_v_0","2020-04-09 10:55:14","NB",NA,NA
 "TVC","TVCSoil2016","cond_sn_v_0","2018-01-01","SL","2020-04-09 10:36:41","NB"
+"TVC","TVCHole12015","Ts_4","2018-01-01","SL",NA,NA
+"TVC","TVCHole12015","Ts_20","2018-01-01","SL",NA,NA
+"TVC","TVCHole12015","Ts_117","2018-01-01","SL",NA,NA
+"TVC","TVCHole12015","Ts_217","2018-01-01","SL",NA,NA
+"TVC","TVCHole22015","Ts_4","2018-01-01","SL",NA,NA
+"TVC","TVCHole22015","Ts_27","2018-01-01","SL",NA,NA
+"TVC","TVCHole22015","Ts_118","2018-01-01","SL",NA,NA
+"TVC","TVCHole22015","Ts_218","2018-01-01","SL",NA,NA
+"TVC","TVCeccc","Tair","2018-01-01","SL",NA,NA
+"TVC","TVCeccc","Tdew","2018-01-01","SL",NA,NA
+"TVC","TVCeccc","RH","2018-01-01","SL",NA,NA
+"TVC","TVCeccc","prec","2018-01-01","SL",NA,NA
+"TVC","TVCeccc","wind_deg","2018-01-01","SL",NA,NA
+"TVC","TVCeccc","wind_v","2018-01-01","SL",NA,NA
+"TVC","TVCeccc","vis","2018-01-01","SL",NA,NA
+"TVC","TVCeccc","PA","2018-01-01","SL",NA,NA
+"TVC","TVCeccc","Hmdx","2018-01-01","SL",NA,NA
+"TVC","TVCeccc","chill","2018-01-01","SL",NA,NA
+"TVC","TVCeccc","Weather","2018-01-01","SL",NA,NA

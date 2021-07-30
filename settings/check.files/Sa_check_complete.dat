@@ -51,102 +51,102 @@
 "Samoylov","SaSoil1998","vwc_lys1",NA,NA,NA,NA
 "Samoylov","SaSoil1998","vwc_lys2",NA,NA,NA,NA
 "Samoylov","SaSoil1998","vwc_v_0",NA,NA,NA,NA
-"Samoylov","SaSoil2002","G_center",NA,NA,NA,NA
-"Samoylov","SaSoil2002","G_rim",NA,NA,NA,NA
-"Samoylov","SaSoil2002","Ts_center_1",NA,NA,NA,NA
-"Samoylov","SaSoil2002","Ts_center_5",NA,NA,NA,NA
-"Samoylov","SaSoil2002","Ts_center_10",NA,NA,NA,NA
-"Samoylov","SaSoil2002","Ts_center_20",NA,NA,NA,NA
-"Samoylov","SaSoil2002","Ts_center_30",NA,NA,NA,NA
-"Samoylov","SaSoil2002","Ts_center_40",NA,NA,NA,NA
-"Samoylov","SaSoil2002","Ts_slope_3",NA,NA,NA,NA
-"Samoylov","SaSoil2002","Ts_slope_7",NA,NA,NA,NA
-"Samoylov","SaSoil2002","Ts_slope_16",NA,NA,NA,NA
-"Samoylov","SaSoil2002","Ts_slope_22",NA,NA,NA,NA
-"Samoylov","SaSoil2002","Ts_slope_32",NA,NA,NA,NA
-"Samoylov","SaSoil2002","Ts_slope_42",NA,NA,NA,NA
-"Samoylov","SaSoil2002","Ts_rim_2",NA,NA,NA,NA
-"Samoylov","SaSoil2002","Ts_rim_6",NA,NA,NA,NA
-"Samoylov","SaSoil2002","Ts_rim_11",NA,NA,NA,NA
-"Samoylov","SaSoil2002","Ts_rim_16",NA,NA,NA,NA
-"Samoylov","SaSoil2002","Ts_rim_21",NA,NA,NA,NA
-"Samoylov","SaSoil2002","Ts_rim_27",NA,NA,NA,NA
-"Samoylov","SaSoil2002","Ts_rim_33",NA,NA,NA,NA
-"Samoylov","SaSoil2002","Ts_rim_38",NA,NA,NA,NA
-"Samoylov","SaSoil2002","Ts_rim_51",NA,NA,NA,NA
-"Samoylov","SaSoil2002","Ts_rim_61",NA,NA,NA,NA
-"Samoylov","SaSoil2002","Ts_rim_71",NA,NA,NA,NA
-"Samoylov","SaSoil2002","Ts_icew_41",NA,NA,NA,NA
-"Samoylov","SaSoil2002","Ts_icew_61",NA,NA,NA,NA
-"Samoylov","SaSoil2002","Ts_icew_91",NA,NA,NA,NA
-"Samoylov","SaSoil2002","Ts_icew_121",NA,NA,NA,NA
-"Samoylov","SaSoil2002","Ts_icew_151",NA,NA,NA,NA
-"Samoylov","SaSoil2002","Ts_icew_181",NA,NA,NA,NA
-"Samoylov","SaSoil2002","Ts_icew_211",NA,NA,NA,NA
-"Samoylov","SaSoil2002","Ts_icew_241",NA,NA,NA,NA
-"Samoylov","SaSoil2002","Ts_icew_271",NA,NA,NA,NA
-"Samoylov","SaSoil2002","Tgs",NA,NA,NA,NA
-"Samoylov","SaSoil2002","Dsn",NA,NA,NA,NA
-"Samoylov","SaSoil2002","E2_center_8",NA,NA,NA,NA
-"Samoylov","SaSoil2002","E2_center_13",NA,NA,NA,NA
-"Samoylov","SaSoil2002","E2_center_23",NA,NA,NA,NA
-"Samoylov","SaSoil2002","E2_center_33",NA,NA,NA,NA
-"Samoylov","SaSoil2002","E2_center_43",NA,NA,NA,NA
-"Samoylov","SaSoil2002","E2_slope_5",NA,NA,NA,NA
-"Samoylov","SaSoil2002","E2_slope_14",NA,NA,NA,NA
-"Samoylov","SaSoil2002","E2_slope_23",NA,NA,NA,NA
-"Samoylov","SaSoil2002","E2_slope_33",NA,NA,NA,NA
-"Samoylov","SaSoil2002","E2_slope_43",NA,NA,NA,NA
-"Samoylov","SaSoil2002","E2_rim_5",NA,NA,NA,NA
-"Samoylov","SaSoil2002","E2_rim_12",NA,NA,NA,NA
-"Samoylov","SaSoil2002","E2_rim_15",NA,NA,NA,NA
-"Samoylov","SaSoil2002","E2_rim_22",NA,NA,NA,NA
-"Samoylov","SaSoil2002","E2_rim_26",NA,NA,NA,NA
-"Samoylov","SaSoil2002","E2_rim_34",NA,NA,NA,NA
-"Samoylov","SaSoil2002","E2_rim_37",NA,NA,NA,NA
-"Samoylov","SaSoil2002","E2_rim_50",NA,NA,NA,NA
-"Samoylov","SaSoil2002","E2_rim_60",NA,NA,NA,NA
-"Samoylov","SaSoil2002","E2_rim_70",NA,NA,NA,NA
-"Samoylov","SaSoil2002","cond_center_8",NA,NA,NA,NA
-"Samoylov","SaSoil2002","cond_center_13",NA,NA,NA,NA
-"Samoylov","SaSoil2002","cond_center_23",NA,NA,NA,NA
-"Samoylov","SaSoil2002","cond_center_33",NA,NA,NA,NA
-"Samoylov","SaSoil2002","cond_center_43",NA,NA,NA,NA
-"Samoylov","SaSoil2002","cond_slope_5",NA,NA,NA,NA
-"Samoylov","SaSoil2002","cond_slope_14",NA,NA,NA,NA
-"Samoylov","SaSoil2002","cond_slope_23",NA,NA,NA,NA
-"Samoylov","SaSoil2002","cond_slope_33",NA,NA,NA,NA
-"Samoylov","SaSoil2002","cond_slope_43",NA,NA,NA,NA
-"Samoylov","SaSoil2002","cond_rim_5",NA,NA,NA,NA
-"Samoylov","SaSoil2002","cond_rim_12",NA,NA,NA,NA
-"Samoylov","SaSoil2002","cond_rim_15",NA,NA,NA,NA
-"Samoylov","SaSoil2002","cond_rim_22",NA,NA,NA,NA
-"Samoylov","SaSoil2002","cond_rim_26",NA,NA,NA,NA
-"Samoylov","SaSoil2002","cond_rim_34",NA,NA,NA,NA
-"Samoylov","SaSoil2002","cond_rim_37",NA,NA,NA,NA
-"Samoylov","SaSoil2002","cond_rim_50",NA,NA,NA,NA
-"Samoylov","SaSoil2002","cond_rim_60",NA,NA,NA,NA
-"Samoylov","SaSoil2002","cond_rim_70",NA,NA,NA,NA
-"Samoylov","SaSoil2002","vwc_center_8",NA,NA,NA,NA
-"Samoylov","SaSoil2002","vwc_center_13",NA,NA,NA,NA
-"Samoylov","SaSoil2002","vwc_center_23",NA,NA,NA,NA
-"Samoylov","SaSoil2002","vwc_center_33",NA,NA,NA,NA
-"Samoylov","SaSoil2002","vwc_center_43",NA,NA,NA,NA
-"Samoylov","SaSoil2002","vwc_slope_5",NA,NA,NA,NA
-"Samoylov","SaSoil2002","vwc_slope_14",NA,NA,NA,NA
-"Samoylov","SaSoil2002","vwc_slope_23",NA,NA,NA,NA
-"Samoylov","SaSoil2002","vwc_slope_33",NA,NA,NA,NA
-"Samoylov","SaSoil2002","vwc_slope_43",NA,NA,NA,NA
-"Samoylov","SaSoil2002","vwc_rim_5",NA,NA,NA,NA
-"Samoylov","SaSoil2002","vwc_rim_12",NA,NA,NA,NA
-"Samoylov","SaSoil2002","vwc_rim_15",NA,NA,NA,NA
-"Samoylov","SaSoil2002","vwc_rim_22",NA,NA,NA,NA
-"Samoylov","SaSoil2002","vwc_rim_26",NA,NA,NA,NA
-"Samoylov","SaSoil2002","vwc_rim_34",NA,NA,NA,NA
-"Samoylov","SaSoil2002","vwc_rim_37",NA,NA,NA,NA
-"Samoylov","SaSoil2002","vwc_rim_50",NA,NA,NA,NA
-"Samoylov","SaSoil2002","vwc_rim_60",NA,NA,NA,NA
-"Samoylov","SaSoil2002","vwc_rim_70",NA,NA,NA,NA
+"Samoylov","SaSoil2002","G_center","1998","2021","2021-05-26 09:36:29","SL"
+"Samoylov","SaSoil2002","G_rim","1998","2021","2021-05-26 09:36:50","SL"
+"Samoylov","SaSoil2002","Ts_center_1","1998","2021","2021-05-26 09:37:04","SL"
+"Samoylov","SaSoil2002","Ts_center_5","1998","2021","2021-05-26 09:37:19","SL"
+"Samoylov","SaSoil2002","Ts_center_10","2014","2021","2021-05-26 09:37:41","SL"
+"Samoylov","SaSoil2002","Ts_center_20","2014","2021","2021-05-26 09:37:58","SL"
+"Samoylov","SaSoil2002","Ts_center_30","2014","2021","2021-05-26 09:38:10","SL"
+"Samoylov","SaSoil2002","Ts_center_40","2014","2021","2021-05-26 09:38:27","SL"
+"Samoylov","SaSoil2002","Ts_slope_3","2014","2021","2021-05-26 09:38:40","SL"
+"Samoylov","SaSoil2002","Ts_slope_7","2014","2021","2021-05-26 09:38:49","SL"
+"Samoylov","SaSoil2002","Ts_slope_16","2014","2021","2021-05-26 09:39:02","SL"
+"Samoylov","SaSoil2002","Ts_slope_22","2014","2021","2021-05-26 09:39:12","SL"
+"Samoylov","SaSoil2002","Ts_slope_32","2014","2021","2021-05-26 09:39:23","SL"
+"Samoylov","SaSoil2002","Ts_slope_42","2014","2021","2021-05-26 09:39:34","SL"
+"Samoylov","SaSoil2002","Ts_rim_2","2014","2021","2021-05-26 09:39:47","SL"
+"Samoylov","SaSoil2002","Ts_rim_6","2014","2021","2021-05-26 09:39:56","SL"
+"Samoylov","SaSoil2002","Ts_rim_11","2014","2021","2021-05-26 09:40:05","SL"
+"Samoylov","SaSoil2002","Ts_rim_16","2014","2021","2021-05-26 09:40:13","SL"
+"Samoylov","SaSoil2002","Ts_rim_21","2014","2021","2021-05-26 09:40:20","SL"
+"Samoylov","SaSoil2002","Ts_rim_27","2014","2021","2021-05-26 09:40:31","SL"
+"Samoylov","SaSoil2002","Ts_rim_33","2014","2021","2021-05-26 09:40:37","SL"
+"Samoylov","SaSoil2002","Ts_rim_38","2014","2021","2021-05-26 09:40:46","SL"
+"Samoylov","SaSoil2002","Ts_rim_51","2014","2021","2021-05-26 09:40:57","SL"
+"Samoylov","SaSoil2002","Ts_rim_61","2014","2021","2021-05-26 09:41:05","SL"
+"Samoylov","SaSoil2002","Ts_rim_71","2014","2021","2021-05-26 09:41:18","SL"
+"Samoylov","SaSoil2002","Ts_icew_41","2014","2021","2021-05-26 09:41:26","SL"
+"Samoylov","SaSoil2002","Ts_icew_61","2014","2021","2021-05-26 09:41:32","SL"
+"Samoylov","SaSoil2002","Ts_icew_91","2014","2021","2021-05-26 09:41:39","SL"
+"Samoylov","SaSoil2002","Ts_icew_121","2014","2021","2021-05-26 09:41:46","SL"
+"Samoylov","SaSoil2002","Ts_icew_151","2014","2021","2021-05-26 09:41:52","SL"
+"Samoylov","SaSoil2002","Ts_icew_181","2014","2021","2021-05-26 09:41:59","SL"
+"Samoylov","SaSoil2002","Ts_icew_211","2014","2021","2021-05-26 09:42:05","SL"
+"Samoylov","SaSoil2002","Ts_icew_241","2014","2021","2021-05-26 09:42:16","SL"
+"Samoylov","SaSoil2002","Ts_icew_271","2014","2021","2021-05-26 09:42:26","SL"
+"Samoylov","SaSoil2002","Tgs","2014","2021","2021-05-26 09:42:38","SL"
+"Samoylov","SaSoil2002","Dsn","1998","2021","2021-05-27 09:42:50","SL"
+"Samoylov","SaSoil2002","E2_center_8","2014","2021","2021-05-26 09:43:27","SL"
+"Samoylov","SaSoil2002","E2_center_13","2014","2021","2021-05-26 09:43:36","SL"
+"Samoylov","SaSoil2002","E2_center_23","2014","2021","2021-05-26 09:43:43","SL"
+"Samoylov","SaSoil2002","E2_center_33","2014","2021","2021-05-26 09:43:51","SL"
+"Samoylov","SaSoil2002","E2_center_43","2014","2021","2021-05-26 09:43:58","SL"
+"Samoylov","SaSoil2002","E2_slope_5","2014","2021","2021-05-26 09:44:10","SL"
+"Samoylov","SaSoil2002","E2_slope_14","2014","2021","2021-05-26 09:44:20","SL"
+"Samoylov","SaSoil2002","E2_slope_23","2014","2021","2021-05-26 09:44:32","SL"
+"Samoylov","SaSoil2002","E2_slope_33","2014","2021","2021-05-26 09:44:43","SL"
+"Samoylov","SaSoil2002","E2_slope_43","2014","2021","2021-05-26 09:44:51","SL"
+"Samoylov","SaSoil2002","E2_rim_5","2014","2021","2021-05-26 09:45:01","SL"
+"Samoylov","SaSoil2002","E2_rim_12","2014","2021","2021-05-26 09:45:12","SL"
+"Samoylov","SaSoil2002","E2_rim_15","2014","2021","2021-05-26 09:45:22","SL"
+"Samoylov","SaSoil2002","E2_rim_22","2014","2021","2021-05-26 09:45:29","SL"
+"Samoylov","SaSoil2002","E2_rim_26","2014","2021","2021-05-26 09:45:35","SL"
+"Samoylov","SaSoil2002","E2_rim_34","2014","2021","2021-05-26 09:45:44","SL"
+"Samoylov","SaSoil2002","E2_rim_37","2014","2021","2021-05-26 09:45:55","SL"
+"Samoylov","SaSoil2002","E2_rim_50","2014","2021","2021-05-26 09:46:05","SL"
+"Samoylov","SaSoil2002","E2_rim_60","2014","2021","2021-05-26 09:46:20","SL"
+"Samoylov","SaSoil2002","E2_rim_70","2014","2021","2021-05-26 09:46:27","SL"
+"Samoylov","SaSoil2002","cond_center_8","2014","2021","2021-05-26 09:46:49","SL"
+"Samoylov","SaSoil2002","cond_center_13","2014","2021","2021-05-26 09:47:03","SL"
+"Samoylov","SaSoil2002","cond_center_23","2014","2021","2021-05-26 09:47:15","SL"
+"Samoylov","SaSoil2002","cond_center_33","2014","2021","2021-05-26 09:47:23","SL"
+"Samoylov","SaSoil2002","cond_center_43","2014","2021","2021-05-26 09:47:30","SL"
+"Samoylov","SaSoil2002","cond_slope_5","2014","2021","2021-05-26 09:47:40","SL"
+"Samoylov","SaSoil2002","cond_slope_14","2014","2021","2021-05-26 09:47:48","SL"
+"Samoylov","SaSoil2002","cond_slope_23","2014","2021","2021-05-26 09:47:56","SL"
+"Samoylov","SaSoil2002","cond_slope_33","2014","2021","2021-05-26 09:48:05","SL"
+"Samoylov","SaSoil2002","cond_slope_43","2014","2021","2021-05-26 09:48:14","SL"
+"Samoylov","SaSoil2002","cond_rim_5","2014","2021","2021-05-26 09:48:25","SL"
+"Samoylov","SaSoil2002","cond_rim_12","2014","2021","2021-05-26 09:48:39","SL"
+"Samoylov","SaSoil2002","cond_rim_15","2014","2021","2021-05-26 09:48:53","SL"
+"Samoylov","SaSoil2002","cond_rim_22","2014","2021","2021-05-26 09:49:00","SL"
+"Samoylov","SaSoil2002","cond_rim_26","2014","2021","2021-05-26 09:49:06","SL"
+"Samoylov","SaSoil2002","cond_rim_34","2014","2021","2021-05-26 09:49:13","SL"
+"Samoylov","SaSoil2002","cond_rim_37","2014","2021","2021-05-26 09:49:20","SL"
+"Samoylov","SaSoil2002","cond_rim_50","2014","2021","2021-05-26 09:49:29","SL"
+"Samoylov","SaSoil2002","cond_rim_60","2014","2021","2021-05-26 09:49:47","SL"
+"Samoylov","SaSoil2002","cond_rim_70","2014","2021","2021-05-26 09:49:56","SL"
+"Samoylov","SaSoil2002","vwc_center_8","2014","2021","2021-05-26 09:50:07","SL"
+"Samoylov","SaSoil2002","vwc_center_13","2014","2021","2021-05-26 09:50:13","SL"
+"Samoylov","SaSoil2002","vwc_center_23","2014","2021","2021-05-26 09:50:22","SL"
+"Samoylov","SaSoil2002","vwc_center_33","2014","2021","2021-05-26 09:50:28","SL"
+"Samoylov","SaSoil2002","vwc_center_43","2014","2021","2021-05-26 09:50:35","SL"
+"Samoylov","SaSoil2002","vwc_slope_5","2014","2021","2021-05-26 09:50:43","SL"
+"Samoylov","SaSoil2002","vwc_slope_14","2014","2021","2021-05-26 09:50:50","SL"
+"Samoylov","SaSoil2002","vwc_slope_23","2014","2021","2021-05-26 09:50:58","SL"
+"Samoylov","SaSoil2002","vwc_slope_33","2014","2021","2021-05-26 09:51:05","SL"
+"Samoylov","SaSoil2002","vwc_slope_43","2014","2021","2021-05-26 09:51:13","SL"
+"Samoylov","SaSoil2002","vwc_rim_5","2014","2021","2021-05-26 09:51:24","SL"
+"Samoylov","SaSoil2002","vwc_rim_12","2014","2021","2021-05-26 09:51:31","SL"
+"Samoylov","SaSoil2002","vwc_rim_15","2014","2021","2021-05-26 09:51:37","SL"
+"Samoylov","SaSoil2002","vwc_rim_22","2014","2021","2021-05-26 09:51:43","SL"
+"Samoylov","SaSoil2002","vwc_rim_26","2014","2021","2021-05-26 09:51:48","SL"
+"Samoylov","SaSoil2002","vwc_rim_34","2014","2021","2021-05-26 09:51:55","SL"
+"Samoylov","SaSoil2002","vwc_rim_37","2014","2021","2021-05-26 09:52:01","SL"
+"Samoylov","SaSoil2002","vwc_rim_50","2014","2021","2021-05-26 09:52:09","SL"
+"Samoylov","SaSoil2002","vwc_rim_60","2014","2021","2021-05-26 09:52:17","SL"
+"Samoylov","SaSoil2002","vwc_rim_70","2014","2021","2021-05-26 09:52:23","SL"
 "Samoylov","SaSoil2012","Tair_70","1998","2019","2019-11-07","TEST"
 "Samoylov","SaSoil2012","Ts_cen_5",NA,NA,NA,NA
 "Samoylov","SaSoil2012","Ts_cen_15",NA,NA,NA,NA
@@ -255,6 +255,9 @@
 "Samoylov","SaMet2002","Ts_6",NA,NA,NA,NA
 "Samoylov","SaMet2002","WT",NA,NA,NA,NA
 "Samoylov","SaMet2002","WL",NA,NA,NA,NA
+"Samoylov","SaPrec2019","prec",NA,NA,NA,NA
+"Samoylov","SaPrec2019","prec_avg",NA,NA,NA,NA
+"Samoylov","SaPrec2019","Tring",NA,NA,NA,NA
 "Samoylov","SaHole2006","Tair_0",NA,NA,NA,NA
 "Samoylov","SaHole2006","Ts_75",NA,NA,NA,NA
 "Samoylov","SaHole2006","Ts_175",NA,NA,NA,NA

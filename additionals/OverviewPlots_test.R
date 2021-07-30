@@ -29,16 +29,22 @@ tmp.path <- "N:/sparc/LTO/R_database/database_plots/OverviewPlots/Tmp_png/"
 filterbasepath     <- "N:/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/settings/filter.files/"
 checkbasepath      <- "N:/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/settings/check.files/"
 }else{
-  p.1<-read.table("/sparc/LTO/R_database/database_R/settings/path_linux.txt",sep="\t",header=T, fileEncoding="UTF-8")
-  p.1maint<-read.table("/sparc/LTO/R_database/database_R/settings/maintance.txt",sep="\t",header=T)
+  p.1<-read.table("/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/settings/path_linux.txt",sep="\t",header=T, fileEncoding="UTF-8")
+  p.1maint<-read.table("/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/settings/maintenance.files/maintance.txt",sep="\t",header=T)
+  yearlyDatasetPaths <- read.csv("/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/settings_shiny/yearlyDataPath_auto.csv",
+                                 stringsAsFactors = FALSE, strip.white = TRUE)
+  allowedVariables   <- read.csv("/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/settings_shiny/allowedVariables.csv",
+                                 stringsAsFactors = FALSE, strip.white = TRUE)
   tmp.path <- "/sparc/LTO/R_database/database_plots/OverviewPlots/Tmp_png/"
-  source("/sparc/LTO/R_database/database_R/settings/db_func.R")
+  filterbasepath     <- "/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/settings/filter.files/"
+  checkbasepath      <- "/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/settings/check.files/"
+  
 }
 # ###.............................................................................
-station <<- "SaSoil2002"
-run.year <<-  2020
+#station <<- "BaSnow2013"
+#run.year <<-  2019
 # for format of time axis
-Sys.setlocale("LC_TIME", "English")
+Sys.setlocale("LC_TIME", "C")
 
 ###.............................................................................
 # print several png?s and merge them with "magick" in one pdf file
@@ -48,7 +54,7 @@ Sys.setlocale("LC_TIME", "English")
 # because of the file size of the longterm plots (many data points in vector format pdf)
 # and because the wikiplots are in png format already
 ###.............................................................................
-tmp.path <- "N:/sparc/LTO/R_database/database_plots/OverviewPlots/Tmp_png/"
+# tmp.path <- "N:/sparc/LTO/R_database/database_plots/OverviewPlots/Tmp_png/"
 # set resolution of png
 ppi <- 300
 ## requires package magick
@@ -64,11 +70,15 @@ library(magick)
 ###.............................................................................
 
 ###.............................................................................
-k=8
+#k=8
 origin <- "1970-01-01"
   ###.............................................................................
   # vector of datasets
-  dataset <- c("met", "soil", "BaMet2009", "BaSoil2009", "BaSoil2017", "BaHole2009", "BaHole2015", "BaSnow2013", "TVCSoil2016")
+  dataset <- c("met", "soil", 
+               "BaHole2009", "BaHole2015", "BaMet2009","BaSnow2013", "BaSoil2009", "BaSoil2017", 
+               "TVCSoil2016",
+               "SaMet2002","SaSnow2012","SaSoil2002")
+  k <- which(dataset==station)
   # vector years for the longterm plots
   years <- yearlyDatasetPaths$year[yearlyDatasetPaths$dataset==station]
   # ATTENTION:
@@ -145,11 +155,11 @@ for (year_i in run.year) {
       # names(lv1.data)
       y.lab <- rep(NA, length(lv1.data))
       y.lab <- as.character(y.lab)
-      y.lab[grep("Ts", names(lv1.data))] <- "°C"
+      y.lab[grep("Ts", names(lv1.data))] <- "?C"
       y.lab[grep("E2", names(lv1.data))] <- ""
       y.lab[grep("cond", names(lv1.data))] <- "S/m"
       y.lab[grep("vwc", names(lv1.data))] <- "m^3 / m^3"# "%"
-      y.lab[grep("Tair", names(lv1.data))] <- "°C"
+      y.lab[grep("Tair", names(lv1.data))] <- "?C"
       y.lab[grep("Prec", names(lv1.data))] <- "mm"
       y.lab[grep("prec", names(lv1.data))] <- "mm"
       y.lab[grep("RH", names(lv1.data))] <- "%"
@@ -191,6 +201,7 @@ for (year_i in run.year) {
       lv1.var.cat[grep("RH_200", names(lv1.data))] <- "RH_200"
       lv1.var.cat[grep("RadNet", names(lv1.data))] <- "RadNet"#"rad_net"
       lv1.var.cat[grep("SwNet", names(lv1.data))] <- "SwNet"
+      lv1.var.cat[grep("LwNet", names(lv1.data))] <- "LwNet"
       lv1.var.cat[grep("SwIn", names(lv1.data))] <- "SwIn"
       lv1.var.cat[grep("LwIn", names(lv1.data))] <- "LwIn"
       lv1.var.cat[grep("SwOut", names(lv1.data))] <- "SwOut"
@@ -200,6 +211,7 @@ for (year_i in run.year) {
       lv1.var.cat[grep("Dsn", names(lv1.data))] <- "Dsn"
       lv1.var.cat[grep("G", names(lv1.data))] <- "G"
       if (station == "SaSoil2002") {
+        lv1.var.cat[grep("Tgs", names(lv1.data))] <- "Tgs"
         lv1.var.cat[grep("Ts_rim", names(lv1.data))] <- "Ts_rim"
         lv1.var.cat[grep("Ts_center", names(lv1.data))] <- "Ts_center"
         lv1.var.cat[grep("Ts_icewedge", names(lv1.data))] <- "Ts_icewedge"
@@ -210,6 +222,12 @@ for (year_i in run.year) {
         lv1.var.cat[grep("vwc_rim", names(lv1.data))] <- "vwc_rim"
         lv1.var.cat[grep("vwc_center", names(lv1.data))] <- "vwc_center"
         lv1.var.cat[grep("vwc_slope", names(lv1.data))] <- "vwc_slope"
+        lv1.var.cat[grep("cond_rim", names(lv1.data))] <- "cond_rim"
+        lv1.var.cat[grep("cond_center", names(lv1.data))] <- "cond_center"
+        lv1.var.cat[grep("cond_slope", names(lv1.data))] <- "cond_slope"
+      }
+      if (station == "SaMet2002") {
+        lv1.var.cat[grep("WT", names(lv1.data))] <- "WT"
       }
       
       # for TVC
@@ -545,7 +563,7 @@ for (year_i in run.year) {
             points(strptime(prec.yearly[, 1], format = "%Y-%m-%d"), prec.yearly[, 2]/50, t = "h", lwd = 20, col = "#e4e4e4")
             points(strptime(prec.monthly[, 1], format = "%Y-%m-%d"), prec.monthly[, 2]/20, t = "h", lwd = 6, col = "#ffd6da")
             points(strptime(dummy2$UTC, format = "%Y-%m-%d %H:%M"), prec.zero, t = "h", lwd = 2, col = "steelblue4")
-            text(strptime(prec.yearly[, 1], format = "%Y"), rep(10, length(prec.yearly[, 1])), labels = prec.yearly[, 2], las = 2, cex = 1)
+            text(strptime(prec.yearly[, 1], format = "%Y"), rep(11, length(prec.yearly[, 1])), labels = prec.yearly[, 2], las = 2, cex = 1,srt=45)
             #axis(2, at = seq(0,10,2), labels = seq(0, 20, 4), las = 1, cex.axis = 1.5,tcl = -1, col.axis = "#ffaeb6")
             
           }

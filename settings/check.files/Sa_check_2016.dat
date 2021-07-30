@@ -243,16 +243,16 @@
 "Samoylov","SaPond2014","Ts_10","2018-01-01","SL",NA,NA
 "Samoylov","SaPond2014","Ts_20","2018-01-01","SL",NA,NA
 "Samoylov","SaPond2014","Ts_30","2018-01-01","SL",NA,NA
-"Samoylov","SaSnow2012","ice_2","2018-01-01","SL",NA,NA
-"Samoylov","SaSnow2012","ice_3","2018-01-01","SL",NA,NA
-"Samoylov","SaSnow2012","ice_4","2018-01-01","SL",NA,NA
+"Samoylov","SaSnow2012","ice_2","2018-01-01","SL","2021-07-29 12:07:44","SL"
+"Samoylov","SaSnow2012","ice_3","2018-01-01","SL","2021-07-29 12:44:01","SL"
+"Samoylov","SaSnow2012","ice_4","2018-01-01","SL","2021-07-29 12:46:47","SL"
 "Samoylov","SaSnow2012","water_2","2018-01-01","SL",NA,NA
 "Samoylov","SaSnow2012","water_3","2018-01-01","SL",NA,NA
 "Samoylov","SaSnow2012","water_4","2018-01-01","SL",NA,NA
-"Samoylov","SaSnow2012","rho_2","2018-01-01","SL",NA,NA
-"Samoylov","SaSnow2012","rho_3","2018-01-01","SL",NA,NA
-"Samoylov","SaSnow2012","rho_4","2018-01-01","SL",NA,NA
-"Samoylov","SaSnow2012","cap_highFq_2","2018-01-01","SL",NA,NA
+"Samoylov","SaSnow2012","rho_2","2018-01-01","SL","2021-07-29 12:48:05","SL"
+"Samoylov","SaSnow2012","rho_3","2018-01-01","SL","2021-07-29 12:48:20","SL"
+"Samoylov","SaSnow2012","rho_4","2018-01-01","SL","2021-07-29 12:48:34","SL"
+"Samoylov","SaSnow2012","cap_highFq_2","2018-01-01","SL","2021-07-29 12:51:03","SL"
 "Samoylov","SaSnow2012","cap_lowFq_2","2018-01-01","SL",NA,NA
 "Samoylov","SaSnow2012","cap_highFq_3","2018-01-01","SL",NA,NA
 "Samoylov","SaSnow2012","cap_lowFq_3","2018-01-01","SL",NA,NA

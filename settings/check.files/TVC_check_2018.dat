@@ -26,3 +26,22 @@
 "TVC","TVCSoil2016","cond_a_v_0","2020-04-09 10:50:15","NB",NA,NA
 "TVC","TVCSoil2016","cond_b_v_0","2020-04-09 10:51:50","NB",NA,NA
 "TVC","TVCSoil2016","cond_sn_v_0",NA,NA,NA,NA
+"TVC","TVCHole12015","Ts_4",NA,NA,NA,NA
+"TVC","TVCHole12015","Ts_20",NA,NA,NA,NA
+"TVC","TVCHole12015","Ts_117",NA,NA,NA,NA
+"TVC","TVCHole12015","Ts_217",NA,NA,NA,NA
+"TVC","TVCHole22015","Ts_4",NA,NA,NA,NA
+"TVC","TVCHole22015","Ts_27",NA,NA,NA,NA
+"TVC","TVCHole22015","Ts_118",NA,NA,NA,NA
+"TVC","TVCHole22015","Ts_218",NA,NA,NA,NA
+"TVC","TVCeccc","Tair",NA,NA,NA,NA
+"TVC","TVCeccc","Tdew",NA,NA,NA,NA
+"TVC","TVCeccc","RH",NA,NA,NA,NA
+"TVC","TVCeccc","prec",NA,NA,NA,NA
+"TVC","TVCeccc","wind_deg",NA,NA,NA,NA
+"TVC","TVCeccc","wind_v",NA,NA,NA,NA
+"TVC","TVCeccc","vis",NA,NA,NA,NA
+"TVC","TVCeccc","PA",NA,NA,NA,NA
+"TVC","TVCeccc","Hmdx",NA,NA,NA,NA
+"TVC","TVCeccc","chill",NA,NA,NA,NA
+"TVC","TVCeccc","Weather",NA,NA,NA,NA

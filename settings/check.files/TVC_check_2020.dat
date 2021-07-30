@@ -1,28 +1,47 @@
 "station","dataset","variable","check1","controller1","check2","controller2"
-"TVC","TVCSoil2016","Ts_2",NA,NA,NA,NA
-"TVC","TVCSoil2016","Ts_5",NA,NA,NA,NA
-"TVC","TVCSoil2016","Ts_10",NA,NA,NA,NA
-"TVC","TVCSoil2016","Ts_20",NA,NA,NA,NA
-"TVC","TVCSoil2016","E2_h_2",NA,NA,NA,NA
-"TVC","TVCSoil2016","E2_h_5",NA,NA,NA,NA
-"TVC","TVCSoil2016","E2_h_10",NA,NA,NA,NA
-"TVC","TVCSoil2016","E2_h_20",NA,NA,NA,NA
-"TVC","TVCSoil2016","E2_v_0",NA,NA,NA,NA
-"TVC","TVCSoil2016","E2_a_v_0",NA,NA,NA,NA
+"TVC","TVCSoil2016","Ts_2","2021-06-15 14:35:23","SL",NA,NA
+"TVC","TVCSoil2016","Ts_5","2021-06-15 14:35:39","SL",NA,NA
+"TVC","TVCSoil2016","Ts_10","2021-06-15 14:35:45","SL",NA,NA
+"TVC","TVCSoil2016","Ts_20","2021-06-15 14:35:50","SL",NA,NA
+"TVC","TVCSoil2016","E2_h_2","2021-06-15 14:36:09","SL",NA,NA
+"TVC","TVCSoil2016","E2_h_5","2021-06-15 14:36:18","SL",NA,NA
+"TVC","TVCSoil2016","E2_h_10","2021-06-15 14:36:25","SL",NA,NA
+"TVC","TVCSoil2016","E2_h_20","2021-06-15 14:36:30","SL",NA,NA
+"TVC","TVCSoil2016","E2_v_0","2021-06-15 14:36:47","SL",NA,NA
+"TVC","TVCSoil2016","E2_a_v_0","2021-06-15 14:37:27","SL",NA,NA
 "TVC","TVCSoil2016","E2_b_v_0",NA,NA,NA,NA
-"TVC","TVCSoil2016","E2_sn_v_0",NA,NA,NA,NA
-"TVC","TVCSoil2016","vwc_h_2",NA,NA,NA,NA
-"TVC","TVCSoil2016","vwc_h_5",NA,NA,NA,NA
-"TVC","TVCSoil2016","vwc_h_10",NA,NA,NA,NA
-"TVC","TVCSoil2016","vwc_h_20",NA,NA,NA,NA
-"TVC","TVCSoil2016","vwc_v_0",NA,NA,NA,NA
-"TVC","TVCSoil2016","vwc_a_v_0",NA,NA,NA,NA
+"TVC","TVCSoil2016","E2_sn_v_0","2021-06-15 14:37:55","SL",NA,NA
+"TVC","TVCSoil2016","vwc_h_2","2021-06-15 14:38:00","SL",NA,NA
+"TVC","TVCSoil2016","vwc_h_5","2021-06-15 14:38:05","SL",NA,NA
+"TVC","TVCSoil2016","vwc_h_10","2021-06-15 14:38:09","SL",NA,NA
+"TVC","TVCSoil2016","vwc_h_20","2021-06-15 14:38:15","SL",NA,NA
+"TVC","TVCSoil2016","vwc_v_0","2021-06-15 14:38:20","SL",NA,NA
+"TVC","TVCSoil2016","vwc_a_v_0","2021-06-15 14:38:25","SL",NA,NA
 "TVC","TVCSoil2016","vwc_b_v_0",NA,NA,NA,NA
-"TVC","TVCSoil2016","cond_h_2",NA,NA,NA,NA
-"TVC","TVCSoil2016","cond_h_5",NA,NA,NA,NA
-"TVC","TVCSoil2016","cond_h_10",NA,NA,NA,NA
-"TVC","TVCSoil2016","cond_h_20",NA,NA,NA,NA
-"TVC","TVCSoil2016","cond_v_0",NA,NA,NA,NA
-"TVC","TVCSoil2016","cond_a_v_0",NA,NA,NA,NA
-"TVC","TVCSoil2016","cond_b_v_0",NA,NA,NA,NA
-"TVC","TVCSoil2016","cond_sn_v_0",NA,NA,NA,NA
+"TVC","TVCSoil2016","cond_h_2","2021-06-15 14:38:40","SL",NA,NA
+"TVC","TVCSoil2016","cond_h_5","2021-06-15 14:38:51","SL",NA,NA
+"TVC","TVCSoil2016","cond_h_10","2021-06-15 14:38:57","SL",NA,NA
+"TVC","TVCSoil2016","cond_h_20","2021-06-15 14:39:02","SL",NA,NA
+"TVC","TVCSoil2016","cond_v_0","2021-06-15 14:39:09","SL",NA,NA
+"TVC","TVCSoil2016","cond_a_v_0","2021-06-15 14:39:14","SL",NA,NA
+"TVC","TVCSoil2016","cond_b_v_0","2021-06-15 14:39:19","SL",NA,NA
+"TVC","TVCSoil2016","cond_sn_v_0","2021-06-15 14:39:24","SL",NA,NA
+"TVC","TVCHole12015","Ts_4",NA,NA,NA,NA
+"TVC","TVCHole12015","Ts_20",NA,NA,NA,NA
+"TVC","TVCHole12015","Ts_117",NA,NA,NA,NA
+"TVC","TVCHole12015","Ts_217",NA,NA,NA,NA
+"TVC","TVCHole22015","Ts_4",NA,NA,NA,NA
+"TVC","TVCHole22015","Ts_27",NA,NA,NA,NA
+"TVC","TVCHole22015","Ts_118",NA,NA,NA,NA
+"TVC","TVCHole22015","Ts_218",NA,NA,NA,NA
+"TVC","TVCeccc","Tair",NA,NA,NA,NA
+"TVC","TVCeccc","Tdew",NA,NA,NA,NA
+"TVC","TVCeccc","RH",NA,NA,NA,NA
+"TVC","TVCeccc","prec",NA,NA,NA,NA
+"TVC","TVCeccc","wind_deg",NA,NA,NA,NA
+"TVC","TVCeccc","wind_v",NA,NA,NA,NA
+"TVC","TVCeccc","vis",NA,NA,NA,NA
+"TVC","TVCeccc","PA",NA,NA,NA,NA
+"TVC","TVCeccc","Hmdx",NA,NA,NA,NA
+"TVC","TVCeccc","chill",NA,NA,NA,NA
+"TVC","TVCeccc","Weather",NA,NA,NA,NA

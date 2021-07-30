@@ -14,31 +14,33 @@
 ##  2020-04-29 CL initialised analogue to LV1_plots_BaSoil2009_tmp.R
 ##
 ###............................................................................
-##  to run this script separately, you have to uncomment the next 10 lines!
+# to run this script separately, you have to uncomment the next 10 lines!
 # rm(list = ls())
 # if (.Platform$OS.type == "windows") {
-#   p.1 <- read.table("N:/sparc/LTO/R_database/database_R/settings/path_windoof.txt", sep = "\t",header = T)
-#   p.1maint <- read.table("N:/sparc/LTO/R_database/database_R/settings/maintance.txt", sep = "\t",header = T)
+#   p.1 <- read.table("N:/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/settings/path_win.txt", sep = "\t", header = T)
+#   p.1maint <- read.table("N:/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/settings/maintenance.files/maintance.txt", sep = "\t", header = T)
+#   p.1zero <- read.table("N:/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/settings/zero.curtain/zero.curtain.doy_TVC.dat", sep = ",",header = T)
 # 
-#   source("N:/sparc/LTO/R_database/database_R/settings/db_func.R")
+#   source("N:/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/functions/db_func.R")
 # } else {
-#   p.1 <- read.table("/sparc/LTO/R_database/database_R/settings/path_linux.txt", sep = "\t", header = T, fileEncoding = "UTF-8")
-#   p.1maint <- read.table("/sparc/LTO/R_database/database_R/settings/maintance.txt", sep = "\t", header = T)
-# 
-#   source("/sparc/LTO/R_database/database_R/settings/db_func.R")
+#   p.1 <- read.table("/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/settings/path_linux.txt", sep = "\t", header = T, fileEncoding = "UTF-8")
+#   p.1maint <- read.table("/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/settings/maintenance.files/maintance.txt", sep = "\t", header = T)
+#   p.1zero <- read.table("/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/settings/zero.curtain/zero.curtain.doy_TVC.dat", sep = ",",header = T)
+#   source("/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/functions/db_func.R")
 # }
-###............................................................................
+###..........................................................................
 
 
 options(scipen = 100, stringsAsFactors = F) # for non-exponential display of numeric values
 origin <- "1970-01-01"
 recent.year <- as.numeric(format(Sys.Date(),"%Y"))
-# years <- 2016:recent.year
-
+# run.year <- 2016:recent.year
+#run.year <- 2020
 soil.cols <- colorRampPalette(c("seagreen4", "palegreen3", "yellow3", "khaki", "sandybrown", "peru", "mistyrose3", "peachpuff4"))(20)
 
 Months <- c("Jan", "Feb", "Mar", "Apr", "May", "Jun","Jul", "Aug", "Sep", "Oct", "Nov", "Dec")
 color <- rgb(190, 190, 190, alpha = 70, maxColorValue = 255)
+zC.color <- rgb(102, 205, 170, alpha = 70, maxColorValue = 255)
 p.width <- 420 * 3.5
 p.height <- 280 * 3.5
 overall <- 1
@@ -47,39 +49,39 @@ overall <- 1
 ###............................................................................
 # to run this script separately, you have to set run.year:
 #
-# run.year <- years
-first.year <- min(run.year)
-last.year <- max(run.year)
+# run.year <- year_i
+# first.year <- min(run.year)
+# last.year <- max(run.year)
 ###............................................................................
 
-for (years in run.year) {
+for (year_i in run.year) {
 
-  dudu <- read.table(paste0(p.1$w[p.1$n == "LV1.p"], "TVCSoil2016/00_full_dataset/TVCSoil2016_", years, "_lv1.dat"),
+  dudu <- read.table(paste0(p.1$w[p.1$n == "LV1.p"], "TVCSoil2016/00_full_dataset/TVCSoil2016_", year_i, "_lv1.dat"),
                      sep = ",", dec = ".", header = T, na.strings = "NA")
   lischt <- c(dudu$UTC[format(strptime(dudu$UTC, format = "%Y-%m-%d %H:%M"), format = "%d %H:%M") == "01 00:00"],
               dudu$UTC[length(dudu$UTC)])
 
   dudu[, 1] <- as.numeric(as.POSIXct(dudu[, 1], origin = origin, tz = "UTC",format = '%Y-%m-%d %H:%M'))
-  xxlim <- c(as.numeric(strptime(paste0("13.01.", years), format = "%d.%m.%Y")),
-            as.numeric(strptime(paste0("20.12.", years), format = "%d.%m.%Y")))
+  xxlim <- c(as.numeric(strptime(paste0("13.01.", year_i), format = "%d.%m.%Y")),
+            as.numeric(strptime(paste0("20.12.", year_i), format = "%d.%m.%Y")))
 
   last.von <- length(na.omit(dudu[, 2]))
   last.bis <- length(dudu[, 1])
 
 
   ## soil temperature
-  png(file = paste(p.1$w[p.1$n == "plot.p"], years, "/TVCSoil2016_Ts_", years, ".png", sep = ""),
+  png(file = paste(p.1$w[p.1$n == "plot.p"], year_i, "/TVCSoil2016_Ts_", year_i, ".png", sep = ""),
       width = p.width, height = p.height, pointsize = 8)#,A4, landscape)
 
   par(mar = c(1, 8, 1, 1), omi = c(0, 0, 0, 0))
 
   plot(as.numeric(strptime(dudu$UTC, format = "%Y-%m-%d %H:%M")), dudu$Ts_2, pch = 20,# cex.lab=1.7, cex.axis=1.5,   #
-       xlim = xxlim, ylim = c(-15, 21), xlab = "", ylab = "", xaxt = "n", yaxt = "n", type = "n")
-  # plot_maintenance(years)
-
+       xlim = xxlim, ylim = c(-21, 21), xlab = "", ylab = "", xaxt = "n", yaxt = "n", type = "n")
+  # plot_maintenance(year_i)
+  plot_zeroCurtainZone(year_i)
   # define grid
   # horizontal lines
-  y.axis.seq <- seq(-15, 20, 5)
+  y.axis.seq <- seq(-20, 20, 5)
   abline(h = y.axis.seq, col = "gray80")
   # vertical lines
   abline(v = as.numeric(strptime(lischt, format = "%Y-%m-%d %H:%M")), col = "gray80")
@@ -96,12 +98,12 @@ for (years in run.year) {
   axis(3, at = c(as.numeric(strptime(lischt[-c(1, 13)], format = "%Y-%m-%d %H:%M"))),
        labels = c("", "", "", "", "", "", "", "", "", "", ""), las = 2, tcl = 0.5, cex.axis = 4)
   text(as.numeric(strptime(lischt[-1], format = "%Y-%m-%d %H:%M")) - 1300000, rep(21, 12), labels = Months, las = 2, cex = 4)
-  text(as.numeric(strptime(lischt[11], format = "%Y-%m-%d %H:%M")) + 2000000, 14, years, las = 2, cex = 6)
+  text(as.numeric(strptime(lischt[11], format = "%Y-%m-%d %H:%M")) + 2000000, 14, year_i, las = 2, cex = 6)
   dev.off()
   ###............................................................................
   # volumetric water content ----
   # horizontal sensors
-  png(file = paste(p.1$w[p.1$n == "plot.p"], years, "/TVCSoil2016_vwc_h_", years, ".png", sep = ""),
+  png(file = paste(p.1$w[p.1$n == "plot.p"], year_i, "/TVCSoil2016_vwc_h_", year_i, ".png", sep = ""),
       width = p.width, height = p.height, pointsize = 8)#,A4, landscape)
 
   par(mar = c(1, 8, 1, 1), omi = c(0, 0, 0, 0))
@@ -110,8 +112,8 @@ for (years in run.year) {
 
   plot(as.numeric(strptime(dudu$UTC, format = "%Y-%m-%d %H:%M")), dudu$vwc_h_2, pch = 20,
        xlim = xxlim, ylim = yylim, xlab = "", ylab = "", xaxt = "n", yaxt = "n", type = "n")
-  # plot_maintenance(years)
-
+  # plot_maintenance(year_i)
+  plot_zeroCurtainZone(year_i)
   # define grid
   # horizontal lines
   y.axis.seq <- seq(0, 1, 0.1)
@@ -136,13 +138,13 @@ for (years in run.year) {
   axis(3, at = c(as.numeric(strptime(lischt[-c(1, 13)], format = "%Y-%m-%d %H:%M"))),
        labels = c("", "", "", "", "", "", "", "", "", "", ""), las = 2, tcl = 0.5, cex.axis = 4)
   text(as.numeric(strptime(lischt[-1], format = "%Y-%m-%d %H:%M")) - 1300000, rep(max(yylim), 12), labels = Months, las = 2, cex = 4)
-  text(as.numeric(strptime(lischt[11], format = "%Y-%m-%d %H:%M")) + 2000000, max(yylim) - (diff(yylim) * 0.2), years, las = 2, cex = 6)
+  text(as.numeric(strptime(lischt[11], format = "%Y-%m-%d %H:%M")) + 2000000, max(yylim) - (diff(yylim) * 0.2), year_i, las = 2, cex = 6)
   dev.off()#close pdf
 
   ###............................................................................
   # vwc vertical sensors ----
   #
-  png(file = paste(p.1$w[p.1$n == "plot.p"], years, "/TVCSoil2016_vwc_v_", years, ".png", sep = ""),
+  png(file = paste(p.1$w[p.1$n == "plot.p"], year_i, "/TVCSoil2016_vwc_v_", year_i, ".png", sep = ""),
       width = p.width, height = p.height, pointsize = 8)#,A4, landscape)
 
   par(mar = c(1, 8, 1, 1), omi = c(0, 0, 0, 0))
@@ -151,8 +153,8 @@ for (years in run.year) {
 
   plot(as.numeric(strptime(dudu$UTC, format = "%Y-%m-%d %H:%M")), dudu$vwc_v_0, pch = 20,
        xlim = xxlim, ylim = yylim, xlab = "", ylab = "", xaxt = "n", yaxt = "n", type = "n")
-  # plot_maintenance(years)
-
+  # plot_maintenance(year_i)
+  plot_zeroCurtainZone(year_i)
   # define grid
   # horizontal lines
   y.axis.seq <- seq(0, 0.5, 0.1)
@@ -176,12 +178,12 @@ for (years in run.year) {
   axis(3, at = c(as.numeric(strptime(lischt[-c(1, 13)], format = "%Y-%m-%d %H:%M"))),
        labels = c("", "", "", "", "", "", "", "", "", "", ""), las = 2, tcl = 0.5, cex.axis = 4)
   text(as.numeric(strptime(lischt[-1], format = "%Y-%m-%d %H:%M")) - 1300000, rep(max(yylim), 12), labels = Months, las = 2, cex = 4)
-  text(as.numeric(strptime(lischt[11], format = "%Y-%m-%d %H:%M")) + 2000000, max(yylim) - (diff(yylim) * 0.2), years, las = 2, cex = 6)
+  text(as.numeric(strptime(lischt[11], format = "%Y-%m-%d %H:%M")) + 2000000, max(yylim) - (diff(yylim) * 0.2), year_i, las = 2, cex = 6)
   dev.off()#close pdf
 
 
 
-  cat("#\n# level1 TVCSoil2016 ", years," plot done!\n#\n")
+  cat("#\n# level1 TVCSoil2016 ", year_i," plot done!\n#\n")
 }
 
 
@@ -229,7 +231,7 @@ for (years in run.year) {
 # 
 #   plot(db.ba2$UTC, db.ba2$Ts_2, pch = 20,
 #        ylim = range(db.ba2[, 2:5], na.rm = TRUE), xlab = "", ylab = "", xaxt = "n", yaxt = "n", type = "n")
-#   #plot_maintenance(years)
+#   #plot_maintenance(year_i)
 # 
 #   # define grid
 #   # horizontal lines
@@ -249,7 +251,7 @@ for (years in run.year) {
 #   axis(3, at = c(as.numeric(strptime(lascht, format = "%Y-%m-%d %H:%M"))),
 #       labels = rep("", length(as.numeric(strptime(lascht, format = "%Y-%m-%d %H:%M")))), las = 2, tcl = 0.5, cex.axis = 4)
 #   ##
-#   # labeling of years
+#   # labeling of year_i
 #   # text(as.numeric(c(as.POSIXct("2016-12-01 01:00:00"),
 #   #                   seq(as.POSIXct("2017-02-01 01:00:00"),
 #   #                   as.POSIXct(paste(as.numeric(last.year), "-12-01 01:00:00", sep = "")), by = "year"))),
@@ -274,7 +276,7 @@ for (years in run.year) {
 #   yylim <- c(0, 0.5) # range(db.ba2[, 6:9], na.rm = TRUE)
 #   plot(db.ba2$UTC, db.ba2$vwc_h_2, pch = 20,
 #        ylim = yylim, xlab = "", ylab = "", xaxt = "n", yaxt = "n", type = "n")
-#   #plot_maintenance(years)
+#   #plot_maintenance(year_i)
 # 
 #   # define grid
 #   # horizontal lines
@@ -294,7 +296,7 @@ for (years in run.year) {
 #   axis(3, at = c(as.numeric(strptime(lascht, format = "%Y-%m-%d %H:%M"))),
 #        labels = rep("", length(as.numeric(strptime(lascht, format = "%Y-%m-%d %H:%M")))), las = 2, tcl = 0.5, cex.axis = 4)
 #   ##
-#   # labeling of years
+#   # labeling of year_i
 #   # text(as.numeric(c(as.POSIXct("2016-12-01 01:00:00"),
 #   #                   seq(as.POSIXct("2017-02-01 01:00:00"),
 #   #                   as.POSIXct(paste(as.numeric(last.year), "-12-01 01:00:00", sep = "")), by = "year"))),
@@ -318,7 +320,7 @@ for (years in run.year) {
 #   yylim <- c(0, 0.5) #max(db.ba2[, 10:12], na.rm = TRUE))
 #   plot(db.ba2$UTC, db.ba2$vwc_v_0, pch = 20,
 #        ylim = range(db.ba2[, 10:12], na.rm = TRUE), xlab = "", ylab = "", xaxt = "n", yaxt = "n", type = "n")
-#   #plot_maintenance(years)
+#   #plot_maintenance(year_i)
 # 
 #   # define grid
 #   # horizontal lines

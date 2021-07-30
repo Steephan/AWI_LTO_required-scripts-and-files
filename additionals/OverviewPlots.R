@@ -18,19 +18,19 @@
 # # this part is necessary to run this script seperate 
 #rm(list=ls())
 if (.Platform$OS.type == "windows") {
-  path<-read.table("N:/sparc/LTO/R_database/database_R/settings/path_windoof.txt",sep="\t",header=T)
-  maint<-read.table("N:/sparc/LTO/R_database/database_R/settings/maintance.txt",sep="\t",header=T)
-  p.1<-read.table("N:/sparc/LTO/R_database/database_R/settings/path_windoof.txt",sep="\t",header=T)
-  p.1maint<-read.table("N:/sparc/LTO/R_database/database_R/settings/maintance.txt",sep="\t",header=T)
-  tmp.path <- "N:/sparc/LTO/R_database/database_plots/OverviewPlots/Tmp_png/"
-  source("N:/sparc/LTO/R_database/database_R/settings/db_func.R")
+  path    <-read.table("N:/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/settings/path_win.txt",sep="\t",header=T)
+  maint   <-read.table("N:/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/settings/maintenance.files/maintance.txt",sep="\t",header=T)
+  p.1     <-read.table("N:/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/settings/path_win.txt",sep="\t",header=T)
+  p.1maint<-read.table("N:/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/settings/maintenance.files/maintance.txt",sep="\t",header=T)
+  tmp.path<- "N:/sparc/LTO/R_database/database_plots/OverviewPlots/Tmp_png/"
+  source("N:/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/functions/db_func.R")
 }else{
-  path<-read.table("/sparc/LTO/R_database/database_R/settings/path_linux.txt",sep="\t",header=T, fileEncoding="UTF-8")
-  maint<-read.table("/sparc/LTO/R_database/database_R/settings/maintance.txt",sep="\t",header=T)
-  p.1<-read.table("/sparc/LTO/R_database/database_R/settings/path_linux.txt",sep="\t",header=T, fileEncoding="UTF-8")
-  p.1maint<-read.table("/sparc/LTO/R_database/database_R/settings/maintance.txt",sep="\t",header=T)
-  tmp.path <- "/sparc/LTO/R_database/database_plots/OverviewPlots/Tmp_png/"
-  source("/sparc/LTO/R_database/database_R/settings/db_func.R")
+  path    <-read.table("/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/settings/path_linux.txt",sep="\t",header=T, fileEncoding="UTF-8")
+  maint   <-read.table("/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/settings/maintenance.files/maintance.txt",sep="\t",header=T)
+  p.1     <-read.table("/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/settings/path_linux.txt",sep="\t",header=T, fileEncoding="UTF-8")
+  p.1maint<-read.table("/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/settings/maintenance.files/maintance.txt",sep="\t",header=T)
+  tmp.path<- "/sparc/LTO/R_database/database_plots/OverviewPlots/Tmp_png/"
+  source("/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/functions/db_func.R")
 }
 ###.............................................................................
 

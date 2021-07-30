@@ -15,14 +15,14 @@
 stations <- c("Samoylov","Bayelva","Sardakh","TVC","Kurungnakh")
 datas <- list()
 datas[[1]] <- c("SaMet1998","SaSoil1998",
-              "SaSoil2002","SaSoil2012","SaMet2002",
+              "SaSoil2002","SaSoil2012","SaMet2002","SaPrec2019",
               "SaHole2006","SaHole2010", "SaHole2018",
               "SaPond2006","SaPond2014","SaSnow2012","SaSnow2016")
 datas[[2]] <- c("BaMet1998","BaMet2009","BaSoil1998","BaSoil2009","BaSoil2017",
               "BaHole2009","BaHole2015","BaHole2021","BaSnow2013","BaSnow2019sr",
               "BaSnow2019cs","BaEddy2007")
 datas[[3]] <- c("SdHole2009")
-datas[[4]] <- c("TVCSoil2016","TVCHole12015","TVCHole22015")
+datas[[4]] <- c("TVCSoil2016","TVCHole12015","TVCHole22015","TVCeccc")
 datas[[5]] <- c("KuQ12013","KuLucky22014","KuLucky12013","KuLucky2013")
 
 #running.system<-1

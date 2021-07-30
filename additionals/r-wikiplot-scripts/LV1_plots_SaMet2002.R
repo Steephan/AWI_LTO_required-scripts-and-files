@@ -31,7 +31,7 @@
 options(scipen = 100, stringsAsFactors = F, digits = 2, scientific = T) # for non-exponential display of numeric values
 origin <- "1970-01-01"
 # run.year <- 2018:2021 #2002:2021
-
+#run.year <- 2020
 
 zack <- 1
 months <- c("01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12")
@@ -129,7 +129,8 @@ for (year_i in run.year) {
       lines(c(pp, pp), c(-210, 720), col = "gray80")
     } # vertical lines
 
-    points(as.numeric(strptime(db.samet.lvl1$UTC[pa_zero], format = "%Y-%m-%d %H:%M")), db.samet.lvl1$PA[pa_zero], pch = 20, cex.lab = 1.5, cex.axis = 1.7, col = "maroon4")
+    points(as.numeric(strptime(db.samet.lvl1$UTC[pa_zero], format = "%Y-%m-%d %H:%M")), 
+           db.samet.lvl1$PA[pa_zero], pch = 20, cex.lab = 1.5, cex.axis = 1.7, col = "maroon4")
 
     axis(2, at = seq(96, 110, 2), labels = seq(96, 110, 2), las = 2, cex.axis = 4)
     axis(3, at = c(as.numeric(strptime(lischt[-c(1, 13)], format = "%Y-%m-%d %H:%M"))), labels = c("", "", "", "", "", "", "", "", "", "", ""), las = 2, tcl = 0.5, cex.axis = 4)
@@ -143,14 +144,14 @@ for (year_i in run.year) {
     ###...........................................................................
     net_zero <- which(db.samet.lvl1$RadNet_fl == 0)
     net_flags <- which(db.samet.lvl1$RadNet_fl > 0)
-
-
-
+    
+    
+    
     png(paste(p.1$w[p.1$n == "plot.p"], year_i, "/SaMet2002_rad_net_", year_i, ".png", sep = ""), width = p.width, height = p.height, pointsize = 8)
     par(mar = c(1, 8, 1, 1), omi = c(0, 0, 0, 0))
     plot(as.numeric(strptime(db.samet.lvl1$UTC, format = "%Y-%m-%d %H:%M")), db.samet.lvl1$SwOut,
-      pch = 20, # cex.lab=1.7, cex.axis=1.5,   # albedo from file
-      xlim = xxlim, ylim = c(-200, 720), xlab = " ", ylab = "", xaxt = "n", yaxt = "n", type = "n", cex.axis = 3
+         pch = 20, # cex.lab=1.7, cex.axis=1.5,   # albedo from file
+         xlim = xxlim, ylim = c(-200, 720), xlab = " ", ylab = "", xaxt = "n", yaxt = "n", type = "n", cex.axis = 3
     )
     plot_maintenance(year_i)
     for (ll in seq(-200, 600, 100)) {
@@ -166,17 +167,95 @@ for (year_i in run.year) {
     #        db.samet.lvl1$SwOut[net_zero]-db.samet.lvl1$SwIn[net_zero]+db.samet.lvl1$LwOut_cor[net_zero]-db.samet.lvl1$LwIn_cor[net_zero],
     #        pch = 20, cex.lab = 1.5, cex.axis=1.7, col="maroon4")
     points(as.numeric(strptime(db.samet.lvl1$UTC[net_zero], format = "%Y-%m-%d %H:%M")),
-      db.samet.lvl1$RadNet[net_zero],
-      pch = 20, cex.lab = 1.5, cex.axis = 1.7, col = "maroon4"
+           db.samet.lvl1$RadNet[net_zero],
+           pch = 20, cex.lab = 1.5, cex.axis = 1.7, col = "maroon4"
     )
-
+    
     axis(2, at = seq(-200, 600, 100), labels = seq(-200, 600, 100), las = 2, cex.axis = 4)
     axis(3, at = c(as.numeric(strptime(lischt[-c(1, 13)], format = "%Y-%m-%d %H:%M"))), labels = c("", "", "", "", "", "", "", "", "", "", ""), las = 2, tcl = 0.5, cex.axis = 4)
     text(as.numeric(strptime(lischt[-1], format = "%Y-%m-%d %H:%M")) - 1300000, rep(700, 12), labels = Months, las = 2, cex = 4)
     text(as.numeric(strptime(lischt[11], format = "%Y-%m-%d %H:%M")) + 2000000, 600, year_i, las = 2, cex = 6)
     dev.off()
   } # Radiation netto (implemented, but crumpy data and wrong column)
-
+  
+  if (zack == 1) {
+    #  radiation Sw Netto ----------
+    ###...........................................................................
+    net_zero <- which(db.samet.lvl1$SwIn_fl == 0)
+    net_flags <- which(db.samet.lvl1$SwIn_fl > 0)
+    
+    
+    
+    png(paste(p.1$w[p.1$n == "plot.p"], year_i, "/SaMet2002_rad_swnet_", year_i, ".png", sep = ""), width = p.width, height = p.height, pointsize = 8)
+    par(mar = c(1, 8, 1, 1), omi = c(0, 0, 0, 0))
+    plot(as.numeric(strptime(db.samet.lvl1$UTC, format = "%Y-%m-%d %H:%M")), db.samet.lvl1$SwOut,
+         pch = 20, # cex.lab=1.7, cex.axis=1.5,   # albedo from file
+         xlim = xxlim, ylim = c(-200, 720), xlab = " ", ylab = "", xaxt = "n", yaxt = "n", type = "n", cex.axis = 3
+    )
+    plot_maintenance(year_i)
+    for (ll in seq(-200, 600, 100)) {
+      abline(h = ll, col = "gray80")
+    } # horizontal lines
+    for (pp in as.numeric(strptime(lischt, format = "%Y-%m-%d %H:%M"))) {
+      lines(c(pp, pp), c(-210, 720), col = "gray80")
+    } # vertical lines
+    ###
+    ###  please change to the upper points() and remove the RadNet-column
+    ###
+    # points(as.numeric(strptime(db.samet.lvl1$UTC[net_zero],format="%Y-%m-%d %H:%M")),
+    #        db.samet.lvl1$SwOut[net_zero]-db.samet.lvl1$SwIn[net_zero]+db.samet.lvl1$LwOut_cor[net_zero]-db.samet.lvl1$LwIn_cor[net_zero],
+    #        pch = 20, cex.lab = 1.5, cex.axis=1.7, col="maroon4")
+    points(as.numeric(strptime(db.samet.lvl1$UTC[net_zero], format = "%Y-%m-%d %H:%M")),
+           db.samet.lvl1$SwIn[net_zero]-db.samet.lvl1$SwOut[net_zero],
+           pch = 20, cex.lab = 1.5, cex.axis = 1.7, col = "maroon4"
+    )
+    
+    axis(2, at = seq(-200, 600, 100), labels = seq(-200, 600, 100), las = 2, cex.axis = 4)
+    axis(3, at = c(as.numeric(strptime(lischt[-c(1, 13)], format = "%Y-%m-%d %H:%M"))), labels = c("", "", "", "", "", "", "", "", "", "", ""), las = 2, tcl = 0.5, cex.axis = 4)
+    text(as.numeric(strptime(lischt[-1], format = "%Y-%m-%d %H:%M")) - 1300000, rep(700, 12), labels = Months, las = 2, cex = 4)
+    text(as.numeric(strptime(lischt[11], format = "%Y-%m-%d %H:%M")) + 2000000, 600, year_i, las = 2, cex = 6)
+    dev.off()
+  } # Radiation netto (implemented, but crumpy data and wrong column)
+  
+  if (zack == 1) {
+    #  radiation Lw Netto ----------
+    ###...........................................................................
+    net_zero <- which(db.samet.lvl1$LwIn_fl == 0)
+    net_flags <- which(db.samet.lvl1$LwIn_fl > 0)
+    
+    
+    
+    png(paste(p.1$w[p.1$n == "plot.p"], year_i, "/SaMet2002_rad_lwnet_", year_i, ".png", sep = ""), width = p.width, height = p.height, pointsize = 8)
+    par(mar = c(1, 8, 1, 1), omi = c(0, 0, 0, 0))
+    plot(as.numeric(strptime(db.samet.lvl1$UTC, format = "%Y-%m-%d %H:%M")), db.samet.lvl1$SwOut,
+         pch = 20, # cex.lab=1.7, cex.axis=1.5,   # albedo from file
+         xlim = xxlim, ylim = c(-200, 40), xlab = " ", ylab = "", xaxt = "n", yaxt = "n", type = "n", cex.axis = 3
+    )
+    plot_maintenance(year_i)
+    for (ll in seq(-200, 100, 20)) {
+      abline(h = ll, col = "gray80")
+    } # horizontal lines
+    for (pp in as.numeric(strptime(lischt, format = "%Y-%m-%d %H:%M"))) {
+      lines(c(pp, pp), c(-210, 100), col = "gray80")
+    } # vertical lines
+    ###
+    ###  please change to the upper points() and remove the RadNet-column
+    ###
+    # points(as.numeric(strptime(db.samet.lvl1$UTC[net_zero],format="%Y-%m-%d %H:%M")),
+    #        db.samet.lvl1$SwOut[net_zero]-db.samet.lvl1$SwIn[net_zero]+db.samet.lvl1$LwOut_cor[net_zero]-db.samet.lvl1$LwIn_cor[net_zero],
+    #        pch = 20, cex.lab = 1.5, cex.axis=1.7, col="maroon4")
+    points(as.numeric(strptime(db.samet.lvl1$UTC[net_zero], format = "%Y-%m-%d %H:%M")),
+           db.samet.lvl1$LwIn[net_zero]-db.samet.lvl1$LwOut[net_zero],
+           pch = 20, cex.lab = 1.5, cex.axis = 1.7, col = "maroon4"
+    )
+    
+    axis(2, at = seq(-200, 600, 100), labels = seq(-200, 600, 100), las = 2, cex.axis = 4)
+    axis(3, at = c(as.numeric(strptime(lischt[-c(1, 13)], format = "%Y-%m-%d %H:%M"))), labels = c("", "", "", "", "", "", "", "", "", "", ""), las = 2, tcl = 0.5, cex.axis = 4)
+    text(as.numeric(strptime(lischt[-1], format = "%Y-%m-%d %H:%M")) - 1300000, rep(30, 12), labels = Months, las = 2, cex = 4)
+    text(as.numeric(strptime(lischt[11], format = "%Y-%m-%d %H:%M")) + 2000000, -180, year_i, las = 2, cex = 6)
+    dev.off()
+  } # Radiation netto (implemented, but crumpy data and wrong column)
+  
   if (zack == 1) {
     #  radiation Global ----------
     ###...........................................................................
@@ -247,10 +326,10 @@ for (year_i in run.year) {
 
     #  radiation longwave ----------
     ###...........................................................................
-    lw_in <- which(db.samet.lvl1$LwOut_fl == 0)
-    lw_out <- which(db.samet.lvl1$LwIn_fl == 0)
-    lw_bad_in <- which(db.samet.lvl1$LwOut_fl > 0)
-    lw_bad_out <- which(db.samet.lvl1$LwIn_fl > 0)
+    lw_out <- which(db.samet.lvl1$LwOut_fl == 0)
+    lw_in <- which(db.samet.lvl1$LwIn_fl == 0)
+    lw_bad_out <- which(db.samet.lvl1$LwOut_fl > 0)
+    lw_bad_in <- which(db.samet.lvl1$LwIn_fl > 0)
 
     png(paste(p.1$w[p.1$n == "plot.p"], year_i, "/SaMet2002_rad_lw_", year_i, ".png", sep = ""), width = p.width, height = p.height, pointsize = 8)
     par(mar = c(1, 8, 1, 1), omi = c(0, 0, 0, 0))
@@ -266,11 +345,11 @@ for (year_i in run.year) {
       lines(c(pp, pp), c(-20, 720), col = "gray80")
     } # vertical lines
 
-    points(as.numeric(strptime(db.samet.lvl1$UTC[lw_in], format = "%Y-%m-%d %H:%M")), db.samet.lvl1$LwOut[lw_in],
+    points(as.numeric(strptime(db.samet.lvl1$UTC[lw_in], format = "%Y-%m-%d %H:%M")), db.samet.lvl1$LwOut[lw_out],
       pch = 20, cex.lab = 1.5, cex.axis = 1.7,
       col = "mediumpurple3"
     )
-    points(as.numeric(strptime(db.samet.lvl1$UTC[lw_out], format = "%Y-%m-%d %H:%M")), db.samet.lvl1$LwIn[lw_out],
+    points(as.numeric(strptime(db.samet.lvl1$UTC[lw_out], format = "%Y-%m-%d %H:%M")), db.samet.lvl1$LwIn[lw_in],
       pch = 20, cex.lab = 1.5,
       col = "khaki3"
     )
@@ -283,9 +362,7 @@ for (year_i in run.year) {
 
   if (zack == 1) {
     # air temperature ----------
-    ###...........................................................................
-    
-
+    ###........................................................................... 
     Tair1_zero <- which(as.numeric(db.samet.lvl1$Tair_a_200_fl) == 0)
     Tair1_flags <- which(as.numeric(db.samet.lvl1$Tair_a_200_fl) > 0)
     Tair2_zero <- which(as.numeric(db.samet.lvl1$Tair_b_200_fl) == 0)
@@ -294,12 +371,40 @@ for (year_i in run.year) {
     Tair3_flags <- which(as.numeric(db.samet.lvl1$Tair_a_50_fl) > 0)
     Tair4_zero <- which(as.numeric(db.samet.lvl1$Tair_b_50_fl) == 0)
     Tair4_flags <- which(as.numeric(db.samet.lvl1$Tair_b_50_fl) > 0)
-
+    
+    rr <- length(aggregate(db.samet.lvl1$Tair_a_200[Tair1_zero] ~ format(strptime(db.samet.lvl1$UTC[Tair1_zero], format = "%Y-%m-%d %H:%M"), format = "%Y-%m-%d"), FUN = mean)[, 2])
+    murr <- matrix(ncol = 3, nrow = rr, 1)
+    murr[, 1] <- aggregate(db.samet.lvl1$Tair_a_200[Tair1_zero] ~ format(strptime(db.samet.lvl1$UTC[Tair1_zero], format = "%Y-%m-%d %H:%M"), format = "%Y-%m-%d"), FUN = mean)[, 1]
+    murr[, 2] <- aggregate(db.samet.lvl1$Tair_a_200[Tair1_zero] ~ format(strptime(db.samet.lvl1$UTC[Tair1_zero], format = "%Y-%m-%d %H:%M"), format = "%Y-%m-%d"), FUN = mean)[, 2]
+    
+    ff <- length(aggregate(db.samet.lvl1$Tair_a_50[Tair3_zero] ~ format(strptime(db.samet.lvl1$UTC[Tair3_zero], format = "%Y-%m-%d %H:%M"), format = "%Y-%m-%d"), FUN = mean)[, 2])
+    muff <- matrix(ncol = 3, nrow = ff, 1)
+    muff[, 1] <- aggregate(db.samet.lvl1$Tair_a_50[Tair3_zero] ~ format(strptime(db.samet.lvl1$UTC[Tair3_zero], format = "%Y-%m-%d %H:%M"), format = "%Y-%m-%d"), FUN = mean)[, 1]
+    muff[, 2] <- aggregate(db.samet.lvl1$Tair_a_50[Tair3_zero] ~ format(strptime(db.samet.lvl1$UTC[Tair3_zero], format = "%Y-%m-%d %H:%M"), format = "%Y-%m-%d"), FUN = mean)[, 2]
+    
+    if(year_i>=2013){
+      hh <- length(aggregate(db.samet.lvl1$Tair_b_200[Tair2_zero] ~ format(strptime(db.samet.lvl1$UTC[Tair2_zero], format = "%Y-%m-%d %H:%M"), format = "%Y-%m-%d"), FUN = mean)[, 2])
+      muhh <- matrix(ncol = 3, nrow = hh, 1)
+      muhh[, 1] <- aggregate(db.samet.lvl1$Tair_b_200[Tair2_zero] ~ format(strptime(db.samet.lvl1$UTC[Tair2_zero], format = "%Y-%m-%d %H:%M"), format = "%Y-%m-%d"), FUN = mean)[, 1]
+      muhh[, 2] <- aggregate(db.samet.lvl1$Tair_b_200[Tair2_zero] ~ format(strptime(db.samet.lvl1$UTC[Tair2_zero], format = "%Y-%m-%d %H:%M"), format = "%Y-%m-%d"), FUN = mean)[, 2]
+      
+    }
+    if(year_i>=2013){
+      gg <- length(aggregate(db.samet.lvl1$Tair_b_50[Tair4_zero] ~ format(strptime(db.samet.lvl1$UTC[Tair4_zero], format = "%Y-%m-%d %H:%M"), format = "%Y-%m-%d"), FUN = mean)[, 2])
+      mugg <- matrix(ncol = 3, nrow = gg, 1)
+      mugg[, 1] <- aggregate(db.samet.lvl1$Tair_b_50[Tair4_zero] ~ format(strptime(db.samet.lvl1$UTC[Tair4_zero], format = "%Y-%m-%d %H:%M"), format = "%Y-%m-%d"), FUN = mean)[, 1]
+      mugg[, 2] <- aggregate(db.samet.lvl1$Tair_b_50[Tair4_zero] ~ format(strptime(db.samet.lvl1$UTC[Tair4_zero], format = "%Y-%m-%d %H:%M"), format = "%Y-%m-%d"), FUN = mean)[, 2]
+    }
+    
+  
+    
+    
+    
     png(paste0(p.1$w[p.1$n == "plot.p"], year_i, "/SaMet2002_Tair1_200_", year_i, ".png"), width = p.width, height = p.height, pointsize = 8)
     par(mar = c(1, 8, 1, 1), omi = c(0, 0, 0, 0))
     plot(as.numeric(strptime(db.samet.lvl1$UTC, format = "%Y-%m-%d %H:%M")), db.samet.lvl1$Tair_a_200,
-      pch = 20, # cex.lab=1.7, cex.axis=1.5,   # albedo from file
-      xlim = xxlim, ylim = c(-40, 25), xlab = " ", ylab = " ", xaxt = "n", yaxt = "n", type = "n", cex.axis = 3
+         pch = 20, # cex.lab=1.7, cex.axis=1.5,   # albedo from file
+         xlim = xxlim, ylim = c(-40, 25), xlab = " ", ylab = " ", xaxt = "n", yaxt = "n", type = "n", cex.axis = 3
     )
     plot_maintenance(year_i)
     for (ll in seq(-40, 30, 5)) {
@@ -309,44 +414,53 @@ for (year_i in run.year) {
       lines(c(pp, pp), c(-40, 30), col = "gray80")
     } # vertical lines
     points(as.numeric(strptime(db.samet.lvl1$UTC[Tair1_zero], format = "%Y-%m-%d %H:%M")), db.samet.lvl1$Tair_a_200[Tair1_zero],
-      pch = 20, cex.lab = 1.5, cex.axis = 1.7,
-      col = "lightgoldenrod3"
+           pch = 20, cex.lab = 1.5, cex.axis = 1.7,
+           col = "lightgoldenrod3"
     )
+    points(as.numeric(strptime(murr[, 1], format = "%Y-%m-%d")) + 43200,
+           murr[, 2], pch = 20, cex.lab = 1.5, cex.axis = 1.7, cex = 2.5, col = "darkorange3")
+    
     axis(2, at = seq(-40, 30, 5), labels = seq(-40, 30, 5), las = 2, cex.axis = 4)
     axis(3, at = c(as.numeric(strptime(lischt[-c(1, 13)], format = "%Y-%m-%d %H:%M"))), labels = c("", "", "", "", "", "", "", "", "", "", ""), las = 2, tcl = 0.5, cex.axis = 4)
     text(as.numeric(strptime(lischt[-1], format = "%Y-%m-%d %H:%M")) - 1300000, rep(25, 12), labels = Months, las = 2, cex = 4)
     text(as.numeric(strptime(lischt[11], format = "%Y-%m-%d %H:%M")) + 2000000, 18, year_i, las = 2, cex = 6)
-
+    
     dev.off()
-
-    png(paste0(p.1$w[p.1$n == "plot.p"], year_i, "/SaMet2002_Tair2_200_", year_i, ".png"), width = p.width, height = p.height, pointsize = 8)
-    par(mar = c(1, 8, 1, 1), omi = c(0, 0, 0, 0))
-    plot(as.numeric(strptime(db.samet.lvl1$UTC, format = "%Y-%m-%d %H:%M")), db.samet.lvl1$Tair_b_200,
-      pch = 20, # cex.lab=1.7, cex.axis=1.5,   # albedo from file
-      xlim = xxlim, ylim = c(-40, 25), xlab = " ", ylab = " ", xaxt = "n", yaxt = "n", type = "n", cex.axis = 3
-    )
-    plot_maintenance(year_i)
-    for (ll in seq(-40, 30, 5)) {
-      abline(h = ll, col = "gray80")
-    } # horizontal lines
-    for (pp in as.numeric(strptime(lischt, format = "%Y-%m-%d %H:%M"))) {
-      lines(c(pp, pp), c(-40, 30), col = "gray80")
-    } # vertical lines
-    points(as.numeric(strptime(db.samet.lvl1$UTC[Tair2_zero], format = "%Y-%m-%d %H:%M")), db.samet.lvl1$Tair_b_200[Tair2_zero],
-      pch = 20, cex.lab = 1.5, cex.axis = 1.7,
-      col = "lightgoldenrod3"
-    )
-    axis(2, at = seq(-40, 30, 5), labels = seq(-40, 30, 5), las = 2, cex.axis = 4)
-    axis(3, at = c(as.numeric(strptime(lischt[-c(1, 13)], format = "%Y-%m-%d %H:%M"))), labels = c("", "", "", "", "", "", "", "", "", "", ""), las = 2, tcl = 0.5, cex.axis = 4)
-    text(as.numeric(strptime(lischt[-1], format = "%Y-%m-%d %H:%M")) - 1300000, rep(25, 12), labels = Months, las = 2, cex = 4)
-    text(as.numeric(strptime(lischt[11], format = "%Y-%m-%d %H:%M")) + 2000000, 18, year_i, las = 2, cex = 6)
-
-    dev.off()
+    
+    if(year_i>=2013){
+      png(paste0(p.1$w[p.1$n == "plot.p"], year_i, "/SaMet2002_Tair2_200_", year_i, ".png"), width = p.width, height = p.height, pointsize = 8)
+      par(mar = c(1, 8, 1, 1), omi = c(0, 0, 0, 0))
+      plot(as.numeric(strptime(db.samet.lvl1$UTC, format = "%Y-%m-%d %H:%M")), db.samet.lvl1$Tair_b_200,
+           pch = 20, # cex.lab=1.7, cex.axis=1.5,   # albedo from file
+           xlim = xxlim, ylim = c(-40, 25), xlab = " ", ylab = " ", xaxt = "n", yaxt = "n", type = "n", cex.axis = 3
+      )
+      plot_maintenance(year_i)
+      for (ll in seq(-40, 30, 5)) {
+        abline(h = ll, col = "gray80")
+      } # horizontal lines
+      for (pp in as.numeric(strptime(lischt, format = "%Y-%m-%d %H:%M"))) {
+        lines(c(pp, pp), c(-40, 30), col = "gray80")
+      } # vertical lines
+      points(as.numeric(strptime(db.samet.lvl1$UTC[Tair2_zero], format = "%Y-%m-%d %H:%M")), db.samet.lvl1$Tair_b_200[Tair2_zero],
+             pch = 20, cex.lab = 1.5, cex.axis = 1.7,
+             col = "lightgoldenrod3"
+      )
+      
+      points(as.numeric(strptime(muhh[, 1], format = "%Y-%m-%d")) + 43200,
+             muhh[,2], pch = 20, cex.lab = 1.5, cex.axis = 1.7, cex = 2.5, col = "darkorange3")
+      
+      axis(2, at = seq(-40, 30, 5), labels = seq(-40, 30, 5), las = 2, cex.axis = 4)
+      axis(3, at = c(as.numeric(strptime(lischt[-c(1, 13)], format = "%Y-%m-%d %H:%M"))), labels = c("", "", "", "", "", "", "", "", "", "", ""), las = 2, tcl = 0.5, cex.axis = 4)
+      text(as.numeric(strptime(lischt[-1], format = "%Y-%m-%d %H:%M")) - 1300000, rep(25, 12), labels = Months, las = 2, cex = 4)
+      text(as.numeric(strptime(lischt[11], format = "%Y-%m-%d %H:%M")) + 2000000, 18, year_i, las = 2, cex = 6)
+      
+      dev.off()
+    }
     png(paste0(p.1$w[p.1$n == "plot.p"], year_i, "/SaMet2002_Tair1_50_", year_i, ".png"), width = p.width, height = p.height, pointsize = 8)
     par(mar = c(1, 8, 1, 1), omi = c(0, 0, 0, 0))
     plot(as.numeric(strptime(db.samet.lvl1$UTC, format = "%Y-%m-%d %H:%M")), db.samet.lvl1$Tair_a_50,
-      pch = 20, # cex.lab=1.7, cex.axis=1.5,   # albedo from file
-      xlim = xxlim, ylim = c(-40, 25), xlab = " ", ylab = " ", xaxt = "n", yaxt = "n", type = "n", cex.axis = 3
+         pch = 20, # cex.lab=1.7, cex.axis=1.5,   # albedo from file
+         xlim = xxlim, ylim = c(-40, 25), xlab = " ", ylab = " ", xaxt = "n", yaxt = "n", type = "n", cex.axis = 3
     )
     plot_maintenance(year_i)
     for (ll in seq(-40, 30, 5)) {
@@ -356,38 +470,49 @@ for (year_i in run.year) {
       lines(c(pp, pp), c(-40, 30), col = "gray80")
     } # vertical lines
     points(as.numeric(strptime(db.samet.lvl1$UTC[Tair3_zero], format = "%Y-%m-%d %H:%M")), db.samet.lvl1$Tair_a_50[Tair3_zero],
-      pch = 20, cex.lab = 1.5, cex.axis = 1.7,
-      col = "lightgoldenrod3"
+           pch = 20, cex.lab = 1.5, cex.axis = 1.7,
+           col = "lightgoldenrod3"
     )
+    
+    points(as.numeric(strptime(muff[, 1], format = "%Y-%m-%d")) + 43200,
+           muff[, 2], pch = 20, cex.lab = 1.5, cex.axis = 1.7, cex = 2.5, col = "darkorange3")
+    
     axis(2, at = seq(-40, 30, 5), labels = seq(-40, 30, 5), las = 2, cex.axis = 4)
     axis(3, at = c(as.numeric(strptime(lischt[-c(1, 13)], format = "%Y-%m-%d %H:%M"))), labels = c("", "", "", "", "", "", "", "", "", "", ""), las = 2, tcl = 0.5, cex.axis = 4)
     text(as.numeric(strptime(lischt[-1], format = "%Y-%m-%d %H:%M")) - 1300000, rep(25, 12), labels = Months, las = 2, cex = 4)
     text(as.numeric(strptime(lischt[11], format = "%Y-%m-%d %H:%M")) + 2000000, 18, year_i, las = 2, cex = 6)
-
+    
     dev.off()
-    png(paste0(p.1$w[p.1$n == "plot.p"], year_i, "/SaMet2002_Tair2_50_", year_i, ".png"), width = p.width, height = p.height, pointsize = 8)
-    par(mar = c(1, 8, 1, 1), omi = c(0, 0, 0, 0))
-    plot(as.numeric(strptime(db.samet.lvl1$UTC, format = "%Y-%m-%d %H:%M")), db.samet.lvl1$Tair_b_50,
-      pch = 20, # cex.lab=1.7, cex.axis=1.5,   # albedo from file
-      xlim = xxlim, ylim = c(-40, 25), xlab = " ", ylab = " ", xaxt = "n", yaxt = "n", type = "n", cex.axis = 3
-    )
-    plot_maintenance(year_i)
-    for (ll in seq(-40, 30, 5)) {
-      abline(h = ll, col = "gray80")
-    } # horizontal lines
-    for (pp in as.numeric(strptime(lischt, format = "%Y-%m-%d %H:%M"))) {
-      lines(c(pp, pp), c(-40, 30), col = "gray80")
-    } # vertical lines
-    points(as.numeric(strptime(db.samet.lvl1$UTC[Tair4_zero], format = "%Y-%m-%d %H:%M")), db.samet.lvl1$Tair_b_50[Tair4_zero],
-      pch = 20, cex.lab = 1.5, cex.axis = 1.7,
-      col = "lightgoldenrod3"
-    )
-    axis(2, at = seq(-40, 30, 5), labels = seq(-40, 30, 5), las = 2, cex.axis = 4)
-    axis(3, at = c(as.numeric(strptime(lischt[-c(1, 13)], format = "%Y-%m-%d %H:%M"))), labels = c("", "", "", "", "", "", "", "", "", "", ""), las = 2, tcl = 0.5, cex.axis = 4)
-    text(as.numeric(strptime(lischt[-1], format = "%Y-%m-%d %H:%M")) - 1300000, rep(25, 12), labels = Months, las = 2, cex = 4)
-    text(as.numeric(strptime(lischt[11], format = "%Y-%m-%d %H:%M")) + 2000000, 18, year_i, las = 2, cex = 6)
-
-    dev.off()
+    
+    if(year_i>=2013){
+      png(paste0(p.1$w[p.1$n == "plot.p"], year_i, "/SaMet2002_Tair2_50_", year_i, ".png"), width = p.width, height = p.height, pointsize = 8)
+      par(mar = c(1, 8, 1, 1), omi = c(0, 0, 0, 0))
+      plot(as.numeric(strptime(db.samet.lvl1$UTC, format = "%Y-%m-%d %H:%M")), db.samet.lvl1$Tair_b_50,
+           pch = 20, # cex.lab=1.7, cex.axis=1.5,   # albedo from file
+           xlim = xxlim, ylim = c(-40, 25), xlab = " ", ylab = " ", xaxt = "n", yaxt = "n", type = "n", cex.axis = 3
+      )
+      plot_maintenance(year_i)
+      for (ll in seq(-40, 30, 5)) {
+        abline(h = ll, col = "gray80")
+      } # horizontal lines
+      for (pp in as.numeric(strptime(lischt, format = "%Y-%m-%d %H:%M"))) {
+        lines(c(pp, pp), c(-40, 30), col = "gray80")
+      } # vertical lines
+      points(as.numeric(strptime(db.samet.lvl1$UTC[Tair4_zero], format = "%Y-%m-%d %H:%M")), db.samet.lvl1$Tair_b_50[Tair4_zero],
+             pch = 20, cex.lab = 1.5, cex.axis = 1.7,
+             col = "lightgoldenrod3"
+      )
+      
+      points(as.numeric(strptime(mugg[, 1], format = "%Y-%m-%d")) + 43200,
+             mugg[,2], pch = 20, cex.lab = 1.5, cex.axis = 1.7, cex = 2.5, col = "darkorange3")
+      
+      axis(2, at = seq(-40, 30, 5), labels = seq(-40, 30, 5), las = 2, cex.axis = 4)
+      axis(3, at = c(as.numeric(strptime(lischt[-c(1, 13)], format = "%Y-%m-%d %H:%M"))), labels = c("", "", "", "", "", "", "", "", "", "", ""), las = 2, tcl = 0.5, cex.axis = 4)
+      text(as.numeric(strptime(lischt[-1], format = "%Y-%m-%d %H:%M")) - 1300000, rep(25, 12), labels = Months, las = 2, cex = 4)
+      text(as.numeric(strptime(lischt[11], format = "%Y-%m-%d %H:%M")) + 2000000, 18, year_i, las = 2, cex = 6)
+      
+      dev.off()
+    }
   } # Air temperature (1,2,3,4) (implemented, but crumpy data)
 
   if (zack == 1) {
@@ -631,6 +756,17 @@ for (year_i in run.year) {
     hum2_zero <- which(as.numeric(db.samet.lvl1$RH_50_fl) == 0)
     hum2_flags <- which(as.numeric(db.samet.lvl1$RH_50_fl) > 0)
 
+    hr <- length(aggregate(db.samet.lvl1$RH_200[hum_zero] ~ format(strptime(db.samet.lvl1$UTC[hum_zero], format = "%Y-%m-%d %H:%M"), format = "%Y-%m-%d"), FUN = mean)[, 2])
+    humr <- matrix(ncol = 3, nrow = hr, 1)
+    humr[, 1] <- aggregate(db.samet.lvl1$RH_200[hum_zero] ~ format(strptime(db.samet.lvl1$UTC[hum_zero], format = "%Y-%m-%d %H:%M"), format = "%Y-%m-%d"), FUN = mean)[, 1]
+    humr[, 2] <- aggregate(db.samet.lvl1$RH_200[hum_zero] ~ format(strptime(db.samet.lvl1$UTC[hum_zero], format = "%Y-%m-%d %H:%M"), format = "%Y-%m-%d"), FUN = mean)[, 2]
+    
+    hf <- length(aggregate(db.samet.lvl1$RH_50[hum2_zero] ~ format(strptime(db.samet.lvl1$UTC[hum2_zero], format = "%Y-%m-%d %H:%M"), format = "%Y-%m-%d"), FUN = mean)[, 2])
+    humf <- matrix(ncol = 3, nrow = hf, 1)
+    humf[, 1] <- aggregate(db.samet.lvl1$RH_50[hum2_zero] ~ format(strptime(db.samet.lvl1$UTC[hum2_zero], format = "%Y-%m-%d %H:%M"), format = "%Y-%m-%d"), FUN = mean)[, 1]
+    humf[, 2] <- aggregate(db.samet.lvl1$RH_50[hum2_zero] ~ format(strptime(db.samet.lvl1$UTC[hum2_zero], format = "%Y-%m-%d %H:%M"), format = "%Y-%m-%d"), FUN = mean)[, 2]
+    
+    
 
     png(paste0(p.1$w[p.1$n == "plot.p"], year_i, "/SaMet2002_RH_200_", year_i, ".png"), width = p.width, height = p.height, pointsize = 8)
     par(mar = c(1, 8, 1, 1), omi = c(0, 0, 0, 0))
@@ -649,6 +785,10 @@ for (year_i in run.year) {
       pch = 20, cex.lab = 1.5, cex.axis = 1.7,
       col = "aquamarine3"
     )
+    
+    points(as.numeric(strptime(humr[, 1], format = "%Y-%m-%d")) + 43200,
+           humr[, 2], pch = 20, cex.lab = 1.5, cex.axis = 1.7, cex = 2.5, col = "aquamarine4")
+    
     axis(2, at = seq(0, 100, 10), labels = seq(0, 100, 10), las = 2, cex.axis = 4)
     axis(3, at = c(as.numeric(strptime(lischt[-c(1, 13)], format = "%Y-%m-%d %H:%M"))), labels = c("", "", "", "", "", "", "", "", "", "", ""), las = 2, tcl = 0.5, cex.axis = 4)
     text(as.numeric(strptime(lischt[-1], format = "%Y-%m-%d %H:%M")) - 1300000, rep(103, 12), labels = Months, las = 2, cex = 4)
@@ -672,6 +812,10 @@ for (year_i in run.year) {
       pch = 20, cex.lab = 1.5, cex.axis = 1.7,
       col = "aquamarine3"
     )
+    
+    points(as.numeric(strptime(humf[, 1], format = "%Y-%m-%d")) + 43200,
+           humf[, 2], pch = 20, cex.lab = 1.5, cex.axis = 1.7, cex = 2.5, col = "aquamarine4")
+    
     axis(2, at = seq(0, 100, 10), labels = seq(0, 100, 10), las = 2, cex.axis = 4)
     axis(3, at = c(as.numeric(strptime(lischt[-c(1, 13)], format = "%Y-%m-%d %H:%M"))), labels = c("", "", "", "", "", "", "", "", "", "", ""), las = 2, tcl = 0.5, cex.axis = 4)
     text(as.numeric(strptime(lischt[-1], format = "%Y-%m-%d %H:%M")) - 1300000, rep(103, 12), labels = Months, las = 2, cex = 4)

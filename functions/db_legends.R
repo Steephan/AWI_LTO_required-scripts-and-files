@@ -3,9 +3,11 @@
 #
 # Legends for wikiplots -------
 #
+# please check foldable menu on rigth side (Rstudio)
+#
 # by Stephan.Lange@awi.de
 #
-# last update: 2019-10-14
+# last update: 2021-07-27
 #
 ###.........................................................................
 #  to run this script separately, you have to uncomment the next 10 lines!
@@ -23,56 +25,14 @@ if (.Platform$OS.type == "windows") {
 }
 
 ###.........................................................................
-# dimensions of the plot files
-#p.width <- (420*3.5)/6;p.height <- 280*3.5
+# dimensions of the plot files (legends)
 p.height <- 980
-p.width <- p.height / 3
+p.width  <- p.height / 3
 ###.........................................................................
 ###.........................................................................
 # ////// Bayelva ////// ----
 #
-# Soildata temperatures ----
-#
-png(paste(p.1$w[p.1$n == "plot.p"], "Legends/BaSoil2009_Ts.png", sep = ""), width = p.width, height = p.height, pointsize = 8)
-par(mar = c(0, 0, 0, 0), omi = c(0, 0, 0, 0))
-plot(1, 1, type = "n", xlab = "", ylab  =  "", xaxt = "n", yaxt = "n", cex.axis = 3, xlim = c(0, 2), ylim = c(0, 2))
-legend(1, 1.6, legend = c(0.01, 0.11, 0.21, 0.37, 0.55, 0.71, 0.89, 1.41),
-       col = c("#2E8B57", "#52AA68", "#77C979", "#B3CD26", "#DFDA4B", "#F1D27F", "#EE9F5B", "#A69286"),
-       lty = 1, cex = 4, lwd = 4, bty = "n", xjust = 0.5)
-text(1, 1.9, " Soil \n temperatures \n [°C]", cex = 4)
-text(1, 1.6, "depth [m]", cex = 3)
-text(1, 0.2, "BaSoil2009", cex = 2)
-text(1, 0.15, "78.92083°, 11.83421°", cex = 2)
-dev.off()
-
-png(paste(p.1$w[p.1$n == "plot.p"], "Legends/BaMet2009_Ts_1.png", sep = ""), width = p.width, height = p.height, pointsize = 8)
-par(mar = c(0, 0, 0, 0), omi = c(0, 0, 0, 0))
-plot(1, 1, type = "n", xlab = "", ylab  =  "", xaxt = "n", yaxt = "n", cex.axis = 3, xlim = c(0, 2), ylim = c(0, 2))
-legend(1, 1.6, c(0.025, 0.123, 0.328, 0.623, 1.023, 1.523),
-       col = c("#318E58", "#56AD6A", "#A0CD43", "#EBE279", "#D68C47", "#8B7765"),
-       lty = 1, cex = 4, lwd = 4, bty = "n", xjust = 0.5)
-text(1, 1.9, " Soil \n temperatures \n [°C]", cex = 4)
-text(1, 1.6, "depth [m]", cex = 3)
-text(1, 0.2, "BaMet2009", cex = 2)
-text(1, 0.15, "78.921000°, 11.832917°", cex = 2)
-text(1, 0.05, "under mud boil", cex = 2)
-dev.off()
-
-png(paste(p.1$w[p.1$n == "plot.p"], "Legends/BaMet2009_Ts_2.png", sep = ""), width = p.width, height = p.height, pointsize = 8)
-par(mar = c(0, 0, 0, 0), omi = c(0, 0, 0, 0))
-plot(1, 1, type = "n", xlab = "", ylab  =  "", xaxt = "n", yaxt = "n", cex.axis = 3, xlim = c(0, 2), ylim = c(0, 2))
-legend(1, 1.6, c(0.02, 0.05, 0.235, 0.533, 0.933, 1.43),
-       col = c("#318E58", "#3C975D", "#7ECD77", "#DCD83E", "#E79A55", "#A08C7F"),
-       lty = 1, cex = 4, lwd = 4, bty = "n", xjust = 0.5)
-text(1, 1.9, " Soil \n temperatures \n [°C]", cex = 4)
-text(1, 1.6, "depth [m]", cex = 3)
-text(1, 0.2, "BaMet2009", cex = 2)
-text(1, 0.15, "78.921000°, 11.832917°", cex = 2)
-text(1, 0.05, "under vegetation cover", cex = 2)
-dev.off()
-
-#
-# Climate (air temperature, humidity, precipitation) ----
+# BaMet2009 T air ----
 #
 
 png(paste(p.1$w[p.1$n == "plot.p"], "Legends/BaMet2009_Tair200.png", sep = ""), width = p.width, height = p.height, pointsize = 8)
@@ -99,6 +59,10 @@ text(1, 0.2, "BaMet2009", cex = 2)
 text(1, 0.15, "78.921000°, 11.832917°", cex = 2)
 dev.off()
 
+#
+# BaMet2009 humidity ----
+#
+
 png(paste(p.1$w[p.1$n == "plot.p"], "Legends/BaMet2009_hum.png", sep = ""), width = p.width, height = p.height, pointsize = 8)
 par(mar = c(0, 0, 0, 0), omi = c(0, 0, 0, 0))
 plot(1, 1, type = "n", xlab = "", ylab  =  "", xaxt = "n", yaxt = "n", cex.axis = 3, xlim = c(0, 2), ylim = c(0, 2))
@@ -111,6 +75,10 @@ text(1, 0.2, "BaMet2009", cex = 2)
 text(1, 0.15, "78.921000°, 11.832917°", cex = 2)
 dev.off()
 
+#
+# BaMet2009 precipitation ----
+#
+
 png(paste(p.1$w[p.1$n == "plot.p"], "Legends/BaMet2009_prec.png", sep = ""), width = p.width, height = p.height, pointsize = 8)
 par(mar = c(0, 0, 0, 0), omi = c(0, 0, 0, 0))
 plot(1, 1, type = "n", xlab = "", ylab  =  "", xaxt = "n", yaxt = "n", cex.axis = 3, xlim = c(0, 2), ylim = c(0, 2))
@@ -122,22 +90,23 @@ text(1, 1.6, "", cex = 3)
 text(1, 0.2, "BaMet2009", cex = 2)
 text(1, 0.15, "78.921000°, 11.832917°", cex = 2)
 dev.off()
-
-# OLD precip ----
-png(paste(p.1$w[p.1$n == "plot.p"], "Legends/BaMet2009_OLD_PREC.png", sep = ""), width = p.width, height = p.height, pointsize = 8)
-par(mar = c(0, 0, 0, 0), omi = c(0, 0, 0, 0))
-plot(1, 1, type = "n", xlab = "", ylab  =  "", xaxt = "n", yaxt = "n", cex.axis = 3, xlim = c(0, 2), ylim = c(0, 2))
-legend(1, 1.6, c("hourly", "daily"),
-       col = c("#00868B", "#36648B"),
-       lty = 1, cex = 4, lwd = 4, bty = "n", xjust = 0.5)
-text(1, 1.9, "Precipitation\nat 2 m\n[mm]", cex = 4)
-text(1, 1.6, "", cex = 3)
-text(1, 0.2, "BaMet2009", cex = 2)
-text(1, 0.15, "78.921000°, 11.832917°", cex = 2)
-dev.off()
-
+# #
+# # BaMet2009 OLD precip ----
+# #
+# png(paste(p.1$w[p.1$n == "plot.p"], "Legends/BaMet2009_OLD_PREC.png", sep = ""), width = p.width, height = p.height, pointsize = 8)
+# par(mar = c(0, 0, 0, 0), omi = c(0, 0, 0, 0))
+# plot(1, 1, type = "n", xlab = "", ylab  =  "", xaxt = "n", yaxt = "n", cex.axis = 3, xlim = c(0, 2), ylim = c(0, 2))
+# legend(1, 1.6, c("hourly", "daily"),
+#        col = c("#00868B", "#36648B"),
+#        lty = 1, cex = 4, lwd = 4, bty = "n", xjust = 0.5)
+# text(1, 1.9, "Precipitation\nat 2 m\n[mm]", cex = 4)
+# text(1, 1.6, "", cex = 3)
+# text(1, 0.2, "BaMet2009", cex = 2)
+# text(1, 0.15, "78.921000°, 11.832917°", cex = 2)
+# dev.off()
+# 
 #
-# Snow temperature ----
+# BaMet2009 T snow ----
 #
 
 png(paste(p.1$w[p.1$n == "plot.p"], "Legends/BaMet2009_Tsn.png", sep = ""), width = p.width, height = p.height, pointsize = 8)
@@ -154,7 +123,7 @@ dev.off()
 
 
 #
-# Surface temperatures ----
+# BaMet2009 T ground surface ----
 #
 
 png(paste(p.1$w[p.1$n == "plot.p"], "Legends/BaMet2009_Tsurf.png", sep = ""), width = p.width, height = p.height, pointsize = 8)
@@ -169,6 +138,10 @@ text(1, 0.2, "BaMet2009", cex = 2)
 text(1, 0.15, "78.921000°, 11.832917°", cex = 2)
 dev.off()
 
+#
+# BaMet2009 T ground surface diff ----
+#
+
 png(paste(p.1$w[p.1$n == "plot.p"], "Legends/BaMet2009_Tsurf_diff.png", sep = ""), width = p.width, height = p.height, pointsize = 8)
 par(mar = c(0, 0, 0, 0), omi = c(0, 0, 0, 0))
 plot(1, 1, type = "n", xlab = "", ylab  =  "", xaxt = "n", yaxt = "n", cex.axis = 3, xlim = c(0, 2), ylim = c(0, 2))
@@ -182,37 +155,7 @@ text(1, 0.15, "78.921000°, 11.832917°", cex = 2)
 dev.off()
 
 #
-# Mr. Moustache temperature profile -------
-#
-
-png(paste(p.1$w[p.1$n == "plot.p"], "Legends/BaHole_Ts.png", sep = ""), width = p.width, height = p.height, pointsize = 8)
-par(mar = c(0, 0, 0, 0), omi = c(0, 0, 0, 0))
-plot(1, 1, type = "n", xlab = "", ylab  =  "", xaxt = "n", yaxt = "n", cex.axis = 3, xlim = c(0, 2), ylim = c(0, 2))
-legend(1, 1.6, c("[+0.5]*","[0.0]*", "0.5", "1.0", "1.5", "2.0", "2.5", "3.5", "5.5", "7.5", "9.0"),
-       col = c("darkblue","#2E8B57", "#469F62", "#65B971", "#84CD6F", "#A4CD3E", "#C3CD0D", "#E4DD5E", "#EA9C57", "#CDAE9F", "#8B7765"),
-       lty = 1, cex = 4, lwd = 4, bty = "n", xjust = 0.5)
-text(1, 1.9, "Soil temperature\n[°C]", cex = 4)
-text(1, 1.6, "depth [m]", cex = 3)
-#text(1, 0.55, "5.5 m since\nSeptember 2015", cex = 2)
-text(1, 0.2, "BaHole", cex = 2)
-text(1, 0.15, "78.92083°, 11.83421°", cex = 2)
-text(1, 0.1, "*  not shown", cex = 2)
-dev.off()
-
-png(paste(p.1$w[p.1$n == "plot.p"], "Legends/BaHole_Ts_mean.png", sep = ""), width = p.width, height = p.height, pointsize = 8)
-par(mar = c(0, 0, 0, 0), omi = c(0, 0, 0, 0))
-plot(1, 1, type = "n", xlab = "", ylab  =  "", xaxt = "n", yaxt = "n", cex.axis = 3, xlim = c(0, 2), ylim = c(0, 2))
-legend(1, 1.6, c("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"),
-       col = c("#B9D3EE", "#87CEFF", "#90EE90", "#B3EE3A", "#698B22", "#FF4500", "#FF0000", "#8B0000", "#FFB90F", "#8B5A2B", "#666666", "#36648B"),
-       lty = 1, cex = 4, lwd = 4, bty = "n", xjust = 0.5)
-text(1, 1.9, "Soil temperature\nmonthly mean\n[°C]", cex = 4)
-text(1, 1.6, "", cex = 3)
-text(1, 0.2, "BaHole", cex = 2)
-text(1, 0.15, "78.92083°, 11.83421°", cex = 2)
-dev.off()
-
-#
-# Radiation ----
+# BaMet2009 Radiation ----
 #
 
 png(paste(p.1$w[p.1$n == "plot.p"], "Legends/BaMet2009_rad_net.png", sep = ""), width = p.width, height = p.height, pointsize = 8)
@@ -276,61 +219,7 @@ text(1, 0.15, "78.921000°, 11.832917°", cex = 2)
 dev.off()
 
 #
-# Snow depth ----
-#
-
-png(paste(p.1$w[p.1$n == "plot.p"], "Legends/BaSnow2013_product.png", sep = ""), width = p.width, height = p.height, pointsize = 8)
-par(mar = c(0, 0, 0, 0), omi = c(0, 0, 0, 0))
-plot(1, 1, type = "n", xlab = "", ylab  =  "", xaxt = "n", yaxt = "n", cex.axis = 3, xlim = c(0, 2), ylim = c(0, 2))
-legend(1, 1.6, c("depth", "data switch"),
-       col = c("#8B8989", "#B03060"),
-       lty = , cex = 4, lwd = 4, bty = "n", xjust = 0.5)
-text(1, 1.9, " Snow depth \n product \n [m]", cex = 4)
-text(1, 1.6, "", cex = 3)
-text(1, 0.2, "BaSnow2013", cex = 2)
-text(1, 0.15, "78.920806°, 11.833000°", cex = 2)
-dev.off()
-
-png(paste(p.1$w[p.1$n == "plot.p"], "Legends/BaSnow2013_compare.png", sep = ""), width = p.width, height = p.height, pointsize = 8)
-par(mar = c(0, 0, 0, 0), omi = c(0, 0, 0, 0))
-plot(1, 1, type = "n", xlab = "", ylab  =  "", xaxt = "n", yaxt = "n", cex.axis = 3, xlim = c(0, 2), ylim = c(0, 2))
-legend(1, 1.6, c("SHM30", "BaSnow2013", "", "SR50", "BaMet1998", "BaMet2009", "BaEddy2007", "BaSnow2019"),
-       col = c("#FFFFFF", "#5D478B", "#FFFFFF", "#FFFFFF", "#008B8B", "#6E8B3D", "#8B4513", "#0000FF"),
-       lty = 1, cex = 4, lwd = 4, bty = "n", xjust = 0.5, y.intersp = 1.5)
-text(1, 1.9, " Snow depth \n [m]", cex = 4)
-text(1, 1.6, "", cex = 3)
-text(1, 0.2, "BaSnow, BaMet\n78.921000°, 11.832917°\n\nBaEddy\n78.921640°, 11.830920°", cex = 2)
-dev.off()
-
-#
-# Snow water equivalent (SWE) ----
-#
-
-png(paste(p.1$w[p.1$n == "plot.p"], "Legends/BaSnow2019cs_product.png", sep = ""), width = p.width, height = p.height, pointsize = 8)
-par(mar = c(0, 0, 0, 0), omi = c(0, 0, 0, 0))
-plot(1, 1, type = "n", xlab = "", ylab  =  "", xaxt = "n", yaxt = "n", cex.axis = 3, xlim = c(0, 2), ylim = c(0, 2))
-legend(1, 1.6, c("SWE", "data switch"),
-       col = c("#8B8989", "#B03060"),
-       lty = , cex = 4, lwd = 4, bty = "n", xjust = 0.5)
-text(1, 1.9, " SWE \n product \n [mm]", cex = 4)
-text(1, 1.6, "", cex = 3)
-text(1, 0.2, "BaSnow2013", cex = 2)
-text(1, 0.15, "78.92091°, 11.83277°", cex = 2)
-dev.off()
-
-png(paste(p.1$w[p.1$n == "plot.p"], "Legends/BaSnow2019cs_swe.png", sep = ""), width = p.width, height = p.height, pointsize = 8)
-par(mar = c(0, 0, 0, 0), omi = c(0, 0, 0, 0))
-plot(1, 1, type = "n", xlab = "", ylab  =  "", xaxt = "n", yaxt = "n", cex.axis = 3, xlim = c(0, 2), ylim = c(0, 2))
-legend(1, 1.6, c("SWE_K", "SWE_Tl"),
-       col = c("#0000FF", "#FF0000FF"),
-       lty = 1, cex = 4, lwd = 4, bty = "n", xjust = 0.5, y.intersp = 1.5)
-text(1, 1.9, " SWE \n [mm]", cex = 4)
-text(1, 1.6, "", cex = 3)
-text(1, 0.2, "BaSnow2019 \n78.92091°, 11.83277°", cex = 2)
-dev.off()
-
-#
-# Wind ----
+# BaMet2009 Wind ----
 #
 
 png(paste(p.1$w[p.1$n == "plot.p"], "Legends/BaMet2009_wind.png", sep = ""), width = p.width, height = p.height, pointsize = 8)
@@ -358,7 +247,141 @@ text(1, 0.15, "78.921000°, 11.832917°", cex = 2)
 dev.off()
 
 #
-# Snow TDR ----
+# BaSnow2013 Dsn ----
+#
+
+png(paste(p.1$w[p.1$n == "plot.p"], "Legends/BaSnow2013_product.png", sep = ""), width = p.width, height = p.height, pointsize = 8)
+par(mar = c(0, 0, 0, 0), omi = c(0, 0, 0, 0))
+plot(1, 1, type = "n", xlab = "", ylab  =  "", xaxt = "n", yaxt = "n", cex.axis = 3, xlim = c(0, 2), ylim = c(0, 2))
+legend(1, 1.6, c("depth", "data switch"),
+       col = c("#8B8989", "#B03060"),
+       lty = , cex = 4, lwd = 4, bty = "n", xjust = 0.5)
+text(1, 1.9, " Snow depth \n product \n [m]", cex = 4)
+text(1, 1.6, "", cex = 3)
+text(1, 0.2, "BaSnow2013", cex = 2)
+text(1, 0.15, "78.920806°, 11.833000°", cex = 2)
+dev.off()
+
+#
+# BaSnow2013 Dsn compare ----
+# 
+
+png(paste(p.1$w[p.1$n == "plot.p"], "Legends/BaSnow2013_compare.png", sep = ""), width = p.width, height = p.height, pointsize = 8)
+par(mar = c(0, 0, 0, 0), omi = c(0, 0, 0, 0))
+plot(1, 1, type = "n", xlab = "", ylab  =  "", xaxt = "n", yaxt = "n", cex.axis = 3, xlim = c(0, 2), ylim = c(0, 2))
+legend(1, 1.6, c("SHM30", "BaSnow2013", "", "SR50", "BaMet1998", "BaMet2009", "BaEddy2007", "BaSnow2019"),
+       col = c("#FFFFFF", "#5D478B", "#FFFFFF", "#FFFFFF", "#008B8B", "#6E8B3D", "#8B4513", "#0000FF"),
+       lty = 1, cex = 4, lwd = 4, bty = "n", xjust = 0.5, y.intersp = 1.5)
+text(1, 1.9, " Snow depth \n [m]", cex = 4)
+text(1, 1.6, "", cex = 3)
+text(1, 0.2, "BaSnow, BaMet\n78.921000°, 11.832917°\n\nBaEddy\n78.921640°, 11.830920°", cex = 2)
+dev.off()
+
+#
+# BaSnow2019 Snow water equivalent (SWE) ----
+#
+
+png(paste(p.1$w[p.1$n == "plot.p"], "Legends/BaSnow2019cs_product.png", sep = ""), width = p.width, height = p.height, pointsize = 8)
+par(mar = c(0, 0, 0, 0), omi = c(0, 0, 0, 0))
+plot(1, 1, type = "n", xlab = "", ylab  =  "", xaxt = "n", yaxt = "n", cex.axis = 3, xlim = c(0, 2), ylim = c(0, 2))
+legend(1, 1.6, c("SWE", "data switch"),
+       col = c("#8B8989", "#B03060"),
+       lty = , cex = 4, lwd = 4, bty = "n", xjust = 0.5)
+text(1, 1.9, " SWE \n product \n [mm]", cex = 4)
+text(1, 1.6, "", cex = 3)
+text(1, 0.2, "BaSnow2013", cex = 2)
+text(1, 0.15, "78.92091°, 11.83277°", cex = 2)
+dev.off()
+
+png(paste(p.1$w[p.1$n == "plot.p"], "Legends/BaSnow2019cs_swe.png", sep = ""), width = p.width, height = p.height, pointsize = 8)
+par(mar = c(0, 0, 0, 0), omi = c(0, 0, 0, 0))
+plot(1, 1, type = "n", xlab = "", ylab  =  "", xaxt = "n", yaxt = "n", cex.axis = 3, xlim = c(0, 2), ylim = c(0, 2))
+legend(1, 1.6, c("SWE_K", "SWE_Tl"),
+       col = c("#0000FF", "#FF0000FF"),
+       lty = 1, cex = 4, lwd = 4, bty = "n", xjust = 0.5, y.intersp = 1.5)
+text(1, 1.9, " SWE \n [mm]", cex = 4)
+text(1, 1.6, "", cex = 3)
+text(1, 0.2, "BaSnow2019 \n78.92091°, 11.83277°", cex = 2)
+dev.off()
+
+#
+# BaHole2009 T permafrost (Mr. Moustache) ----
+#
+
+png(paste(p.1$w[p.1$n == "plot.p"], "Legends/BaHole_Ts.png", sep = ""), width = p.width, height = p.height, pointsize = 8)
+par(mar = c(0, 0, 0, 0), omi = c(0, 0, 0, 0))
+plot(1, 1, type = "n", xlab = "", ylab  =  "", xaxt = "n", yaxt = "n", cex.axis = 3, xlim = c(0, 2), ylim = c(0, 2))
+legend(1, 1.6, c("[+0.5]*","[0.0]*", "0.5", "1.0", "1.5", "2.0", "2.5", "3.5", "5.5", "7.5", "9.0"),
+       col = c("darkblue","#2E8B57", "#469F62", "#65B971", "#84CD6F", "#A4CD3E", "#C3CD0D", "#E4DD5E", "#EA9C57", "#CDAE9F", "#8B7765"),
+       lty = 1, cex = 4, lwd = 4, bty = "n", xjust = 0.5)
+text(1, 1.9, "Soil temperature\n[°C]", cex = 4)
+text(1, 1.6, "depth [m]", cex = 3)
+#text(1, 0.55, "5.5 m since\nSeptember 2015", cex = 2)
+text(1, 0.2, "BaHole", cex = 2)
+text(1, 0.15, "78.92083°, 11.83421°", cex = 2)
+text(1, 0.1, "*  not shown", cex = 2)
+dev.off()
+
+#
+# BaHole2009 trompete (Mr. Moustache) ----
+#
+png(paste(p.1$w[p.1$n == "plot.p"], "Legends/BaHole_Ts_mean.png", sep = ""), width = p.width, height = p.height, pointsize = 8)
+par(mar = c(0, 0, 0, 0), omi = c(0, 0, 0, 0))
+plot(1, 1, type = "n", xlab = "", ylab  =  "", xaxt = "n", yaxt = "n", cex.axis = 3, xlim = c(0, 2), ylim = c(0, 2))
+legend(1, 1.6, c("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"),
+       col = c("#B9D3EE", "#87CEFF", "#90EE90", "#B3EE3A", "#698B22", "#FF4500", "#FF0000", "#8B0000", "#FFB90F", "#8B5A2B", "#666666", "#36648B"),
+       lty = 1, cex = 4, lwd = 4, bty = "n", xjust = 0.5)
+text(1, 1.9, "Soil temperature\nmonthly mean\n[°C]", cex = 4)
+text(1, 1.6, "", cex = 3)
+text(1, 0.2, "BaHole", cex = 2)
+text(1, 0.15, "78.92083°, 11.83421°", cex = 2)
+dev.off()
+
+
+#
+# BaSoil2009 T soil ----
+#
+png(paste(p.1$w[p.1$n == "plot.p"], "Legends/BaSoil2009_Ts.png", sep = ""), width = p.width, height = p.height, pointsize = 8)
+par(mar = c(0, 0, 0, 0), omi = c(0, 0, 0, 0))
+plot(1, 1, type = "n", xlab = "", ylab  =  "", xaxt = "n", yaxt = "n", cex.axis = 3, xlim = c(0, 2), ylim = c(0, 2))
+legend(1, 1.6, legend = c(0.01, 0.11, 0.21, 0.37, 0.55, 0.71, 0.89, 1.41),
+       col = c("#2E8B57", "#52AA68", "#77C979", "#B3CD26", "#DFDA4B", "#F1D27F", "#EE9F5B", "#A69286"),
+       lty = 1, cex = 4, lwd = 4, bty = "n", xjust = 0.5)
+text(1, 1.9, " Soil \n temperatures \n [°C]", cex = 4)
+text(1, 1.6, "depth [m]", cex = 3)
+text(1, 0.2, "BaSoil2009", cex = 2)
+text(1, 0.15, "78.92083°, 11.83421°", cex = 2)
+dev.off()
+
+png(paste(p.1$w[p.1$n == "plot.p"], "Legends/BaMet2009_Ts_1.png", sep = ""), width = p.width, height = p.height, pointsize = 8)
+par(mar = c(0, 0, 0, 0), omi = c(0, 0, 0, 0))
+plot(1, 1, type = "n", xlab = "", ylab  =  "", xaxt = "n", yaxt = "n", cex.axis = 3, xlim = c(0, 2), ylim = c(0, 2))
+legend(1, 1.6, c(0.025, 0.123, 0.328, 0.623, 1.023, 1.523),
+       col = c("#318E58", "#56AD6A", "#A0CD43", "#EBE279", "#D68C47", "#8B7765"),
+       lty = 1, cex = 4, lwd = 4, bty = "n", xjust = 0.5)
+text(1, 1.9, " Soil \n temperatures \n [°C]", cex = 4)
+text(1, 1.6, "depth [m]", cex = 3)
+text(1, 0.2, "BaMet2009", cex = 2)
+text(1, 0.15, "78.921000°, 11.832917°", cex = 2)
+text(1, 0.05, "under mud boil", cex = 2)
+dev.off()
+
+png(paste(p.1$w[p.1$n == "plot.p"], "Legends/BaMet2009_Ts_2.png", sep = ""), width = p.width, height = p.height, pointsize = 8)
+par(mar = c(0, 0, 0, 0), omi = c(0, 0, 0, 0))
+plot(1, 1, type = "n", xlab = "", ylab  =  "", xaxt = "n", yaxt = "n", cex.axis = 3, xlim = c(0, 2), ylim = c(0, 2))
+legend(1, 1.6, c(0.02, 0.05, 0.235, 0.533, 0.933, 1.43),
+       col = c("#318E58", "#3C975D", "#7ECD77", "#DCD83E", "#E79A55", "#A08C7F"),
+       lty = 1, cex = 4, lwd = 4, bty = "n", xjust = 0.5)
+text(1, 1.9, " Soil \n temperatures \n [°C]", cex = 4)
+text(1, 1.6, "depth [m]", cex = 3)
+text(1, 0.2, "BaMet2009", cex = 2)
+text(1, 0.15, "78.921000°, 11.832917°", cex = 2)
+text(1, 0.05, "under vegetation cover", cex = 2)
+dev.off()
+
+
+#
+# BaSoil2009 Snow TDR ----
 #
 
 png(paste(p.1$w[p.1$n == "plot.p"], "Legends/BaSoil2009_snow_diel.png", sep = ""), width = p.width, height = p.height, pointsize = 8)
@@ -374,7 +397,7 @@ text(1, 0.15, "78.92083°, 11.83421°", cex = 2)
 dev.off()
 
 #
-# Soil TDR ----
+# BaSoil2009 Soil TDR ----
 #
 
 png(paste(p.1$w[p.1$n == "plot.p"], "Legends/BaSoil2009_tdr_cond.png", sep = ""), width = p.width, height = p.height, pointsize = 8)
@@ -438,7 +461,7 @@ text(1, 0.15, "78.92083°, 11.83421°", cex = 2)
 dev.off()
 
 #
-# Soil Temperature (2D) 1998-2012 ----
+# BaSoil1998 T soil (2D) 1998-2012 ----
 #
 
 png(paste(p.1$w[p.1$n == "plot.p"], "Legends/BaSoil1998_Ts.png", sep = ""), width = p.width, height = p.height, pointsize = 8)
@@ -454,7 +477,7 @@ text(1, 0.15, "78.92083°, 11.83421°", cex = 2)
 dev.off()
 
 #
-# Soil heat flux 1998-2012 ----
+# BaSoil1998 heat flux 1998-2012 ----
 #
 
 png(paste(p.1$w[p.1$n == "plot.p"], "Legends/BaSoil1998_heatflux.png", sep = ""), width = p.width, height = p.height, pointsize = 8)
@@ -472,7 +495,7 @@ dev.off()
 ###.........................................................................
 # ////// Samoylov ////// ----
 #
-# SaSoil2002 Ts ----
+## SaSoil2002 T soil ----
 #
 
 png(paste(p.1$w[p.1$n == "plot.p"], "Legends/SaSoil2002_temp_center.png", sep = ""), width = p.width, height = p.height, pointsize = 8)
@@ -510,14 +533,15 @@ text(1, 1.6, "depth [m]", cex = 3)
 text(1, 0.2, "SaSoil2002", cex = 2)
 text(1, 0.15, "72.36997°, 126.48069°", cex = 2)
 dev.off()
+
 #
-# SaSoil2002 E2 ----
+## SaSoil2002 E2 ----
 #
 
 png(paste(p.1$w[p.1$n == "plot.p"], "Legends/SaSoil2002_E2_center.png", sep = ""), width = p.width, height = p.height, pointsize = 8)
 par(mar = c(0, 0, 0, 0), omi = c(0, 0, 0, 0))
 plot(1, 1, type = "n", xlab = "", ylab  =  "", xaxt = "n", yaxt = "n", cex.axis = 3, xlim = c(0, 2), ylim = c(0, 2))
-legend(1, 1.6, c("0.01", "0.05", "0.10", "0.20", "0.30", "0.40"),
+legend(1, 1.6, c("0.01", "0.08", "0.13", "0.23", "0.33", "0.43"),
        col = c("#2E8B57", "#4DA565", "#74C678", "#C4CD0C", "#ECE37E", "#F3AA64"),
        lty = 1, cex = 4, lwd = 4, bty = "n", xjust = 0.5)
 text(1, 1.9, " Soil TDR \n dielectricity \n (center) \n [-] ", cex = 4)
@@ -529,7 +553,7 @@ dev.off()
 png(paste(p.1$w[p.1$n == "plot.p"], "Legends/SaSoil2002_E2_slope.png", sep = ""), width = p.width, height = p.height, pointsize = 8)
 par(mar = c(0, 0, 0, 0), omi = c(0, 0, 0, 0))
 plot(1, 1, type = "n", xlab = "", ylab  =  "", xaxt = "n", yaxt = "n", cex.axis = 3, xlim = c(0, 2), ylim = c(0, 2))
-legend(1, 1.6, c("0.03", "0.07", "0.16", "0.22", "0.32", "0.42"),
+legend(1, 1.6, c("0.03", "0.05", "0.14", "0.23", "0.33", "0.43"),
        col = c("#3D985E", "#5CB26D", "#A4CD3E", "#D0CF0E", "#F0DF87", "#F0A05C"),
        lty = 1, cex = 4, lwd = 4, bty = "n", xjust = 0.5)
 text(1, 1.9, " Soil TDR \n dielectricity \n (slope) \n [-] ", cex = 4)
@@ -541,7 +565,7 @@ dev.off()
 png(paste(p.1$w[p.1$n == "plot.p"], "Legends/SaSoil2002_E2_rim.png", sep = ""), width = p.width, height = p.height, pointsize = 8)
 par(mar = c(0, 0, 0, 0), omi = c(0, 0, 0, 0))
 plot(1, 1, type = "n", xlab = "", ylab  =  "", xaxt = "n", yaxt = "n", cex.axis = 3, xlim = c(0, 2), ylim = c(0, 2))
-legend(1, 1.6, c("0.02", "0.06", "0.11", "0.16", "0.21", "0.27", "0.33", "0.38", "0.51", "0.61", "0.71"),
+legend(1, 1.6, c("0.02", "0.05", "0.12", "0.15", "0.22", "0.26", "0.34", "0.37", "0.50", "0.60", "0.70"),
        col = c("#35915A", "#55AC69", "#7CCD7C", "#A4CD3E", "#CDCD00", "#E2DC54", "#F0D883", "#F2B76D", "#CD853F", "#CDB7B5", "#8B7765"),
        lty = 1, cex = 4, lwd = 4, bty = "n", xjust = 0.5)
 text(1, 1.9, " Soil TDR \n dielectricity \n (rim) \n [-] ", cex = 4)
@@ -551,13 +575,13 @@ text(1, 0.15, "72.36997°, 126.48069°", cex = 2)
 dev.off()
 
 #
-# SaSoil2002 cond ----
+## SaSoil2002 cond ----
 #
 
 png(paste(p.1$w[p.1$n == "plot.p"], "Legends/SaSoil2002_cond_center.png", sep = ""), width = p.width, height = p.height, pointsize = 8)
 par(mar = c(0, 0, 0, 0), omi = c(0, 0, 0, 0))
 plot(1, 1, type = "n", xlab = "", ylab  =  "", xaxt = "n", yaxt = "n", cex.axis = 3, xlim = c(0, 2), ylim = c(0, 2))
-legend(1, 1.6, c("0.01", "0.05", "0.10", "0.20", "0.30", "0.40"),
+legend(1, 1.6, c("0.01", "0.08", "0.13", "0.23", "0.33", "0.43"),
        col = c("#2E8B57", "#4DA565", "#74C678", "#C4CD0C", "#ECE37E", "#F3AA64"),
        lty = 1, cex = 4, lwd = 4, bty = "n", xjust = 0.5)
 text(1, 1.9, " Soil TDR \n conductivity \n (center) \n [S/m] ", cex = 4)
@@ -569,7 +593,7 @@ dev.off()
 png(paste(p.1$w[p.1$n == "plot.p"], "Legends/SaSoil2002_cond_slope.png", sep = ""), width = p.width, height = p.height, pointsize = 8)
 par(mar = c(0, 0, 0, 0), omi = c(0, 0, 0, 0))
 plot(1, 1, type = "n", xlab = "", ylab  =  "", xaxt = "n", yaxt = "n", cex.axis = 3, xlim = c(0, 2), ylim = c(0, 2))
-legend(1, 1.6, c("0.03", "0.07", "0.16", "0.22", "0.32", "0.42"),
+legend(1, 1.6, c("0.03", "0.05", "0.14", "0.23", "0.33", "0.43"),
        col = c("#3D985E", "#5CB26D", "#A4CD3E", "#D0CF0E", "#F0DF87", "#F0A05C"),
        lty = 1, cex = 4, lwd = 4, bty = "n", xjust = 0.5)
 text(1, 1.9, " Soil TDR \n conductivity \n (slope) \n [S/m] ", cex = 4)
@@ -581,7 +605,7 @@ dev.off()
 png(paste(p.1$w[p.1$n == "plot.p"], "Legends/SaSoil2002_cond_rim.png", sep = ""), width = p.width, height = p.height, pointsize = 8)
 par(mar = c(0, 0, 0, 0), omi = c(0, 0, 0, 0))
 plot(1, 1, type = "n", xlab = "", ylab  =  "", xaxt = "n", yaxt = "n", cex.axis = 3, xlim = c(0, 2), ylim = c(0, 2))
-legend(1, 1.6, c("0.02", "0.06", "0.11", "0.16", "0.21", "0.27", "0.33", "0.38", "0.51", "0.61", "0.71"),
+legend(1, 1.6, c("0.02", "0.05", "0.12", "0.15", "0.22", "0.26", "0.34", "0.37", "0.50", "0.60", "0.70"),
        col = c("#35915A", "#55AC69", "#7CCD7C", "#A4CD3E", "#CDCD00", "#E2DC54", "#F0D883", "#F2B76D", "#CD853F", "#CDB7B5", "#8B7765"),
        lty = 1, cex = 4, lwd = 4, bty = "n", xjust = 0.5)
 text(1, 1.9, " Soil TDR \n conductivity \n (rim) \n [S/m] ", cex = 4)
@@ -591,16 +615,16 @@ text(1, 0.15, "72.36997°, 126.48069°", cex = 2)
 dev.off()
 
 #
-# SaSoil2002 vwc ----
+## SaSoil2002 vwc ----
 #
 
 png(paste(p.1$w[p.1$n == "plot.p"], "Legends/SaSoil2002_vwc_center.png", sep = ""), width = p.width, height = p.height, pointsize = 8)
 par(mar = c(0, 0, 0, 0), omi = c(0, 0, 0, 0))
 plot(1, 1, type = "n", xlab = "", ylab  =  "", xaxt = "n", yaxt = "n", cex.axis = 3, xlim = c(0, 2), ylim = c(0, 2))
-legend(1, 1.6, c("0.01", "0.05", "0.10", "0.20", "0.30", "0.40"),
+legend(1, 1.6, c("0.01", "0.08", "0.13", "0.23", "0.33", "0.43"),
        col = c("#2E8B57", "#4DA565", "#74C678", "#C4CD0C", "#ECE37E", "#F3AA64"),
        lty = 1, cex = 4, lwd = 4, bty = "n", xjust = 0.5)
-text(1, 1.9, " Soil TDR \n volumetric \n water content (center) [m^3/m^3] ", cex = 4)
+text(1, 1.9, " Soil TDR \n volumetric \n water content \n (center) [m^3/m^3] ", cex = 4)
 text(1, 1.6, "depth [m]", cex = 3)
 text(1, 0.2, "SaSoil2002", cex = 2)
 text(1, 0.15, "72.36997°, 126.48069°", cex = 2)
@@ -609,7 +633,7 @@ dev.off()
 png(paste(p.1$w[p.1$n == "plot.p"], "Legends/SaSoil2002_vwc_slope.png", sep = ""), width = p.width, height = p.height, pointsize = 8)
 par(mar = c(0, 0, 0, 0), omi = c(0, 0, 0, 0))
 plot(1, 1, type = "n", xlab = "", ylab  =  "", xaxt = "n", yaxt = "n", cex.axis = 3, xlim = c(0, 2), ylim = c(0, 2))
-legend(1, 1.6, c("0.03", "0.07", "0.16", "0.22", "0.32", "0.42"),
+legend(1, 1.6, c("0.03", "0.05", "0.14", "0.23", "0.33", "0.43"),
        col = c("#3D985E", "#5CB26D", "#A4CD3E", "#D0CF0E", "#F0DF87", "#F0A05C"),
        lty = 1, cex = 4, lwd = 4, bty = "n", xjust = 0.5)
 text(1, 1.9, " Soil TDR \n volumetric \n water content \n (slope) [m^3/m^3] ", cex = 4)
@@ -621,7 +645,7 @@ dev.off()
 png(paste(p.1$w[p.1$n == "plot.p"], "Legends/SaSoil2002_vwc_rim.png", sep = ""), width = p.width, height = p.height, pointsize = 8)
 par(mar = c(0, 0, 0, 0), omi = c(0, 0, 0, 0))
 plot(1, 1, type = "n", xlab = "", ylab  =  "", xaxt = "n", yaxt = "n", cex.axis = 3, xlim = c(0, 2), ylim = c(0, 2))
-legend(1, 1.6, c("0.02", "0.06", "0.11", "0.16", "0.21", "0.27", "0.33", "0.38", "0.51", "0.61", "0.71"),
+legend(1, 1.6, c("0.02", "0.05", "0.12", "0.15", "0.22", "0.26", "0.34", "0.37", "0.50", "0.60", "0.70"),
        col = c("#35915A", "#55AC69", "#7CCD7C", "#A4CD3E", "#CDCD00", "#E2DC54", "#F0D883", "#F2B76D", "#CD853F", "#CDB7B5", "#8B7765"),
        lty = 1, cex = 4, lwd = 4, bty = "n", xjust = 0.5)
 text(1, 1.9, " Soil TDR \n volumetric \n water content \n (rim) [m^3/m^3] ", cex = 4)
@@ -631,7 +655,7 @@ text(1, 0.15, "72.36997°, 126.48069°", cex = 2)
 dev.off()
 
 #
-# SaSoil2002 SoilT (icewedge) ----
+## SaSoil2002 T soil (icewedge) ----
 #
 
 png(paste(p.1$w[p.1$n == "plot.p"], "Legends/SaSoil2002_temp_icewedge.png", sep = ""), width = p.width, height = p.height, pointsize = 8)
@@ -646,6 +670,10 @@ text(1, 0.2, "SaSoil2002", cex = 2)
 text(1, 0.15, "72.36997°, 126.48069°", cex = 2)
 dev.off()
 
+#
+## SaSoil2002 T trompete (icewedge) ----
+#
+
 png(paste(p.1$w[p.1$n == "plot.p"], "Legends/SaSoil2002_icewedge_trompete.png", sep = ""), width = p.width, height = p.height, pointsize = 8)
 par(mar = c(0, 0, 0, 0), omi = c(0, 0, 0, 0))
 plot(1, 1, type = "n", xlab = "", ylab  =  "", xaxt = "n", yaxt = "n", cex.axis = 3, xlim = c(0, 2), ylim = c(0, 2))
@@ -659,7 +687,7 @@ text(1, 0.15, "72.36997°, 126.48069°", cex = 2)
 dev.off()
 
 #
-# SaSoil2002 heat flux ----
+## SaSoil2002 heat flux ----
 #
 
 png(paste(p.1$w[p.1$n == "plot.p"], "Legends/SaSoil2002_hf.png", sep = ""), width = p.width, height = p.height, pointsize = 8)
@@ -675,7 +703,174 @@ text(1, 0.15, "72.36997°, 126.48069°", cex = 2)
 dev.off()
 
 #
-# SaMet2002 SoilT ----
+## SaSoil2002 Dsn ----
+#
+
+png(paste(p.1$w[p.1$n == "plot.p"], "Legends/SaSoil2002_sh.png", sep = ""), width = p.width, height = p.height, pointsize = 8)
+par(mar = c(0, 0, 0, 0), omi = c(0, 0, 0, 0))
+plot(1, 1, type = "n", xlab = "", ylab  =  "", xaxt = "n", yaxt = "n", cex.axis = 3, xlim = c(0, 2), ylim = c(0, 2))
+legend(1, 1.6, c("snow depth"),
+       col = c("seagreen4"),
+       lty = 1, cex = 4, lwd = 4, bty = "n", xjust = 0.5)
+text(1, 1.9, " Snow \n heights \n [m] ", cex = 4)
+text(1, 1.6, "sensor", cex = 3)
+text(1, 0.2, "SaSoil2002", cex = 2)
+text(1, 0.15, "72.36997°, 126.48069°", cex = 2)
+dev.off()
+
+#
+## SaSoil2002 T ground surface ----
+#
+
+png(paste(p.1$w[p.1$n == "plot.p"], "Legends/SaSoil2002_Tgs.png", sep = ""), width = p.width, height = p.height, pointsize = 8)
+par(mar = c(0, 0, 0, 0), omi = c(0, 0, 0, 0))
+plot(1, 1, type = "n", xlab = "", ylab  =  "", xaxt = "n", yaxt = "n", cex.axis = 3, xlim = c(0, 2), ylim = c(0, 2))
+legend(1, 1.6, c("Tgs"),
+       col = c("#7CCD7C", "#F4A460", "#8B7765"),
+       lty = 1, cex = 4, lwd = 4, bty = "n", xjust = 0.5)
+text(1, 1.9, " Surface temperature \n [°C] ", cex = 4)
+#text(1, 1.6, "depth [m]", cex = 3)
+text(1, 0.2, "SaSoil2002", cex = 2)
+text(1, 0.15, "72.36997°, 126.48069°", cex = 2)
+dev.off()
+#
+# SaMet2002 PA ----
+#
+
+png(paste(p.1$w[p.1$n == "plot.p"], "Legends/SaMet2002_pa.png", sep = ""), width = p.width, height = p.height, pointsize = 8)
+par(mar = c(0, 0, 0, 0), omi = c(0, 0, 0, 0))
+plot(1, 1, type = "n", xlab = "", ylab  =  "", xaxt = "n", yaxt = "n", cex.axis = 3, xlim = c(0, 2), ylim = c(0, 2))
+legend(1, 1.6, c("PA"),
+       col = c("maroon4"),
+       lty = 1, cex = 4, lwd = 4, bty = "n", xjust = 0.5)
+text(1, 1.9, "Athmospheric\npressure\n[kPa]", cex = 4)
+text(1, 1.6, "", cex = 3)
+text(1, 0.2, "SaMet2002", cex = 2)
+text(1, 0.15, "72.36997°, 126.48069°", cex = 2)
+dev.off()
+
+#
+# SaMet2002 Radiation ----
+#
+
+png(paste(p.1$w[p.1$n == "plot.p"], "Legends/SaMet2002_rad_net.png", sep = ""), width = p.width, height = p.height, pointsize = 8)
+par(mar = c(0, 0, 0, 0), omi = c(0, 0, 0, 0))
+plot(1, 1, type = "n", xlab = "", ylab  =  "", xaxt = "n", yaxt = "n", cex.axis = 3, xlim = c(0, 2), ylim = c(0, 2))
+legend(1, 1.6, c("netto"),
+       col = c("#8B1C62"),
+       lty = 1, cex = 4, lwd = 4, bty = "n", xjust = 0.5)
+text(1, 1.9, " Radiation \n [W/m²]", cex = 4)
+text(1, 1.6, "", cex = 3)
+text(1, 0.2, "SaMet2002", cex = 2)
+text(1, 0.15, "72.36997°, 126.48069°", cex = 2)
+dev.off()
+
+png(paste(p.1$w[p.1$n == "plot.p"], "Legends/SaMet2002_rad_gl.png", sep = ""), width = p.width, height = p.height, pointsize = 8)
+par(mar = c(0, 0, 0, 0), omi = c(0, 0, 0, 0))
+plot(1, 1, type = "n", xlab = "", ylab  =  "", xaxt = "n", yaxt = "n", cex.axis = 3, xlim = c(0, 2), ylim = c(0, 2))
+legend(1, 1.6, c("global"),
+       col = c("#8B5742"),
+       lty = 1, cex = 4, lwd = 4, bty = "n", xjust = 0.5)
+text(1, 1.9, " Radiation \n [W/m²]", cex = 4)
+text(1, 1.6, "", cex = 3)
+text(1, 0.2, "SaMet2002", cex = 2)
+text(1, 0.15,  "72.36997°, 126.48069°", cex = 2)
+dev.off()
+
+png(paste(p.1$w[p.1$n == "plot.p"], "Legends/SaMet2002_rad_sw.png", sep = ""), width = p.width, height = p.height, pointsize = 8)
+par(mar = c(0, 0, 0, 0), omi = c(0, 0, 0, 0))
+plot(1, 1, type = "n", xlab = "", ylab  =  "", xaxt = "n", yaxt = "n", cex.axis = 3, xlim = c(0, 2), ylim = c(0, 2))
+legend(1, 1.6, c("in", "out"),
+       col = c("#8968CD", "#CDC673"),
+       lty = 1, cex = 4, lwd = 4, bty = "n", xjust = 0.5)
+text(1, 1.9, " Radiation \n short wave \n [W/m²]", cex = 4)
+text(1, 1.6, "", cex = 3)
+text(1, 0.2, "SaMet2002", cex = 2)
+text(1, 0.15,  "72.36997°, 126.48069°", cex = 2)
+dev.off()
+
+png(paste(p.1$w[p.1$n == "plot.p"], "Legends/SaMet2002_rad_lw.png", sep = ""), width = p.width, height = p.height, pointsize = 8)
+par(mar = c(0, 0, 0, 0), omi = c(0, 0, 0, 0))
+plot(1, 1, type = "n", xlab = "", ylab  =  "", xaxt = "n", yaxt = "n", cex.axis = 3, xlim = c(0, 2), ylim = c(0, 2))
+legend(1, 1.6, c("in", "out"),
+       col = c("#8968CD", "#CDC673"),
+       lty = 1, cex = 4, lwd = 4, bty = "n", xjust = 0.5)
+text(1, 1.9, " Radiation \n long wave \n [W/m²]", cex = 4)
+text(1, 1.6, "", cex = 3)
+text(1, 0.2, "SaMet2002", cex = 2)
+text(1, 0.15,  "72.36997°, 126.48069°", cex = 2)
+dev.off()
+
+png(paste(p.1$w[p.1$n == "plot.p"], "Legends/SaMet2002_albedo.png", sep = ""), width = p.width, height = p.height, pointsize = 8)
+par(mar = c(0, 0, 0, 0), omi = c(0, 0, 0, 0))
+plot(1, 1, type = "n", xlab = "", ylab  =  "", xaxt = "n", yaxt = "n", cex.axis = 3, xlim = c(0, 2), ylim = c(0, 2))
+legend(1, 1.6, c("albedo", "flagged"),
+       col = c("#551A8B", "#FF0000"),
+       lty = 1, cex = 4, lwd = 4, bty = "n", xjust = 0.5)
+text(1, 1.9, " Albedo ", cex = 4)
+text(1, 1.6, "", cex = 3)
+text(1, 0.2, "SaMet2002", cex = 2)
+text(1, 0.15,  "72.36997°, 126.48069°", cex = 2)
+dev.off()
+
+#
+# SaMet2002 T air ----
+#
+
+png(paste(p.1$w[p.1$n == "plot.p"], "Legends/SaMet2002_Tair200.png", sep = ""), width = p.width, height = p.height, pointsize = 8)
+par(mar = c(0, 0, 0, 0), omi = c(0, 0, 0, 0))
+plot(1, 1, type = "n", xlab = "", ylab  =  "", xaxt = "n", yaxt = "n", cex.axis = 3, xlim = c(0, 2), ylim = c(0, 2))
+legend(1, 1.6, c("temperature", "daily mean"),
+       col = c("#CDBE70", "#CD6600"),
+       lty = 1, cex = 4, lwd = 4, bty = "n", xjust = 0.5)
+text(1, 1.9, "Air temperature\nat 2 m\n[°C]", cex = 4)
+text(1, 1.6, "", cex = 3)
+text(1, 0.2, "SaMet2002", cex = 2)
+text(1, 0.15, "72.36997°, 126.48069°", cex = 2)
+dev.off()
+
+png(paste(p.1$w[p.1$n == "plot.p"], "Legends/SaMet2002_Tair50.png", sep = ""), width = p.width, height = p.height, pointsize = 8)
+par(mar = c(0, 0, 0, 0), omi = c(0, 0, 0, 0))
+plot(1, 1, type = "n", xlab = "", ylab  =  "", xaxt = "n", yaxt = "n", cex.axis = 3, xlim = c(0, 2), ylim = c(0, 2))
+legend(1, 1.6, c("temperature", "daily mean"),
+       col = c("#CDBE70", "#CD6600"),
+       lty = 1, cex = 4, lwd = 4, bty = "n", xjust = 0.5)
+text(1, 1.9, "Air temperature\nat 0.5 m\n[°C]", cex = 4)
+text(1, 1.6, "", cex = 3)
+text(1, 0.2, "SaMet2002", cex = 2)
+text(1, 0.15, "72.36997°, 126.48069°", cex = 2)
+dev.off()
+#
+# SaMet2002 humidity ----
+#
+
+png(paste(p.1$w[p.1$n == "plot.p"], "Legends/SaMet2002_hum200.png", sep = ""), width = p.width, height = p.height, pointsize = 8)
+par(mar = c(0, 0, 0, 0), omi = c(0, 0, 0, 0))
+plot(1, 1, type = "n", xlab = "", ylab  =  "", xaxt = "n", yaxt = "n", cex.axis = 3, xlim = c(0, 2), ylim = c(0, 2))
+legend(1, 1.6, c("humidity", "daily mean"),
+       col = c("#66CDAA", "#458B74"),
+       lty = 1, cex = 4, lwd = 4, bty = "n", xjust = 0.5)
+text(1, 1.9, "Humidity\nat 2 m\n[%]", cex = 4)
+text(1, 1.6, "", cex = 3)
+text(1, 0.2, "SaMet2002", cex = 2)
+text(1, 0.15, "72.36997°, 126.48069°", cex = 2)
+dev.off()
+
+png(paste(p.1$w[p.1$n == "plot.p"], "Legends/SaMet2002_hum50.png", sep = ""), width = p.width, height = p.height, pointsize = 8)
+par(mar = c(0, 0, 0, 0), omi = c(0, 0, 0, 0))
+plot(1, 1, type = "n", xlab = "", ylab  =  "", xaxt = "n", yaxt = "n", cex.axis = 3, xlim = c(0, 2), ylim = c(0, 2))
+legend(1, 1.6, c("humidity", "daily mean"),
+       col = c("#66CDAA", "#458B74"),
+       lty = 1, cex = 4, lwd = 4, bty = "n", xjust = 0.5)
+text(1, 1.9, "Humidity\nat 0.5 m\n[%]", cex = 4)
+text(1, 1.6, "", cex = 3)
+text(1, 0.2, "SaMet2002", cex = 2)
+text(1, 0.15, "72.36997°, 126.48069°", cex = 2)
+dev.off()
+
+
+#
+# SaMet2002 T soil ----
 #
 
 png(paste(p.1$w[p.1$n == "plot.p"], "Legends/SaMet2002_Ts.png", sep = ""), width = p.width, height = p.height, pointsize = 8)
@@ -706,78 +901,154 @@ text(1, 0.2, "SaMet2002", cex = 2)
 text(1, 0.15, "72.36997°, 126.48069°", cex = 2)
 dev.off()
 
-
 #
-# SaSoil2010 SoilT ----
-#
-
-png(paste(p.1$w[p.1$n == "plot.p"], "Legends/SaSoil2010_temp_center.png", sep = ""), width = p.width, height = p.height, pointsize = 8)
-par(mar = c(0, 0, 0, 0), omi = c(0, 0, 0, 0))
-plot(1, 1, type = "n", xlab = "", ylab  =  "", xaxt = "n", yaxt = "n", cex.axis = 3, xlim = c(0, 2), ylim = c(0, 2))
-legend(1, 1.6, c("0.01", "0.05", "0.10", "0.20", "0.30", "0.40"),
-       col = c("#2E8B57", "#4DA565", "#74C678", "#C4CD0C", "#ECE37E", "#F3AA64"),
-       lty = 1, cex = 4, lwd = 4, bty = "n", xjust = 0.5)
-text(1, 1.9, " Soil temperature \n (center) \n [°C] ", cex = 4)
-text(1, 1.6, "depth [m]", cex = 3)
-text(1, 0.2, "SaSoil2010", cex = 2)
-text(1, 0.15, "72.36997°, 126.48069°", cex = 2)
-dev.off()
-
-png(paste(p.1$w[p.1$n == "plot.p"], "Legends/SaSoil2010_temp_slope.png", sep = ""), width = p.width, height = p.height, pointsize = 8)
-par(mar = c(0, 0, 0, 0), omi = c(0, 0, 0, 0))
-plot(1, 1, type = "n", xlab = "", ylab  =  "", xaxt = "n", yaxt = "n", cex.axis = 3, xlim = c(0, 2), ylim = c(0, 2))
-legend(1, 1.6, c("0.03", "0.07", "0.16", "0.22", "0.32", "0.42"),
-       col = c("#3D985E", "#5CB26D", "#A4CD3E", "#D0CF0E", "#F0DF87", "#F0A05C"),
-       lty = 1, cex = 4, lwd = 4, bty = "n", xjust = 0.5)
-text(1, 1.9, " Soil temperature \n (slope) \n [°C] ", cex = 4)
-text(1, 1.6, "depth [m]", cex = 3)
-text(1, 0.2, "SaSoil2010", cex = 2)
-text(1, 0.15, "72.36997°, 126.48069°", cex = 2)
-dev.off()
-
-png(paste(p.1$w[p.1$n == "plot.p"], "Legends/SaSoil2010_temp_rim.png", sep = ""), width = p.width, height = p.height, pointsize = 8)
-par(mar = c(0, 0, 0, 0), omi = c(0, 0, 0, 0))
-plot(1, 1, type = "n", xlab = "", ylab  =  "", xaxt = "n", yaxt = "n", cex.axis = 3, xlim = c(0, 2), ylim = c(0, 2))
-legend(1, 1.6, c("0.02", "0.06", "0.11", "0.16", "0.21", "0.27", "0.33", "0.38", "0.51", "0.61", "0.71"),
-       col = c("#35915A", "#55AC69", "#7CCD7C", "#A4CD3E", "#CDCD00", "#E2DC54", "#F0D883", "#F2B76D", "#CD853F", "#CDB7B5", "#8B7765"),
-       lty = 1, cex = 4, lwd = 4, bty = "n", xjust = 0.5)
-text(1, 1.9, " Soil temperature \n (rim) \n [°C] ", cex = 4)
-text(1, 1.6, "depth [m]", cex = 3)
-text(1, 0.2, "SaSoil2010", cex = 2)
-text(1, 0.15, "72.36997°, 126.48069°", cex = 2)
-dev.off()
-
-
-#
-# SaSoil2010 SoilT (icewedge) ----
+# SaMet2002 WT ----
 #
 
-png(paste(p.1$w[p.1$n == "plot.p"], "Legends/SaSoil2010_temp_icewedge.png", sep = ""), width = p.width, height = p.height, pointsize = 8)
+png(paste(p.1$w[p.1$n == "plot.p"], "Legends/SaMet2002_wt.png", sep = ""), width = p.width, height = p.height, pointsize = 8)
 par(mar = c(0, 0, 0, 0), omi = c(0, 0, 0, 0))
 plot(1, 1, type = "n", xlab = "", ylab  =  "", xaxt = "n", yaxt = "n", cex.axis = 3, xlim = c(0, 2), ylim = c(0, 2))
-legend(1, 1.6, c("0.41", "0.61", "0.91", "1.21", "1.51", "1.81", "2.11", "2.41", "2.71"),
-       col = c("#7DCD79", "#A7CD39", "#D7D429", "#F0E189", "#F3AF67", "#DC914C", "#CD976A", "#C4AEAA", "#917D6D"),
+legend(1, 1.6, c("WT"),
+       col = c("steelblue4"),
        lty = 1, cex = 4, lwd = 4, bty = "n", xjust = 0.5)
-text(1, 1.9, " Soil temperature \n icewedge \n [°C] ", cex = 4)
-text(1, 1.6, "depth [m]", cex = 3)
-text(1, 0.2, "SaSoil2010", cex = 2)
-text(1, 0.15, "72.36997°, 126.48069°", cex = 2)
-dev.off()
-
-png(paste(p.1$w[p.1$n == "plot.p"], "Legends/SaSoil2010_icewedge_trompete.png", sep = ""), width = p.width, height = p.height, pointsize = 8)
-par(mar = c(0, 0, 0, 0), omi = c(0, 0, 0, 0))
-plot(1, 1, type = "n", xlab = "", ylab  =  "", xaxt = "n", yaxt = "n", cex.axis = 3, xlim = c(0, 2), ylim = c(0, 2))
-legend(1, 1.6, c("jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"),
-       col = c("#b9d3ee", "#87ceff", "#90ee90", "#b3ee3a", "#698b22", "#ff4500", "#ff0000", "#8b0000", "#ffb90f", "#8b5a2b", "#666666", "#36648b"),
-       lty = 1, cex = 4, lwd = 4, bty = "n", xjust = 0.5)
-text(1, 1.9, " Soil temperature \n monthly mean \n [°C] ", cex = 4)
+text(1, 1.9, "Water table\n[m]", cex = 4)
 text(1, 1.6, "", cex = 3)
-text(1, 0.2, "SaSoil2010", cex = 2)
+text(1, 0.2, "SaMet2002", cex = 2)
 text(1, 0.15, "72.36997°, 126.48069°", cex = 2)
 dev.off()
 
+
+# #
+# # SaSoil2010 SoilT
+# #
+# 
+# png(paste(p.1$w[p.1$n == "plot.p"], "Legends/SaSoil2010_temp_center.png", sep = ""), width = p.width, height = p.height, pointsize = 8)
+# par(mar = c(0, 0, 0, 0), omi = c(0, 0, 0, 0))
+# plot(1, 1, type = "n", xlab = "", ylab  =  "", xaxt = "n", yaxt = "n", cex.axis = 3, xlim = c(0, 2), ylim = c(0, 2))
+# legend(1, 1.6, c("0.01", "0.05", "0.10", "0.20", "0.30", "0.40"),
+#        col = c("#2E8B57", "#4DA565", "#74C678", "#C4CD0C", "#ECE37E", "#F3AA64"),
+#        lty = 1, cex = 4, lwd = 4, bty = "n", xjust = 0.5)
+# text(1, 1.9, " Soil temperature \n (center) \n [°C] ", cex = 4)
+# text(1, 1.6, "depth [m]", cex = 3)
+# text(1, 0.2, "SaSoil2010", cex = 2)
+# text(1, 0.15, "72.36997°, 126.48069°", cex = 2)
+# dev.off()
+# 
+# png(paste(p.1$w[p.1$n == "plot.p"], "Legends/SaSoil2010_temp_slope.png", sep = ""), width = p.width, height = p.height, pointsize = 8)
+# par(mar = c(0, 0, 0, 0), omi = c(0, 0, 0, 0))
+# plot(1, 1, type = "n", xlab = "", ylab  =  "", xaxt = "n", yaxt = "n", cex.axis = 3, xlim = c(0, 2), ylim = c(0, 2))
+# legend(1, 1.6, c("0.03", "0.07", "0.16", "0.22", "0.32", "0.42"),
+#        col = c("#3D985E", "#5CB26D", "#A4CD3E", "#D0CF0E", "#F0DF87", "#F0A05C"),
+#        lty = 1, cex = 4, lwd = 4, bty = "n", xjust = 0.5)
+# text(1, 1.9, " Soil temperature \n (slope) \n [°C] ", cex = 4)
+# text(1, 1.6, "depth [m]", cex = 3)
+# text(1, 0.2, "SaSoil2010", cex = 2)
+# text(1, 0.15, "72.36997°, 126.48069°", cex = 2)
+# dev.off()
+# 
+# png(paste(p.1$w[p.1$n == "plot.p"], "Legends/SaSoil2010_temp_rim.png", sep = ""), width = p.width, height = p.height, pointsize = 8)
+# par(mar = c(0, 0, 0, 0), omi = c(0, 0, 0, 0))
+# plot(1, 1, type = "n", xlab = "", ylab  =  "", xaxt = "n", yaxt = "n", cex.axis = 3, xlim = c(0, 2), ylim = c(0, 2))
+# legend(1, 1.6, c("0.02", "0.06", "0.11", "0.16", "0.21", "0.27", "0.33", "0.38", "0.51", "0.61", "0.71"),
+#        col = c("#35915A", "#55AC69", "#7CCD7C", "#A4CD3E", "#CDCD00", "#E2DC54", "#F0D883", "#F2B76D", "#CD853F", "#CDB7B5", "#8B7765"),
+#        lty = 1, cex = 4, lwd = 4, bty = "n", xjust = 0.5)
+# text(1, 1.9, " Soil temperature \n (rim) \n [°C] ", cex = 4)
+# text(1, 1.6, "depth [m]", cex = 3)
+# text(1, 0.2, "SaSoil2010", cex = 2)
+# text(1, 0.15, "72.36997°, 126.48069°", cex = 2)
+# dev.off()
+
+
+# #
+# # SaSoil2010 T perma (icewedge)
+# #
+# 
+# png(paste(p.1$w[p.1$n == "plot.p"], "Legends/SaSoil2010_temp_icewedge.png", sep = ""), width = p.width, height = p.height, pointsize = 8)
+# par(mar = c(0, 0, 0, 0), omi = c(0, 0, 0, 0))
+# plot(1, 1, type = "n", xlab = "", ylab  =  "", xaxt = "n", yaxt = "n", cex.axis = 3, xlim = c(0, 2), ylim = c(0, 2))
+# legend(1, 1.6, c("0.41", "0.61", "0.91", "1.21", "1.51", "1.81", "2.11", "2.41", "2.71"),
+#        col = c("#7DCD79", "#A7CD39", "#D7D429", "#F0E189", "#F3AF67", "#DC914C", "#CD976A", "#C4AEAA", "#917D6D"),
+#        lty = 1, cex = 4, lwd = 4, bty = "n", xjust = 0.5)
+# text(1, 1.9, " Soil temperature \n icewedge \n [°C] ", cex = 4)
+# text(1, 1.6, "depth [m]", cex = 3)
+# text(1, 0.2, "SaSoil2010", cex = 2)
+# text(1, 0.15, "72.36997°, 126.48069°", cex = 2)
+# dev.off()
+# 
+# png(paste(p.1$w[p.1$n == "plot.p"], "Legends/SaSoil2010_icewedge_trompete.png", sep = ""), width = p.width, height = p.height, pointsize = 8)
+# par(mar = c(0, 0, 0, 0), omi = c(0, 0, 0, 0))
+# plot(1, 1, type = "n", xlab = "", ylab  =  "", xaxt = "n", yaxt = "n", cex.axis = 3, xlim = c(0, 2), ylim = c(0, 2))
+# legend(1, 1.6, c("jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"),
+#        col = c("#b9d3ee", "#87ceff", "#90ee90", "#b3ee3a", "#698b22", "#ff4500", "#ff0000", "#8b0000", "#ffb90f", "#8b5a2b", "#666666", "#36648b"),
+#        lty = 1, cex = 4, lwd = 4, bty = "n", xjust = 0.5)
+# text(1, 1.9, " Soil temperature \n monthly mean \n [°C] ", cex = 4)
+# text(1, 1.6, "", cex = 3)
+# text(1, 0.2, "SaSoil2010", cex = 2)
+# text(1, 0.15, "72.36997°, 126.48069°", cex = 2)
+# dev.off()
 #
-# SaPond2006 ----
+## SaPond2006 Dsn ----
+#
+
+png(paste(p.1$w[p.1$n == "plot.p"], "Legends/SaPond2006_Dsn.png", sep = ""), width = p.width, height = p.height, pointsize = 8)
+par(mar = c(0, 0, 0, 0), omi = c(0, 0, 0, 0))
+plot(1, 1, type = "n", xlab = "", ylab  =  "", xaxt = "n", yaxt = "n", cex.axis = 3, xlim = c(0, 2), ylim = c(0, 2))
+legend(1, 1.6, c("snow depth"),
+       col = c("#8B8989"),
+       lty = 1, cex = 4, lwd = 4, bty = "n", xjust = 0.5)
+text(1, 1.9, " Snow \n depth \n [m] ", cex = 4)
+text(1, 1.6, "", cex = 3)
+text(1, 0.2, "SaPond2006", cex = 2)
+text(1, 0.15, "72.37008°, 126.48339°", cex = 2)
+dev.off()
+
+#
+## SaPond2006 WT ----
+#
+
+png(paste(p.1$w[p.1$n == "plot.p"], "Legends/SaPond2006_WT.png", sep = ""), width = p.width, height = p.height, pointsize = 8)
+par(mar = c(0, 0, 0, 0), omi = c(0, 0, 0, 0))
+plot(1, 1, type = "n", xlab = "", ylab  =  "", xaxt = "n", yaxt = "n", cex.axis = 3, xlim = c(0, 2), ylim = c(0, 2))
+legend(1, 1.6, c("water table"),
+       col = c("#8B8989"),
+       lty = 1, cex = 4, lwd = 4, bty = "n", xjust = 0.5)
+text(1, 1.9, " Water \n table \n [m] ", cex = 4)
+text(1, 1.6, "", cex = 3)
+text(1, 0.2, "SaPond2006", cex = 2)
+text(1, 0.15, "72.37008°, 126.48339°", cex = 2)
+dev.off()
+
+#
+## SaPond2006 Radiation ----
+#
+
+png(paste(p.1$w[p.1$n == "plot.p"], "Legends/SaPond2006_rad_net1.png", sep = ""), width = p.width, height = p.height, pointsize = 8)
+par(mar = c(0, 0, 0, 0), omi = c(0, 0, 0, 0))
+plot(1, 1, type = "n", xlab = "", ylab  =  "", xaxt = "n", yaxt = "n", cex.axis = 3, xlim = c(0, 2), ylim = c(0, 2))
+legend(1, 1.6, c("netto radiation"),
+       col = c("#8B1C62"),
+       lty = 1, cex = 4, lwd = 4, bty = "n", xjust = 0.5)
+text(1, 1.9, " Netto radiation \n (edge) \n [W/m²]", cex = 4)
+text(1, 1.6, "", cex = 3)
+text(1, 0.2, "SaPond2006", cex = 2)
+text(1, 0.15, "72.37008°, 126.48339°", cex = 2)
+dev.off()
+
+png(paste(p.1$w[p.1$n == "plot.p"], "Legends/SaPond2006_rad_net2.png", sep = ""), width = p.width, height = p.height, pointsize = 8)
+par(mar = c(0, 0, 0, 0), omi = c(0, 0, 0, 0))
+plot(1, 1, type = "n", xlab = "", ylab  =  "", xaxt = "n", yaxt = "n", cex.axis = 3, xlim = c(0, 2), ylim = c(0, 2))
+legend(1, 1.6, c("netto radiation"),
+       col = c("#8B1C62"),
+       lty = 1, cex = 4, lwd = 4, bty = "n", xjust = 0.5)
+text(1, 1.9, " Netto radiation \n (center) \n [W/m²]", cex = 4)
+text(1, 1.6, "", cex = 3)
+text(1, 0.2, "SaPond2006", cex = 2)
+text(1, 0.15, "72.37008°, 126.48339°", cex = 2)
+dev.off()
+
+
+#
+## SaPond2006 T soil ----
 #
 
 png(paste(p.1$w[p.1$n == "plot.p"], "Legends/SaPond2006_temperature.png", sep = ""), width = p.width, height = p.height, pointsize = 8)
@@ -792,6 +1063,10 @@ text(1, 0.2, "SaPond2006", cex = 2)
 text(1, 0.15, "72.37008°, 126.48339°", cex = 2)
 dev.off()
 
+#
+## SaPond2006 T water edge ----
+#
+
 png(paste(p.1$w[p.1$n == "plot.p"], "Legends/SaPond2006_Tw_edge.png", sep = ""), width = p.width, height = p.height, pointsize = 8)
 par(mar = c(0, 0, 0, 0), omi = c(0, 0, 0, 0))
 plot(1, 1, type = "n", xlab = "", ylab  =  "", xaxt = "n", yaxt = "n", cex.axis = 3, xlim = c(0, 2), ylim = c(0, 2))
@@ -803,6 +1078,10 @@ text(1, 1.6, "depth [cm]", cex = 3)
 text(1, 0.2, "SaPond2006", cex = 2)
 text(1, 0.15, "72.37008°, 126.48339°", cex = 2)
 dev.off()
+
+#
+## SaPond2006 T water center ----
+#
 
 png(paste(p.1$w[p.1$n == "plot.p"], "Legends/SaPond2006_Tw_center.png", sep = ""), width = p.width, height = p.height, pointsize = 8)
 par(mar = c(0, 0, 0, 0), omi = c(0, 0, 0, 0))
@@ -817,7 +1096,7 @@ text(1, 0.15, "72.37008°, 126.48339°", cex = 2)
 dev.off()
 
 #
-# SaPond2014 ----
+# SaPond2014 T permafrost ----
 #
 
 png(paste(p.1$w[p.1$n == "plot.p"], "Legends/SaPond2014_temperature.png", sep = ""), width = p.width, height = p.height, pointsize = 8)
@@ -835,6 +1114,10 @@ text(1, 0.2, "SaPond2014", cex = 2)
 text(1, 0.15, "72.37008°, 126.48339°", cex = 2)
 dev.off()
 
+#
+# SaPond2014 trompete ----
+#
+
 png(paste(p.1$w[p.1$n == "plot.p"], "Legends/SaPond2014_trompete.png", sep = ""), width = p.width, height = p.height, pointsize = 8)
 par(mar = c(0, 0, 0, 0), omi = c(0, 0, 0, 0))
 plot(1, 1, type = "n", xlab = "", ylab  =  "", xaxt = "n", yaxt = "n", cex.axis = 3, xlim = c(0, 2), ylim = c(0, 2))
@@ -848,7 +1131,7 @@ text(1, 0.15, "72.37008°, 126.48339°", cex = 2)
 dev.off()
 
 #
-# SaHole2006 ----
+## SaHole2006 T permafrost ----
 #
 
 png(paste(p.1$w[p.1$n == "plot.p"], "Legends/SaHole2006_temperature.png", sep = ""), width = p.width, height = p.height, pointsize = 8)
@@ -863,6 +1146,10 @@ text(1, 0.2, "SaHole2006", cex = 2)
 text(1, 0.15, "72.36944°, 126.47644°", cex = 2)
 dev.off()
 
+#
+## SaHole2006 trompete ----
+#
+
 png(paste(p.1$w[p.1$n == "plot.p"], "Legends/SaHole2006_trompete.png", sep = ""), width = p.width, height = p.height, pointsize = 8)
 par(mar = c(0, 0, 0, 0), omi = c(0, 0, 0, 0))
 plot(1, 1, type = "n", xlab = "", ylab  =  "", xaxt = "n", yaxt = "n", cex.axis = 3, xlim = c(0, 2), ylim = c(0, 2))
@@ -876,7 +1163,7 @@ text(1, 0.15, "72.36944°, 126.47644°", cex = 2)
 dev.off()
 
 #
-# SaHole2010 ----
+# SaHole2010 T permafrost ----
 #
 
 png(paste(p.1$w[p.1$n == "plot.p"], "Legends/SaHole2010_temperature.png", sep = ""), width = p.width, height = p.height, pointsize = 8)
@@ -891,6 +1178,10 @@ text(1, 0.2, "SaHole2010", cex = 2)
 text(1, 0.15, "72.37381°, 126.49625°", cex = 2)
 dev.off()
 
+#
+# SaHole2010 trompete ----
+# 
+
 png(paste(p.1$w[p.1$n == "plot.p"], "Legends/SaHole2010_trompete.png", sep = ""), width = p.width, height = p.height, pointsize = 8)
 par(mar = c(0, 0, 0, 0), omi = c(0, 0, 0, 0))
 plot(1, 1, type = "n", xlab = "", ylab  =  "", xaxt = "n", yaxt = "n", cex.axis = 3, xlim = c(0, 2), ylim = c(0, 2))
@@ -904,7 +1195,7 @@ text(1, 0.15, "72.37381°, 126.49625°", cex = 2)
 dev.off()
 
 #
-# SaHole2018 ----
+## SaHole2018 T permafrost ----
 #
 depth <- c(1:20, 22, 24, 26, 28, 30, 35, 40, 45, 50, 55, 60)
 
@@ -920,6 +1211,10 @@ text(1, 0.2, "SaHole2018", cex = 2)
 text(1, 0.15, "72.2237°, 126.2850°", cex = 2)
 dev.off()
 
+#
+## SaHole2018 trompete ----
+#
+
 png(paste(p.1$w[p.1$n == "plot.p"], "Legends/SaHole2018_trompete.png", sep = ""), width = p.width, height = p.height, pointsize = 8)
 par(mar = c(0, 0, 0, 0), omi = c(0, 0, 0, 0))
 plot(1, 1, type = "n", xlab = "", ylab  =  "", xaxt = "n", yaxt = "n", cex.axis = 3, xlim = c(0, 2), ylim = c(0, 2))
@@ -933,7 +1228,47 @@ text(1, 0.15, "72.2237°, 126.2850°", cex = 2)
 dev.off()
 
 #
-# SaSnow2012 - soil temperature ----
+# SaSnow2012 air temperature, humidity, precipitation ----
+#
+
+png(paste(p.1$w[p.1$n == "plot.p"], "Legends/SaSnow2012_airt.png", sep = ""), width = p.width, height = p.height, pointsize = 8)
+par(mar = c(0, 0, 0, 0), omi = c(0, 0, 0, 0))
+plot(1, 1, type = "n", xlab = "", ylab  =  "", xaxt = "n", yaxt = "n", cex.axis = 3, xlim = c(0, 2), ylim = c(0, 2))
+legend(1, 1.6, c("temperature", "daily mean"),
+       col = c("#CDBE70", "#CD6600"),
+       lty = 1, cex = 4, lwd = 4, bty = "n", xjust = 0.5)
+text(1, 1.9, " Air temperature \n at 0.8 m \n [°C]", cex = 4)
+text(1, 1.6, "", cex = 3)
+text(1, 0.2, "SaSnow2012", cex = 2)
+text(1, 0.15, "72.37419°, 126.49589°", cex = 2)
+dev.off()
+
+png(paste(p.1$w[p.1$n == "plot.p"], "Legends/SaSnow2012_hum.png", sep = ""), width = p.width, height = p.height, pointsize = 8)
+par(mar = c(0, 0, 0, 0), omi = c(0, 0, 0, 0))
+plot(1, 1, type = "n", xlab = "", ylab  =  "", xaxt = "n", yaxt = "n", cex.axis = 3, xlim = c(0, 2), ylim = c(0, 2))
+legend(1, 1.6, c("humidity", "daily mean"),
+       col = c("#66CDAA", "#458B74"),
+       lty = 1, cex = 4, lwd = 4, bty = "n", xjust = 0.5)
+text(1, 1.9, " Humidity \n at 2 m \n [°C]", cex = 4)
+text(1, 1.6, "", cex = 3)
+text(1, 0.2, "SaSnow2012", cex = 2)
+text(1, 0.15, "72.37419°, 126.49589°", cex = 2)
+dev.off()
+
+png(paste(p.1$w[p.1$n == "plot.p"], "Legends/SaSnow2012_prec.png", sep = ""), width = p.width, height = p.height, pointsize = 8)
+par(mar = c(0, 0, 0, 0), omi = c(0, 0, 0, 0))
+plot(1, 1, type = "n", xlab = "", ylab  =  "", xaxt = "n", yaxt = "n", cex.axis = 3, xlim = c(0, 2), ylim = c(0, 2))
+legend(1, 1.6, c("hourly", "daily"),
+       col = c("#00868B", "#36648B"),
+       lty = 1, cex = 4, lwd = 4, bty = "n", xjust = 0.5)
+text(1, 1.9, " Precipitation \n at 2 m \n [°C]", cex = 4)
+text(1, 1.6, "", cex = 3)
+text(1, 0.2, "SaSnow2012", cex = 2)
+text(1, 0.15, "72.37419°, 126.49589°", cex = 2)
+dev.off()
+
+#
+# SaSnow2012 T soil ----
 #
 
 png(paste(p.1$w[p.1$n == "plot.p"], "Legends/SaSnow2012_Ts.png", sep = ""), width = p.width, height = p.height, pointsize = 8)
@@ -948,6 +1283,26 @@ text(1, 0.2, "SaSnow2012", cex = 2)
 text(1, 0.15, "72.37419°, 126.49589°", cex = 2)
 dev.off()
 
+#
+# SaSnow2012 T ground surface ----
+#
+
+png(paste(p.1$w[p.1$n == "plot.p"], "Legends/sasnow2012_tgs.png", sep = ""), width = p.width, height = p.height, pointsize = 8)
+par(mar = c(0, 0, 0, 0), omi = c(0, 0, 0, 0))
+plot(1, 1, type = "n", xlab = "", ylab  =  "", xaxt = "n", yaxt = "n", cex.axis = 3, xlim = c(0, 2), ylim = c(0, 2))
+legend(1, 1.6, c("Tgs 1","Tgs 2","Tgs 3","Tgs 4"),
+       col = c("#ed9d1d", "#ae2f27", "#061f4b","#2349a6"),
+       lty = 1, cex = 4, lwd = 4, bty = "n", xjust = 0.5)
+text(1, 1.9, " Surface temperature \n [°C] ", cex = 4)
+#text(1, 1.6, "depth [m]", cex = 3)
+text(1, 0.2, "SaSnow2012", cex = 2)
+text(1, 0.15, "72.37419°, 126.49589°", cex = 2)
+dev.off()
+
+#
+# SaSnow2012 T air ----
+#
+
 png(paste(p.1$w[p.1$n == "plot.p"], "Legends/SaSnow2012_airt.png", sep = ""), width = p.width, height = p.height, pointsize = 8)
 par(mar = c(0, 0, 0, 0), omi = c(0, 0, 0, 0))
 plot(1, 1, type = "n", xlab = "", ylab  =  "", xaxt = "n", yaxt = "n", cex.axis = 3, xlim = c(0, 2), ylim = c(0, 2))
@@ -961,7 +1316,7 @@ text(1, 0.15, "72.37419°, 126.49589°", cex = 2)
 dev.off()
 
 #
-# SaSnow2012 Snow Depth ----
+# SaSnow2012 Dsn ----
 #
 
 png(paste(p.1$w[p.1$n == "plot.p"], "Legends/SaSnow2012_sh.png", sep = ""), width = p.width, height = p.height, pointsize = 8)
@@ -977,7 +1332,7 @@ text(1, 0.15, "72.37419°, 126.49589°", cex = 2)
 dev.off()
 
 #
-# SaSnow2012 Snow Temperature ----
+# SaSnow2012 T Snow ----
 #
 
 png(paste(p.1$w[p.1$n == "plot.p"], "Legends/SaSnow2012_snowt.png", sep = ""), width = p.width, height = p.height, pointsize = 8)
@@ -993,20 +1348,24 @@ text(1, 0.15, "72.37419°, 126.49589°", cex = 2)
 dev.off()
 
 #
-# SnowPackAnalyzer - snow properties ----
-#
+# SaSnow2012 SPA snow density (rho) ----
+# SnowPackAnalyzer - snow properties
 
 png(paste(p.1$w[p.1$n == "plot.p"], "Legends/SaSnow2012_rho.png", sep = ""), width = p.width, height = p.height, pointsize = 8)
 par(mar = c(0, 0, 0, 0), omi = c(0, 0, 0, 0))
 plot(1, 1, type = "n", xlab = "", ylab  =  "", xaxt = "n", yaxt = "n", cex.axis = 3, xlim = c(0, 2), ylim = c(0, 2))
 legend(1, 1.6, c("2", "3", "4"),
-       col = c("#6A5ACD", "#EE7AE9", "#9ACD32"),
+       col = c("chocolate", "burlywood4", "darkseagreen"),
        lty = 1, cex = 4, lwd = 4, bty = "n", xjust = 0.5)
 text(1, 1.9, " Snow \n density \n [kg/m³] ", cex = 4)
 text(1, 1.6, "band number", cex = 3)
 text(1, 0.2, "SaSnow2012", cex = 2)
 text(1, 0.15, "72.37419°, 126.49589°", cex = 2)
 dev.off()
+
+#
+## SaSnow2012 SPA water content ----
+# 
 
 png(paste(p.1$w[p.1$n == "plot.p"], "Legends/SaSnow2012_wc.png", sep = ""), width = p.width, height = p.height, pointsize = 8)
 par(mar = c(0, 0, 0, 0), omi = c(0, 0, 0, 0))
@@ -1021,35 +1380,39 @@ text(1, 0.15, "72.37419°, 126.49589°", cex = 2)
 dev.off()
 
 #
-# SaPond2006 Snow depth ----
-#
+## SaSnow2012 SPA ice content ----
+# 
 
-png(paste(p.1$w[p.1$n == "plot.p"], "Legends/SaPond2006_Dsn.png", sep = ""), width = p.width, height = p.height, pointsize = 8)
+png(paste(p.1$w[p.1$n == "plot.p"], "Legends/SaSnow2012_ice.png", sep = ""), width = p.width, height = p.height, pointsize = 8)
 par(mar = c(0, 0, 0, 0), omi = c(0, 0, 0, 0))
 plot(1, 1, type = "n", xlab = "", ylab  =  "", xaxt = "n", yaxt = "n", cex.axis = 3, xlim = c(0, 2), ylim = c(0, 2))
-legend(1, 1.6, c("snow depth"),
-       col = c("#8B8989"),
+legend(1, 1.6, c("02", "03", "04"),
+       col = c("chocolate", "burlywood4", "darkseagreen"),
        lty = 1, cex = 4, lwd = 4, bty = "n", xjust = 0.5)
-text(1, 1.9, " Snow \n depth \n [m] ", cex = 4)
-text(1, 1.6, "", cex = 3)
-text(1, 0.2, "SaPond2006", cex = 2)
-text(1, 0.15, "72.37008°, 126.48339°", cex = 2)
-dev.off()
-
-png(paste(p.1$w[p.1$n == "plot.p"], "Legends/SaPond2006_WT.png", sep = ""), width = p.width, height = p.height, pointsize = 8)
-par(mar = c(0, 0, 0, 0), omi = c(0, 0, 0, 0))
-plot(1, 1, type = "n", xlab = "", ylab  =  "", xaxt = "n", yaxt = "n", cex.axis = 3, xlim = c(0, 2), ylim = c(0, 2))
-legend(1, 1.6, c("water table"),
-       col = c("#8B8989"),
-       lty = 1, cex = 4, lwd = 4, bty = "n", xjust = 0.5)
-text(1, 1.9, " Water \n table \n [m] ", cex = 4)
-text(1, 1.6, "", cex = 3)
-text(1, 0.2, "SaPond2006", cex = 2)
-text(1, 0.15, "72.37008°, 126.48339°", cex = 2)
+text(1, 1.9, " Ice \n content \n [%] ", cex = 4)
+text(1, 1.6, "sensor", cex = 3)
+text(1, 0.2, "SaSnow2012", cex = 2)
+text(1, 0.15, "72.37419°, 126.49589°", cex = 2)
 dev.off()
 
 #
-# SaSoil2010 ----
+## SaSnow2012 SPA SWE snow water equivalent ----
+# 
+
+png(paste(p.1$w[p.1$n == "plot.p"], "Legends/SaSnow2012_swe.png", sep = ""), width = p.width, height = p.height, pointsize = 8)
+par(mar = c(0, 0, 0, 0), omi = c(0, 0, 0, 0))
+plot(1, 1, type = "n", xlab = "", ylab  =  "", xaxt = "n", yaxt = "n", cex.axis = 3, xlim = c(0, 2), ylim = c(0, 2))
+legend(1, 1.6, c("02", "03", "04"),
+       col = c("chocolate", "burlywood4", "darkseagreen"),
+       lty = 1, cex = 4, lwd = 4, bty = "n", xjust = 0.5)
+text(1, 1.9, " Snow water \n equivalent \n SWE ", cex = 4)
+text(1, 1.6, "sensor", cex = 3)
+text(1, 0.2, "SaSnow2012", cex = 2)
+text(1, 0.15, "72.37419°, 126.49589°", cex = 2)
+dev.off()
+
+#
+## SaSoil2010 Dsn----
 #
 
 png(paste(p.1$w[p.1$n == "plot.p"], "Legends/SaSoil2010_sh.png", sep = ""), width = p.width, height = p.height, pointsize = 8)
@@ -1092,73 +1455,7 @@ text(1, 0.2, "SaSnow2016", cex = 2)
 text(1, 0.15, "72.36944°, 126.47644°", cex = 2)
 dev.off()
 
-#
-# SaPond2006 Radiation ----
-#
 
-png(paste(p.1$w[p.1$n == "plot.p"], "Legends/SaPond2006_rad_net1.png", sep = ""), width = p.width, height = p.height, pointsize = 8)
-par(mar = c(0, 0, 0, 0), omi = c(0, 0, 0, 0))
-plot(1, 1, type = "n", xlab = "", ylab  =  "", xaxt = "n", yaxt = "n", cex.axis = 3, xlim = c(0, 2), ylim = c(0, 2))
-legend(1, 1.6, c("netto radiation"),
-       col = c("#8B1C62"),
-       lty = 1, cex = 4, lwd = 4, bty = "n", xjust = 0.5)
-text(1, 1.9, " Netto radiation \n (edge) \n [W/m²]", cex = 4)
-text(1, 1.6, "", cex = 3)
-text(1, 0.2, "SaPond2006", cex = 2)
-text(1, 0.15, "72.37008°, 126.48339°", cex = 2)
-dev.off()
-
-png(paste(p.1$w[p.1$n == "plot.p"], "Legends/SaPond2006_rad_net2.png", sep = ""), width = p.width, height = p.height, pointsize = 8)
-par(mar = c(0, 0, 0, 0), omi = c(0, 0, 0, 0))
-plot(1, 1, type = "n", xlab = "", ylab  =  "", xaxt = "n", yaxt = "n", cex.axis = 3, xlim = c(0, 2), ylim = c(0, 2))
-legend(1, 1.6, c("netto radiation"),
-       col = c("#8B1C62"),
-       lty = 1, cex = 4, lwd = 4, bty = "n", xjust = 0.5)
-text(1, 1.9, " Netto radiation \n (center) \n [W/m²]", cex = 4)
-text(1, 1.6, "", cex = 3)
-text(1, 0.2, "SaPond2006", cex = 2)
-text(1, 0.15, "72.37008°, 126.48339°", cex = 2)
-dev.off()
-
-#
-# SaSnow2012 air temperature, humidity, precipitation ----
-#
-
-png(paste(p.1$w[p.1$n == "plot.p"], "Legends/SaSnow2012_airt.png", sep = ""), width = p.width, height = p.height, pointsize = 8)
-par(mar = c(0, 0, 0, 0), omi = c(0, 0, 0, 0))
-plot(1, 1, type = "n", xlab = "", ylab  =  "", xaxt = "n", yaxt = "n", cex.axis = 3, xlim = c(0, 2), ylim = c(0, 2))
-legend(1, 1.6, c("temperature", "daily mean"),
-       col = c("#CDBE70", "#CD6600"),
-       lty = 1, cex = 4, lwd = 4, bty = "n", xjust = 0.5)
-text(1, 1.9, " Air temperature \n at 0.8 m \n [°C]", cex = 4)
-text(1, 1.6, "", cex = 3)
-text(1, 0.2, "SaSnow2012", cex = 2)
-text(1, 0.15, "72.37419°, 126.49589°", cex = 2)
-dev.off()
-
-png(paste(p.1$w[p.1$n == "plot.p"], "Legends/SaSnow2012_hum.png", sep = ""), width = p.width, height = p.height, pointsize = 8)
-par(mar = c(0, 0, 0, 0), omi = c(0, 0, 0, 0))
-plot(1, 1, type = "n", xlab = "", ylab  =  "", xaxt = "n", yaxt = "n", cex.axis = 3, xlim = c(0, 2), ylim = c(0, 2))
-legend(1, 1.6, c("humidity", "daily mean"),
-       col = c("#66CDAA", "#458B74"),
-       lty = 1, cex = 4, lwd = 4, bty = "n", xjust = 0.5)
-text(1, 1.9, " Humidity \n at 2 m \n [°C]", cex = 4)
-text(1, 1.6, "", cex = 3)
-text(1, 0.2, "SaSnow2012", cex = 2)
-text(1, 0.15, "72.37419°, 126.49589°", cex = 2)
-dev.off()
-
-png(paste(p.1$w[p.1$n == "plot.p"], "Legends/SaSnow2012_prec.png", sep = ""), width = p.width, height = p.height, pointsize = 8)
-par(mar = c(0, 0, 0, 0), omi = c(0, 0, 0, 0))
-plot(1, 1, type = "n", xlab = "", ylab  =  "", xaxt = "n", yaxt = "n", cex.axis = 3, xlim = c(0, 2), ylim = c(0, 2))
-legend(1, 1.6, c("hourly", "daily"),
-       col = c("#00868B", "#36648B"),
-       lty = 1, cex = 4, lwd = 4, bty = "n", xjust = 0.5)
-text(1, 1.9, " Precipitation \n at 2 m \n [°C]", cex = 4)
-text(1, 1.6, "", cex = 3)
-text(1, 0.2, "SaSnow2012", cex = 2)
-text(1, 0.15, "72.37419°, 126.49589°", cex = 2)
-dev.off()
 
 #
 # SaSnow2016 Status ----
@@ -1206,7 +1503,7 @@ text(1, 0.15, "68.74172°, -133.49689 E°", cex = 2)
 dev.off()
 
 
-# volumetric water content ----
+# TVCSoil2016 volumetric water content ----
 # horizontal
 png(paste(p.1$w[p.1$n == "plot.p"], "Legends/TVCSoil2016_vwc_h.png", sep = ""), width = p.width, height = p.height, pointsize = 8)
 par(mar = c(0, 0, 0, 0), omi = c(0, 0, 0, 0))

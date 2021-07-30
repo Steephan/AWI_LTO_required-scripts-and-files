@@ -1,5 +1,5 @@
 "station","dataset","variable","begin","end","check3","controller3"
-"TVC","TVCSoil2016","Ts_2","1998","2020","2020-04-09 15:27:24","SL"
+"TVC","TVCSoil2016","Ts_2","1998","2021","2021-06-15 14:40:00","SL"
 "TVC","TVCSoil2016","Ts_5","1998","2020","2020-04-09 15:27:34","SL"
 "TVC","TVCSoil2016","Ts_10","1998","2020","2020-04-09 15:27:39","SL"
 "TVC","TVCSoil2016","Ts_20","1998","2020","2020-04-09 15:27:45","SL"
@@ -26,3 +26,22 @@
 "TVC","TVCSoil2016","cond_a_v_0",NA,NA,NA,NA
 "TVC","TVCSoil2016","cond_b_v_0",NA,NA,NA,NA
 "TVC","TVCSoil2016","cond_sn_v_0",NA,NA,NA,NA
+"TVC","TVCHole12015","Ts_4",NA,NA,NA,NA
+"TVC","TVCHole12015","Ts_20",NA,NA,NA,NA
+"TVC","TVCHole12015","Ts_117",NA,NA,NA,NA
+"TVC","TVCHole12015","Ts_217",NA,NA,NA,NA
+"TVC","TVCHole22015","Ts_4",NA,NA,NA,NA
+"TVC","TVCHole22015","Ts_27",NA,NA,NA,NA
+"TVC","TVCHole22015","Ts_118",NA,NA,NA,NA
+"TVC","TVCHole22015","Ts_218",NA,NA,NA,NA
+"TVC","TVCeccc","Tair",NA,NA,NA,NA
+"TVC","TVCeccc","Tdew",NA,NA,NA,NA
+"TVC","TVCeccc","RH",NA,NA,NA,NA
+"TVC","TVCeccc","prec",NA,NA,NA,NA
+"TVC","TVCeccc","wind_deg",NA,NA,NA,NA
+"TVC","TVCeccc","wind_v",NA,NA,NA,NA
+"TVC","TVCeccc","vis",NA,NA,NA,NA
+"TVC","TVCeccc","PA",NA,NA,NA,NA
+"TVC","TVCeccc","Hmdx",NA,NA,NA,NA
+"TVC","TVCeccc","chill",NA,NA,NA,NA
+"TVC","TVCeccc","Weather",NA,NA,NA,NA

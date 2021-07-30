@@ -763,6 +763,9 @@ SaSnow2012, water_4
 SaSnow2012, rho_2
 SaSnow2012, rho_3
 SaSnow2012, rho_4
+SaSnow2012, SWE_2
+SaSnow2012, SWE_3
+SaSnow2012, SWE_4
 SaSnow2012, cap_highFq_2
 SaSnow2012, cap_lowFq_2
 SaSnow2012, cap_highFq_3
@@ -823,10 +826,10 @@ SaSnow2012, Tsn_35
 SaSnow2012, Tsn_40
 SaSnow2012, Tsn_45
 SaSnow2012, Tsn_50
-SaSnow2012, Ts_00_1
-SaSnow2012, Ts_00_2
-SaSnow2012, Ts_00_3
-SaSnow2012, Ts_00_4
+SaSnow2012, Tgs_1
+SaSnow2012, Tgs_2
+SaSnow2012, Tgs_3
+SaSnow2012, Tgs_4
 SaSnow2012, Tair_80
 SaSnow2012, Ts_00
 SaSnow2012, Ts_05
@@ -846,8 +849,8 @@ SaSnow2012, Dsn_6
 SaSnow2012, Dsn_7
 SaSnow2012, Dsn_8
 SaSnow2012, Dsn_9
-SaSnow2012, Dist_Centre
-SaSnow2012, Dist_Crack
+SaSnow2012, Dist_center
+SaSnow2012, Dist_crack
 SaSnow2016, batt_U
 SaSnow2016, Tpan_CR1000
 SaSnow2016, Tair_170
