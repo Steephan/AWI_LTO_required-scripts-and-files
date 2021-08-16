@@ -272,6 +272,9 @@
 "Samoylov","SaSnow2012","rho_2","2018-01-01","SL",NA,NA
 "Samoylov","SaSnow2012","rho_3","2018-01-01","SL",NA,NA
 "Samoylov","SaSnow2012","rho_4","2018-01-01","SL",NA,NA
+"Samoylov","SaSnow2012","SWE_2","2018-01-01","SL",NA,NA
+"Samoylov","SaSnow2012","SWE_3","2018-01-01","SL",NA,NA
+"Samoylov","SaSnow2012","SWE_4","2018-01-01","SL",NA,NA
 "Samoylov","SaSnow2012","cap_highFq_2","2018-01-01","SL",NA,NA
 "Samoylov","SaSnow2012","cap_lowFq_2","2018-01-01","SL",NA,NA
 "Samoylov","SaSnow2012","cap_highFq_3","2018-01-01","SL",NA,NA
@@ -296,10 +299,10 @@
 "Samoylov","SaSnow2012","Tsn_40","2018-01-01","SL",NA,NA
 "Samoylov","SaSnow2012","Tsn_45","2018-01-01","SL",NA,NA
 "Samoylov","SaSnow2012","Tsn_50","2018-01-01","SL",NA,NA
-"Samoylov","SaSnow2012","Ts_00_1","2018-01-01","SL",NA,NA
-"Samoylov","SaSnow2012","Ts_00_2","2018-01-01","SL",NA,NA
-"Samoylov","SaSnow2012","Ts_00_3","2018-01-01","SL",NA,NA
-"Samoylov","SaSnow2012","Ts_00_4","2018-01-01","SL",NA,NA
+"Samoylov","SaSnow2012","Tgs_1","2018-01-01","SL",NA,NA
+"Samoylov","SaSnow2012","Tgs_2","2018-01-01","SL",NA,NA
+"Samoylov","SaSnow2012","Tgs_3","2018-01-01","SL",NA,NA
+"Samoylov","SaSnow2012","Tgs_4","2018-01-01","SL",NA,NA
 "Samoylov","SaSnow2012","Tair_80","2018-01-01","SL",NA,NA
 "Samoylov","SaSnow2012","Ts_00","2018-01-01","SL",NA,NA
 "Samoylov","SaSnow2012","Ts_05","2018-01-01","SL",NA,NA
@@ -319,5 +322,5 @@
 "Samoylov","SaSnow2012","Dsn_7","2018-01-01","SL",NA,NA
 "Samoylov","SaSnow2012","Dsn_8","2018-01-01","SL",NA,NA
 "Samoylov","SaSnow2012","Dsn_9","2018-01-01","SL",NA,NA
-"Samoylov","SaSnow2012","Dist_Centre","2018-01-01","SL",NA,NA
-"Samoylov","SaSnow2012","Dist_Crack","2018-01-01","SL",NA,NA
+"Samoylov","SaSnow2012","Dist_center","2018-01-01","SL",NA,NA
+"Samoylov","SaSnow2012","Dist_crack","2018-01-01","SL",NA,NA

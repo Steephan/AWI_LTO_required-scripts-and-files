@@ -366,6 +366,9 @@
 "Samoylov","SaSnow2012","rho_2",NA,NA,NA,NA
 "Samoylov","SaSnow2012","rho_3",NA,NA,NA,NA
 "Samoylov","SaSnow2012","rho_4",NA,NA,NA,NA
+"Samoylov","SaSnow2012","SWE_2",NA,NA,NA,NA
+"Samoylov","SaSnow2012","SWE_3",NA,NA,NA,NA
+"Samoylov","SaSnow2012","SWE_4",NA,NA,NA,NA
 "Samoylov","SaSnow2012","cap_highFq_2",NA,NA,NA,NA
 "Samoylov","SaSnow2012","cap_lowFq_2",NA,NA,NA,NA
 "Samoylov","SaSnow2012","cap_highFq_3",NA,NA,NA,NA
@@ -390,10 +393,10 @@
 "Samoylov","SaSnow2012","Tsn_40",NA,NA,NA,NA
 "Samoylov","SaSnow2012","Tsn_45",NA,NA,NA,NA
 "Samoylov","SaSnow2012","Tsn_50",NA,NA,NA,NA
-"Samoylov","SaSnow2012","Ts_00_1",NA,NA,NA,NA
-"Samoylov","SaSnow2012","Ts_00_2",NA,NA,NA,NA
-"Samoylov","SaSnow2012","Ts_00_3",NA,NA,NA,NA
-"Samoylov","SaSnow2012","Ts_00_4",NA,NA,NA,NA
+"Samoylov","SaSnow2012","Tgs_1",NA,NA,NA,NA
+"Samoylov","SaSnow2012","Tgs_2",NA,NA,NA,NA
+"Samoylov","SaSnow2012","Tgs_3",NA,NA,NA,NA
+"Samoylov","SaSnow2012","Tgs_4",NA,NA,NA,NA
 "Samoylov","SaSnow2012","Tair_80",NA,NA,NA,NA
 "Samoylov","SaSnow2012","Ts_00",NA,NA,NA,NA
 "Samoylov","SaSnow2012","Ts_05",NA,NA,NA,NA
@@ -413,8 +416,8 @@
 "Samoylov","SaSnow2012","Dsn_7",NA,NA,NA,NA
 "Samoylov","SaSnow2012","Dsn_8",NA,NA,NA,NA
 "Samoylov","SaSnow2012","Dsn_9",NA,NA,NA,NA
-"Samoylov","SaSnow2012","Dist_Centre",NA,NA,NA,NA
-"Samoylov","SaSnow2012","Dist_Crack",NA,NA,NA,NA
+"Samoylov","SaSnow2012","Dist_center",NA,NA,NA,NA
+"Samoylov","SaSnow2012","Dist_crack",NA,NA,NA,NA
 "Samoylov","SaSnow2016","Tair_170",NA,NA,NA,NA
 "Samoylov","SaSnow2016","Tair_sd_170",NA,NA,NA,NA
 "Samoylov","SaSnow2016","Dsn",NA,NA,NA,NA

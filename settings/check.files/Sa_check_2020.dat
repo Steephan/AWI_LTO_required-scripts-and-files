@@ -61,17 +61,17 @@
 "Samoylov","SaSoil2002","cond_center_33","2021-05-21 11:43:17","BC","2021-07-29 09:55:58","NB"
 "Samoylov","SaSoil2002","cond_center_43","2021-05-21 11:43:10","BC","2021-07-29 09:56:27","NB"
 "Samoylov","SaSoil2002","cond_slope_5","2021-05-21 11:47:19","BC","2021-07-29 09:57:44","NB"
-"Samoylov","SaSoil2002","cond_slope_14","2021-05-21 11:47:14","BC",NA,NA
-"Samoylov","SaSoil2002","cond_slope_23","2021-05-21 11:47:09","BC",NA,NA
-"Samoylov","SaSoil2002","cond_slope_33","2021-05-21 11:47:01","BC",NA,NA
-"Samoylov","SaSoil2002","cond_slope_43","2021-05-21 11:46:33","BC",NA,NA
-"Samoylov","SaSoil2002","cond_rim_5","2021-05-21 11:56:24","BC",NA,NA
-"Samoylov","SaSoil2002","cond_rim_12","2021-05-21 11:56:18","BC",NA,NA
-"Samoylov","SaSoil2002","cond_rim_15","2021-05-21 11:56:11","BC",NA,NA
-"Samoylov","SaSoil2002","cond_rim_22","2021-05-21 11:56:06","BC",NA,NA
-"Samoylov","SaSoil2002","cond_rim_26","2021-05-21 11:55:45","BC","2021-07-29 15:40:14","NB"
+"Samoylov","SaSoil2002","cond_slope_14","2021-05-21 11:47:14","BC","2021-08-02 09:27:43","NB"
+"Samoylov","SaSoil2002","cond_slope_23","2021-05-21 11:47:09","BC","2021-08-02 09:28:00","NB"
+"Samoylov","SaSoil2002","cond_slope_33","2021-05-21 11:47:01","BC","2021-08-02 09:32:34","NB"
+"Samoylov","SaSoil2002","cond_slope_43","2021-05-21 11:46:33","BC","2021-08-02 16:12:39","NB"
+"Samoylov","SaSoil2002","cond_rim_5","2021-05-21 11:56:24","BC","2021-08-02 16:13:35","NB"
+"Samoylov","SaSoil2002","cond_rim_12","2021-05-21 11:56:18","BC","2021-08-02 16:13:54","NB"
+"Samoylov","SaSoil2002","cond_rim_15","2021-05-21 11:56:11","BC","2021-08-02 16:14:58","NB"
+"Samoylov","SaSoil2002","cond_rim_22","2021-05-21 11:56:06","BC","2021-08-02 16:15:21","NB"
+"Samoylov","SaSoil2002","cond_rim_26","2021-05-21 11:55:45","BC","2021-08-02 16:15:51","NB"
 "Samoylov","SaSoil2002","cond_rim_34","2021-05-21 11:55:40","BC","2021-07-29 14:54:42","NB"
-"Samoylov","SaSoil2002","cond_rim_37","2021-05-21 11:55:36","BC",NA,NA
+"Samoylov","SaSoil2002","cond_rim_37","2021-05-21 11:55:36","BC","2021-08-02 09:26:27","NB"
 "Samoylov","SaSoil2002","cond_rim_50","2021-05-21 11:55:31","BC","2021-07-29 14:52:04","NB"
 "Samoylov","SaSoil2002","cond_rim_60","2021-05-21 11:55:24","BC","2021-07-29 14:50:58","NB"
 "Samoylov","SaSoil2002","cond_rim_70","2021-05-21 11:55:16","BC","2021-07-29 14:50:11","NB"
@@ -177,10 +177,10 @@
 "Samoylov","SaSoil2012","Cv_cen_95",NA,NA,NA,NA
 "Samoylov","SaSoil2012","Cv_rim_16",NA,NA,NA,NA
 "Samoylov","SaSoil2012","Cv_rim_99",NA,NA,NA,NA
-"Samoylov","SaMet2002","Tair_a_200",NA,NA,NA,NA
-"Samoylov","SaMet2002","Tair_a_50",NA,NA,NA,NA
-"Samoylov","SaMet2002","Tair_b_200",NA,NA,NA,NA
-"Samoylov","SaMet2002","Tair_b_50",NA,NA,NA,NA
+"Samoylov","SaMet2002","Tair_a_200","2021-08-03 13:18:42","NB",NA,NA
+"Samoylov","SaMet2002","Tair_a_50","2021-08-03 10:19:15","NB",NA,NA
+"Samoylov","SaMet2002","Tair_b_200","2021-08-03 10:19:43","NB",NA,NA
+"Samoylov","SaMet2002","Tair_b_50","2021-08-03 10:20:22","NB",NA,NA
 "Samoylov","SaMet2002","RH_200",NA,NA,NA,NA
 "Samoylov","SaMet2002","RH_50",NA,NA,NA,NA
 "Samoylov","SaMet2002","wind_v_300",NA,NA,NA,NA
@@ -188,19 +188,19 @@
 "Samoylov","SaMet2002","wind_sddeg_300",NA,NA,NA,NA
 "Samoylov","SaMet2002","wind_vmax_300",NA,NA,NA,NA
 "Samoylov","SaMet2002","wind_vmin_300",NA,NA,NA,NA
-"Samoylov","SaMet2002","prec",NA,NA,NA,NA
-"Samoylov","SaMet2002","PA",NA,NA,NA,NA
-"Samoylov","SaMet2002","SwIn",NA,NA,NA,NA
-"Samoylov","SaMet2002","SwOut",NA,NA,NA,NA
-"Samoylov","SaMet2002","LwIn",NA,NA,NA,NA
-"Samoylov","SaMet2002","LwOut",NA,NA,NA,NA
-"Samoylov","SaMet2002","SwNet",NA,NA,NA,NA
-"Samoylov","SaMet2002","LwNet",NA,NA,NA,NA
+"Samoylov","SaMet2002","prec","2021-08-03 10:29:10","NB",NA,NA
+"Samoylov","SaMet2002","PA","2021-08-03 10:36:59","NB",NA,NA
+"Samoylov","SaMet2002","SwIn","2021-08-03 13:49:40","NB",NA,NA
+"Samoylov","SaMet2002","SwOut","2021-08-04 14:22:52","NB",NA,NA
+"Samoylov","SaMet2002","LwIn","2021-08-04 14:22:19","NB",NA,NA
+"Samoylov","SaMet2002","LwOut","2021-08-03 10:49:11","NB",NA,NA
+"Samoylov","SaMet2002","SwNet","2021-08-04 15:00:20","NB",NA,NA
+"Samoylov","SaMet2002","LwNet","2021-08-04 14:59:29","NB",NA,NA
 "Samoylov","SaMet2002","Albedo",NA,NA,NA,NA
-"Samoylov","SaMet2002","RadNet",NA,NA,NA,NA
-"Samoylov","SaMet2002","Ts_1",NA,NA,NA,NA
-"Samoylov","SaMet2002","Ts_3",NA,NA,NA,NA
-"Samoylov","SaMet2002","Ts_6",NA,NA,NA,NA
+"Samoylov","SaMet2002","RadNet","2021-08-03 13:51:14","NB",NA,NA
+"Samoylov","SaMet2002","Ts_1","2021-08-04 15:02:33","NB",NA,NA
+"Samoylov","SaMet2002","Ts_3","2021-08-04 15:02:52","NB",NA,NA
+"Samoylov","SaMet2002","Ts_6","2021-08-04 15:03:13","NB",NA,NA
 "Samoylov","SaMet2002","WT",NA,NA,NA,NA
 "Samoylov","SaMet2002","WL",NA,NA,NA,NA
 "Samoylov","SaPrec2019","prec",NA,NA,NA,NA
@@ -215,6 +215,9 @@
 "Samoylov","SaSnow2012","rho_2",NA,NA,NA,NA
 "Samoylov","SaSnow2012","rho_3",NA,NA,NA,NA
 "Samoylov","SaSnow2012","rho_4",NA,NA,NA,NA
+"Samoylov","SaSnow2012","SWE_2",NA,NA,NA,NA
+"Samoylov","SaSnow2012","SWE_3",NA,NA,NA,NA
+"Samoylov","SaSnow2012","SWE_4",NA,NA,NA,NA
 "Samoylov","SaSnow2012","cap_highFq_2",NA,NA,NA,NA
 "Samoylov","SaSnow2012","cap_lowFq_2",NA,NA,NA,NA
 "Samoylov","SaSnow2012","cap_highFq_3",NA,NA,NA,NA
@@ -239,10 +242,10 @@
 "Samoylov","SaSnow2012","Tsn_40",NA,NA,NA,NA
 "Samoylov","SaSnow2012","Tsn_45",NA,NA,NA,NA
 "Samoylov","SaSnow2012","Tsn_50",NA,NA,NA,NA
-"Samoylov","SaSnow2012","Ts_00_1",NA,NA,NA,NA
-"Samoylov","SaSnow2012","Ts_00_2",NA,NA,NA,NA
-"Samoylov","SaSnow2012","Ts_00_3",NA,NA,NA,NA
-"Samoylov","SaSnow2012","Ts_00_4",NA,NA,NA,NA
+"Samoylov","SaSnow2012","Tgs_1",NA,NA,NA,NA
+"Samoylov","SaSnow2012","Tgs_2",NA,NA,NA,NA
+"Samoylov","SaSnow2012","Tgs_3",NA,NA,NA,NA
+"Samoylov","SaSnow2012","Tgs_4",NA,NA,NA,NA
 "Samoylov","SaSnow2012","Tair_80",NA,NA,NA,NA
 "Samoylov","SaSnow2012","Ts_00",NA,NA,NA,NA
 "Samoylov","SaSnow2012","Ts_05",NA,NA,NA,NA
@@ -262,5 +265,5 @@
 "Samoylov","SaSnow2012","Dsn_7",NA,NA,NA,NA
 "Samoylov","SaSnow2012","Dsn_8",NA,NA,NA,NA
 "Samoylov","SaSnow2012","Dsn_9",NA,NA,NA,NA
-"Samoylov","SaSnow2012","Dist_Centre",NA,NA,NA,NA
-"Samoylov","SaSnow2012","Dist_Crack",NA,NA,NA,NA
+"Samoylov","SaSnow2012","Dist_center",NA,NA,NA,NA
+"Samoylov","SaSnow2012","Dist_crack",NA,NA,NA,NA
