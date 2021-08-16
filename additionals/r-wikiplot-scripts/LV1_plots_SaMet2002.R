@@ -30,8 +30,8 @@
 
 options(scipen = 100, stringsAsFactors = F, digits = 2, scientific = T) # for non-exponential display of numeric values
 origin <- "1970-01-01"
-# run.year <- 2018:2021 #2002:2021
-#run.year <- 2020
+# run.year <- 2002:2021#2018:2021 #
+#run.year <- 2004
 
 zack <- 1
 months <- c("01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12")
@@ -96,7 +96,7 @@ for (year_i in run.year) {
     #        xlim=xxlim, ylim=c(-5,5),col="red")
     points(as.numeric(strptime(db.samet.lvl1$UTC, format = "%Y-%m-%d %H:%M")), db.samet.lvl1$SwOut / db.samet.lvl1$SwIn,
       pch = 20, cex.lab = 1.5, cex.axis = 1.7,
-      xlim = xxlim, ylim = c(-5, 5), col = "plum"
+      xlim = xxlim, ylim = c(-5, 5), col = "#551A8B"
     ) # albedo = out/in
 
     axis(2, at = c(0, 0.5, 1), labels = c(0, 50, 100), las = 2, cex.axis = 4)
@@ -345,11 +345,11 @@ for (year_i in run.year) {
       lines(c(pp, pp), c(-20, 720), col = "gray80")
     } # vertical lines
 
-    points(as.numeric(strptime(db.samet.lvl1$UTC[lw_in], format = "%Y-%m-%d %H:%M")), db.samet.lvl1$LwOut[lw_out],
+    points(as.numeric(strptime(db.samet.lvl1$UTC[lw_out], format = "%Y-%m-%d %H:%M")), db.samet.lvl1$LwOut[lw_out],
       pch = 20, cex.lab = 1.5, cex.axis = 1.7,
       col = "mediumpurple3"
     )
-    points(as.numeric(strptime(db.samet.lvl1$UTC[lw_out], format = "%Y-%m-%d %H:%M")), db.samet.lvl1$LwIn[lw_in],
+    points(as.numeric(strptime(db.samet.lvl1$UTC[lw_in], format = "%Y-%m-%d %H:%M")), db.samet.lvl1$LwIn[lw_in],
       pch = 20, cex.lab = 1.5,
       col = "khaki3"
     )
@@ -416,6 +416,10 @@ for (year_i in run.year) {
     points(as.numeric(strptime(db.samet.lvl1$UTC[Tair1_zero], format = "%Y-%m-%d %H:%M")), db.samet.lvl1$Tair_a_200[Tair1_zero],
            pch = 20, cex.lab = 1.5, cex.axis = 1.7,
            col = "lightgoldenrod3"
+    )    
+    points(as.numeric(strptime(db.samet.lvl1$UTC[Tair1_flags], format = "%Y-%m-%d %H:%M")), db.samet.lvl1$Tair_a_200[Tair1_flags],
+                pch = 20, cex.lab = 1.5, cex.axis = 1.7,
+                col = "navy"
     )
     points(as.numeric(strptime(murr[, 1], format = "%Y-%m-%d")) + 43200,
            murr[, 2], pch = 20, cex.lab = 1.5, cex.axis = 1.7, cex = 2.5, col = "darkorange3")
@@ -782,12 +786,17 @@ for (year_i in run.year) {
       lines(c(pp, pp), c(0, 100), col = "gray80")
     } # vertical lines
     points(as.numeric(strptime(db.samet.lvl1$UTC[hum_zero], format = "%Y-%m-%d %H:%M")), db.samet.lvl1$RH_200[hum_zero],
-      pch = 20, cex.lab = 1.5, cex.axis = 1.7,
-      col = "aquamarine3"
+           pch = 20, cex.lab = 1.5, cex.axis = 1.7,
+           col = "aquamarine3"
+    )    
+    points(as.numeric(strptime(db.samet.lvl1$UTC[hum_flags], format = "%Y-%m-%d %H:%M")), db.samet.lvl1$RH_200[hum_flags],
+           pch = 20, cex.lab = 1.5, cex.axis = 1.7,
+           col = "firebrick2"
     )
     
     points(as.numeric(strptime(humr[, 1], format = "%Y-%m-%d")) + 43200,
            humr[, 2], pch = 20, cex.lab = 1.5, cex.axis = 1.7, cex = 2.5, col = "aquamarine4")
+
     
     axis(2, at = seq(0, 100, 10), labels = seq(0, 100, 10), las = 2, cex.axis = 4)
     axis(3, at = c(as.numeric(strptime(lischt[-c(1, 13)], format = "%Y-%m-%d %H:%M"))), labels = c("", "", "", "", "", "", "", "", "", "", ""), las = 2, tcl = 0.5, cex.axis = 4)
@@ -795,6 +804,9 @@ for (year_i in run.year) {
     text(as.numeric(strptime(lischt[11], format = "%Y-%m-%d %H:%M")) + 2000000, 7, year_i, las = 2, cex = 6)
     dev.off()
 
+    
+    
+    
     png(paste0(p.1$w[p.1$n == "plot.p"], year_i, "/SaMet2002_RH_50_", year_i, ".png"), width = p.width, height = p.height, pointsize = 8)
     par(mar = c(1, 8, 1, 1), omi = c(0, 0, 0, 0))
     plot(as.numeric(strptime(db.samet.lvl1$UTC, format = "%Y-%m-%d %H:%M")), db.samet.lvl1$RH_50,

@@ -750,6 +750,22 @@ text(1, 0.15, "72.36997°, 126.48069°", cex = 2)
 dev.off()
 
 #
+# SaMet2002 Wind ----
+#
+
+png(paste(p.1$w[p.1$n == "plot.p"], "Legends/SaMet2002_wind.png", sep = ""), width = p.width, height = p.height, pointsize = 8)
+par(mar = c(0, 0, 0, 0), omi = c(0, 0, 0, 0))
+plot(1, 1, type = "n", xlab = "", ylab  =  "", xaxt = "n", yaxt = "n", cex.axis = 3, xlim = c(0, 2), ylim = c(0, 2))
+legend(1, 1.6, c("direction", "speed","speed\n(daily mean)"),
+       col = c("blue","green","forestgreen"),
+       lty = 1, cex = 4, lwd = 4, bty = "n", xjust = 0.5)
+text(1, 1.9, "Wind\n[deg] [m/s]", cex = 4)
+text(1, 1.6, "", cex = 3)
+text(1, 0.2, "SaMet2002", cex = 2)
+text(1, 0.15, "72.36997°, 126.48069°", cex = 2)
+dev.off()
+
+#
 # SaMet2002 Radiation ----
 #
 
@@ -804,8 +820,8 @@ dev.off()
 png(paste(p.1$w[p.1$n == "plot.p"], "Legends/SaMet2002_albedo.png", sep = ""), width = p.width, height = p.height, pointsize = 8)
 par(mar = c(0, 0, 0, 0), omi = c(0, 0, 0, 0))
 plot(1, 1, type = "n", xlab = "", ylab  =  "", xaxt = "n", yaxt = "n", cex.axis = 3, xlim = c(0, 2), ylim = c(0, 2))
-legend(1, 1.6, c("albedo", "flagged"),
-       col = c("#551A8B", "#FF0000"),
+legend(1, 1.6, c("albedo"),
+       col = c("#551A8B"),
        lty = 1, cex = 4, lwd = 4, bty = "n", xjust = 0.5)
 text(1, 1.9, " Albedo ", cex = 4)
 text(1, 1.6, "", cex = 3)
@@ -820,8 +836,8 @@ dev.off()
 png(paste(p.1$w[p.1$n == "plot.p"], "Legends/SaMet2002_Tair200.png", sep = ""), width = p.width, height = p.height, pointsize = 8)
 par(mar = c(0, 0, 0, 0), omi = c(0, 0, 0, 0))
 plot(1, 1, type = "n", xlab = "", ylab  =  "", xaxt = "n", yaxt = "n", cex.axis = 3, xlim = c(0, 2), ylim = c(0, 2))
-legend(1, 1.6, c("temperature", "daily mean"),
-       col = c("#CDBE70", "#CD6600"),
+legend(1, 1.6, c("temperature", "daily mean","flagged"),
+       col = c("#CDBE70", "#CD6600","navy"),
        lty = 1, cex = 4, lwd = 4, bty = "n", xjust = 0.5)
 text(1, 1.9, "Air temperature\nat 2 m\n[°C]", cex = 4)
 text(1, 1.6, "", cex = 3)
@@ -847,8 +863,8 @@ dev.off()
 png(paste(p.1$w[p.1$n == "plot.p"], "Legends/SaMet2002_hum200.png", sep = ""), width = p.width, height = p.height, pointsize = 8)
 par(mar = c(0, 0, 0, 0), omi = c(0, 0, 0, 0))
 plot(1, 1, type = "n", xlab = "", ylab  =  "", xaxt = "n", yaxt = "n", cex.axis = 3, xlim = c(0, 2), ylim = c(0, 2))
-legend(1, 1.6, c("humidity", "daily mean"),
-       col = c("#66CDAA", "#458B74"),
+legend(1, 1.6, c("humidity", "daily mean","flagged"),
+       col = c("#66CDAA", "#458B74","firebrick2"),
        lty = 1, cex = 4, lwd = 4, bty = "n", xjust = 0.5)
 text(1, 1.9, "Humidity\nat 2 m\n[%]", cex = 4)
 text(1, 1.6, "", cex = 3)
