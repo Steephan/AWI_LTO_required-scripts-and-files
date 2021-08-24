@@ -177,17 +177,17 @@
 "Samoylov","SaSoil2012","Cv_cen_95",NA,NA,NA,NA
 "Samoylov","SaSoil2012","Cv_rim_16",NA,NA,NA,NA
 "Samoylov","SaSoil2012","Cv_rim_99",NA,NA,NA,NA
-"Samoylov","SaMet2002","Tair_a_200","2021-08-03 13:18:42","NB",NA,NA
+"Samoylov","SaMet2002","Tair_a_200","2021-08-17 14:45:39","NB",NA,NA
 "Samoylov","SaMet2002","Tair_a_50","2021-08-03 10:19:15","NB",NA,NA
 "Samoylov","SaMet2002","Tair_b_200","2021-08-03 10:19:43","NB",NA,NA
 "Samoylov","SaMet2002","Tair_b_50","2021-08-03 10:20:22","NB",NA,NA
-"Samoylov","SaMet2002","RH_200",NA,NA,NA,NA
-"Samoylov","SaMet2002","RH_50",NA,NA,NA,NA
-"Samoylov","SaMet2002","wind_v_300",NA,NA,NA,NA
-"Samoylov","SaMet2002","wind_deg_300",NA,NA,NA,NA
-"Samoylov","SaMet2002","wind_sddeg_300",NA,NA,NA,NA
-"Samoylov","SaMet2002","wind_vmax_300",NA,NA,NA,NA
-"Samoylov","SaMet2002","wind_vmin_300",NA,NA,NA,NA
+"Samoylov","SaMet2002","RH_200","2021-08-17 14:49:31","NB",NA,NA
+"Samoylov","SaMet2002","RH_50","2021-08-17 14:49:58","NB",NA,NA
+"Samoylov","SaMet2002","wind_v_300","2021-08-23 17:14:59","NB",NA,NA
+"Samoylov","SaMet2002","wind_deg_300","2021-08-23 17:14:42","NB",NA,NA
+"Samoylov","SaMet2002","wind_sddeg_300","2021-08-23 17:57:25","NB",NA,NA
+"Samoylov","SaMet2002","wind_vmax_300","2021-08-23 17:57:53","NB",NA,NA
+"Samoylov","SaMet2002","wind_vmin_300","2021-08-23 17:58:11","NB",NA,NA
 "Samoylov","SaMet2002","prec","2021-08-03 10:29:10","NB",NA,NA
 "Samoylov","SaMet2002","PA","2021-08-03 10:36:59","NB",NA,NA
 "Samoylov","SaMet2002","SwIn","2021-08-03 13:49:40","NB",NA,NA
@@ -196,13 +196,12 @@
 "Samoylov","SaMet2002","LwOut","2021-08-03 10:49:11","NB",NA,NA
 "Samoylov","SaMet2002","SwNet","2021-08-04 15:00:20","NB",NA,NA
 "Samoylov","SaMet2002","LwNet","2021-08-04 14:59:29","NB",NA,NA
-"Samoylov","SaMet2002","Albedo",NA,NA,NA,NA
+"Samoylov","SaMet2002","Albedo","2021-08-23 17:16:02","NB",NA,NA
 "Samoylov","SaMet2002","RadNet","2021-08-03 13:51:14","NB",NA,NA
 "Samoylov","SaMet2002","Ts_1","2021-08-04 15:02:33","NB",NA,NA
 "Samoylov","SaMet2002","Ts_3","2021-08-04 15:02:52","NB",NA,NA
 "Samoylov","SaMet2002","Ts_6","2021-08-04 15:03:13","NB",NA,NA
-"Samoylov","SaMet2002","WT",NA,NA,NA,NA
-"Samoylov","SaMet2002","WL",NA,NA,NA,NA
+"Samoylov","SaMet2002","WL","2021-08-23 17:59:39","NB",NA,NA
 "Samoylov","SaPrec2019","prec",NA,NA,NA,NA
 "Samoylov","SaPrec2019","prec_avg",NA,NA,NA,NA
 "Samoylov","SaPrec2019","Tring",NA,NA,NA,NA

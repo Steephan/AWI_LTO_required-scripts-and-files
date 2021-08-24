@@ -181,13 +181,13 @@
 "Samoylov","SaMet2002","Tair_a_50","2021-08-03 13:38:47","NB",NA,NA
 "Samoylov","SaMet2002","Tair_b_200","2021-08-04 14:13:08","NB",NA,NA
 "Samoylov","SaMet2002","Tair_b_50","2021-08-04 14:13:34","NB",NA,NA
-"Samoylov","SaMet2002","RH_200",NA,NA,NA,NA
-"Samoylov","SaMet2002","RH_50",NA,NA,NA,NA
-"Samoylov","SaMet2002","wind_v_300",NA,NA,NA,NA
-"Samoylov","SaMet2002","wind_deg_300",NA,NA,NA,NA
-"Samoylov","SaMet2002","wind_sddeg_300",NA,NA,NA,NA
-"Samoylov","SaMet2002","wind_vmax_300",NA,NA,NA,NA
-"Samoylov","SaMet2002","wind_vmin_300",NA,NA,NA,NA
+"Samoylov","SaMet2002","RH_200","2021-08-20 08:56:21","NB",NA,NA
+"Samoylov","SaMet2002","RH_50","2021-08-23 17:14:17","NB",NA,NA
+"Samoylov","SaMet2002","wind_v_300","2021-08-20 09:03:49","NB",NA,NA
+"Samoylov","SaMet2002","wind_deg_300","2021-08-20 09:03:55","NB",NA,NA
+"Samoylov","SaMet2002","wind_sddeg_300","2021-08-20 09:04:03","NB",NA,NA
+"Samoylov","SaMet2002","wind_vmax_300","2021-08-20 09:04:18","NB",NA,NA
+"Samoylov","SaMet2002","wind_vmin_300","2021-08-23 17:58:05","NB",NA,NA
 "Samoylov","SaMet2002","prec","2021-08-03 10:35:58","NB",NA,NA
 "Samoylov","SaMet2002","PA","2021-08-03 10:37:28","NB",NA,NA
 "Samoylov","SaMet2002","SwIn","2021-08-03 10:44:06","NB",NA,NA
@@ -196,13 +196,12 @@
 "Samoylov","SaMet2002","LwOut","2021-08-03 10:48:45","NB",NA,NA
 "Samoylov","SaMet2002","SwNet","2021-08-04 15:00:46","NB",NA,NA
 "Samoylov","SaMet2002","LwNet","2021-08-03 13:53:07","NB",NA,NA
-"Samoylov","SaMet2002","Albedo",NA,NA,NA,NA
+"Samoylov","SaMet2002","Albedo","2021-08-20 09:15:48","NB",NA,NA
 "Samoylov","SaMet2002","RadNet","2021-08-04 17:16:00","NB",NA,NA
 "Samoylov","SaMet2002","Ts_1","2021-08-04 15:01:31","NB",NA,NA
 "Samoylov","SaMet2002","Ts_3","2021-08-04 15:03:46","NB",NA,NA
 "Samoylov","SaMet2002","Ts_6","2021-08-04 15:03:33","NB",NA,NA
-"Samoylov","SaMet2002","WT",NA,NA,NA,NA
-"Samoylov","SaMet2002","WL",NA,NA,NA,NA
+"Samoylov","SaMet2002","WL","2021-08-23 17:59:33","NB",NA,NA
 "Samoylov","SaPrec2019","prec",NA,NA,NA,NA
 "Samoylov","SaPrec2019","prec_avg",NA,NA,NA,NA
 "Samoylov","SaPrec2019","Tring",NA,NA,NA,NA
