@@ -786,7 +786,7 @@ detect.peaks <- function(lv1.data, col.cat, station) {
 ## ????????? NO UPDATE Of tempNA2 (index of non-NA´s) after step e) ?? ==> because it is used in the second next if-condition
 
           # exceptions
-          if (!(station %in% c("BaHole2009", "BaHole2015", "SaSoil2002", "SaSoil2012"))) {
+          if (!(station %in% c("BaHole2009", "BaHole2015", "SaSoil2002", "SaSoil2012","SaSnow2012"))) {
 #,"SaSoil2002" problems in year 2014
             # if pp6 IS NOT 100 AND there are non-NA values, than...
             if ((peak.parameter[6, cats[i]] < 100) & (length(tmpNA2) > 0)) {
