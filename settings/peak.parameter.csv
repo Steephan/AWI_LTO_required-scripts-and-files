@@ -2,7 +2,7 @@ variable,category,unit,dataset,pp1,pp2,pp3,pp4,pp5,pp6,comments
 Temperature Air,Tair,Degree C,all,5,1,0.1,3,3,24,
 Precipitation,prec,mm,all,100,100,0,1,100,100,
 Relative humidity,RH,%,all,18,10,0.1,8,3,100,
-Snow depth,Dsn,m,all,0.15,0.02,0.01,2,3,12,
+Snow depth,Dsn,m,all,0.15,0.02,0.01,2,3,48,
 Radiation net all,RadNet,W/m^2,all,200,40,1,6,3,12,
 Radiation short wave in,SwIn,W/m^2,all,500,40,1,3,3,100,
 Radiation short wave out,SwOut,W/m^2,all,500,40,1,3,3,100,
