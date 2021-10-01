@@ -1,4 +1,4 @@
-###############################################################
+###............................................................
 #
 #  Create yearlyDataPath_III_auto.csv
 #  automaticly by available datasets
@@ -9,7 +9,21 @@
 #  2019-02-04 SL: new path to sparc
 #
 #
-################################################################
+###............................................................
+## path section ----
+rm(list = ls())
+if (.Platform$OS.type == "windows") {
+  p.1 <- read.table("N:/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/settings/path_win.txt", sep = "\t", header = T)
+  p.1maint <- read.table("N:/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/settings/maintenance.files/maintance.txt", sep = "\t", header = T)
+
+  source("N:/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/functions/db_func.R")
+} else {
+  p.1 <- read.table("/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/settings/path_linux.txt", sep = "\t", header = T, fileEncoding = "UTF-8")
+  p.1maint <- read.table("/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/settings/maintenance.files/maintance.txt", sep = "\t", header = T)
+
+  source("/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/functions/db_func.R")
+}
+###............................................................
 
 
 stations <- c("Samoylov","Bayelva","Sardakh","TVC","Kurungnakh")
@@ -36,7 +50,7 @@ datas[[5]] <- c("KuQ12013","KuLucky22014","KuLucky12013","KuLucky2013")
 origin <- "1970-01-01"
 
 #### import data ####
-for (kl in 1:3) {#1:5
+for (kl in 1:5) {#1:5
   ## read paths and allowed variables
 
   if (kl == 1) {
@@ -50,24 +64,24 @@ for (kl in 1:3) {#1:5
   } else if (kl == 3) {
     pre.sys <- "/sparc"
     name.sys <- "_AWI_noflag"
-    lv1 <- "_lv1_noflag"
+    lv1 <- "_lv1_final"
   } else if (kl == 4) {
-    pre.sys <- "/media/sparc"
-    name.sys <- "_JN"
-    lv1 <- "_lv1"
+    pre.sys <- "/isipd/projects/sparc"
+    name.sys <- "_BHV_noflag"
+    lv1 <- "_lv1_final"
   } else if (kl == 5) {
     pre.sys <- "N:/sparc"
     name.sys <- "_auto_noflag"
-    lv1 <- "_lv1_noflag"
-  }
+    lv1 <- "_lv1_final"
+  } 
 
-  sink(paste0("N:/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/settings_shiny/yearlyDataPath", name.sys, ".csv"))
+  sink(paste0(p.1$w[p.1$n == "script.p"],"required-scripts-and-files/settings_shiny/yearlyDataPath", name.sys, ".csv"))
   cat("station,dataset,year,path,db.path,endung\n")
   for (i in 1:5) { # stations 1-5 
     for (j in datas[[i]]) {
-       hui <- list.files(paste0("N:/sparc/data/LTO/level1/", j, "/00_full_dataset/"), pattern = "noflag.dat")
+       hui <- list.files(paste0(p.1$w[p.1$n == "LV1.p"], j, "/00_full_dataset/"), pattern = "final.dat")
       for (k in 1:length(hui)) {
-        lv0.data <- read.table(paste0("N:/sparc/data/LTO/level1/", j, "/00_full_dataset/", hui[k]), sep = ",", dec = ".", header = T)[1, ]
+        lv0.data <- read.table(paste0(p.1$w[p.1$n == "LV1.p"], j, "/00_full_dataset/", hui[k]), sep = ",", dec = ".", header = T)[1, ]
         year <- as.numeric(format(as.POSIXct(lv0.data[, 1], origin = origin, tz = "UTC", format = '%Y-%m-%d %H:%M'), format = '%Y'))
 
         

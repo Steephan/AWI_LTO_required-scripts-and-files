@@ -1,16 +1,34 @@
-###############################################################
+###............................................................
 #
 #  Create "allowed variables" for available Stations at DB
+#      - all apps need this table 
+#  Create "allowed compare variables"
+#      - flagger.R need this to show U_bat etc.
+#
+#  stephan.lange@awi.de 
 #
 #
+#
+#  2021-08-25 SL: add path selection
 #  2021-04-01 SL: new station BaHole2021
 #
 #
-#
-#
-#
-#
-################################################################
+###............................................................
+## path section ----
+# rm(list = ls())
+# if (.Platform$OS.type == "windows") {
+#   p.1 <- read.table("N:/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/settings/path_win.txt", sep = "\t", header = T)
+#   p.1maint <- read.table("N:/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/settings/maintenance.files/maintance.txt", sep = "\t", header = T)
+# 
+#   source("N:/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/functions/db_func.R")
+# } else {
+#   p.1 <- read.table("/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/settings/path_linux.txt", sep = "\t", header = T, fileEncoding = "UTF-8")
+#   p.1maint <- read.table("/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/settings/maintenance.files/maintance.txt", sep = "\t", header = T)
+# 
+#   source("/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/functions/db_func.R")
+# }
+###............................................................
+
 
 
 stations <- c("BaMet1998","BaMet2009","BaSoil1998","BaSoil2009","BaSoil2017",
@@ -28,12 +46,46 @@ stations <- c("BaMet1998","BaMet2009","BaSoil1998","BaSoil2009","BaSoil2017",
 
             "TVCSoil2016","TVCHole12015","TVCHole22015","TVCeccc")
 
-sink("N:/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/settings_shiny/allowedVariables.csv")
+
+### loop allowed compare variables ----
+sink(paste0(p.1$w[p.1$n == "script.p"],"required-scripts-and-files/settings_shiny/allowedcompVariables.csv"))
+cat("dataset, variable\n")
+for (i in stations[-12]) { # no level 0 data for BaEddy2007
+  hui <- list.files(paste0(p.1$w[p.1$n == "LV0.p"], i, "/00_full_dataset/"), pattern = "lv0.dat")[1]
+  # zack<-read.table(paste0("N:/geo5/SoilData/data/level1/",i,"/00_full_dataset/",hui),sep=",",dec=".",header=T)
+  cnames <- colnames(read.table(paste0(p.1$w[p.1$n == "LV0.p"], i,"/00_full_dataset/", hui), sep = ",", dec = ".", header = T))
+  #cnames <- colnames(read.table(paste0("/sparc/data/LTO/level1/", i,"/00_full_dataset/", hui), sep = ",", dec = ".", header = T))
+  # remove columns which are not needed for level 1
+  tmp <- c(which(grepl('UTC', cnames)))
+  if (length(tmp) > 0) {
+    cnames <- cnames[-tmp]
+  }
+  for (j in 1:length(cnames)) {
+    
+    cat(paste0(i, ", ", cnames[j], "\n"), append = T)
+  }
+  #cat(paste0(i,", ",cnames[j],"\n"))
+}
+sink()
+
+k <- sink.number()
+while (k > 0) {
+  sink()
+  k <- k - 1
+}
+
+
+
+
+
+
+### loop allowed variables ----
+sink(paste0(p.1$w[p.1$n == "script.p"],"required-scripts-and-files/settings_shiny/allowedVariables.csv"))
 cat("dataset, variable\n")
 for (i in stations) {
-  hui <- list.files(paste0("N:/sparc/data/LTO/level1/", i, "/00_full_dataset/"), pattern = "noflag.dat")[1]
+  hui <- list.files(paste0(p.1$w[p.1$n == "LV1.p"], i, "/00_full_dataset/"), pattern = "final.dat")[1]
  # zack<-read.table(paste0("N:/geo5/SoilData/data/level1/",i,"/00_full_dataset/",hui),sep=",",dec=".",header=T)
-  cnames <- colnames(read.table(paste0("N:/sparc/data/LTO/level1/", i,"/00_full_dataset/", hui), sep = ",", dec = ".", header = T))
+  cnames <- colnames(read.table(paste0(p.1$w[p.1$n == "LV1.p"], i,"/00_full_dataset/", hui), sep = ",", dec = ".", header = T))
   #cnames <- colnames(read.table(paste0("/sparc/data/LTO/level1/", i,"/00_full_dataset/", hui), sep = ",", dec = ".", header = T))
   # remove columns which are not needed for level 1
   tmp <- c(which(grepl('Tpan', cnames) |
@@ -60,12 +112,6 @@ for (i in stations) {
   #cat(paste0(i,", ",cnames[j],"\n"))
 }
 sink()
-
-#file.show("N:/sparc/LTO/R_database/flagger_sa/allowedVariables.csv")
-
-# run sink() k times to close the last sink. Not clear why this is necessary.
-# i <- sink.number() gives the number of open diversions
-# solution from https://stackoverflow.com/questions/18730491/sink-does-not-release-file
 
 k <- sink.number()
 while (k > 0) {
