@@ -18,12 +18,12 @@
 # if (.Platform$OS.type == "windows") {
 #   p.1 <- read.table("N:/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/settings/path_win.txt", sep = "\t", header = T)
 #   p.1maint <- read.table("N:/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/settings/maintenance.files/maintance.txt", sep = "\t", header = T)
-#   
+# 
 #   source("N:/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/functions/db_func.R")
 # } else {
 #   p.1 <- read.table("/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/settings/path_linux.txt", sep = "\t", header = T, fileEncoding = "UTF-8")
 #   p.1maint <- read.table("/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/settings/maintenance.files/maintance.txt", sep = "\t", header = T)
-#   
+# 
 #   source("/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/functions/db_func.R")
 # }
 ###...........................................................................
@@ -35,7 +35,7 @@ aktuell <- as.numeric(format(Sys.Date(), "%Y"))
 #run.year <- 2012:2021 #2020:aktuell
 
 # run.year <- c(2018)
-zack <- 2
+zack <- 1
 months <- c("01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12")
 Months <- c("Jan", " Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec")
 
@@ -50,7 +50,7 @@ for (year in as.numeric(run.year)) {
     # load data ----
     ###...........................................................................
     
-    db.snow <- read.table(paste(p.1$w[p.1$n == "LV1.p"], "SaSnow2012/00_full_dataset/SaSnow2012_", year, "_lv1_noflag.dat", sep = ""),
+    db.snow <- read.table(paste(p.1$w[p.1$n == "LV1.p"], "SaSnow2012/00_full_dataset/SaSnow2012_", year, "_lv1_final.dat", sep = ""),
                           sep = ",", dec = ".", header = T, fill = TRUE)
     db.snow.lvl1 <- read.table(paste(p.1$w[p.1$n == "LV1.p"], "SaSnow2012/00_full_dataset/SaSnow2012_", year, "_lv1.dat", sep = ""),
                                sep = ",", dec = ".", header = T, fill = TRUE)
@@ -129,13 +129,14 @@ for (year in as.numeric(run.year)) {
     abline(h = seq(0, 1.4, 0.100), col = "gray80")
     # vertical lines
     abline(v = as.numeric(strptime(lischt, format = "%Y-%m-%d %H:%M")), col = "gray80")
+    wo.1.dsn <- grep("Dsn",colnames(db.snow.lvl1))[1]-1
     
     for (kk in 1:9) {# plot the 10 sensors
       # sh_zero <- which(as.numeric(x <- (paste("db.snow.lvl1$Dsn_", kk - 1, "_fl", sep = ""))) == 0)
-      sh_zero <- which(as.numeric(db.snow.lvl1[, 95 + 2 * kk]) == 0)
-      sh_flags <- which(as.numeric(db.snow.lvl1[, 95 + 2 * kk]) > 0)
+      sh_zero <- which(as.numeric(db.snow.lvl1[, wo.1.dsn + 2 * kk]) == 0)
+      sh_flags <- which(as.numeric(db.snow.lvl1[, wo.1.dsn + 2 * kk]) > 0)
       points(as.numeric(strptime(db.snow.lvl1$UTC[sh_zero], format = "%Y-%m-%d %H:%M")),
-             db.snow.lvl1[sh_zero, 94 + 2 * kk], pch = 20, cex.lab = 1.5, cex.axis = 1.7, col = sh.cols[kk + 1])
+             db.snow.lvl1[sh_zero, (wo.1.dsn-1) + 2 * kk], pch = 20, cex.lab = 1.5, cex.axis = 1.7, col = sh.cols[kk + 1])
     }
     
     axis(2, at = seq(0, 1.5, 0.25), labels = seq(0, 1.5, 0.25), las = 2, cex.axis = 2)

@@ -52,7 +52,7 @@ color <- rgb(190, 190, 190, alpha = 70, maxColorValue = 255)
 
 for (year_i in run.year) {
   # load data  ----
-  db.bahole <- read.table(paste(p.1$w[p.1$n == "LV1.p"], "BaHole2015/00_full_dataset/BaHole2015_", year_i, "_lv1_noflag.dat", sep = ""),
+  db.bahole <- read.table(paste(p.1$w[p.1$n == "LV1.p"], "BaHole2015/00_full_dataset/BaHole2015_", year_i, "_lv1_final.dat", sep = ""),
                           sep = ",", dec = ".", header = T, fill = TRUE)
   db.bahole.lvl1 <- read.table(paste(p.1$w[p.1$n == "LV1.p"], "BaHole2015/00_full_dataset/BaHole2015_", year_i, "_lv1.dat", sep = ""),
                                sep = ",", dec = ".", header = T, fill = TRUE)

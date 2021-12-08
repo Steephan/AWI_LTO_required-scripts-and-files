@@ -31,9 +31,9 @@
 options(scipen = 100, stringsAsFactors = F, digits = 2, scientific = T) # for non-exponential display of numeric values
 origin <- "1970-01-01"
 # run.year <- 2002:2021#2018:2021 #
-#run.year <- 2004
+# run.year <- 2002:2021
 
-zack <- 1
+zack <- 2
 months <- c("01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12")
 Months <- c("Jan", " Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec")
 
@@ -45,11 +45,11 @@ color <- rgb(190, 190, 190, alpha = 70, maxColorValue = 255)
 
 for (year_i in run.year) {
   
-  if (zack == 1) {
+  if (zack == 2) {
     #  load data ----------
     ###...........................................................................
     
-    db.samet <- read.table(paste(p.1$w[p.1$n == "LV1.p"], "SaMet2002/00_full_dataset/SaMet2002_", year_i, "_lv1_noflag.dat", sep = ""), sep = ",", dec = ".", header = T, fill = TRUE)
+    db.samet <- read.table(paste(p.1$w[p.1$n == "LV1.p"], "SaMet2002/00_full_dataset/SaMet2002_", year_i, "_lv1_final.dat", sep = ""), sep = ",", dec = ".", header = T, fill = TRUE)
     db.samet.lvl1 <- read.table(paste(p.1$w[p.1$n == "LV1.p"], "SaMet2002/00_full_dataset/SaMet2002_", year_i, "_lv1.dat", sep = ""), sep = ",", dec = ".", header = T, fill = TRUE)
     # db.lasyear_i <-read.table(paste(p.1$w[p.1$n=="LV1.p"],"SaMet2009/00_full_dataset/samet2009_",year_i-1,"_lv1.dat",sep=""),sep=",",dec=".",header=T, fill = TRUE)
     # last.von     <-length(na.omit(db.samet.lvl1[,2]))
@@ -874,15 +874,15 @@ for (year_i in run.year) {
     dev.off() # close pdf
   } # Soil temperature (implemented, but crumpy data)
 
-  if (zack == 1) {
+  if (zack == 2) {
     #  water table ----------
     ###...........................................................................
-    WT_zero <- which(db.samet.lvl1$WT_fl == 0)
-    WT_eight <- which(db.samet.lvl1$WT_fl == 8)
+    WL_zero <- which(db.samet.lvl1$WL_fl == 0)
+    WL_eight <- which(db.samet.lvl1$WL_fl == 8)
 
     png(paste0(p.1$w[p.1$n == "plot.p"], year_i, "/SaMet2002_wt_", year_i, ".png"), width = p.width, height = p.height, pointsize = 8) # ,A4, landscape)
     par(mar = c(1, 5, 1, 1), omi = c(0, 0, 0, 0))
-    plot(as.numeric(strptime(db.samet.lvl1$UTC, format = "%Y-%m-%d %H:%M")), db.samet.lvl1$WT,
+    plot(as.numeric(strptime(db.samet.lvl1$UTC, format = "%Y-%m-%d %H:%M")), db.samet.lvl1$WL,
       pch = 20, # cex.lab=1.7, cex.axis=1.5,   #
       xlim = xxlim, ylim = c(-0.1, 0.31), xlab = "", ylab = "", xaxt = "n", yaxt = "n", type = "n"
     )
@@ -894,13 +894,13 @@ for (year_i in run.year) {
     for (pp in as.numeric(strptime(lischt, format = "%Y-%m-%d %H:%M"))) {
       lines(c(pp, pp), c(-20, 20), col = "gray80")
     } # vertical lines
-    points(as.numeric(strptime(db.samet.lvl1$UTC[WT_zero], format = "%Y-%m-%d %H:%M")), db.samet.lvl1$WT[WT_zero], pch = 20, cex.lab = 1.5, cex.axis = 1.7, col = "royalblue4")
-    points(as.numeric(strptime(db.samet.lvl1$UTC[WT_eight], format = "%Y-%m-%d %H:%M")), db.samet.lvl1$WT[WT_eight], pch = 20, cex.lab = 1.5, cex.axis = 1.7, col = "peru")
+    points(as.numeric(strptime(db.samet.lvl1$UTC[WL_zero], format = "%Y-%m-%d %H:%M")), db.samet.lvl1$WL[WL_zero], pch = 20, cex.lab = 1.5, cex.axis = 1.7, col = "royalblue4")
+    points(as.numeric(strptime(db.samet.lvl1$UTC[WL_eight], format = "%Y-%m-%d %H:%M")), db.samet.lvl1$WL[WL_eight], pch = 20, cex.lab = 1.5, cex.axis = 1.7, col = "peru")
 
     axis(2, at = seq(-0.2, 0.3, 0.05), labels = seq(-0.2, 0.3, 0.05), las = 2, cex.axis = 4)
     # axis(3, at=c(as.numeric(strptime(lischt[-c(1,13)],format="%Y-%m-%d %H:%M"))),labels=c("","","","","","","","","","",""), las=2,tcl=0.5,cex.axis=4)
     text(as.numeric(strptime(lischt[-1], format = "%Y-%m-%d %H:%M")) - 1300000, rep(0.3, 12), labels = Months, las = 2, cex = 4)
-    text(as.numeric(strptime(lischt[2], format = "%Y-%m-%d %H:%M")) + 2000000, -12, year_i, las = 2, cex = 6)
+    text(as.numeric(strptime(lischt[2], format = "%Y-%m-%d %H:%M")) + 2000000, -0.02, year_i, las = 2, cex = 6)
     dev.off() # close pdf
   } # water table (implemented)
 

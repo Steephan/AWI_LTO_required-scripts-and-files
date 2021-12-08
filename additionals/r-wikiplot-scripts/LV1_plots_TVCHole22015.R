@@ -53,7 +53,7 @@ for (year_i in run.year) {
   ###..........................................................................
   
   # load data -----
-  db.tvchole <- read.table(paste(p.1$w[p.1$n == "LV1.p"], "TVCHole22015/00_full_dataset/TVCHole22015_", year_i, "_lv1_noflag.dat", sep = ""),
+  db.tvchole <- read.table(paste(p.1$w[p.1$n == "LV1.p"], "TVCHole22015/00_full_dataset/TVCHole22015_", year_i, "_lv1_final.dat", sep = ""),
                           sep = ",", dec = ".", header = T, fill = TRUE)
   db.tvchole.lvl1 <- read.table(paste(p.1$w[p.1$n == "LV1.p"], "TVCHole22015/00_full_dataset/TVCHole22015_", year_i, "_lv1.dat", sep = ""),
                                sep = ",", dec = ".", header = T, fill = TRUE)

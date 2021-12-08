@@ -13,24 +13,24 @@
 ##   
 ###...........................................................................
 ## to run this script separately, you have to uncomment the next 10 lines!
-# rm(list = ls())
-# if (.Platform$OS.type == "windows") {
-#   p.1 <- read.table("N:/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/settings/path_win.txt", sep = "\t", header = T)
-#   p.1maint <- read.table("N:/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/settings/maintenance.files/maintance.txt", sep = "\t", header = T)
-# 
-#   source("N:/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/functions/db_func.R")
-# } else {
-#   p.1 <- read.table("/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/settings/path_linux.txt", sep = "\t", header = T, fileEncoding = "UTF-8")
-#   p.1maint <- read.table("/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/settings/maintenance.files/maintance.txt", sep = "\t", header = T)
-# 
-#   source("/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/functions/db_func.R")
-# }
+rm(list = ls())
+if (.Platform$OS.type == "windows") {
+  p.1 <- read.table("N:/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/settings/path_win.txt", sep = "\t", header = T)
+  p.1maint <- read.table("N:/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/settings/maintenance.files/maintance.txt", sep = "\t", header = T)
+
+  source("N:/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/functions/db_func.R")
+} else {
+  p.1 <- read.table("/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/settings/path_linux.txt", sep = "\t", header = T, fileEncoding = "UTF-8")
+  p.1maint <- read.table("/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/settings/maintenance.files/maintance.txt", sep = "\t", header = T)
+
+  source("/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/functions/db_func.R")
+}
 ###...........................................................................
 
 options(scipen=100,stringsAsFactors=F,digits=2,scientific=T) # for non-exponential display of numeric values
 origin="1970-01-01"
 
-# run.year <- 2012:2021
+run.year <- 2012:2021
 
 months <- c("01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12")
 Months <- c("Jan", " Feb", "Mar", "Apr", "May", "Jun","Jul", "Aug", "Sep", "Oct", "Nov", "Dec")
@@ -74,18 +74,36 @@ for (jahro in as.numeric(run.year)){
     ##  01.2 Tair ----
     ##
     ###..........................................................................
-   
+    Tair1_zero <- which(as.numeric(db.Ts.lvl1$Tair_70_fl) == 0)
+    Tair1_flags <- which(as.numeric(db.Ts.lvl1$Tair_70_fl) > 0)
+    rr <- length(aggregate(db.Ts.lvl1$Tair_70[Tair1_zero] ~ format(strptime(db.Ts.lvl1$UTC[Tair1_zero], format = "%Y-%m-%d %H:%M"), format = "%Y-%m-%d"), FUN = mean)[, 2])
+    murr <- matrix(ncol = 3, nrow = rr, 1)
+    murr[, 1] <- aggregate(db.Ts.lvl1$Tair_70[Tair1_zero] ~ format(strptime(db.Ts.lvl1$UTC[Tair1_zero], format = "%Y-%m-%d %H:%M"), format = "%Y-%m-%d"), FUN = mean)[, 1]
+    murr[, 2] <- aggregate(db.Ts.lvl1$Tair_70[Tair1_zero] ~ format(strptime(db.Ts.lvl1$UTC[Tair1_zero], format = "%Y-%m-%d %H:%M"), format = "%Y-%m-%d"), FUN = mean)[, 2]
+    
     png(paste(p.1$w[p.1$n=="plot.p"],jahro,"/SaSoil2012_airt_",jahro,".png",sep=""),width=p.width,height=p.height,pointsize=8)
     par(mar=c(1,5,1,1),omi=c(0,0,0,0))
-    plot(as.numeric(strptime(db.Ts.lvl1$UTC[tair_gut],format="%Y-%m-%d %H:%M")),db.Ts.lvl1$Ts_0[tair_gut], pch = 20,# cex.lab=1.7, cex.axis=1.5,   # albedo from file
-         xlim=xxlim, ylim=c(-30,25), xlab="", ylab = "",xaxt="n", yaxt="n",type="n", cex.axis=3)
+    plot(as.numeric(strptime(db.Ts.lvl1$UTC,format="%Y-%m-%d %H:%M")),db.Ts.lvl1$Tair_70, pch = 20,# cex.lab=1.7, cex.axis=1.5,   # albedo from file
+         xlim=xxlim, ylim=c(-40, 25), xlab="", ylab = "",xaxt="n", yaxt="n",type="n", cex.axis=3)
     #plot_maintenance(jahr)
-    for(ll in seq(-30,30,10)){abline(h=ll,col="gray80")} # horizontal lines
-    for(pp in as.numeric(strptime(lischt,format="%Y-%m-%d %H:%M"))){lines(c(pp,pp),c(-30,30),col="gray80")} # vertical lines
-    for(qq in 1){
-      points(as.numeric(strptime(db.Ts.lvl1[((db.Ts.lvl1[,qq*2+1])==0),1],format="%Y-%m-%d %H:%M")),
-             db.Ts.lvl1[((db.Ts.lvl1[,qq*2+1])==0),qq*2],col="darkblue",pch=20)
-    }
+    for (ll in seq(-40, 30, 5)) {
+      abline(h = ll, col = "gray80")
+    } # horizontal lines
+    for (pp in as.numeric(strptime(lischt, format = "%Y-%m-%d %H:%M"))) {
+      lines(c(pp, pp), c(-40, 30), col = "gray80")
+    } # vertical lines
+    points(as.numeric(strptime(db.Ts.lvl1$UTC[Tair1_zero], format = "%Y-%m-%d %H:%M")), db.Ts.lvl1$Tair_70[Tair1_zero],
+           pch = 20, cex.lab = 1.5, cex.axis = 1.7,
+           col = "lightgoldenrod3"
+    )    
+    points(as.numeric(strptime(db.Ts.lvl1$UTC[Tair1_flags], format = "%Y-%m-%d %H:%M")), db.Ts.lvl1$Tair_70[Tair1_flags],
+           pch = 20, cex.lab = 1.5, cex.axis = 1.7,
+           col = "navy"
+    )
+    points(as.numeric(strptime(murr[, 1], format = "%Y-%m-%d")) + 43200,
+           murr[, 2], pch = 20, cex.lab = 1.5, cex.axis = 1.7, cex = 2.5, col = "darkorange3")
+    
+    
     axis(2, at=seq(-30,30,10),labels=seq(-30,30,10), las=2,cex.axis=4)
     axis(3, at=c(as.numeric(strptime(lischt[-c(1,13)],format="%Y-%m-%d %H:%M"))),labels=c("","","","","","","","","","",""), las=2,tcl=0.5,cex.axis=4)
     text(as.numeric(strptime(lischt[-1],format="%Y-%m-%d %H:%M"))-1300000,rep(25,12),labels=Months, las=2,cex=4)
@@ -179,6 +197,125 @@ for (jahro in as.numeric(run.year)){
     text(as.numeric(strptime(lischt[11],format="%Y-%m-%d %H:%M"))+2000000,0.1,jahro, las=2,cex=6)
     dev.off() # ;rm(pr_zero,pr_zero_zero,sh_zero,pr_flags,sh_flags)
   }# 02 snowdepth
+  
+  if(zack==2){
+    ###..........................................................................
+    ##
+    ##  03 water level ----
+    ##
+    ###..........................................................................
+    WL_zero <- which(db.Ts.lvl1$WL_cen_1_fl == 0)
+    WL_eight <- which(db.Ts.lvl1$WL_cen_1_fl == 8)
+    
+    png(paste0(p.1$w[p.1$n == "plot.p"], jahro, "/SaSoil2012_wl_c1_", jahro, ".png"), width = p.width, height = p.height, pointsize = 8) # ,A4, landscape)
+    par(mar = c(1, 5, 1, 1), omi = c(0, 0, 0, 0))
+    plot(as.numeric(strptime(db.Ts.lvl1$UTC, format = "%Y-%m-%d %H:%M")), db.Ts.lvl1$WL_cen_1,
+         pch = 20, # cex.lab=1.7, cex.axis=1.5,   #
+         xlim = xxlim, ylim = c(-0.1, 0.31), xlab = "", ylab = "", xaxt = "n", yaxt = "n", type = "n"
+    )
+    plot_maintenance(jahro)
+    for (ll in seq(-0.2, 0.3, 0.05)) {
+      abline(h = ll, col = "gray80")
+    } # horizontal lines
+    abline(h = 0, col = "gray90", lwd = 5) # horizontal lines
+    for (pp in as.numeric(strptime(lischt, format = "%Y-%m-%d %H:%M"))) {
+      lines(c(pp, pp), c(-20, 20), col = "gray80")
+    } # vertical lines
+    points(as.numeric(strptime(db.Ts.lvl1$UTC[WL_zero], format = "%Y-%m-%d %H:%M")), 
+           db.Ts.lvl1$WL_cen_1[WL_zero], pch = 20, cex.lab = 1.5, cex.axis = 1.7, col = "#1b7ac1")
+    points(as.numeric(strptime(db.Ts.lvl1$UTC[WL_eight], format = "%Y-%m-%d %H:%M")), 
+           db.Ts.lvl1$WL_cen_1[WL_eight], pch = 20, cex.lab = 1.5, cex.axis = 1.7, col = "peru")
+    
+    axis(2, at = seq(-0.2, 0.3, 0.05), labels = seq(-0.2, 0.3, 0.05), las = 2, cex.axis = 4)
+    # axis(3, at=c(as.numeric(strptime(lischt[-c(1,13)],format="%Y-%m-%d %H:%M"))),labels=c("","","","","","","","","","",""), las=2,tcl=0.5,cex.axis=4)
+    text(as.numeric(strptime(lischt[-1], format = "%Y-%m-%d %H:%M")) - 1300000, rep(0.3, 12), labels = Months, las = 2, cex = 4)
+    text(as.numeric(strptime(lischt[11], format = "%Y-%m-%d %H:%M")) + 2000000, -0.05, jahro, las = 2, cex = 6)
+    dev.off() # close pdf
+  
+    WL_zero <- which(db.Ts.lvl1$WL_cen_2_fl == 0)
+    WL_eight <- which(db.Ts.lvl1$WL_cen_2_fl == 8)
+    
+    png(paste0(p.1$w[p.1$n == "plot.p"], jahro, "/SaSoil2012_wl_c2_", jahro, ".png"), width = p.width, height = p.height, pointsize = 8) # ,A4, landscape)
+    par(mar = c(1, 5, 1, 1), omi = c(0, 0, 0, 0))
+    plot(as.numeric(strptime(db.Ts.lvl1$UTC, format = "%Y-%m-%d %H:%M")), db.Ts.lvl1$WL_cen_2,
+         pch = 20, # cex.lab=1.7, cex.axis=1.5,   #
+         xlim = xxlim, ylim = c(-0.1, 0.31), xlab = "", ylab = "", xaxt = "n", yaxt = "n", type = "n"
+    )
+    plot_maintenance(jahro)
+    for (ll in seq(-0.2, 0.3, 0.05)) {
+      abline(h = ll, col = "gray80")
+    } # horizontal lines
+    abline(h = 0, col = "gray90", lwd = 5) # horizontal lines
+    for (pp in as.numeric(strptime(lischt, format = "%Y-%m-%d %H:%M"))) {
+      lines(c(pp, pp), c(-20, 20), col = "gray80")
+    } # vertical lines
+    points(as.numeric(strptime(db.Ts.lvl1$UTC[WL_zero], format = "%Y-%m-%d %H:%M")), 
+           db.Ts.lvl1$WL_cen_2[WL_zero], pch = 20, cex.lab = 1.5, cex.axis = 1.7, col = "#c30e78")
+    points(as.numeric(strptime(db.Ts.lvl1$UTC[WL_eight], format = "%Y-%m-%d %H:%M")), 
+           db.Ts.lvl1$WL_cen_2[WL_eight], pch = 20, cex.lab = 1.5, cex.axis = 1.7, col = "peru")
+    
+    axis(2, at = seq(-0.2, 0.3, 0.05), labels = seq(-0.2, 0.3, 0.05), las = 2, cex.axis = 4)
+    # axis(3, at=c(as.numeric(strptime(lischt[-c(1,13)],format="%Y-%m-%d %H:%M"))),labels=c("","","","","","","","","","",""), las=2,tcl=0.5,cex.axis=4)
+    text(as.numeric(strptime(lischt[-1], format = "%Y-%m-%d %H:%M")) - 1300000, rep(0.3, 12), labels = Months, las = 2, cex = 4)
+    text(as.numeric(strptime(lischt[11], format = "%Y-%m-%d %H:%M")) + 2000000, -0.05, jahro, las = 2, cex = 6)
+    dev.off() # close pdf
+    
+    WL_zero <- which(db.Ts.lvl1$WL_rim_1_fl == 0)
+    WL_eight <- which(db.Ts.lvl1$WL_rim_1_fl == 8)
+    
+    png(paste0(p.1$w[p.1$n == "plot.p"], jahro, "/SaSoil2012_wl_r1_", jahro, ".png"), width = p.width, height = p.height, pointsize = 8) # ,A4, landscape)
+    par(mar = c(1, 5, 1, 1), omi = c(0, 0, 0, 0))
+    plot(as.numeric(strptime(db.Ts.lvl1$UTC, format = "%Y-%m-%d %H:%M")), db.Ts.lvl1$WL_rim_1,
+         pch = 20, # cex.lab=1.7, cex.axis=1.5,   #
+         xlim = xxlim, ylim = c(-0.41, 0.1), xlab = "", ylab = "", xaxt = "n", yaxt = "n", type = "n"
+    )
+    plot_maintenance(jahro)
+    for (ll in seq(-0.2, 0.3, 0.05)) {
+      abline(h = ll, col = "gray80")
+    } # horizontal lines
+    abline(h = 0, col = "gray90", lwd = 5) # horizontal lines
+    for (pp in as.numeric(strptime(lischt, format = "%Y-%m-%d %H:%M"))) {
+      lines(c(pp, pp), c(-20, 20), col = "gray80")
+    } # vertical lines
+    points(as.numeric(strptime(db.Ts.lvl1$UTC[WL_zero], format = "%Y-%m-%d %H:%M")), 
+           db.Ts.lvl1$WL_rim_1[WL_zero], pch = 20, cex.lab = 1.5, cex.axis = 1.7, col = "#7dd47f")
+    points(as.numeric(strptime(db.Ts.lvl1$UTC[WL_eight], format = "%Y-%m-%d %H:%M")), 
+           db.Ts.lvl1$WL_rim_1[WL_eight], pch = 20, cex.lab = 1.5, cex.axis = 1.7, col = "peru")
+    
+    axis(2, at = seq(-0.2, 0.3, 0.05), labels = seq(-0.2, 0.3, 0.05), las = 2, cex.axis = 4)
+    # axis(3, at=c(as.numeric(strptime(lischt[-c(1,13)],format="%Y-%m-%d %H:%M"))),labels=c("","","","","","","","","","",""), las=2,tcl=0.5,cex.axis=4)
+    text(as.numeric(strptime(lischt[-1], format = "%Y-%m-%d %H:%M")) - 1300000, rep(0.3, 12), labels = Months, las = 2, cex = 4)
+    text(as.numeric(strptime(lischt[11], format = "%Y-%m-%d %H:%M")) + 2000000, -0.05, jahro, las = 2, cex = 6)
+    dev.off() # close pdf
+    
+    WL_zero <- which(db.Ts.lvl1$WL_rim_1_fl == 0)
+    WL_eight <- which(db.Ts.lvl1$WL_rim_1_fl == 8)
+    
+    png(paste0(p.1$w[p.1$n == "plot.p"], jahro, "/SaSoil2012_wl_", jahro, ".png"), width = p.width, height = p.height, pointsize = 8) # ,A4, landscape)
+    par(mar = c(1, 5, 1, 1), omi = c(0, 0, 0, 0))
+    plot(as.numeric(strptime(db.Ts.lvl1$UTC, format = "%Y-%m-%d %H:%M")), db.Ts.lvl1$WL_rim_1,
+         pch = 20, # cex.lab=1.7, cex.axis=1.5,   #
+         xlim = xxlim, ylim = c(-0.1, 0.31), xlab = "", ylab = "", xaxt = "n", yaxt = "n", type = "n"
+    )
+    plot_maintenance(jahro)
+    for (ll in seq(-0.2, 0.3, 0.05)) {
+      abline(h = ll, col = "gray80")
+    } # horizontal lines
+    abline(h = 0, col = "gray90", lwd = 5) # horizontal lines
+    for (pp in as.numeric(strptime(lischt, format = "%Y-%m-%d %H:%M"))) {
+      lines(c(pp, pp), c(-20, 20), col = "gray80")
+    } # vertical lines
+    points(as.numeric(strptime(db.Ts.lvl1$UTC[which(db.Ts.lvl1$WL_rim_1_fl == 0)], format = "%Y-%m-%d %H:%M")), db.Ts.lvl1$WL_rim_1[which(db.Ts.lvl1$WL_rim_1_fl == 0)], pch = 20, cex.lab = 1.5, cex.axis = 1.7, col = "#7dd47f")
+    points(as.numeric(strptime(db.Ts.lvl1$UTC[which(db.Ts.lvl1$WL_cen_1_fl == 0)], format = "%Y-%m-%d %H:%M")), db.Ts.lvl1$WL_cen_1[which(db.Ts.lvl1$WL_cen_1_fl == 0)], pch = 20, cex.lab = 1.5, cex.axis = 1.7, col = "#1b7ac1")
+    points(as.numeric(strptime(db.Ts.lvl1$UTC[which(db.Ts.lvl1$WL_cen_2_fl == 0)], format = "%Y-%m-%d %H:%M")), db.Ts.lvl1$WL_cen_2[which(db.Ts.lvl1$WL_cen_2_fl == 0)], pch = 20, cex.lab = 1.5, cex.axis = 1.7, col = "#c30e78")
+    
+        axis(2, at = seq(-0.2, 0.3, 0.05), labels = seq(-0.2, 0.3, 0.05), las = 2, cex.axis = 4)
+    # axis(3, at=c(as.numeric(strptime(lischt[-c(1,13)],format="%Y-%m-%d %H:%M"))),labels=c("","","","","","","","","","",""), las=2,tcl=0.5,cex.axis=4)
+    text(as.numeric(strptime(lischt[-1], format = "%Y-%m-%d %H:%M")) - 1300000, rep(0.3, 12), labels = Months, las = 2, cex = 4)
+    text(as.numeric(strptime(lischt[11], format = "%Y-%m-%d %H:%M")) + 2000000, -0.05, jahro, las = 2, cex = 6)
+    dev.off() # close pdf
+    
+    }# 03 water level
   
 
 

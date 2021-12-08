@@ -47,7 +47,7 @@
 options(scipen = 100, stringsAsFactors = F, digits = 2, scientific = T) # for non-exponential display of numeric values
 origin <- "1970-01-01"
 
-year <- c(2014:2019)
+# run.year <- c(2014:2021)
 
 months <- c("01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12")
 Months <- c("Jan", " Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec")
@@ -61,7 +61,7 @@ p.height <- 280*3.5
 color <- rgb(190, 190, 190, alpha = 70, maxColorValue = 255)
 
 
-for (yearo in year) {
+for (yearo in run.year) {
 
   db.sapond.lvl1 <- read.table(paste0(path$w[path$n == "LV1.p"], "SaPond2014/00_full_dataset/SaPond2014_", yearo, "_lv1.dat"),
                                sep = ",", dec = ".", header = T, fill = TRUE)

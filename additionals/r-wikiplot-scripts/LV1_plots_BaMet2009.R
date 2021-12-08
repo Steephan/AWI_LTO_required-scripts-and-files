@@ -68,7 +68,7 @@ for (t.year in run.year) {
 
 ################ Load data #########################
 if (zack == 1) { # 1
-  #db.bamet     <-read.table(paste(p.1$w[p.1$n == "LV1.p"], "BaMet2009/00_full_dataset/BaMet2009_", t.year, "_lv1_noflag.dat", sep = ""), sep = ",", dec = ".", header = T, fill = TRUE)
+  #db.bamet     <-read.table(paste(p.1$w[p.1$n == "LV1.p"], "BaMet2009/00_full_dataset/BaMet2009_", t.year, "_lv1_final.dat", sep = ""), sep = ",", dec = ".", header = T, fill = TRUE)
   db.bamet.lvl1 <- read.table(paste(p.1$w[p.1$n == "LV1.p"], "BaMet2009/00_full_dataset/BaMet2009_", t.year, "_lv1.dat", sep = ""),
                               sep = ",", dec = ".", header = T, fill = TRUE)
   db.last.year <- read.table(paste(p.1$w[p.1$n == "LV1.p"], "BaMet2009/00_full_dataset/BaMet2009_", t.year - 1, "_lv1.dat", sep = ""),

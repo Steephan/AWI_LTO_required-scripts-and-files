@@ -38,7 +38,7 @@ soil.cols<-colorRampPalette(c("seagreen4","palegreen3","yellow3","khaki","sandyb
 mon.cols<-colorRampPalette(c("gray60","olivedrab1","yellow1","tomato1","darkorange1","saddlebrown","dodgerblue3","snow3","gray60"))(13)[c(13,2:25)]
 mon.cols<-c("slategray2","skyblue1","lightgreen","olivedrab2","olivedrab4","orangered","red","red4","darkgoldenrod1","tan4","gray40","steelblue4")
 
-p.width=420*3.5;p.height=280*3.5
+p.width = 420*3.5 ;p.height = 280*3.5
 color <- rgb(190, 190, 190, alpha=70, maxColorValue=255)
 
 ## loop over years ----
@@ -51,9 +51,6 @@ for (jahro in run.year){
   }
   db.bahole.extra<-db.bahole.lvl2[,c(1,c(2:24)*2)]
   db.bahole.extra$monate<-format(as.Date(db.bahole.extra[,1]),format="%m")
-#   j.min <-apply(db.bahole.extra[,2:25],2,FUN=min, na.rm=TRUE)
-#   j.max <-apply(db.bahole.extra[,2:25],2,FUN=max, na.rm=TRUE)
-#   j.mean<-apply(db.bahole.extra[,2:25],2,FUN=mean, na.rm=TRUE)
   stats.db<-aggregate(db.bahole.extra[,2:24], by=list(db.bahole.extra$monate), FUN=mean, na.rm=TRUE)[2:24]
 
   y.values<-c(0,-1*(c(1:19,21,23,25,27)-.25))
@@ -63,18 +60,15 @@ for (jahro in run.year){
   ### plot trompete -----
   png(paste(p.1$w[p.1$n=="plot.p"],jahro,"/SdHole2009_trompete_",jahro,".png",sep=""),width=p.width,height=p.height,pointsize=8)
   par(mar=c(1,8,1,1),omi=c(0,0,0,0))
-  plot(c(stats.db[1,]),y.values,type="n",xlim=c(-20,8),ylim=c(-27,5),
+  plot(c(stats.db[1,]),y.values,type="n",xlim=c(-20,8),ylim=c(-105,5),
        xlab="", ylab = "",xaxt="n", yaxt="n",cex.axis=3)
-  for(ll in seq(-30,0,5)){abline(h=ll,col="gray80")} # horizontal lines
-  for(pp in seq(-20,15,2.5)){lines(c(pp,pp),c(-30,1),col="gray80")} # vertical lines
+  for(ll in seq(-100,30,10)){abline(h=ll,col="gray80")} # horizontal lines
+  for(pp in seq(-20,15,2.5)){lines(c(pp,pp),c(-120,1),col="gray80")} # vertical lines
   for(qqq in 1:12){lines(c(stats.db[qqq,1:23]),y.values,col=mon.cols[qqq],lwd=2)}
-#   lines(j.min,y.values,col="purple",lwd=3)
-#   lines(j.max,y.values,col="purple",lwd=3)
-#   lines(j.mean,y.values,col="purple",lwd=3)
   text(seq(-20,15,2.5),rep(2,13),labels=seq(-20,15,2.5), las=2,cex=4)
-  axis(2, at=seq(-30,30,5),labels=seq(-30,30,5), las=2,cex.axis=4)
-  legend(7,-16,months,col=mon.cols,lty=1,cex=2,lwd=4)
-  text(5,-23,jahro, las=2,cex=6)
+  axis(2, at=seq(-100,30,20),labels=seq(-100,30,20), las=2,cex.axis=4)
+  legend(7,-76,months,col=mon.cols,lty=1,cex=2,lwd=4)
+  text(5,-93,jahro, las=2,cex=6)
   dev.off()
 
 
@@ -92,7 +86,6 @@ for (jahro in run.year){
   #plot_maintenance(jahr)
   for(ll in seq(-30,30,10)){abline(h=ll,col="gray80")} # horizontal lines
   for(pp in as.numeric(strptime(lischt,format="%Y-%m-%d %H:%M"))){lines(c(pp,pp),c(-30,30),col="gray80")} # vertical lines
-  #diefe<-c(1,5,10,15,25,35,55,75,90)
   diefe<-c(1,c(1:18,20,22,24,26)*10)
 
   for(qq in rev(2:24)){
