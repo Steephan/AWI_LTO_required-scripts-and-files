@@ -34,7 +34,8 @@
 "Samoylov","SaSoil2002","Ts_icew_241","2021-05-21 09:49:05","BC","2021-07-27 14:56:53","NB"
 "Samoylov","SaSoil2002","Ts_icew_271","2021-05-21 09:49:00","BC","2021-07-27 14:57:12","NB"
 "Samoylov","SaSoil2002","Tgs","2021-05-21 09:51:26","BC","2021-07-27 14:58:31","NB"
-"Samoylov","SaSoil2002","Dsn","2021-05-21 11:20:49","BC",NA,NA
+"Samoylov","SaSoil2002","distraw",NA,NA,NA,NA
+"Samoylov","SaSoil2002","Dsn","2021-05-21 11:20:49","BC","2021-11-08 09:52:21","SL"
 "Samoylov","SaSoil2002","E2_center_8","2021-05-21 11:33:01","BC","2021-07-27 15:45:58","NB"
 "Samoylov","SaSoil2002","E2_center_13","2021-05-21 11:32:38","BC","2021-07-27 15:46:38","NB"
 "Samoylov","SaSoil2002","E2_center_23","2021-05-21 11:32:31","BC","2021-07-27 15:49:36","NB"
@@ -125,9 +126,10 @@
 "Samoylov","SaSoil2012","G_rim_13",NA,NA,NA,NA
 "Samoylov","SaSoil2012","G_rim_98",NA,NA,NA,NA
 "Samoylov","SaSoil2012","Dsn",NA,NA,NA,NA
-"Samoylov","SaSoil2012","WT_cen_1",NA,NA,NA,NA
-"Samoylov","SaSoil2012","WT_cen_2",NA,NA,NA,NA
-"Samoylov","SaSoil2012","WT_rim_1",NA,NA,NA,NA
+"Samoylov","SaSoil2012","distraw",NA,NA,NA,NA
+"Samoylov","SaSoil2012","WL_cen_1",NA,NA,NA,NA
+"Samoylov","SaSoil2012","WL_cen_2",NA,NA,NA,NA
+"Samoylov","SaSoil2012","WL_rim_1",NA,NA,NA,NA
 "Samoylov","SaSoil2012","E2_sn_5",NA,NA,NA,NA
 "Samoylov","SaSoil2012","E2_sn_20",NA,NA,NA,NA
 "Samoylov","SaSoil2012","E2_cen_v_16",NA,NA,NA,NA
@@ -177,34 +179,97 @@
 "Samoylov","SaSoil2012","Cv_cen_95",NA,NA,NA,NA
 "Samoylov","SaSoil2012","Cv_rim_16",NA,NA,NA,NA
 "Samoylov","SaSoil2012","Cv_rim_99",NA,NA,NA,NA
-"Samoylov","SaMet2002","Tair_a_200","2021-08-17 14:45:39","NB",NA,NA
-"Samoylov","SaMet2002","Tair_a_50","2021-08-03 10:19:15","NB",NA,NA
-"Samoylov","SaMet2002","Tair_b_200","2021-08-03 10:19:43","NB",NA,NA
-"Samoylov","SaMet2002","Tair_b_50","2021-08-03 10:20:22","NB",NA,NA
-"Samoylov","SaMet2002","RH_200","2021-08-17 14:49:31","NB",NA,NA
-"Samoylov","SaMet2002","RH_50","2021-08-17 14:49:58","NB",NA,NA
-"Samoylov","SaMet2002","wind_v_300","2021-08-23 17:14:59","NB",NA,NA
-"Samoylov","SaMet2002","wind_deg_300","2021-08-23 17:14:42","NB",NA,NA
-"Samoylov","SaMet2002","wind_sddeg_300","2021-08-23 17:57:25","NB",NA,NA
-"Samoylov","SaMet2002","wind_vmax_300","2021-08-23 17:57:53","NB",NA,NA
-"Samoylov","SaMet2002","wind_vmin_300","2021-08-23 17:58:11","NB",NA,NA
-"Samoylov","SaMet2002","prec","2021-08-03 10:29:10","NB",NA,NA
-"Samoylov","SaMet2002","PA","2021-08-03 10:36:59","NB",NA,NA
-"Samoylov","SaMet2002","SwIn","2021-08-03 13:49:40","NB",NA,NA
-"Samoylov","SaMet2002","SwOut","2021-08-04 14:22:52","NB",NA,NA
-"Samoylov","SaMet2002","LwIn","2021-08-04 14:22:19","NB",NA,NA
-"Samoylov","SaMet2002","LwOut","2021-08-03 10:49:11","NB",NA,NA
-"Samoylov","SaMet2002","SwNet","2021-08-04 15:00:20","NB",NA,NA
-"Samoylov","SaMet2002","LwNet","2021-08-04 14:59:29","NB",NA,NA
-"Samoylov","SaMet2002","Albedo","2021-08-23 17:16:02","NB",NA,NA
-"Samoylov","SaMet2002","RadNet","2021-08-03 13:51:14","NB",NA,NA
-"Samoylov","SaMet2002","Ts_1","2021-08-04 15:02:33","NB",NA,NA
-"Samoylov","SaMet2002","Ts_3","2021-08-04 15:02:52","NB",NA,NA
-"Samoylov","SaMet2002","Ts_6","2021-08-04 15:03:13","NB",NA,NA
-"Samoylov","SaMet2002","WL","2021-08-23 17:59:39","NB",NA,NA
+"Samoylov","SaMet2002","Tair_a_200","2021-08-17 14:45:39","NB","2021-08-24 13:13:23","SL"
+"Samoylov","SaMet2002","Tair_a_50","2021-08-03 10:19:15","NB","2021-08-24 13:14:11","SL"
+"Samoylov","SaMet2002","Tair_b_200","2021-08-03 10:19:43","NB","2021-08-24 13:13:35","SL"
+"Samoylov","SaMet2002","Tair_b_50","2021-08-03 10:20:22","NB","2021-08-24 13:14:43","SL"
+"Samoylov","SaMet2002","RH_200","2021-08-17 14:49:31","NB","2021-08-24 13:15:49","SL"
+"Samoylov","SaMet2002","RH_50","2021-08-17 14:49:58","NB","2021-08-24 13:17:12","SL"
+"Samoylov","SaMet2002","wind_v_300","2021-08-23 17:14:59","NB","2021-08-24 13:17:54","SL"
+"Samoylov","SaMet2002","wind_deg_300","2021-08-23 17:14:42","NB","2021-08-24 13:18:20","SL"
+"Samoylov","SaMet2002","wind_sddeg_300","2021-08-23 17:57:25","NB","2021-08-24 14:21:57","SL"
+"Samoylov","SaMet2002","wind_vmax_300","2021-08-23 17:57:53","NB","2021-08-24 13:22:17","SL"
+"Samoylov","SaMet2002","wind_vmin_300","2021-08-23 17:58:11","NB","2021-08-24 13:21:22","SL"
+"Samoylov","SaMet2002","prec","2021-08-03 10:29:10","NB","2021-08-24 13:25:54","SL"
+"Samoylov","SaMet2002","PA","2021-08-03 10:36:59","NB","2021-08-24 13:26:27","SL"
+"Samoylov","SaMet2002","SwIn","2021-08-03 13:49:40","NB","2021-08-24 13:42:38","SL"
+"Samoylov","SaMet2002","SwOut","2021-08-04 14:22:52","NB","2021-08-24 13:42:48","SL"
+"Samoylov","SaMet2002","LwIn","2021-08-04 14:22:19","NB","2021-08-24 13:42:56","SL"
+"Samoylov","SaMet2002","LwOut","2021-08-03 10:49:11","NB","2021-08-24 13:43:09","SL"
+"Samoylov","SaMet2002","SwNet","2021-08-04 15:00:20","NB","2021-08-24 13:43:17","SL"
+"Samoylov","SaMet2002","LwNet","2021-08-04 14:59:29","NB","2021-08-24 13:44:13","SL"
+"Samoylov","SaMet2002","Albedo","2021-08-23 17:16:02","NB","2021-08-24 13:55:54","SL"
+"Samoylov","SaMet2002","RadNet","2021-08-03 13:51:14","NB","2021-08-24 13:56:33","SL"
+"Samoylov","SaMet2002","Ts_1","2021-08-04 15:02:33","NB","2021-08-24 13:57:23","SL"
+"Samoylov","SaMet2002","Ts_3","2021-08-04 15:02:52","NB","2021-08-24 13:58:03","SL"
+"Samoylov","SaMet2002","Ts_6","2021-08-04 15:03:13","NB","2021-08-24 13:58:37","SL"
+"Samoylov","SaMet2002","WL","2021-08-23 17:59:39","NB","2021-08-24 14:10:35","SL"
 "Samoylov","SaPrec2019","prec",NA,NA,NA,NA
 "Samoylov","SaPrec2019","prec_avg",NA,NA,NA,NA
 "Samoylov","SaPrec2019","Tring",NA,NA,NA,NA
+"Samoylov","SaHole2006","Tair_0","2021-11-12 11:30:00","NB",NA,NA
+"Samoylov","SaHole2006","Ts_75",NA,NA,NA,NA
+"Samoylov","SaHole2006","Ts_175",NA,NA,NA,NA
+"Samoylov","SaHole2006","Ts_275","2021-11-12 11:32:42","NB",NA,NA
+"Samoylov","SaHole2006","Ts_375","2021-11-12 11:52:06","NB",NA,NA
+"Samoylov","SaHole2006","Ts_475","2021-11-12 11:51:11","NB",NA,NA
+"Samoylov","SaHole2006","Ts_575","2021-11-12 11:50:42","NB",NA,NA
+"Samoylov","SaHole2006","Ts_675","2021-11-12 11:50:18","NB",NA,NA
+"Samoylov","SaHole2006","Ts_775","2021-11-12 11:49:34","NB",NA,NA
+"Samoylov","SaHole2006","Ts_875",NA,NA,NA,NA
+"Samoylov","SaHole2006","Ts_975","2021-11-12 11:48:43","NB",NA,NA
+"Samoylov","SaHole2006","Ts_1075","2021-11-12 11:48:25","NB",NA,NA
+"Samoylov","SaHole2006","Ts_1175","2021-11-12 11:47:37","NB",NA,NA
+"Samoylov","SaHole2006","Ts_1275",NA,NA,NA,NA
+"Samoylov","SaHole2006","Ts_1375","2021-11-12 11:46:19","NB",NA,NA
+"Samoylov","SaHole2006","Ts_1475","2021-11-12 11:44:20","NB",NA,NA
+"Samoylov","SaHole2006","Ts_1575","2021-11-12 11:38:36","NB",NA,NA
+"Samoylov","SaHole2006","Ts_1675",NA,NA,NA,NA
+"Samoylov","SaHole2006","Ts_1775","2021-11-12 11:35:43","NB",NA,NA
+"Samoylov","SaHole2006","Ts_1875","2021-11-12 11:35:10","NB",NA,NA
+"Samoylov","SaHole2006","Ts_2075","2021-11-12 11:34:43","NB",NA,NA
+"Samoylov","SaHole2006","Ts_2275","2021-11-12 11:33:59","NB",NA,NA
+"Samoylov","SaHole2006","Ts_2475","2021-11-12 11:33:32","NB",NA,NA
+"Samoylov","SaHole2006","Ts_2675","2021-11-12 11:33:12","NB",NA,NA
+"Samoylov","SaHole2010","Tair_50",NA,NA,NA,NA
+"Samoylov","SaHole2010","Ts_0",NA,NA,NA,NA
+"Samoylov","SaHole2010","Ts_50",NA,NA,NA,NA
+"Samoylov","SaHole2010","Ts_100",NA,NA,NA,NA
+"Samoylov","SaHole2010","Ts_125",NA,NA,NA,NA
+"Samoylov","SaHole2010","Ts_150",NA,NA,NA,NA
+"Samoylov","SaHole2010","Ts_175",NA,NA,NA,NA
+"Samoylov","SaHole2010","Ts_180",NA,NA,NA,NA
+"Samoylov","SaHole2018","Ts_1",NA,NA,NA,NA
+"Samoylov","SaHole2018","Ts_2",NA,NA,NA,NA
+"Samoylov","SaHole2018","Ts_3",NA,NA,NA,NA
+"Samoylov","SaHole2018","Ts_4",NA,NA,NA,NA
+"Samoylov","SaHole2018","Ts_5",NA,NA,NA,NA
+"Samoylov","SaHole2018","Ts_6",NA,NA,NA,NA
+"Samoylov","SaHole2018","Ts_7",NA,NA,NA,NA
+"Samoylov","SaHole2018","Ts_8",NA,NA,NA,NA
+"Samoylov","SaHole2018","Ts_9",NA,NA,NA,NA
+"Samoylov","SaHole2018","Ts_10",NA,NA,NA,NA
+"Samoylov","SaHole2018","Ts_11",NA,NA,NA,NA
+"Samoylov","SaHole2018","Ts_12",NA,NA,NA,NA
+"Samoylov","SaHole2018","Ts_13",NA,NA,NA,NA
+"Samoylov","SaHole2018","Ts_14",NA,NA,NA,NA
+"Samoylov","SaHole2018","Ts_15",NA,NA,NA,NA
+"Samoylov","SaHole2018","Ts_16",NA,NA,NA,NA
+"Samoylov","SaHole2018","Ts_17",NA,NA,NA,NA
+"Samoylov","SaHole2018","Ts_18",NA,NA,NA,NA
+"Samoylov","SaHole2018","Ts_19",NA,NA,NA,NA
+"Samoylov","SaHole2018","Ts_20",NA,NA,NA,NA
+"Samoylov","SaHole2018","Ts_22",NA,NA,NA,NA
+"Samoylov","SaHole2018","Ts_24",NA,NA,NA,NA
+"Samoylov","SaHole2018","Ts_26",NA,NA,NA,NA
+"Samoylov","SaHole2018","Ts_28",NA,NA,NA,NA
+"Samoylov","SaHole2018","Ts_30",NA,NA,NA,NA
+"Samoylov","SaHole2018","Ts_35",NA,NA,NA,NA
+"Samoylov","SaHole2018","Ts_40",NA,NA,NA,NA
+"Samoylov","SaHole2018","Ts_45",NA,NA,NA,NA
+"Samoylov","SaHole2018","Ts_50",NA,NA,NA,NA
+"Samoylov","SaHole2018","Ts_55",NA,NA,NA,NA
+"Samoylov","SaHole2018","Ts_60",NA,NA,NA,NA
 "Samoylov","SaSnow2012","ice_2","2021-07-29 12:04:56","SL",NA,NA
 "Samoylov","SaSnow2012","ice_3","2021-07-29 12:45:19","SL",NA,NA
 "Samoylov","SaSnow2012","ice_4","2021-07-29 12:45:40","SL",NA,NA
@@ -229,6 +294,18 @@
 "Samoylov","SaSnow2012","phi_lowFq_3",NA,NA,NA,NA
 "Samoylov","SaSnow2012","phi_highFq_4",NA,NA,NA,NA
 "Samoylov","SaSnow2012","phi_lowFq_4",NA,NA,NA,NA
+"Samoylov","SaSnow2012","distraw_0",NA,NA,NA,NA
+"Samoylov","SaSnow2012","distraw_1",NA,NA,NA,NA
+"Samoylov","SaSnow2012","distraw_2",NA,NA,NA,NA
+"Samoylov","SaSnow2012","distraw_3",NA,NA,NA,NA
+"Samoylov","SaSnow2012","distraw_4",NA,NA,NA,NA
+"Samoylov","SaSnow2012","distraw_5",NA,NA,NA,NA
+"Samoylov","SaSnow2012","distraw_6",NA,NA,NA,NA
+"Samoylov","SaSnow2012","distraw_7",NA,NA,NA,NA
+"Samoylov","SaSnow2012","distraw_8",NA,NA,NA,NA
+"Samoylov","SaSnow2012","distraw_9",NA,NA,NA,NA
+"Samoylov","SaSnow2012","distraw_Centre",NA,NA,NA,NA
+"Samoylov","SaSnow2012","distraw_Crack",NA,NA,NA,NA
 "Samoylov","SaSnow2012","Tsn_m4",NA,NA,NA,NA
 "Samoylov","SaSnow2012","Tsn_00",NA,NA,NA,NA
 "Samoylov","SaSnow2012","Tsn_05",NA,NA,NA,NA
@@ -266,3 +343,155 @@
 "Samoylov","SaSnow2012","Dsn_9",NA,NA,NA,NA
 "Samoylov","SaSnow2012","Dist_center",NA,NA,NA,NA
 "Samoylov","SaSnow2012","Dist_crack",NA,NA,NA,NA
+"Samoylov","SaSnow2016","Tair_170",NA,NA,NA,NA
+"Samoylov","SaSnow2016","distraw",NA,NA,NA,NA
+"Samoylov","SaSnow2016","Dsn",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_01_02",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_01_03",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_01_04",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_01_05",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_01_06",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_01_07",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_01_08",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_01_09",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_01_10",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_01_11",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_01_12",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_01_13",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_01_14",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_01_15",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_02_01",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_02_02",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_02_03",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_02_04",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_02_05",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_02_06",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_02_07",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_02_08",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_02_09",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_02_10",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_02_11",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_02_12",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_02_13",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_02_14",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_02_15",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_03_01",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_03_02",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_03_03",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_03_04",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_03_05",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_03_06",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_03_07",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_03_08",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_03_09",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_03_10",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_03_11",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_03_12",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_03_13",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_03_14",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_03_15",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_04_01",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_04_02",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_04_03",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_04_04",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_04_05",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_04_06",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_04_07",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_04_08",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_04_09",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_04_10",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_04_11",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_04_12",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_04_13",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_04_14",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_04_15",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_05_01",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_05_02",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_05_03",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_05_04",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_05_05",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_05_06",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_05_07",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_05_08",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_05_09",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_05_10",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_05_11",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_05_12",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_05_13",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_05_14",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_05_15",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_06_01",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_06_02",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_06_03",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_06_04",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_06_05",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_06_06",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_06_07",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_06_08",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_06_09",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_06_10",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_06_11",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_06_12",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_06_13",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_06_14",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_06_15",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_07_01",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_07_02",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_07_03",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_07_04",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_07_05",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_07_06",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_07_07",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_07_08",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_07_09",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_07_10",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_07_11",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_07_12",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_07_13",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_07_14",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_07_15",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_08_01",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_08_02",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_08_03",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_08_04",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_08_05",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_08_06",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_08_07",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_08_08",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_08_09",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_08_10",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_08_11",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_08_12",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_08_13",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_08_14",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_08_15",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_09_01",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_09_02",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_09_03",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_09_04",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_09_05",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_09_06",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_09_07",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_09_08",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_09_09",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_09_10",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_09_11",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_09_12",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_09_13",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_09_14",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_09_15",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_10_01",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_10_02",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_10_03",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_10_04",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_10_05",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_10_06",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_10_07",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_10_08",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_10_09",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_10_10",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_10_11",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_10_12",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_10_13",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_10_14",NA,NA,NA,NA
+"Samoylov","SaCalm2002","Dal_10_15",NA,NA,NA,NA
