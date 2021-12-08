@@ -5,6 +5,9 @@
 #  Erste werden alle Daten Kopiert 
 #  Dann nach einer Kontrolle, kann das alte Zeug von Hand geloescht werden
 #  (Dies ginge auch automatisch, ist aber explizit nicht so gewollt !!!!)
+#
+# Last change: Inge Grünberg 07/12/2021: added support for 'German style' Hobo export
+#
 ##### implemented stations ------
 # BaSoil2009, 
 # SdHole2009, 
@@ -12,23 +15,24 @@
 # KuQ12013
 # TVCHole12015,TVCHole22015,
 ## some naming definitions
-station  <- "TVCHole22015" # station Folder
-filename <- "hobo" # name of file to characterise the containing data
-folder   <- "" # folder within staton folder containing data
+station  <- "SaMet2002" # station Folder
+filename <- "met" # name of file to characterise the containing data
+folder   <- "01_SaMeteo" # folder within staton folder containing data
 wo       <- paste0("n:/sparc/data/LTO/raw/",station,"/",folder,"/") # sometime in subfolders!
-wo       <- paste0("n:/sparc/data/LTO/raw/",station,"/")
-was      <- list.files(wo ,pattern = ".csv")
+#wo       <- paste0("n:/sparc/data/LTO/raw/",station,"/")
+was      <- list.files(wo ,pattern = ".dat")
+#was      <- list.files(wo ,pattern = ".csv")
 #
 # values for designer contributing the file format
 # 1 == Campbell  z.B. SaSoil2002, KuQ12013, TVCSoil2016
 # 2 == RBR       z.B. BaHole2009
 # 3 == RBR II    z.B. SaHole2006
 # 4 == HOBO      z.B. TVCHole12015,TVCHole22015,
-designer = 4
+designer = 1
 
 # copy the old files in other folder
-
-mit.kopieren = 1
+# always try 0 first!
+mit.kopieren = 0
 
 origin <- "1970-01-01"
 for(i in was){ # Schleife ueber alle dat-files im wo-Ordner
@@ -72,13 +76,15 @@ for(i in was){ # Schleife ueber alle dat-files im wo-Ordner
     anzahl          <- length(spalte.eins[,1])     # Zeitreihenlaenge
     bis             <- spalte.eins[anzahl,1]        # Zeitreihenende
   }else if(designer==4){
-    spalte.eins    <- read.table(paste0(wo,i),sep=",",dec=".",header=T,skip=1,fill=T)[,1:2]
-    
+    spalte.eins  <- try(read.table(paste0(wo,i),sep=",",dec=".",header=T,skip=1,fill=T)[,1:2])
+    if (class(spalte.eins) == "try-error") {
+      spalte.eins  <- read.table(paste0(wo,i),sep=";",dec=".",header=F,skip=2,fill=T)[,1:2]
+      spalte.eins[,1] <- format(as.POSIXct(paste(spalte.eins[,1]),format='%d.%m.%Y %H:%M',
+                                           origin=origin, tz = "UTC"),format='%Y%m%d%H%M')
+    }else{
     spalte.eins[,1] <- format(as.POSIXct(paste(spalte.eins[,2]),format='%y.%m.%d %H:%M:%S',
                                          origin=origin, tz = "UTC"),format='%Y%m%d%H%M')
-    
-
-    
+    }
     von             <- spalte.eins[1,1]             # Zeitreihenbeginn
     anzahl          <- length(spalte.eins[,1])     # Zeitreihenlaenge
     bis             <- spalte.eins[anzahl,1]        # Zeitreihenende
