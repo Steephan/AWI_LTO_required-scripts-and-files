@@ -401,39 +401,14 @@ compute.vwc <- function(lv1.data, col.cat, station, years, mw.width, path.input,
   # After all flagging routines are applied, the remaining flag 100 values are replaced with flag 0
   # (==> This takes place at the end of LV0_to_LV1_BaAll.R)
   ##########
-  vwc.fl <- lv1.data[, I3 + 1]
+  vwc.fl  <- lv1.data[, I3 + 1]
   diel.fl <- lv1.data[, I2 + 1]
-  temp.fl <- lv1.data[, I + 1]
+  temp.fl <- lv1.data[, I  + 1]
   for (i in 1:(ncol(diel) - 1)) {
     vwc.fl[, i] <- apply(data.frame(diel.fl[, i], temp.fl[, i]), 1, FUN = min)
     #cat(vwc.fl[vwc.fl[,i]>1 & vwc.fl[,i]<100,i])
   }
   lv1.data[, I3 + 1] <- vwc.fl
-
-# ????
-# remove this part, which was commented out:
-# ????
-
-  # theta_ice <- data.frame(diel[,1], round(theta$theta_ice,3))
-  # png(paste0(p.1$w[p.1$n=="LV2.p"], "/TVC/VWC/VWC_", year_i, ".png", sep = ""), width = 1280, height = 942, pointsize = 20)
-  # par(mfrow = c(2,2), mar = c(1.5,1,2,2), oma = c(1.5,2.5,1,0), cex.axis = 0.9)
-  #
-  # for(i in 1:4){
-  #   lim <- range(c(as.matrix(vwc[,-1]), theta_ice[-1], temp[,-1]/100), phi, finite = T)
-  #   plot(y = vwc[,i+1], x = vwc[,1],
-  #        ylim = lim,  type = "l", #xaxt = "n", #yaxt = "n",
-  #        main = paste(names(temp)[i+1],year_i))
-  #   lines(y = theta_ice[,i+1], x = vwc[,1], col = "blue")
-  #   lines(y = temp[,i+1]/100, x = vwc[,1], col = "red")
-  #   abline(h = phi[i], lty = "dotted")
-  #   abline(h = 0, lty = "dashed", lwd = 0.8)
-  #   abline(v = threshold$row_nr_freez[i])
-  #   abline(h = threshold$theta_tot[i])
-  # }
-  # legend("topright", c("VWC", "Ice content", "Temperature [1/100 °C]", "porosity"),
-  #        cex = 0.7, col = c("black", "blue", "red", "black"), lty = c(1,1,1,3), lwd = 1)
-  #
-  # dev.off()
 
 
   return(lv1.data)

@@ -390,6 +390,12 @@ detect.peaks <- function(lv1.data, col.cat, station) {
     #
     if (!(station %in% c("BaSoil1998", "BaSoil2009", "BaHole2009"))) { # if (station != "BaSoil1998") {
       col.cat <- col.cat[, -which(names(col.cat) %in% c("Ts", "vwc", "KTl", "rho"))]
+    }    
+    if ((station %in% c("SaSnow2012"))) { 
+      col.cat <- col.cat[, -which(names(col.cat) %in% c("Dsn"))]
+    }
+    if ((station %in% c("SaCalm2002"))) { 
+      col.cat <- col.cat[, -which(names(col.cat) %in% c("Dal"))]
     }
   }
 
@@ -1019,7 +1025,7 @@ detect.T.degradation <- function(lv1.data, col.cats, station) {
   cats <- colnames(col.cat)
   # select indices of columns with soil temperature (excluding the 0 entries of the column index table)
   I <- col.cat[col.cat[, 'Ts'] != 0, 'Ts']
-  if (length(I) > 0) {
+  if (length(na.omit(I)) > 0) {
     # tested based on the zero curtain in the freezeback period
     # (roughly 10 days between mid September and end of October in the different years)
     # "%j": day of year as decimal number
@@ -1069,7 +1075,7 @@ detect.T.degradation <- function(lv1.data, col.cats, station) {
     # index of the first and the last data point within the zero curtain period
     zcy <- c(which(doy >= zc[1])[1], tail(which(doy <= zc[2]), n = 1))
 
-    if (!(station %in% c("SaHole2006", "SaHole2018", "SdHole2009", "BaHole2009", "BaHole2015"))) {
+    if (!(station %in% c("SaHole2006","SaHole2010", "SaHole2018", "SdHole2009", "BaHole2009", "BaHole2015","SaCalm2002"))) {
       if (!is.na(zcy[1])) {
         # calculate mean and sdev for each series
         tmpmean <- colMeans(tmpdata[zcy[1]:zcy[2], ], na.rm = TRUE)
@@ -1207,7 +1213,7 @@ detect.snow.cover <- function(lv1.data, col.cats, time.res = 24) {
   tmpdate <- c(1:nrow(lv1.data))
 
   I <- col.cat[col.cat[, 'Tair'] != 0, 'Tair']
-  if (length(I) > 1) {
+  if (length(na.omit(I)) > 1) {
     # set all flags < 100 to NA
     tmpdata <- lv1.data[, I]
     tmpdata[lv1.data[, I + 1] < 100] <- NA
