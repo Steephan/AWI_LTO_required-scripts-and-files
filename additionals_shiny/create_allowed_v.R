@@ -8,9 +8,9 @@
 #  stephan.lange@awi.de 
 #
 #
-#
-#  2021-08-25 SL: add path selection
-#  2021-04-01 SL: new station BaHole2021
+#  2021-11-04 SL add distraw 
+#  2021-08-25 SL add path selection
+#  2021-04-01 SL new station BaHole2021
 #
 #
 ###............................................................
@@ -43,6 +43,7 @@ stations <- c("BaMet1998","BaMet2009","BaSoil1998","BaSoil2009","BaSoil2017",
             "SaSoil2002","SaSoil2012","SaMet2002","SaPrec2019",
             "SaHole2006","SaHole2010","SaHole2018",
             "SaPond2006","SaPond2014","SaSnow2012","SaSnow2016",
+            "SaCalm2002",
 
             "TVCSoil2016","TVCHole12015","TVCHole22015","TVCeccc")
 
@@ -50,7 +51,7 @@ stations <- c("BaMet1998","BaMet2009","BaSoil1998","BaSoil2009","BaSoil2017",
 ### loop allowed compare variables ----
 sink(paste0(p.1$w[p.1$n == "script.p"],"required-scripts-and-files/settings_shiny/allowedcompVariables.csv"))
 cat("dataset, variable\n")
-for (i in stations[-12]) { # no level 0 data for BaEddy2007
+for (i in stations[-12]) { # [-12] no level 0 data for BaEddy2007
   hui <- list.files(paste0(p.1$w[p.1$n == "LV0.p"], i, "/00_full_dataset/"), pattern = "lv0.dat")[1]
   # zack<-read.table(paste0("N:/geo5/SoilData/data/level1/",i,"/00_full_dataset/",hui),sep=",",dec=".",header=T)
   cnames <- colnames(read.table(paste0(p.1$w[p.1$n == "LV0.p"], i,"/00_full_dataset/", hui), sep = ",", dec = ".", header = T))
@@ -84,9 +85,7 @@ sink(paste0(p.1$w[p.1$n == "script.p"],"required-scripts-and-files/settings_shin
 cat("dataset, variable\n")
 for (i in stations) {
   hui <- list.files(paste0(p.1$w[p.1$n == "LV1.p"], i, "/00_full_dataset/"), pattern = "final.dat")[1]
- # zack<-read.table(paste0("N:/geo5/SoilData/data/level1/",i,"/00_full_dataset/",hui),sep=",",dec=".",header=T)
   cnames <- colnames(read.table(paste0(p.1$w[p.1$n == "LV1.p"], i,"/00_full_dataset/", hui), sep = ",", dec = ".", header = T))
-  #cnames <- colnames(read.table(paste0("/sparc/data/LTO/level1/", i,"/00_full_dataset/", hui), sep = ",", dec = ".", header = T))
   # remove columns which are not needed for level 1
   tmp <- c(which(grepl('Tpan', cnames) |
                    grepl('batt_U', cnames) |
@@ -102,6 +101,12 @@ for (i in stations) {
                    grepl('QA',cnames) |
                    grepl('SQ',cnames) |
                    grepl('sq', cnames)))
+  tmpOK <- c(which(grepl('distraw', cnames)))
+  
+  if (length(tmpOK) > 0) {
+    tmp<-tmp[-which(tmp%in%tmpOK)]
+  }
+  
   if (length(tmp) > 0) {
     cnames <- cnames[-tmp]
   }

@@ -3,6 +3,7 @@
 #  Create yearlyDataPath_III_auto.csv
 #  automaticly by available datasets
 #
+#  2021-11-03 SL: new station SaCalm2002
 #  2021-04-01 SL: new station BaHole2021
 #  2021-03-23 SL: new git structure pathes
 #  2020-01-13 CL: define option "Sd" for i == 3 in loop
@@ -11,18 +12,18 @@
 #
 ###............................................................
 ## path section ----
-rm(list = ls())
-if (.Platform$OS.type == "windows") {
-  p.1 <- read.table("N:/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/settings/path_win.txt", sep = "\t", header = T)
-  p.1maint <- read.table("N:/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/settings/maintenance.files/maintance.txt", sep = "\t", header = T)
-
-  source("N:/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/functions/db_func.R")
-} else {
-  p.1 <- read.table("/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/settings/path_linux.txt", sep = "\t", header = T, fileEncoding = "UTF-8")
-  p.1maint <- read.table("/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/settings/maintenance.files/maintance.txt", sep = "\t", header = T)
-
-  source("/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/functions/db_func.R")
-}
+# rm(list = ls())
+# if (.Platform$OS.type == "windows") {
+#   p.1 <- read.table("N:/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/settings/path_win.txt", sep = "\t", header = T)
+#   p.1maint <- read.table("N:/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/settings/maintenance.files/maintance.txt", sep = "\t", header = T)
+# 
+#   source("N:/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/functions/db_func.R")
+# } else {
+#   p.1 <- read.table("/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/settings/path_linux.txt", sep = "\t", header = T, fileEncoding = "UTF-8")
+#   p.1maint <- read.table("/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/settings/maintenance.files/maintance.txt", sep = "\t", header = T)
+# 
+#   source("/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/functions/db_func.R")
+# }
 ###............................................................
 
 
@@ -31,7 +32,8 @@ datas <- list()
 datas[[1]] <- c("SaMet1998","SaSoil1998",
               "SaSoil2002","SaSoil2012","SaMet2002","SaPrec2019",
               "SaHole2006","SaHole2010", "SaHole2018",
-              "SaPond2006","SaPond2014","SaSnow2012","SaSnow2016")
+              "SaPond2006","SaPond2014","SaSnow2012","SaSnow2016",
+              "SaCalm2002")
 datas[[2]] <- c("BaMet1998","BaMet2009","BaSoil1998","BaSoil2009","BaSoil2017",
               "BaHole2009","BaHole2015","BaHole2021","BaSnow2013","BaSnow2019sr",
               "BaSnow2019cs","BaEddy2007")
