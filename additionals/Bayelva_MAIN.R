@@ -61,7 +61,7 @@ logging <-1
 write(paste("last update:", Sys.Date()), paste0(p.1$w[p.1$n == "log.p"], "last_update.log"), sep = "\t")
 require("sendmailR")
 sender <- "soiluser@awi.de" # Replace with a valid address
-recipients <- c("stephan.lange@awi.de", "niko.bornemann@awi.de") # Replace with one or more valid addresses
+recipients <- c("niko.bornemann@awi.de", "bill.cable@awi.de", "inge.gruenberg@awi.de", "frederieke.miesner@awi.de") # Replace with one or more valid addresses
 
 if (logging == 1) {
   logfil <- file(paste0(p.1$w[p.1$n == "log.p"], "daily.log"))
