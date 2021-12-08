@@ -6,28 +6,34 @@
 ##
 ##   by: Stephan.Lange@awi.de
 ##   modified: 2019/05/16
-##    changed file directories (PSc)
+##    changed file directories
 ##
 #############################################################################
+### path definitions ----
+# to run this script separately, you have to uncomment the next 10 lines!
+rm(list = ls())
 if (.Platform$OS.type == "windows") {
-  path<-read.table("N:/sparc/LTO/R_database/database_R/settings/path_windoof.txt",sep="\t",header=T)
-  maint<-read.table("N:/sparc/LTO/R_database//database_R/settings/sa_maintance.txt",sep="\t",header=T)
-  source("N:/sparc/LTO/R_database/database_R/settings/db_func.R")
-}else{
-  path<-read.table("/sparc/LTO/R_database/database_R/settings/path_linux.txt",sep="\t",header=T, fileEncoding="UTF-8")
-  maint<-read.table("/sparc/LTO/R_database/database_R/settings/sa_maintance.txt",sep="\t",header=T)
-  
-  source("/sparc/LTO/R_database/database_R/settings/db_func.R")
+  p.1 <- read.table("N:/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/settings/path_win.txt", sep = "\t", header = T)
+  p.1maint <- read.table("N:/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/settings/maintenance.files/maintance.txt", sep = "\t", header = T)
+
+  source("N:/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/functions/db_func.R")
+} else {
+  p.1 <- read.table("/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/settings/path_linux.txt", sep = "\t", header = T, fileEncoding = "UTF-8")
+  p.1maint <- read.table("/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/settings/maintenance.files/maintance.txt", sep = "\t", header = T)
+
+  source("/sparc/LTO/R_database/Time_series_preprocessing/required-scripts-and-files/functions/db_func.R")
 }
+###............................................................................
+
 #############################################################################
 library("png")
 library("R.matlab")
 
 setwd("C:/Users/stlange/Desktop/wind/")
 options(scipen=100,stringsAsFactors=F,digits=2,scientific=T) # for non-exponential display of numeric values
-origin="1970-01-01"
-awi<-readPNG("C:/Users/stlange/Desktop/wind/AWI_WortBildmarke_Farbe_RGB.png")
-sparc<-readPNG("C:/Users/stlange/Desktop/wind/sparc_ohnetext_fett.png")
+origin <- "1970-01-01"
+awi   <- readPNG("C:/Users/stlange/Desktop/wind/AWI_WortBildmarke_Farbe_RGB.png")
+sparc <- readPNG("C:/Users/stlange/Desktop/wind/sparc_ohnetext_fett.png")
 jahr=c(2006:2017)
 #jahr=c(2013)
 months <- c("01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12")
